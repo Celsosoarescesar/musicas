@@ -25,9 +25,10 @@ def apply_master_chain(project):
 
 
 # Command ID da ação nativa "File: Render project, using the most recent render
-# settings, auto-close render dialog". Confirmar em REAPER: Actions > Show action
-# list > buscar "render project" > conferir se o Command ID mostrado bate com este
-# valor antes de confiar nele em produção; se não bater, atualizar esta constante.
+# settings, auto-close render dialog". Confirmado ao vivo contra um REAPER aberto
+# via reapy.reascript_api.kbd_getTextFromCmd(42230, 0), que devolveu exatamente
+# esse nome de ação (ver task-7-report.md). Se o REAPER mudar esse ID em uma
+# versão futura, reconferir da mesma forma antes de confiar nele em produção.
 RENDER_ACTION_ID = 42230
 
 DEFAULT_RENDER_TIMEOUT_SECONDS = 60.0
