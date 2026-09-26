@@ -41,7 +41,7 @@ _ACESTEP_REPO_COMMIT = "ca1e85fe9430179831e6bc6be790c332190a3866"
 # docs/en/API.md) and fits the disk budget the core download already
 # accounts for.
 _ACESTEP_MODEL_CONFIG = "acestep-v15-turbo"
-_SECRETS_DATASET_REF = "celsosoarescesar/daw-music-studio-secrets"
+_SECRETS_DATASET_REF = "celsosoarescesar/ace-step-api-secrets"
 # _PROXY_PORT is the port ngrok tunnels (unchanged value from before this
 # split -- the public URL/contract doesn't change). acestep.api_server
 # itself now runs on _ACESTEP_PORT, an internal-only port that proxy_server.py
