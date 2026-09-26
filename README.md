@@ -55,3 +55,14 @@ verdade. Rode pelo Claude Code, num projeto REAPER vazio:
 - [ ] "Analisa o que eu toquei nessa faixa" (depois de tocar/gravar algo com um teclado
       MIDI conectado ao REAPER numa faixa MIDI) → devolve uma análise de
       tonalidade/acorde coerente com o que foi tocado.
+
+## Limitações conhecidas
+
+- **Acordes e progressões no piano roll são escritos como notas sequenciais, não
+  simultâneas.** `reaper_generate_chord`/`reaper_generate_progression` calculam as
+  notas MIDI corretas, mas `reaper_write_notes` (usado para colocá-las no piano roll)
+  escreve cada nota uma após a outra — um acorde de Dó maior vira um arpejo (C, E, G em
+  sequência), não as três notas tocando juntas. As notas estão musicalmente corretas;
+  só a forma como aparecem no piano roll é sequencial. Escrever acordes de verdade
+  (notas simultâneas) exigiria mudar a assinatura de `reaper_write_notes` para aceitar
+  agrupamentos de notas — fica para um spec futuro, se fizer falta na prática.
