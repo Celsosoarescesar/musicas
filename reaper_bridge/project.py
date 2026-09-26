@@ -71,12 +71,12 @@ def import_audio(
             f"extensão '{extension}' não suportada, use um destes formatos: "
             f"{', '.join(sorted(_SUPPORTED_AUDIO_EXTENSIONS))}"
         )
-    project.cursor_position = 0.0
     try:
+        project.cursor_position = 0.0
         reapy.reascript_api.InsertMedia(file_path, 1)  # mode 1 = adicionar em nova faixa
         track = project.tracks[project.n_tracks - 1]
+        if track_name:
+            track.name = track_name
     except Exception as exc:
         raise ReaperBridgeError(f"não foi possível importar o áudio: {exc}") from exc
-    if track_name:
-        track.name = track_name
     return track

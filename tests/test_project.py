@@ -139,3 +139,59 @@ def test_import_audio_wraps_raw_exception(tmp_path):
     ):
         with pytest.raises(ReaperBridgeError, match="não foi possível importar"):
             import_audio(project, str(file_path))
+
+
+def test_import_audio_wraps_cursor_position_exception(tmp_path):
+    file_path = tmp_path / "musica.wav"
+    file_path.write_bytes(b"fake")
+    project = FakeProject([FakeTrack("bateria")])
+
+    # Make cursor_position assignment raise an exception
+    def failing_cursor_setter(self, value):
+        raise RuntimeError("REAPER disconnected")
+
+    # Replace the cursor_position property to fail on set
+    original_cursor = type(project).__dict__.get("cursor_position")
+    try:
+        type(project).cursor_position = property(
+            lambda self: 0.0, failing_cursor_setter
+        )
+        with pytest.raises(ReaperBridgeError, match="não foi possível importar"):
+            import_audio(project, str(file_path))
+    finally:
+        # Restore original
+        if original_cursor is None:
+            if hasattr(type(project), "cursor_position"):
+                delattr(type(project), "cursor_position")
+        else:
+            type(project).cursor_position = original_cursor
+
+
+def test_import_audio_wraps_final_rename_exception(tmp_path):
+    file_path = tmp_path / "musica.wav"
+    file_path.write_bytes(b"fake")
+    project = FakeProject([FakeTrack("bateria")])
+
+    def fake_insert_media(path, mode):
+        project.tracks.append(FakeTrack("stem"))
+
+    # Make track.name assignment raise an exception
+    def failing_name_setter(self, value):
+        raise RuntimeError("REAPER disconnected")
+
+    original_name_attr = FakeTrack.__dict__.get("name")
+    try:
+        FakeTrack.name = property(lambda self: "stem", failing_name_setter)
+        with patch(
+            "reaper_bridge.project.reapy.reascript_api.InsertMedia",
+            side_effect=fake_insert_media,
+        ):
+            with pytest.raises(ReaperBridgeError, match="não foi possível importar"):
+                import_audio(project, str(file_path), track_name="voz")
+    finally:
+        # Restore original
+        if original_name_attr is None:
+            if hasattr(FakeTrack, "name"):
+                delattr(FakeTrack, "name")
+        else:
+            FakeTrack.name = original_name_attr
