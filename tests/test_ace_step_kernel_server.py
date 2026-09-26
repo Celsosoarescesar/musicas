@@ -172,3 +172,129 @@ def test_stems_from_output_dir_raises_when_a_stem_is_missing(tmp_path):
         ace_step_server.stems_from_output_dir(tmp_path, "htdemucs_6s", "musica")
 
 
+class _FakeHTTPResponse:
+    def __init__(self, body):
+        self._body = json.dumps(body).encode("utf-8")
+
+    def read(self):
+        return self._body
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *args):
+        return False
+
+
+def test_post_json_sends_body_and_parses_response(monkeypatch):
+    captured = {}
+
+    def fake_urlopen(request, timeout):
+        captured["url"] = request.full_url
+        captured["method"] = request.get_method()
+        captured["data"] = request.data
+        captured["headers"] = dict(request.header_items())
+        captured["timeout"] = timeout
+        return _FakeHTTPResponse({"task_id": "abc"})
+
+    monkeypatch.setattr(ace_step_server.urllib.request, "urlopen", fake_urlopen)
+
+    result = ace_step_server._post_json(
+        "http://127.0.0.1:8189/release_task",
+        {"prompt": "epic metal"},
+        headers={"Authorization": "Bearer key"},
+        timeout=30.0,
+    )
+
+    assert result == {"task_id": "abc"}
+    assert captured["method"] == "POST"
+    assert captured["url"] == "http://127.0.0.1:8189/release_task"
+    assert json.loads(captured["data"]) == {"prompt": "epic metal"}
+    assert captured["headers"].get("Authorization") == "Bearer key"
+    assert captured["timeout"] == 30.0
+
+
+def test_get_json_sends_headers_and_parses_response(monkeypatch):
+    captured = {}
+
+    def fake_urlopen(request, timeout):
+        captured["url"] = request.full_url
+        captured["headers"] = dict(request.header_items())
+        return _FakeHTTPResponse({"data": {"status": "ok"}})
+
+    monkeypatch.setattr(ace_step_server.urllib.request, "urlopen", fake_urlopen)
+
+    result = ace_step_server._get_json(
+        "http://127.0.0.1:8189/health", headers={"Authorization": "Bearer key"}, timeout=10.0
+    )
+
+    assert result == {"data": {"status": "ok"}}
+    assert captured["url"] == "http://127.0.0.1:8189/health"
+    assert captured["headers"].get("Authorization") == "Bearer key"
+
+
+def test_wait_for_health_returns_when_status_ok(monkeypatch):
+    monkeypatch.setattr(
+        ace_step_server, "_get_json", lambda url, headers, timeout: {"data": {"status": "ok"}}
+    )
+    ace_step_server.wait_for_health("http://127.0.0.1:8189", "key", timeout=5.0, poll_interval=0.01)
+
+
+def test_wait_for_health_times_out_when_never_ok(monkeypatch):
+    monkeypatch.setattr(
+        ace_step_server, "_get_json", lambda url, headers, timeout: {"data": {"status": "loading"}}
+    )
+    with pytest.raises(TimeoutError):
+        ace_step_server.wait_for_health(
+            "http://127.0.0.1:8189", "key", timeout=0.05, poll_interval=0.01
+        )
+
+
+_TEST_JOB = {
+    "prompt": "epic metal", "lyrics": "[en]\nx", "duration": 60.0, "seed": 42,
+    "bpm": None, "keyscale": None, "vocal_language": "en",
+}
+
+
+def test_wait_for_generation_returns_file_ref_on_status_1(monkeypatch):
+    def fake_post_json(url, payload, headers, timeout):
+        if url.endswith("/release_task"):
+            return {"task_id": "abc"}
+        return [{"status": 1, "result": json.dumps([{"file": "/v1/audio?path=%2Ftmp%2Fa.wav"}])}]
+
+    monkeypatch.setattr(ace_step_server, "_post_json", fake_post_json)
+
+    result = ace_step_server.wait_for_generation(
+        "http://127.0.0.1:8189", "key", _TEST_JOB, timeout=5.0, poll_interval=0.01
+    )
+
+    assert result == "/v1/audio?path=%2Ftmp%2Fa.wav"
+
+
+def test_wait_for_generation_raises_runtime_error_on_status_2(monkeypatch):
+    def fake_post_json(url, payload, headers, timeout):
+        if url.endswith("/release_task"):
+            return {"task_id": "abc"}
+        return [{"status": 2, "result": "cuda out of memory"}]
+
+    monkeypatch.setattr(ace_step_server, "_post_json", fake_post_json)
+
+    with pytest.raises(RuntimeError, match="cuda out of memory"):
+        ace_step_server.wait_for_generation(
+            "http://127.0.0.1:8189", "key", _TEST_JOB, timeout=5.0, poll_interval=0.01
+        )
+
+
+def test_wait_for_generation_times_out_when_never_done(monkeypatch):
+    def fake_post_json(url, payload, headers, timeout):
+        if url.endswith("/release_task"):
+            return {"task_id": "abc"}
+        return [{"status": 0, "result": None}]
+
+    monkeypatch.setattr(ace_step_server, "_post_json", fake_post_json)
+
+    with pytest.raises(TimeoutError):
+        ace_step_server.wait_for_generation(
+            "http://127.0.0.1:8189", "key", _TEST_JOB, timeout=0.05, poll_interval=0.01
+        )
+

@@ -20,6 +20,9 @@ executa o git clone/pip install nem exige essas libs localmente.
 import base64
 import json
 import sys
+import time
+import urllib.error
+import urllib.request
 from pathlib import Path
 from urllib.parse import parse_qs, unquote, urlparse
 
@@ -208,6 +211,86 @@ def stems_from_output_dir(out_dir: Path, model: str, track_name: str) -> dict[st
             f"{', '.join(missing)} (arquivos encontrados: {found})"
         )
     return stems
+
+
+def _post_json(url: str, payload: dict, *, headers: dict, timeout: float) -> dict:
+    """POST JSON to url, return the parsed JSON response body."""
+    data = json.dumps(payload).encode("utf-8")
+    request = urllib.request.Request(
+        url, data=data, method="POST", headers={**headers, "Content-Type": "application/json"}
+    )
+    with urllib.request.urlopen(request, timeout=timeout) as response:
+        return json.loads(response.read().decode("utf-8"))
+
+
+def _get_json(url: str, *, headers: dict, timeout: float) -> dict:
+    """GET url, return the parsed JSON response body."""
+    request = urllib.request.Request(url, headers=headers)
+    with urllib.request.urlopen(request, timeout=timeout) as response:
+        return json.loads(response.read().decode("utf-8"))
+
+
+def wait_for_health(base_url: str, api_key: str, *, timeout: float, poll_interval: float) -> None:
+    """Poll base_url/health until it reports status 'ok'. Raises TimeoutError otherwise."""
+    deadline = time.monotonic() + timeout
+    headers = {"Authorization": f"Bearer {api_key}"}
+    last_error = None
+    while time.monotonic() < deadline:
+        try:
+            body = _get_json(f"{base_url}/health", headers=headers, timeout=10.0)
+            status = body.get("data", {}).get("status")
+            if status == "ok":
+                return
+            last_error = f"status atual: {status!r}"
+        except (urllib.error.URLError, OSError, ValueError) as exc:
+            last_error = str(exc)
+        time.sleep(poll_interval)
+    raise TimeoutError(
+        f"Timeout de {timeout}s esperando {base_url}/health responder 'ok' -- "
+        f"ultimo erro: {last_error}"
+    )
+
+
+def wait_for_generation(
+    base_url: str, api_key: str, job: dict, *, timeout: float, poll_interval: float
+) -> str:
+    """Submit `job` to /release_task and poll /query_result until done.
+
+    Returns the raw `/v1/audio?path=...`-style file reference string on
+    success. Raises RuntimeError if the task fails, TimeoutError if it
+    doesn't finish within `timeout` seconds.
+    """
+    headers = {"Authorization": f"Bearer {api_key}"}
+    payload = {
+        "prompt": job["prompt"],
+        "lyrics": job["lyrics"],
+        "audio_duration": job["duration"],
+        "audio_format": "wav",
+        "use_random_seed": False,
+        "seed": job["seed"],
+        "bpm": job["bpm"],
+        "key_scale": job["keyscale"],
+        "vocal_language": job["vocal_language"],
+        "task_type": "text2music",
+    }
+    task = _post_json(f"{base_url}/release_task", payload, headers=headers, timeout=30.0)
+    task_id = task["task_id"]
+
+    deadline = time.monotonic() + timeout
+    while True:
+        query = _post_json(
+            f"{base_url}/query_result", {"task_id_list": [task_id]}, headers=headers, timeout=30.0
+        )
+        if query:
+            entry = query[0]
+            status = entry["status"]
+            if status == 1:
+                return json.loads(entry["result"])[0]["file"]
+            if status == 2:
+                raise RuntimeError(f"Geracao falhou (task {task_id}): {entry.get('result')}")
+        if time.monotonic() >= deadline:
+            raise TimeoutError(f"Timeout de {timeout}s esperando a task {task_id} terminar")
+        time.sleep(poll_interval)
 
 
 def main():
