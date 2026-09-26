@@ -172,26 +172,31 @@ def test_import_audio_wraps_final_rename_exception(tmp_path):
     file_path.write_bytes(b"fake")
     project = FakeProject([FakeTrack("bateria")])
 
+    # Create a special track class that fails when name is assigned
+    class FailingRenameTrack(FakeTrack):
+        @property
+        def name(self):
+            return self._name
+
+        @name.setter
+        def name(self, value):
+            raise RuntimeError("REAPER disconnected")
+
+        def __init__(self):
+            self._name = "stem"
+            self.volume = 1.0
+            self.pan = 0.0
+            self.is_muted = False
+            self.is_solo = False
+            self.fxs = []
+            self.items = []
+
     def fake_insert_media(path, mode):
-        project.tracks.append(FakeTrack("stem"))
+        project.tracks.append(FailingRenameTrack())
 
-    # Make track.name assignment raise an exception
-    def failing_name_setter(self, value):
-        raise RuntimeError("REAPER disconnected")
-
-    original_name_attr = FakeTrack.__dict__.get("name")
-    try:
-        FakeTrack.name = property(lambda self: "stem", failing_name_setter)
-        with patch(
-            "reaper_bridge.project.reapy.reascript_api.InsertMedia",
-            side_effect=fake_insert_media,
-        ):
-            with pytest.raises(ReaperBridgeError, match="não foi possível importar"):
-                import_audio(project, str(file_path), track_name="voz")
-    finally:
-        # Restore original
-        if original_name_attr is None:
-            if hasattr(FakeTrack, "name"):
-                delattr(FakeTrack, "name")
-        else:
-            FakeTrack.name = original_name_attr
+    with patch(
+        "reaper_bridge.project.reapy.reascript_api.InsertMedia",
+        side_effect=fake_insert_media,
+    ):
+        with pytest.raises(ReaperBridgeError, match="não foi possível importar"):
+            import_audio(project, str(file_path), track_name="voz")
