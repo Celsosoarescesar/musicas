@@ -185,6 +185,29 @@ def test_run_generation_tolerates_transient_status_poll_failures(monkeypatch, tm
     assert calls["count"] >= 3
 
 
+def test_run_generation_gives_up_after_too_many_consecutive_status_poll_failures(monkeypatch, tmp_path):
+    db_path = tmp_path / "songs.db"
+    updates = []
+    _stub_common(monkeypatch, updates, tmp_path=tmp_path)
+
+    def always_fails(ref):
+        raise KaggleResourceError("instabilidade persistente")
+
+    monkeypatch.setattr(orchestrator.kernels, "get_kernel_status", always_fails)
+
+    def fail_if_called(ref, dest_dir):
+        raise AssertionError("pull_kernel_output should not be called when polling never succeeds")
+
+    monkeypatch.setattr(orchestrator.kernels, "pull_kernel_output", fail_if_called)
+
+    status, detail = orchestrator.run_generation(
+        db_path, tmp_path, 1, timeout=5.0, poll_interval=0.01, **_base_kwargs()
+    )
+
+    assert status == "error"
+    assert "instabilidade persistente" in detail
+
+
 def test_run_generation_records_error_when_kernel_status_is_error(monkeypatch, tmp_path):
     db_path = tmp_path / "songs.db"
     updates = []
