@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import os
+
 import reapy
 
 from .errors import ReaperBridgeError
@@ -52,4 +54,29 @@ def rename_track(project: "reapy.Project", name: str, new_name: str):
         raise ReaperBridgeError(
             "não foi possível renomear a faixa: verifique se o REAPER está aberto"
         ) from exc
+    return track
+
+
+_SUPPORTED_AUDIO_EXTENSIONS = {".wav", ".mp3", ".flac", ".ogg", ".aiff"}
+
+
+def import_audio(
+    project: "reapy.Project", file_path: str, track_name: str | None = None
+):
+    if not os.path.isfile(file_path):
+        raise ReaperBridgeError(f"arquivo de áudio não encontrado: {file_path}")
+    extension = os.path.splitext(file_path)[1].lower()
+    if extension not in _SUPPORTED_AUDIO_EXTENSIONS:
+        raise ReaperBridgeError(
+            f"extensão '{extension}' não suportada, use um destes formatos: "
+            f"{', '.join(sorted(_SUPPORTED_AUDIO_EXTENSIONS))}"
+        )
+    project.cursor_position = 0.0
+    try:
+        reapy.reascript_api.InsertMedia(file_path, 1)  # mode 1 = adicionar em nova faixa
+        track = project.tracks[project.n_tracks - 1]
+    except Exception as exc:
+        raise ReaperBridgeError(f"não foi possível importar o áudio: {exc}") from exc
+    if track_name:
+        track.name = track_name
     return track

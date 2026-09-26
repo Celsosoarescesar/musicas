@@ -1,7 +1,8 @@
 import pytest
+from unittest.mock import patch
 
 from reaper_bridge.errors import ReaperBridgeError
-from reaper_bridge.project import create_track, find_track, list_tracks, rename_track
+from reaper_bridge.project import create_track, find_track, list_tracks, rename_track, import_audio
 from tests.fakes import FakeProject, FakeTrack
 
 
@@ -89,3 +90,52 @@ def test_rename_track_wraps_raw_exception():
                 delattr(FakeTrack, "name")
         else:
             FakeTrack.name = original_name_attr
+
+
+def test_import_audio_raises_when_file_missing():
+    project = FakeProject([])
+    with pytest.raises(ReaperBridgeError, match="não encontrado"):
+        import_audio(project, "C:/nao/existe.wav")
+
+
+def test_import_audio_raises_for_unsupported_extension(tmp_path):
+    file_path = tmp_path / "musica.xyz"
+    file_path.write_bytes(b"fake")
+    project = FakeProject([])
+    with pytest.raises(ReaperBridgeError, match="não suportada"):
+        import_audio(project, str(file_path))
+
+
+def test_import_audio_inserts_media_and_renames_new_track(tmp_path):
+    file_path = tmp_path / "musica.wav"
+    file_path.write_bytes(b"fake")
+    project = FakeProject([FakeTrack("bateria")])
+
+    def fake_insert_media(path, mode):
+        project.tracks.append(FakeTrack("stem"))
+
+    with patch(
+        "reaper_bridge.project.reapy.reascript_api.InsertMedia",
+        side_effect=fake_insert_media,
+    ) as mock_insert:
+        track = import_audio(project, str(file_path), track_name="voz")
+
+    mock_insert.assert_called_once_with(str(file_path), 1)
+    assert track.name == "voz"
+    assert list_tracks(project) == ["bateria", "voz"]
+
+
+def test_import_audio_wraps_raw_exception(tmp_path):
+    file_path = tmp_path / "musica.wav"
+    file_path.write_bytes(b"fake")
+    project = FakeProject([FakeTrack("bateria")])
+
+    def failing_insert_media(path, mode):
+        raise RuntimeError("REAPER disconnected")
+
+    with patch(
+        "reaper_bridge.project.reapy.reascript_api.InsertMedia",
+        side_effect=failing_insert_media,
+    ):
+        with pytest.raises(ReaperBridgeError, match="não foi possível importar"):
+            import_audio(project, str(file_path))
