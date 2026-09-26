@@ -1,14 +1,16 @@
-"""Unit tests for kagglelab.orchestrator."""
+"""Unit tests for ace_step.orchestrator."""
 
+import json
 from pathlib import Path
 
+import pytest
+
 from ace_step import orchestrator
+from ace_step.kaggle_client import KaggleResourceError
 
 
 def _base_kwargs(**overrides):
     kwargs = dict(
-        base_url="https://example.ngrok-free.dev",
-        api_key="secret",
         prompt="epic metal",
         duration=60.0,
         seed=42,
@@ -21,105 +23,96 @@ def _base_kwargs(**overrides):
     return kwargs
 
 
-def test_run_generation_happy_path_returns_done_and_updates_db(monkeypatch, tmp_path):
-    db_path = tmp_path / "songs.db"
-    updates = []
+def _write_result_json(pulled_dir: Path, **fields):
+    output_dir = pulled_dir / "output"
+    output_dir.mkdir(parents=True, exist_ok=True)
+    payload = {
+        "generation_status": "done",
+        "generation_error": None,
+        "stems_status": "done",
+        "stems_error": None,
+    }
+    payload.update(fields)
+    (output_dir / "result.json").write_text(json.dumps(payload), encoding="utf-8")
+    return output_dir
+
+
+def _write_raw_and_stems(output_dir: Path, *, raw_bytes=b"RIFF-fake-wav-bytes", with_stems=True):
+    (output_dir / "raw.wav").write_bytes(raw_bytes)
+    if with_stems:
+        stems_dir = output_dir / "stems"
+        stems_dir.mkdir(parents=True, exist_ok=True)
+        for name in ("vocals", "drums", "bass", "guitar", "piano", "other"):
+            (stems_dir / f"{name}.wav").write_bytes(b"stem-bytes")
+
+
+def _stub_common(monkeypatch, updates, *, tmp_path):
     monkeypatch.setattr(
         orchestrator.song_db,
         "update_song",
         lambda db, song_id, **fields: updates.append(fields),
     )
     monkeypatch.setattr(
-        orchestrator.ace_step_client, "check_health", lambda base_url: {"status": "ok"}
+        orchestrator.song_lyrics, "generate_lyrics", lambda prompt, language: "[en]\n[Verse]\nx"
     )
     monkeypatch.setattr(
-        orchestrator.song_lyrics,
-        "generate_lyrics",
-        lambda prompt, language: "[en]\n[Verse]\nx",
+        orchestrator.kernel_render, "render_job_kernel", lambda job, dest_dir: Path(dest_dir)
     )
+    monkeypatch.setattr(orchestrator.kernels, "push_kernel", lambda folder: "owner/kernel")
     monkeypatch.setattr(
-        orchestrator.ace_step_client,
-        "generate_music",
-        lambda *a, **k: {"file": "/v1/audio?path=%2Ftmp%2Fa.wav"},
+        orchestrator.kernels, "get_kernel_status", lambda ref: {"status": "complete", "failure_message": ""}
     )
-
-    def fake_download_audio(base_url, api_key, file_path, dest_path):
-        dest_path = Path(dest_path)
-        dest_path.parent.mkdir(parents=True, exist_ok=True)
-        dest_path.write_bytes(b"RIFF-fake-wav-bytes")
-        return dest_path
-
-    monkeypatch.setattr(orchestrator.ace_step_client, "download_audio", fake_download_audio)
 
     def fake_normalize_loudness(input_path, output_path, target_lufs):
         Path(output_path).write_bytes(Path(input_path).read_bytes())
 
     monkeypatch.setattr(orchestrator.song_mastering, "normalize_loudness", fake_normalize_loudness)
-    monkeypatch.setattr(orchestrator, "run_separation", lambda *a, **k: ("done", None))
 
-    status, detail = orchestrator.run_generation(
-        db_path, tmp_path, 1, **_base_kwargs()
-    )
+
+def test_run_generation_happy_path_returns_done_and_updates_db(monkeypatch, tmp_path):
+    db_path = tmp_path / "songs.db"
+    updates = []
+    _stub_common(monkeypatch, updates, tmp_path=tmp_path)
+
+    def fake_pull_kernel_output(ref, dest_dir):
+        output_dir = _write_result_json(Path(dest_dir))
+        _write_raw_and_stems(output_dir)
+        return Path(dest_dir)
+
+    monkeypatch.setattr(orchestrator.kernels, "pull_kernel_output", fake_pull_kernel_output)
+
+    status, detail = orchestrator.run_generation(db_path, tmp_path, 1, **_base_kwargs())
 
     assert status == "done"
     assert detail == str(tmp_path / "1_master.wav")
     assert Path(detail).read_bytes() == b"RIFF-fake-wav-bytes"
     assert {"status": "generating", "lyrics": "[en]\n[Verse]\nx"} in updates
     assert {"status": "done", "output_path": str(tmp_path / "1_master.wav")} in updates
-
-
-def test_run_generation_returns_error_when_health_check_fails(monkeypatch, tmp_path):
-    db_path = tmp_path / "songs.db"
-    updates = []
-    monkeypatch.setattr(
-        orchestrator.song_db,
-        "update_song",
-        lambda db, song_id, **fields: updates.append(fields),
-    )
-
-    def fake_check_health(base_url):
-        raise orchestrator.ace_step_client.AceStepApiError("kernel nao esta rodando")
-
-    monkeypatch.setattr(orchestrator.ace_step_client, "check_health", fake_check_health)
-
-    status, detail = orchestrator.run_generation(db_path, tmp_path, 1, **_base_kwargs())
-
-    assert status == "error"
-    assert detail == "kernel nao esta rodando"
-    assert updates == [{"status": "error", "error_message": "kernel nao esta rodando"}]
+    done_update = next(u for u in updates if u.get("stems_status") == "done")
+    for name in ("vocals", "drums", "bass", "guitar", "piano", "other"):
+        expected_path = str(tmp_path / f"1_stem_{name}.wav")
+        assert done_update[f"stem_{name}_path"] == expected_path
+        assert Path(expected_path).read_bytes() == b"stem-bytes"
+    assert not (tmp_path / ".kernel_1").exists()
+    assert not (tmp_path / ".pulled_1").exists()
 
 
 def test_run_generation_skips_lyrics_when_lyrics_given(monkeypatch, tmp_path):
     db_path = tmp_path / "songs.db"
-    monkeypatch.setattr(orchestrator.song_db, "update_song", lambda *a, **k: None)
-    monkeypatch.setattr(
-        orchestrator.ace_step_client, "check_health", lambda base_url: {"status": "ok"}
-    )
+    updates = []
+    _stub_common(monkeypatch, updates, tmp_path=tmp_path)
 
     def fail_if_called(*a, **k):
         raise AssertionError("generate_lyrics should not be called when lyrics is given")
 
     monkeypatch.setattr(orchestrator.song_lyrics, "generate_lyrics", fail_if_called)
-    monkeypatch.setattr(
-        orchestrator.ace_step_client,
-        "generate_music",
-        lambda *a, **k: {"file": "/v1/audio?path=%2Ftmp%2Fa.wav"},
-    )
 
-    def fake_download_audio(base_url, api_key, file_path, dest_path):
-        dest_path = Path(dest_path)
-        dest_path.parent.mkdir(parents=True, exist_ok=True)
-        dest_path.write_bytes(b"x")
-        return dest_path
+    def fake_pull_kernel_output(ref, dest_dir):
+        output_dir = _write_result_json(Path(dest_dir))
+        _write_raw_and_stems(output_dir)
+        return Path(dest_dir)
 
-    monkeypatch.setattr(orchestrator.ace_step_client, "download_audio", fake_download_audio)
-    monkeypatch.setattr(
-        orchestrator.song_mastering,
-        "normalize_loudness",
-        lambda input_path, output_path, target_lufs: Path(output_path).write_bytes(b"x"),
-    )
-
-    monkeypatch.setattr(orchestrator, "run_separation", lambda *a, **k: ("done", None))
+    monkeypatch.setattr(orchestrator.kernels, "pull_kernel_output", fake_pull_kernel_output)
 
     status, _detail = orchestrator.run_generation(
         db_path, tmp_path, 1, lyrics="[en]\n[Verse]\nready", **_base_kwargs()
@@ -128,240 +121,199 @@ def test_run_generation_skips_lyrics_when_lyrics_given(monkeypatch, tmp_path):
     assert status == "done"
 
 
-def test_run_generation_records_error_on_generation_exception(monkeypatch, tmp_path):
+def test_run_generation_records_error_when_push_kernel_fails(monkeypatch, tmp_path):
     db_path = tmp_path / "songs.db"
     updates = []
-    monkeypatch.setattr(
-        orchestrator.song_db,
-        "update_song",
-        lambda db, song_id, **fields: updates.append(fields),
-    )
-    monkeypatch.setattr(
-        orchestrator.ace_step_client, "check_health", lambda base_url: {"status": "ok"}
-    )
-    monkeypatch.setattr(
-        orchestrator.song_lyrics,
-        "generate_lyrics",
-        lambda prompt, language: "[en]\n[Verse]\nx",
-    )
+    _stub_common(monkeypatch, updates, tmp_path=tmp_path)
 
-    def fake_generate_music(*a, **k):
-        raise orchestrator.ace_step_client.AceStepApiError("geracao falhou")
+    def fake_push_kernel(folder):
+        raise KaggleResourceError("kernel invalido")
 
-    monkeypatch.setattr(orchestrator.ace_step_client, "generate_music", fake_generate_music)
+    monkeypatch.setattr(orchestrator.kernels, "push_kernel", fake_push_kernel)
 
     status, detail = orchestrator.run_generation(db_path, tmp_path, 1, **_base_kwargs())
 
     assert status == "error"
-    assert detail == "geracao falhou"
-    assert {"status": "error", "error_message": "geracao falhou"} in updates
+    assert detail == "kernel invalido"
+    assert {"status": "error", "error_message": "kernel invalido"} in updates
 
 
-def test_run_generation_saves_remote_file_ref(monkeypatch, tmp_path):
+def test_run_generation_records_error_on_polling_timeout(monkeypatch, tmp_path):
     db_path = tmp_path / "songs.db"
     updates = []
+    _stub_common(monkeypatch, updates, tmp_path=tmp_path)
     monkeypatch.setattr(
-        orchestrator.song_db,
-        "update_song",
-        lambda db, song_id, **fields: updates.append(fields),
-    )
-    monkeypatch.setattr(
-        orchestrator.ace_step_client, "check_health", lambda base_url: {"status": "ok"}
-    )
-    monkeypatch.setattr(
-        orchestrator.song_lyrics,
-        "generate_lyrics",
-        lambda prompt, language: "[en]\n[Verse]\nx",
-    )
-    monkeypatch.setattr(
-        orchestrator.ace_step_client,
-        "generate_music",
-        lambda *a, **k: {"file": "/v1/audio?path=%2Fkaggle%2Fworking%2Fa.wav"},
+        orchestrator.kernels, "get_kernel_status", lambda ref: {"status": "running", "failure_message": ""}
     )
 
-    def fake_download_audio(base_url, api_key, file_path, dest_path):
-        dest_path = Path(dest_path)
-        dest_path.parent.mkdir(parents=True, exist_ok=True)
-        dest_path.write_bytes(b"x")
-        return dest_path
-
-    monkeypatch.setattr(orchestrator.ace_step_client, "download_audio", fake_download_audio)
-    monkeypatch.setattr(
-        orchestrator.song_mastering,
-        "normalize_loudness",
-        lambda input_path, output_path, target_lufs: Path(output_path).write_bytes(b"x"),
+    status, detail = orchestrator.run_generation(
+        db_path, tmp_path, 1, timeout=0.05, poll_interval=0.01, **_base_kwargs()
     )
-    monkeypatch.setattr(orchestrator, "run_separation", lambda *a, **k: ("done", None))
 
-    orchestrator.run_generation(db_path, tmp_path, 1, **_base_kwargs())
-
-
-_SIX_STEMS = {
-    "vocals": "/v1/stems?path=%2Fk%2Fvocals.wav",
-    "drums": "/v1/stems?path=%2Fk%2Fdrums.wav",
-    "bass": "/v1/stems?path=%2Fk%2Fbass.wav",
-    "guitar": "/v1/stems?path=%2Fk%2Fguitar.wav",
-    "piano": "/v1/stems?path=%2Fk%2Fpiano.wav",
-    "other": "/v1/stems?path=%2Fk%2Fother.wav",
-}
+    assert status == "error"
+    assert "Timeout" in detail
+    assert "celsosoarescesar/ace-step-api" in detail
 
 
-def test_run_separation_happy_path_downloads_all_six_stems_and_updates_db(monkeypatch, tmp_path):
+def test_run_generation_tolerates_transient_status_poll_failures(monkeypatch, tmp_path):
     db_path = tmp_path / "songs.db"
     updates = []
-    monkeypatch.setattr(
-        orchestrator.song_db,
-        "update_song",
-        lambda db, song_id, **fields: updates.append(fields),
-    )
-    monkeypatch.setattr(
-        orchestrator.ace_step_client,
-        "separate_stems",
-        lambda base_url, api_key, file_path, **k: dict(_SIX_STEMS),
-    )
+    _stub_common(monkeypatch, updates, tmp_path=tmp_path)
 
-    downloaded = []
+    calls = {"count": 0}
 
-    def fake_download_audio(base_url, api_key, file_path, dest_path):
-        downloaded.append((file_path, str(dest_path)))
-        dest_path = Path(dest_path)
-        dest_path.parent.mkdir(parents=True, exist_ok=True)
-        dest_path.write_bytes(b"stem-bytes")
-        return dest_path
+    def flaky_get_kernel_status(ref):
+        calls["count"] += 1
+        if calls["count"] <= 2:
+            raise KaggleResourceError("instabilidade transitoria")
+        return {"status": "complete", "failure_message": ""}
 
-    monkeypatch.setattr(orchestrator.ace_step_client, "download_audio", fake_download_audio)
+    monkeypatch.setattr(orchestrator.kernels, "get_kernel_status", flaky_get_kernel_status)
 
-    status, detail = orchestrator.run_separation(
-        db_path,
-        tmp_path,
-        1,
-        "/v1/audio?path=%2Fkaggle%2Fworking%2Fa.wav",
-        base_url="https://example.ngrok-free.dev",
-        api_key="secret",
+    def fake_pull_kernel_output(ref, dest_dir):
+        output_dir = _write_result_json(Path(dest_dir))
+        _write_raw_and_stems(output_dir)
+        return Path(dest_dir)
+
+    monkeypatch.setattr(orchestrator.kernels, "pull_kernel_output", fake_pull_kernel_output)
+
+    status, _detail = orchestrator.run_generation(
+        db_path, tmp_path, 1, timeout=5.0, poll_interval=0.01, **_base_kwargs()
     )
 
     assert status == "done"
-    assert detail is None
-    assert len(downloaded) == 6
-    assert {"stems_status": "separating"} in updates
-    done_update = next(u for u in updates if u.get("stems_status") == "done")
-    for name in _SIX_STEMS:
-        assert done_update[f"stem_{name}_path"] == str(tmp_path / f"1_stem_{name}.wav")
+    assert calls["count"] >= 3
 
 
-def test_run_separation_records_error_on_failure_without_raising(monkeypatch, tmp_path):
+def test_run_generation_records_error_when_kernel_status_is_error(monkeypatch, tmp_path):
     db_path = tmp_path / "songs.db"
     updates = []
+    _stub_common(monkeypatch, updates, tmp_path=tmp_path)
     monkeypatch.setattr(
-        orchestrator.song_db,
-        "update_song",
-        lambda db, song_id, **fields: updates.append(fields),
+        orchestrator.kernels,
+        "get_kernel_status",
+        lambda ref: {"status": "error", "failure_message": "kernel crashou"},
     )
 
-    def fake_separate_stems(base_url, api_key, file_path, **k):
-        raise orchestrator.ace_step_client.AceStepApiError("cuda out of memory")
+    def fail_if_called(ref, dest_dir):
+        raise AssertionError("pull_kernel_output should not be called when the kernel errored")
 
-    monkeypatch.setattr(orchestrator.ace_step_client, "separate_stems", fake_separate_stems)
+    monkeypatch.setattr(orchestrator.kernels, "pull_kernel_output", fail_if_called)
 
-    status, detail = orchestrator.run_separation(
-        db_path,
-        tmp_path,
-        1,
-        "/v1/audio?path=%2Fkaggle%2Fworking%2Fa.wav",
-        base_url="https://example.ngrok-free.dev",
-        api_key="secret",
-    )
+    status, detail = orchestrator.run_generation(db_path, tmp_path, 1, **_base_kwargs())
+
+    assert status == "error"
+    assert "kernel crashou" in detail
+
+
+def test_run_generation_records_error_when_result_json_missing(monkeypatch, tmp_path):
+    db_path = tmp_path / "songs.db"
+    updates = []
+    _stub_common(monkeypatch, updates, tmp_path=tmp_path)
+
+    def fake_pull_kernel_output(ref, dest_dir):
+        Path(dest_dir).mkdir(parents=True, exist_ok=True)
+        return Path(dest_dir)
+
+    monkeypatch.setattr(orchestrator.kernels, "pull_kernel_output", fake_pull_kernel_output)
+
+    status, detail = orchestrator.run_generation(db_path, tmp_path, 1, **_base_kwargs())
+
+    assert status == "error"
+    assert "result.json" in detail
+
+
+def test_run_generation_records_error_when_result_json_is_malformed(monkeypatch, tmp_path):
+    db_path = tmp_path / "songs.db"
+    updates = []
+    _stub_common(monkeypatch, updates, tmp_path=tmp_path)
+
+    def fake_pull_kernel_output(ref, dest_dir):
+        output_dir = Path(dest_dir) / "output"
+        output_dir.mkdir(parents=True, exist_ok=True)
+        (output_dir / "result.json").write_text("{not valid json", encoding="utf-8")
+        return Path(dest_dir)
+
+    monkeypatch.setattr(orchestrator.kernels, "pull_kernel_output", fake_pull_kernel_output)
+
+    status, detail = orchestrator.run_generation(db_path, tmp_path, 1, **_base_kwargs())
+
+    assert status == "error"
+    assert "result.json" in detail
+
+
+def test_run_generation_records_error_when_generation_status_not_done(monkeypatch, tmp_path):
+    db_path = tmp_path / "songs.db"
+    updates = []
+    _stub_common(monkeypatch, updates, tmp_path=tmp_path)
+
+    def fake_pull_kernel_output(ref, dest_dir):
+        _write_result_json(
+            Path(dest_dir), generation_status="error", generation_error="cuda out of memory"
+        )
+        return Path(dest_dir)
+
+    monkeypatch.setattr(orchestrator.kernels, "pull_kernel_output", fake_pull_kernel_output)
+
+    status, detail = orchestrator.run_generation(db_path, tmp_path, 1, **_base_kwargs())
 
     assert status == "error"
     assert detail == "cuda out of memory"
-    assert {"stems_status": "error", "stems_error_message": "cuda out of memory"} in updates
 
 
-def test_run_generation_automatically_runs_separation_with_fresh_remote_file_ref(
-    monkeypatch, tmp_path
-):
+def test_run_generation_records_error_when_raw_wav_missing_despite_done_status(monkeypatch, tmp_path):
     db_path = tmp_path / "songs.db"
-    monkeypatch.setattr(orchestrator.song_db, "update_song", lambda *a, **k: None)
-    monkeypatch.setattr(
-        orchestrator.ace_step_client, "check_health", lambda base_url: {"status": "ok"}
-    )
-    monkeypatch.setattr(
-        orchestrator.song_lyrics, "generate_lyrics", lambda prompt, language: "[en]\n[Verse]\nx"
-    )
-    monkeypatch.setattr(
-        orchestrator.ace_step_client,
-        "generate_music",
-        lambda *a, **k: {"file": "/v1/audio?path=%2Ftmp%2Fa.wav"},
-    )
+    updates = []
+    _stub_common(monkeypatch, updates, tmp_path=tmp_path)
 
-    def fake_download_audio(base_url, api_key, file_path, dest_path):
-        dest_path = Path(dest_path)
-        dest_path.parent.mkdir(parents=True, exist_ok=True)
-        dest_path.write_bytes(b"x")
-        return dest_path
+    def fake_pull_kernel_output(ref, dest_dir):
+        _write_result_json(Path(dest_dir))  # says done, but never writes raw.wav
+        return Path(dest_dir)
 
-    monkeypatch.setattr(orchestrator.ace_step_client, "download_audio", fake_download_audio)
-    monkeypatch.setattr(
-        orchestrator.song_mastering,
-        "normalize_loudness",
-        lambda input_path, output_path, target_lufs: Path(output_path).write_bytes(b"x"),
-    )
+    monkeypatch.setattr(orchestrator.kernels, "pull_kernel_output", fake_pull_kernel_output)
 
-    separation_calls = []
-    monkeypatch.setattr(
-        orchestrator,
-        "run_separation",
-        lambda db, out_dir, song_id, remote_file_ref, **k: separation_calls.append(
-            (db, out_dir, song_id, remote_file_ref, k)
+    status, detail = orchestrator.run_generation(db_path, tmp_path, 1, **_base_kwargs())
+
+    assert status == "error"
+    assert "raw.wav" in detail
+
+
+def test_run_generation_records_stems_error_without_failing_generation(monkeypatch, tmp_path):
+    db_path = tmp_path / "songs.db"
+    updates = []
+    _stub_common(monkeypatch, updates, tmp_path=tmp_path)
+
+    def fake_pull_kernel_output(ref, dest_dir):
+        output_dir = _write_result_json(
+            Path(dest_dir), stems_status="error", stems_error="cuda out of memory"
         )
-        or ("done", None),
-    )
+        _write_raw_and_stems(output_dir, with_stems=False)
+        return Path(dest_dir)
+
+    monkeypatch.setattr(orchestrator.kernels, "pull_kernel_output", fake_pull_kernel_output)
 
     status, detail = orchestrator.run_generation(db_path, tmp_path, 1, **_base_kwargs())
 
     assert status == "done"
-    assert len(separation_calls) == 1
-    db, out_dir, song_id, remote_file_ref, kwargs = separation_calls[0]
-    assert db == db_path
-    assert out_dir == tmp_path
-    assert song_id == 1
-    assert remote_file_ref == "/v1/audio?path=%2Ftmp%2Fa.wav"
-    assert kwargs["base_url"] == "https://example.ngrok-free.dev"
-    assert kwargs["api_key"] == "secret"
+    assert {
+        "stems_status": "error", "stems_error_message": "cuda out of memory"
+    } in updates
 
 
-def test_run_generation_still_returns_done_when_separation_fails(monkeypatch, tmp_path):
+def test_run_generation_records_stems_error_when_stem_file_copy_fails(monkeypatch, tmp_path):
     db_path = tmp_path / "songs.db"
-    monkeypatch.setattr(orchestrator.song_db, "update_song", lambda *a, **k: None)
-    monkeypatch.setattr(
-        orchestrator.ace_step_client, "check_health", lambda base_url: {"status": "ok"}
-    )
-    monkeypatch.setattr(
-        orchestrator.song_lyrics, "generate_lyrics", lambda prompt, language: "[en]\n[Verse]\nx"
-    )
-    monkeypatch.setattr(
-        orchestrator.ace_step_client,
-        "generate_music",
-        lambda *a, **k: {"file": "/v1/audio?path=%2Ftmp%2Fa.wav"},
-    )
+    updates = []
+    _stub_common(monkeypatch, updates, tmp_path=tmp_path)
 
-    def fake_download_audio(base_url, api_key, file_path, dest_path):
-        dest_path = Path(dest_path)
-        dest_path.parent.mkdir(parents=True, exist_ok=True)
-        dest_path.write_bytes(b"x")
-        return dest_path
+    def fake_pull_kernel_output(ref, dest_dir):
+        output_dir = _write_result_json(Path(dest_dir))  # says stems done
+        _write_raw_and_stems(output_dir, with_stems=False)  # but no stem files exist
+        return Path(dest_dir)
 
-    monkeypatch.setattr(orchestrator.ace_step_client, "download_audio", fake_download_audio)
-    monkeypatch.setattr(
-        orchestrator.song_mastering,
-        "normalize_loudness",
-        lambda input_path, output_path, target_lufs: Path(output_path).write_bytes(b"x"),
-    )
-    monkeypatch.setattr(
-        orchestrator, "run_separation", lambda *a, **k: ("error", "cuda out of memory")
-    )
+    monkeypatch.setattr(orchestrator.kernels, "pull_kernel_output", fake_pull_kernel_output)
 
     status, detail = orchestrator.run_generation(db_path, tmp_path, 1, **_base_kwargs())
 
-    assert status == "done"
-    assert detail == str(tmp_path / "1_master.wav")
+    assert status == "done"  # missing stems must never flip generation back to error
+    error_update = next(u for u in updates if u.get("stems_status") == "error")
+    assert "stems_error_message" in error_update
