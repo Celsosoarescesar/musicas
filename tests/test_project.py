@@ -43,10 +43,18 @@ def test_rename_track_changes_name():
 
 def test_list_tracks_wraps_raw_exception():
     project = FakeProject([FakeTrack("bateria")])
-    # Make tracks raise an exception
-    project.tracks = property(lambda self: (_ for _ in ()).throw(RuntimeError("REAPER disconnected")))
-    with pytest.raises(ReaperBridgeError, match="não foi possível listar"):
-        list_tracks(project)
+    # Make tracks raise an exception when iterated
+    class FailingTracks:
+        def __iter__(self):
+            raise RuntimeError("REAPER disconnected")
+
+    original_tracks = project.tracks
+    try:
+        project.tracks = FailingTracks()
+        with pytest.raises(ReaperBridgeError, match="não foi possível listar"):
+            list_tracks(project)
+    finally:
+        project.tracks = original_tracks
 
 
 def test_create_track_wraps_raw_exception():
@@ -62,10 +70,22 @@ def test_create_track_wraps_raw_exception():
 def test_rename_track_wraps_raw_exception():
     project = FakeProject([FakeTrack("bateria")])
     track = project.tracks[0]
+    original_name = track.name
+
     # Make track.name assignment raise an exception
-    def failing_name_setter(value):
+    def failing_name_setter(self, value):
         raise RuntimeError("REAPER disconnected")
-    type(track).name = property(lambda self: self._name, failing_name_setter)
-    track._name = "bateria"
-    with pytest.raises(ReaperBridgeError, match="não foi possível renomear"):
-        rename_track(project, "bateria", "drums")
+
+    # Store original class state and replace name with a property that raises on set
+    original_name_attr = FakeTrack.__dict__.get("name")
+    try:
+        FakeTrack.name = property(lambda self: original_name, failing_name_setter)
+        with pytest.raises(ReaperBridgeError, match="não foi possível renomear"):
+            rename_track(project, "bateria", "drums")
+    finally:
+        # Restore the original class state
+        if original_name_attr is None:
+            if hasattr(FakeTrack, "name"):
+                delattr(FakeTrack, "name")
+        else:
+            FakeTrack.name = original_name_attr
