@@ -32,15 +32,26 @@ verdade. Rode pelo Claude Code, num projeto REAPER vazio:
 
 - [ ] "Lista as faixas do projeto" → responde "(nenhuma)" ou as faixas existentes.
 - [ ] "Cria uma faixa chamada bateria" → aparece uma faixa nova no REAPER.
+- [ ] "Renomeia a faixa bateria para drums" → o nome da faixa muda no REAPER.
 - [ ] "Importa esse áudio: `<caminho de um .wav de teste>`" → aparece uma nova faixa com
       o áudio, começando em 0:00.
-- [ ] "Aumenta o volume da faixa bateria para -3dB" e "muda o pan para a esquerda" →
+- [ ] "Aumenta o volume da faixa drums para -3dB" e "muda o pan para a esquerda" →
       o fader e o pan se movem no REAPER.
-- [ ] "Adiciona um ReaEQ na faixa bateria" → o plugin aparece na chain de FX da faixa.
+- [ ] "Muta a faixa drums" → o ícone de mute acende no REAPER; "desmuta a faixa drums" →
+      o ícone de mute apaga.
+- [ ] "Faz solo na faixa drums" → apenas a faixa drums é audível; "tira o solo da faixa
+      drums" → as outras faixas voltam a ser audíveis.
+- [ ] "Adiciona um ReaEQ na faixa drums" → o plugin aparece na chain de FX da faixa.
+- [ ] "Muda o parâmetro de frequência do ReaEQ para 500 Hz" → o valor do parâmetro muda
+      no REAPER.
 - [ ] "Aplica a chain de master" → ReaEQ, ReaComp e ReaLimit aparecem na faixa mestre.
 - [ ] "Renderiza o projeto para `<pasta>\teste.wav`" → o arquivo aparece na pasta.
 - [ ] "Gera uma escala de Dó maior no piano roll da faixa piano" → as notas aparecem no
       piano roll dessa faixa.
+- [ ] "Gera um acorde de Dó maior no piano roll da faixa piano" → as notas do acorde
+      aparecem no piano roll dessa faixa.
+- [ ] "Gera uma progressão de acordes (Dó, Fá, Sol) no piano roll da faixa piano" →
+      os acordes aparecem sequencialmente no piano roll dessa faixa.
 - [ ] "Analisa o que eu toquei nessa faixa" (depois de tocar/gravar algo com um teclado
       MIDI conectado ao REAPER numa faixa MIDI) → devolve uma análise de
       tonalidade/acorde coerente com o que foi tocado.
