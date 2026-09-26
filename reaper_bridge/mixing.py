@@ -59,3 +59,44 @@ def set_solo(project, track_name: str, solo: bool):
             "não foi possível definir o solo da faixa: verifique se o REAPER está aberto"
         ) from exc
     return track
+
+
+def _find_fx(track, fx_name: str):
+    for fx in track.fxs:
+        if fx.name == fx_name:
+            return fx
+    available = ", ".join(fx.name for fx in track.fxs) or "(nenhum)"
+    raise ReaperBridgeError(
+        f"plugin '{fx_name}' não está na faixa, plugins presentes: {available}"
+    )
+
+
+def add_fx(project, track_name: str, fx_name: str):
+    track = find_track(project, track_name)
+    try:
+        return track.add_fx(fx_name)
+    except ValueError as exc:
+        raise ReaperBridgeError(f"plugin '{fx_name}' não encontrado no REAPER") from exc
+
+
+def set_fx_param(project, track_name: str, fx_name: str, param_name: str, value: float):
+    if not 0.0 <= value <= 1.0:
+        raise ReaperBridgeError(
+            f"valor de parâmetro deve estar entre 0.0 e 1.0 (normalizado), recebido: {value}"
+        )
+    track = find_track(project, track_name)
+    fx = _find_fx(track, fx_name)
+    param = next((p for p in fx.params if p.name == param_name), None)
+    if param is None:
+        available = ", ".join(p.name for p in fx.params) or "(nenhum)"
+        raise ReaperBridgeError(
+            f"parâmetro '{param_name}' não existe em '{fx_name}', parâmetros "
+            f"disponíveis: {available}"
+        )
+    try:
+        param.normalized = value
+    except Exception as exc:
+        raise ReaperBridgeError(
+            f"não foi possível definir o parâmetro '{param_name}': verifique se o REAPER está aberto"
+        ) from exc
+    return param

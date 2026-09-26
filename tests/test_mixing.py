@@ -1,8 +1,8 @@
 import pytest
 
 from reaper_bridge.errors import ReaperBridgeError
-from reaper_bridge.mixing import set_mute, set_pan, set_solo, set_volume
-from tests.fakes import FakeProject, FakeTrack
+from reaper_bridge.mixing import add_fx, set_fx_param, set_mute, set_pan, set_solo, set_volume
+from tests.fakes import FakeProject, FakeTrack, FakeFX
 
 
 def test_set_volume_converts_db_to_linear_gain():
@@ -131,3 +131,78 @@ def test_set_solo_wraps_raw_exception():
                 delattr(FakeTrack, "is_solo")
         else:
             FakeTrack.is_solo = original_solo_attr
+
+
+def test_add_fx_adds_plugin_to_track():
+    project = FakeProject([FakeTrack("voz")])
+    fx = add_fx(project, "voz", "ReaEQ (Cockos)")
+    assert fx.name == "ReaEQ (Cockos)"
+    assert project.tracks[0].fxs[0] is fx
+
+
+def test_add_fx_raises_when_plugin_unknown():
+    project = FakeProject([FakeTrack("voz")])
+    track = project.tracks[0]
+
+    def raise_value_error(name):
+        raise ValueError("fx not found")
+
+    track.add_fx = raise_value_error
+    with pytest.raises(ReaperBridgeError, match="não encontrado"):
+        add_fx(project, "voz", "PluginQueNaoExiste")
+
+
+def test_set_fx_param_updates_normalized_value():
+    project = FakeProject([FakeTrack("voz")])
+    track = project.tracks[0]
+    track.fxs.append(FakeFX("ReaComp (Cockos)", param_names=["Threshold", "Ratio"]))
+    set_fx_param(project, "voz", "ReaComp (Cockos)", "Threshold", 0.6)
+    assert track.fxs[0].params[0].normalized == 0.6
+
+
+def test_set_fx_param_raises_for_unknown_param():
+    project = FakeProject([FakeTrack("voz")])
+    project.tracks[0].fxs.append(FakeFX("ReaComp (Cockos)", param_names=["Threshold"]))
+    with pytest.raises(ReaperBridgeError, match="não existe"):
+        set_fx_param(project, "voz", "ReaComp (Cockos)", "ParametroInexistente", 0.5)
+
+
+def test_set_fx_param_raises_when_value_out_of_range():
+    project = FakeProject([FakeTrack("voz")])
+    project.tracks[0].fxs.append(FakeFX("ReaComp (Cockos)", param_names=["Threshold"]))
+    with pytest.raises(ReaperBridgeError, match="0.0 e 1.0"):
+        set_fx_param(project, "voz", "ReaComp (Cockos)", "Threshold", 2.0)
+
+
+def test_set_fx_param_wraps_normalized_setter_exception():
+    """Test that set_fx_param wraps exceptions when setting param.normalized.
+
+    This test verifies that the raw reapy call (param.normalized = value) is
+    properly wrapped in try/except and converted to ReaperBridgeError.
+    """
+    project = FakeProject([FakeTrack("voz")])
+    track = project.tracks[0]
+    track.fxs.append(FakeFX("ReaComp (Cockos)", param_names=["Threshold"]))
+
+    # Replace the param with a fake that raises when normalized is set
+    original_param = track.fxs[0].params[0]
+
+    class FailingFakeFXParam:
+        def __init__(self, name):
+            self.name = name
+
+        @property
+        def normalized(self):
+            return 0.0
+
+        @normalized.setter
+        def normalized(self, value):
+            raise RuntimeError("REAPER connection lost")
+
+    track.fxs[0].params[0] = FailingFakeFXParam("Threshold")
+
+    with pytest.raises(ReaperBridgeError, match="não foi possível definir o parâmetro"):
+        set_fx_param(project, "voz", "ReaComp (Cockos)", "Threshold", 0.5)
+
+    # Restore for cleanup
+    track.fxs[0].params[0] = original_param
