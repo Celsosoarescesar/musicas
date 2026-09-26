@@ -480,30 +480,31 @@ def main():
         }
     )
 
-    logger.info(f"Subindo acestep.api_server (config={_ACESTEP_MODEL_CONFIG})...")
-    server_process = subprocess.Popen(
-        [sys.executable, "-m", "acestep.api_server"],
-        cwd=str(repo_dir),
-        env=env,
-    )
-
-    api_base_url = f"http://127.0.0.1:{_ACESTEP_PORT}"
     output_dir = Path("/kaggle/working/output")
-    output_dir.mkdir(parents=True, exist_ok=True)
-
-    if _JOB_B64 is None:
-        raise RuntimeError(
-            "_JOB_B64 nao foi definido -- este kernel precisa ser renderizado por "
-            "ace_step.kernel_render.render_job_kernel antes de ser enviado ao Kaggle"
-        )
-    job = decode_job(_JOB_B64)
 
     generation_status = "error"
     generation_error = None
     stems_status = "error"
     stems_error = None
+    server_process = None
 
     try:
+        logger.info(f"Subindo acestep.api_server (config={_ACESTEP_MODEL_CONFIG})...")
+        server_process = subprocess.Popen(
+            [sys.executable, "-m", "acestep.api_server"],
+            cwd=str(repo_dir),
+            env=env,
+        )
+        api_base_url = f"http://127.0.0.1:{_ACESTEP_PORT}"
+        output_dir.mkdir(parents=True, exist_ok=True)
+
+        if _JOB_B64 is None:
+            raise RuntimeError(
+                "_JOB_B64 nao foi definido -- este kernel precisa ser renderizado por "
+                "ace_step.kernel_render.render_job_kernel antes de ser enviado ao Kaggle"
+            )
+        job = decode_job(_JOB_B64)
+
         logger.info("Esperando acestep.api_server ficar saudavel...")
         wait_for_health(api_base_url, api_key, timeout=600.0, poll_interval=5.0)
 
@@ -546,7 +547,8 @@ def main():
             stems_error=stems_error,
         )
         shutil.rmtree(repo_dir, ignore_errors=True)
-        server_process.terminate()
+        if server_process is not None:
+            server_process.terminate()
 
     sys.exit(0 if generation_status == "done" else 1)
 
