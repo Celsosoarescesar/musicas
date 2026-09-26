@@ -1,3 +1,4 @@
+import time
 from unittest.mock import patch
 
 import pytest
@@ -8,7 +9,7 @@ from reaper_bridge.mastering import (
     apply_master_chain,
     render_project,
 )
-from tests.fakes import FakeProject
+from tests.fakes import FakeProject, FakeTrack
 
 
 def test_apply_master_chain_adds_all_plugins_to_master_track():
@@ -67,3 +68,59 @@ def test_render_project_wraps_unexpected_errors_from_reapy(tmp_path):
     ):
         with pytest.raises(ReaperBridgeError, match="boom"):
             render_project(project, output_path)
+
+
+def test_apply_master_chain_wraps_unexpected_add_fx_error():
+    project = FakeProject([])
+
+    def raise_runtime_error(name):
+        raise RuntimeError("REAPER disconnected")
+
+    project.master_track.add_fx = raise_runtime_error
+    with pytest.raises(ReaperBridgeError, match="não foi possível adicionar o plugin"):
+        apply_master_chain(project)
+
+
+def test_apply_master_chain_wraps_master_track_access_error():
+    class BrokenProject(FakeProject):
+        @property
+        def master_track(self):
+            raise RuntimeError("REAPER disconnected")
+
+        @master_track.setter
+        def master_track(self, value):
+            pass
+
+    with pytest.raises(ReaperBridgeError, match="faixa mestre"):
+        apply_master_chain(BrokenProject([]))
+
+
+def test_render_project_waits_for_mtime_change_when_file_already_exists(tmp_path):
+    output_path = tmp_path / "musica.wav"
+    output_path.write_bytes(b"old-audio")
+    old_mtime = output_path.stat().st_mtime
+    project = FakeProject([])
+
+    with patch("reaper_bridge.mastering.reapy.reascript_api.Main_OnCommand"):
+        with pytest.raises(ReaperBridgeError, match="não terminou"):
+            render_project(project, str(output_path), timeout_seconds=0.2)
+
+    assert output_path.stat().st_mtime == old_mtime
+
+
+def test_render_project_succeeds_when_mtime_advances_after_existing_file(tmp_path):
+    output_path = tmp_path / "musica.wav"
+    output_path.write_bytes(b"old-audio")
+    project = FakeProject([])
+
+    def fake_command(command_id, flag):
+        time.sleep(0.01)
+        output_path.write_bytes(b"new-audio")
+
+    with patch(
+        "reaper_bridge.mastering.reapy.reascript_api.Main_OnCommand",
+        side_effect=fake_command,
+    ):
+        result = render_project(project, str(output_path), timeout_seconds=5)
+
+    assert result == str(output_path)

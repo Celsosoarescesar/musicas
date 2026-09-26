@@ -1,7 +1,7 @@
 [project]
 name = "reaper-copilot"
 version = "0.1.0"
-description = "Add your description here"
+description = "Servidor MCP que deixa o Claude Code controlar o REAPER ao vivo via reapy"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [

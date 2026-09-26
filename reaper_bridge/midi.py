@@ -54,6 +54,8 @@ def generate_chord(root_midi: int, quality: str) -> list[int]:
 
 
 def generate_progression(key_name: str, numerals: list[str]) -> list[list[int]]:
+    if not numerals:
+        raise ReaperBridgeError("informe ao menos um grau para gerar a progressão")
     try:
         detected_key = m21key.Key(key_name)
     except Exception as exc:

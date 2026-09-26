@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import threading
+
 from mcp.server import MCPServer
 
 from reaper_bridge import mastering, midi, mixing
@@ -9,12 +11,20 @@ from reaper_bridge.errors import ReaperBridgeError
 
 mcp = MCPServer("reaper-copilot")
 
+# O MCPServer executa as tools em threads de trabalho, mas todas conversam com o
+# REAPER pela mesma conexão reapy (sem lock próprio). Serializamos as chamadas
+# para que requisições/respostas concorrentes não se misturem.
+_REAPER_LOCK = threading.Lock()
+
 
 def _run(operation):
-    try:
-        return operation()
-    except ReaperBridgeError as exc:
-        return f"Erro: {exc}"
+    with _REAPER_LOCK:
+        try:
+            return operation()
+        except ReaperBridgeError as exc:
+            return f"Erro: {exc}"
+        except Exception as exc:
+            return f"Erro inesperado: {exc}"
 
 
 @mcp.tool()
@@ -49,7 +59,13 @@ def reaper_import_audio(file_path: str, track_name: str | None = None) -> str:
     """Importa um arquivo de áudio como uma nova faixa no projeto REAPER."""
     def operation():
         track = project_ops.import_audio(get_project(), file_path, track_name)
-        return f"Áudio importado na faixa '{track.name}'."
+        try:
+            resolved_name = track.name
+        except Exception as exc:
+            raise ReaperBridgeError(
+                f"áudio importado, mas não foi possível confirmar o nome da faixa: {exc}"
+            ) from exc
+        return f"Áudio importado na faixa '{resolved_name}'."
     return _run(operation)
 
 
@@ -112,7 +128,13 @@ def reaper_apply_master() -> str:
     """Aplica a chain de masterização padrão (EQ, compressor, limiter) na faixa mestre."""
     def operation():
         fxs = mastering.apply_master_chain(get_project())
-        return "Master aplicado: " + ", ".join(fx.name for fx in fxs)
+        try:
+            names = [fx.name for fx in fxs]
+        except Exception as exc:
+            raise ReaperBridgeError(
+                f"master aplicado, mas não foi possível confirmar os plugins: {exc}"
+            ) from exc
+        return "Master aplicado: " + ", ".join(names)
     return _run(operation)
 
 

@@ -42,3 +42,8 @@ def test_analyze_notes_detects_c_major_chord():
 def test_analyze_notes_raises_for_empty_input():
     with pytest.raises(ReaperBridgeError, match="nenhuma nota"):
         analyze_notes([])
+
+
+def test_generate_progression_raises_for_empty_numerals():
+    with pytest.raises(ReaperBridgeError, match="ao menos um grau"):
+        generate_progression("C", [])

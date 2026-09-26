@@ -9,8 +9,7 @@ from .errors import ReaperBridgeError
 CONNECTION_TIMEOUT_SECONDS = 5.0
 
 
-def get_project(timeout: float = CONNECTION_TIMEOUT_SECONDS) -> "reapy.Project":
-    """Retorna o projeto REAPER atualmente aberto, ou levanta ReaperBridgeError."""
+def _attempt_get_project(timeout: float) -> "reapy.Project":
     executor = concurrent.futures.ThreadPoolExecutor(max_workers=1)
     try:
         future = executor.submit(reapy.Project)
@@ -28,3 +27,20 @@ def get_project(timeout: float = CONNECTION_TIMEOUT_SECONDS) -> "reapy.Project":
             ) from exc
     finally:
         executor.shutdown(wait=False)
+
+
+def get_project(timeout: float = CONNECTION_TIMEOUT_SECONDS) -> "reapy.Project":
+    """Retorna o projeto REAPER atualmente aberto, ou levanta ReaperBridgeError.
+
+    Tenta reconectar uma vez (reapy.reconnect()) antes de desistir, cobrindo o
+    caso do REAPER ter sido aberto (ou reaberto) depois que este processo já
+    existia.
+    """
+    try:
+        return _attempt_get_project(timeout)
+    except ReaperBridgeError:
+        try:
+            reapy.reconnect()
+        except Exception:
+            pass
+        return _attempt_get_project(timeout)

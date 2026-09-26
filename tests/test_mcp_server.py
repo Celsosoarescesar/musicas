@@ -4,6 +4,7 @@ from mcp_server import (
     reaper_add_fx,
     reaper_apply_master,
     reaper_generate_scale,
+    reaper_import_audio,
     reaper_list_tracks,
     reaper_set_volume,
 )
@@ -46,3 +47,32 @@ def test_reaper_add_fx_reports_success():
     with patch("mcp_server.get_project", return_value=object()):
         with patch("mcp_server.mixing.add_fx"):
             assert "ReaEQ" in reaper_add_fx("voz", "ReaEQ (Cockos)")
+
+
+def test_run_returns_unexpected_error_message_for_non_bridge_exception():
+    with patch("mcp_server.get_project", side_effect=RuntimeError("boom")):
+        assert reaper_list_tracks() == "Erro inesperado: boom"
+
+
+def test_reaper_import_audio_wraps_track_name_read_failure():
+    class BrokenTrack:
+        @property
+        def name(self):
+            raise RuntimeError("REAPER disconnected")
+
+    with patch("mcp_server.get_project", return_value=object()):
+        with patch("mcp_server.project_ops.import_audio", return_value=BrokenTrack()):
+            result = reaper_import_audio("C:/audio.wav")
+    assert result.startswith("Erro: áudio importado")
+
+
+def test_reaper_apply_master_wraps_fx_name_read_failure():
+    class BrokenFX:
+        @property
+        def name(self):
+            raise RuntimeError("REAPER disconnected")
+
+    with patch("mcp_server.get_project", return_value=object()):
+        with patch("mcp_server.mastering.apply_master_chain", return_value=[BrokenFX()]):
+            result = reaper_apply_master()
+    assert result.startswith("Erro: master aplicado")

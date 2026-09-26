@@ -44,7 +44,6 @@ def test_set_solo_toggles_flag():
 def test_set_volume_wraps_raw_exception():
     """Test that set_volume wraps exceptions when setting track.volume"""
     project = FakeProject([FakeTrack("voz")])
-    track = project.tracks[0]
 
     # Create a property that raises when assigned
     def failing_volume_setter(self, value):
@@ -67,7 +66,6 @@ def test_set_volume_wraps_raw_exception():
 def test_set_pan_wraps_raw_exception():
     """Test that set_pan wraps exceptions when setting track.pan"""
     project = FakeProject([FakeTrack("voz")])
-    track = project.tracks[0]
 
     # Create a property that raises when assigned
     def failing_pan_setter(self, value):
@@ -90,7 +88,6 @@ def test_set_pan_wraps_raw_exception():
 def test_set_mute_wraps_raw_exception():
     """Test that set_mute wraps exceptions when setting track.is_muted"""
     project = FakeProject([FakeTrack("voz")])
-    track = project.tracks[0]
 
     # Create a property that raises when assigned
     def failing_mute_setter(self, value):
@@ -113,7 +110,6 @@ def test_set_mute_wraps_raw_exception():
 def test_set_solo_wraps_raw_exception():
     """Test that set_solo wraps exceptions when setting track.is_solo"""
     project = FakeProject([FakeTrack("voz")])
-    track = project.tracks[0]
 
     # Create a property that raises when assigned
     def failing_solo_setter(self, value):
@@ -206,3 +202,38 @@ def test_set_fx_param_wraps_normalized_setter_exception():
 
     # Restore for cleanup
     track.fxs[0].params[0] = original_param
+
+
+def test_add_fx_wraps_unexpected_exception():
+    project = FakeProject([FakeTrack("voz")])
+
+    def raise_runtime_error(name):
+        raise RuntimeError("REAPER disconnected")
+
+    project.tracks[0].add_fx = raise_runtime_error
+    with pytest.raises(ReaperBridgeError, match="não foi possível adicionar o plugin"):
+        add_fx(project, "voz", "ReaEQ (Cockos)")
+
+
+def test_set_fx_param_wraps_fx_listing_exception():
+    class ExplodingList:
+        def __iter__(self):
+            raise RuntimeError("REAPER disconnected")
+
+    project = FakeProject([FakeTrack("voz")])
+    project.tracks[0].fxs = ExplodingList()
+    with pytest.raises(ReaperBridgeError, match="listar os plugins"):
+        set_fx_param(project, "voz", "ReaComp (Cockos)", "Threshold", 0.5)
+
+
+def test_set_fx_param_wraps_param_listing_exception():
+    class ExplodingList:
+        def __iter__(self):
+            raise RuntimeError("REAPER disconnected")
+
+    project = FakeProject([FakeTrack("voz")])
+    fx = FakeFX("ReaComp (Cockos)")
+    fx.params = ExplodingList()
+    project.tracks[0].fxs.append(fx)
+    with pytest.raises(ReaperBridgeError, match="listar os parâmetros"):
+        set_fx_param(project, "voz", "ReaComp (Cockos)", "Threshold", 0.5)
