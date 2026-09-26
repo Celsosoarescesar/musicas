@@ -83,7 +83,8 @@ def split_stems(
         ) from exc
 
     if result.returncode != 0:
-        tail = "\n".join((result.stderr or "").splitlines()[-10:])
+        combined_output = "\n".join(filter(None, [result.stdout, result.stderr]))
+        tail = "\n".join(combined_output.splitlines()[-10:])
         raise ReaperBridgeError(f"o Demucs falhou ao separar os stems: {tail}")
 
     stems_dir = os.path.join(output_dir, model, song_name)

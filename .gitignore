@@ -17,3 +17,6 @@ music_studio/
 
 # Estado local do Claude Code (worktrees, locks de tarefas agendadas, etc.)
 .claude/
+
+# Musicas/stems gerados (audio, nao codigo)
+ace_step/output/

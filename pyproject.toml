@@ -8,6 +8,14 @@ dependencies = [
     "python-reapy>=0.10.0",
     "mcp>=2.2.0",
     "music21>=10.5.0",
+    "requests>=2.34.2",
+    "python-dotenv>=1.2.3",
+    "pyloudnorm>=0.2.0",
+    "soundfile>=0.14.0",
+    "kaggle>=2.2.4",
+    "fastapi>=0.141.1",
+    "httpx>=0.28.1",
+    "uvicorn[standard]>=0.54.0",
 ]
 
 [dependency-groups]

@@ -1,0 +1,16 @@
+{
+  "id": "celsosoarescesar/daw-music-studio-ace-step",
+  "title": "DAW Music Studio ACE Step",
+  "code_file": "ace_step_server.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": "true",
+  "enable_gpu": "true",
+  "enable_tpu": "false",
+  "enable_internet": "true",
+  "machine_shape": "NvidiaTeslaT4",
+  "dataset_sources": ["celsosoarescesar/daw-music-studio-secrets"],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}
