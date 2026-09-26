@@ -1,3 +1,13 @@
+import os
+import subprocess
+import sys
+
+if not sys.flags.utf8_mode:
+    env = os.environ.copy()
+    env["PYTHONUTF8"] = "1"
+    result = subprocess.run([sys.executable, __file__, *sys.argv[1:]], env=env)
+    sys.exit(result.returncode)
+
 import argparse
 from pathlib import Path
 
