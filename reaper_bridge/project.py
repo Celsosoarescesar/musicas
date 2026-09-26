@@ -71,12 +71,17 @@ def import_audio(
             f"extensão '{extension}' não suportada, use um destes formatos: "
             f"{', '.join(sorted(_SUPPORTED_AUDIO_EXTENSIONS))}"
         )
+    resolved_name = track_name or os.path.splitext(os.path.basename(file_path))[0]
     try:
+        # Cria a faixa explicitamente e a seleciona como unica faixa selecionada,
+        # em vez de deixar o InsertMedia decidir onde criar a faixa nova (modo 1):
+        # com varias faixas ja no projeto, a faixa nova nem sempre fica no final
+        # da lista, entao pegar project.tracks[-1] depois pode pegar a faixa
+        # errada. Modo 0 = inserir o audio na faixa atualmente selecionada.
+        track = project.add_track(index=project.n_tracks, name=resolved_name)
+        track.make_only_selected_track()
         project.cursor_position = 0.0
-        reapy.reascript_api.InsertMedia(file_path, 1)  # mode 1 = adicionar em nova faixa
-        track = project.tracks[project.n_tracks - 1]
-        if track_name:
-            track.name = track_name
+        reapy.reascript_api.InsertMedia(file_path, 0)
     except Exception as exc:
         raise ReaperBridgeError(f"não foi possível importar o áudio: {exc}") from exc
     return track

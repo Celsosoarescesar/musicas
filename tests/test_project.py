@@ -106,23 +106,35 @@ def test_import_audio_raises_for_unsupported_extension(tmp_path):
         import_audio(project, str(file_path))
 
 
-def test_import_audio_inserts_media_and_renames_new_track(tmp_path):
+def test_import_audio_creates_selects_and_inserts_on_current_track(tmp_path):
     file_path = tmp_path / "musica.wav"
     file_path.write_bytes(b"fake")
-    project = FakeProject([FakeTrack("bateria")])
-
-    def fake_insert_media(path, mode):
-        project.tracks.append(FakeTrack("stem"))
+    # Faixas pre-existentes simulam um projeto "sujo" -- o bug real (InsertMedia
+    # nao criar a faixa nova necessariamente no final da lista) so aparecia com
+    # varias faixas ja no projeto.
+    project = FakeProject([FakeTrack("bateria"), FakeTrack("baixo")])
 
     with patch(
-        "reaper_bridge.project.reapy.reascript_api.InsertMedia",
-        side_effect=fake_insert_media,
+        "reaper_bridge.project.reapy.reascript_api.InsertMedia"
     ) as mock_insert:
         track = import_audio(project, str(file_path), track_name="voz")
 
-    mock_insert.assert_called_once_with(str(file_path), 1)
     assert track.name == "voz"
-    assert list_tracks(project) == ["bateria", "voz"]
+    assert track is project.tracks[-1]
+    assert track.is_selected is True
+    mock_insert.assert_called_once_with(str(file_path), 0)
+    assert list_tracks(project) == ["bateria", "baixo", "voz"]
+
+
+def test_import_audio_uses_filename_as_default_track_name(tmp_path):
+    file_path = tmp_path / "minha_musica.wav"
+    file_path.write_bytes(b"fake")
+    project = FakeProject([])
+
+    with patch("reaper_bridge.project.reapy.reascript_api.InsertMedia"):
+        track = import_audio(project, str(file_path))
+
+    assert track.name == "minha_musica"
 
 
 def test_import_audio_wraps_raw_exception(tmp_path):
@@ -130,12 +142,9 @@ def test_import_audio_wraps_raw_exception(tmp_path):
     file_path.write_bytes(b"fake")
     project = FakeProject([FakeTrack("bateria")])
 
-    def failing_insert_media(path, mode):
-        raise RuntimeError("REAPER disconnected")
-
     with patch(
         "reaper_bridge.project.reapy.reascript_api.InsertMedia",
-        side_effect=failing_insert_media,
+        side_effect=RuntimeError("REAPER disconnected"),
     ):
         with pytest.raises(ReaperBridgeError, match="não foi possível importar"):
             import_audio(project, str(file_path))
@@ -167,36 +176,14 @@ def test_import_audio_wraps_cursor_position_exception(tmp_path):
             type(project).cursor_position = original_cursor
 
 
-def test_import_audio_wraps_final_rename_exception(tmp_path):
+def test_import_audio_wraps_add_track_exception(tmp_path):
     file_path = tmp_path / "musica.wav"
     file_path.write_bytes(b"fake")
     project = FakeProject([FakeTrack("bateria")])
 
-    # Create a special track class that fails when name is assigned
-    class FailingRenameTrack(FakeTrack):
-        @property
-        def name(self):
-            return self._name
+    def failing_add_track(index, name):
+        raise RuntimeError("REAPER disconnected")
 
-        @name.setter
-        def name(self, value):
-            raise RuntimeError("REAPER disconnected")
-
-        def __init__(self):
-            self._name = "stem"
-            self.volume = 1.0
-            self.pan = 0.0
-            self.is_muted = False
-            self.is_solo = False
-            self.fxs = []
-            self.items = []
-
-    def fake_insert_media(path, mode):
-        project.tracks.append(FailingRenameTrack())
-
-    with patch(
-        "reaper_bridge.project.reapy.reascript_api.InsertMedia",
-        side_effect=fake_insert_media,
-    ):
-        with pytest.raises(ReaperBridgeError, match="não foi possível importar"):
-            import_audio(project, str(file_path), track_name="voz")
+    project.add_track = failing_add_track
+    with pytest.raises(ReaperBridgeError, match="não foi possível importar"):
+        import_audio(project, str(file_path))

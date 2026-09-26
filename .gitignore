@@ -15,5 +15,5 @@ wheels/
 # Sub-projeto com seu proprio repositorio git
 music_studio/
 
-# Worktrees do Claude Code
-.claude/worktrees/
+# Estado local do Claude Code (worktrees, locks de tarefas agendadas, etc.)
+.claude/

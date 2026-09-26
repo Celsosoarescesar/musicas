@@ -7,6 +7,7 @@ from mcp_server import (
     reaper_import_audio,
     reaper_list_tracks,
     reaper_set_volume,
+    reaper_split_stems,
 )
 from reaper_bridge.errors import ReaperBridgeError
 
@@ -64,6 +65,27 @@ def test_reaper_import_audio_wraps_track_name_read_failure():
         with patch("mcp_server.project_ops.import_audio", return_value=BrokenTrack()):
             result = reaper_import_audio("C:/audio.wav")
     assert result.startswith("Erro: áudio importado")
+
+
+def test_reaper_split_stems_lists_created_tracks():
+    with patch("mcp_server.get_project", return_value=object()):
+        with patch(
+            "mcp_server.stems.split_stems",
+            return_value=["bateria_vocals", "bateria_drums"],
+        ) as mock_split:
+            result = reaper_split_stems("bateria")
+    mock_split.assert_called_once()
+    assert "bateria_vocals" in result
+    assert "bateria_drums" in result
+
+
+def test_reaper_split_stems_returns_error_message_on_bridge_error():
+    with patch("mcp_server.get_project", return_value=object()):
+        with patch(
+            "mcp_server.stems.split_stems",
+            side_effect=ReaperBridgeError("Demucs falhou"),
+        ):
+            assert reaper_split_stems("bateria") == "Erro: Demucs falhou"
 
 
 def test_reaper_apply_master_wraps_fx_name_read_failure():

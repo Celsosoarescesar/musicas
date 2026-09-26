@@ -9,10 +9,16 @@ class FakeNote:
         self.velocity = velocity
 
 
+class FakeSource:
+    def __init__(self, filename):
+        self.filename = filename
+
+
 class FakeTake:
-    def __init__(self, is_midi=True):
+    def __init__(self, is_midi=True, source=None):
         self.is_midi = is_midi
         self.notes = []
+        self.source = source
 
     def add_note(self, start, end, pitch, velocity=100, channel=0, unit="seconds"):
         note = FakeNote(pitch, start=start, end=end, velocity=velocity)
@@ -48,6 +54,10 @@ class FakeTrack:
         self.is_solo = is_solo
         self.fxs = []
         self.items = []
+        self.is_selected = False
+
+    def make_only_selected_track(self):
+        self.is_selected = True
 
     def add_fx(self, fx_name):
         fx = FakeFX(fx_name)

@@ -4,7 +4,7 @@ import threading
 
 from mcp.server import MCPServer
 
-from reaper_bridge import mastering, midi, mixing
+from reaper_bridge import mastering, midi, mixing, stems
 from reaper_bridge import project as project_ops
 from reaper_bridge.connection import get_project
 from reaper_bridge.errors import ReaperBridgeError
@@ -180,6 +180,17 @@ def reaper_write_notes(track_name: str, pitches: list[int], note_length: float =
     def operation():
         midi.write_notes_to_track(get_project(), track_name, pitches, note_length=note_length)
         return f"{len(pitches)} notas escritas na faixa '{track_name}'."
+    return _run(operation)
+
+
+@mcp.tool()
+def reaper_split_stems(track_name: str) -> str:
+    """Separa os stems (vocal, bateria, baixo, etc.) do áudio de uma faixa usando
+    Demucs, rodando fora do REAPER (pode levar vários minutos). Cria uma faixa nova
+    para cada stem gerado."""
+    def operation():
+        created = stems.split_stems(get_project(), track_name)
+        return f"Stems criados: {', '.join(created)}"
     return _run(operation)
 
 
