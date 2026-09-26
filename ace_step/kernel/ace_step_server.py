@@ -256,8 +256,9 @@ def wait_for_generation(
     """Submit `job` to /release_task and poll /query_result until done.
 
     Returns the raw `/v1/audio?path=...`-style file reference string on
-    success. Raises RuntimeError if the task fails, TimeoutError if it
-    doesn't finish within `timeout` seconds.
+    success. Raises RuntimeError if the task fails (or if acestep's own
+    `{"data": ..., "error": ...}` envelope carries a truthy "error"),
+    TimeoutError if it doesn't finish within `timeout` seconds.
     """
     headers = {"Authorization": f"Bearer {api_key}"}
     payload = {
@@ -272,14 +273,19 @@ def wait_for_generation(
         "vocal_language": job["vocal_language"],
         "task_type": "text2music",
     }
-    task = _post_json(f"{base_url}/release_task", payload, headers=headers, timeout=30.0)
-    task_id = task["task_id"]
+    task_envelope = _post_json(f"{base_url}/release_task", payload, headers=headers, timeout=30.0)
+    if task_envelope.get("error"):
+        raise RuntimeError(f"POST /release_task devolveu erro: {task_envelope['error']}")
+    task_id = task_envelope["data"]["task_id"]
 
     deadline = time.monotonic() + timeout
     while True:
-        query = _post_json(
+        query_envelope = _post_json(
             f"{base_url}/query_result", {"task_id_list": [task_id]}, headers=headers, timeout=30.0
         )
+        if query_envelope.get("error"):
+            raise RuntimeError(f"POST /query_result devolveu erro: {query_envelope['error']}")
+        query = query_envelope["data"]
         if query:
             entry = query[0]
             status = entry["status"]

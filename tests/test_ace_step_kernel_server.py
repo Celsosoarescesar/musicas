@@ -259,8 +259,13 @@ _TEST_JOB = {
 def test_wait_for_generation_returns_file_ref_on_status_1(monkeypatch):
     def fake_post_json(url, payload, headers, timeout):
         if url.endswith("/release_task"):
-            return {"task_id": "abc"}
-        return [{"status": 1, "result": json.dumps([{"file": "/v1/audio?path=%2Ftmp%2Fa.wav"}])}]
+            return {"data": {"task_id": "abc"}, "error": None}
+        return {
+            "data": [
+                {"status": 1, "result": json.dumps([{"file": "/v1/audio?path=%2Ftmp%2Fa.wav"}])}
+            ],
+            "error": None,
+        }
 
     monkeypatch.setattr(ace_step_server, "_post_json", fake_post_json)
 
@@ -274,8 +279,8 @@ def test_wait_for_generation_returns_file_ref_on_status_1(monkeypatch):
 def test_wait_for_generation_raises_runtime_error_on_status_2(monkeypatch):
     def fake_post_json(url, payload, headers, timeout):
         if url.endswith("/release_task"):
-            return {"task_id": "abc"}
-        return [{"status": 2, "result": "cuda out of memory"}]
+            return {"data": {"task_id": "abc"}, "error": None}
+        return {"data": [{"status": 2, "result": "cuda out of memory"}], "error": None}
 
     monkeypatch.setattr(ace_step_server, "_post_json", fake_post_json)
 
@@ -288,13 +293,25 @@ def test_wait_for_generation_raises_runtime_error_on_status_2(monkeypatch):
 def test_wait_for_generation_times_out_when_never_done(monkeypatch):
     def fake_post_json(url, payload, headers, timeout):
         if url.endswith("/release_task"):
-            return {"task_id": "abc"}
-        return [{"status": 0, "result": None}]
+            return {"data": {"task_id": "abc"}, "error": None}
+        return {"data": [{"status": 0, "result": None}], "error": None}
 
     monkeypatch.setattr(ace_step_server, "_post_json", fake_post_json)
 
     with pytest.raises(TimeoutError):
         ace_step_server.wait_for_generation(
             "http://127.0.0.1:8189", "key", _TEST_JOB, timeout=0.05, poll_interval=0.01
+        )
+
+
+def test_wait_for_generation_raises_on_release_task_error_envelope(monkeypatch):
+    def fake_post_json(url, payload, headers, timeout):
+        return {"data": None, "error": "modelo nao carregado"}
+
+    monkeypatch.setattr(ace_step_server, "_post_json", fake_post_json)
+
+    with pytest.raises(RuntimeError, match="modelo nao carregado"):
+        ace_step_server.wait_for_generation(
+            "http://127.0.0.1:8189", "key", _TEST_JOB, timeout=5.0, poll_interval=0.01
         )
 
