@@ -11,7 +11,8 @@ CONNECTION_TIMEOUT_SECONDS = 5.0
 
 def get_project(timeout: float = CONNECTION_TIMEOUT_SECONDS) -> "reapy.Project":
     """Retorna o projeto REAPER atualmente aberto, ou levanta ReaperBridgeError."""
-    with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
+    executor = concurrent.futures.ThreadPoolExecutor(max_workers=1)
+    try:
         future = executor.submit(reapy.Project)
         try:
             return future.result(timeout=timeout)
@@ -25,3 +26,5 @@ def get_project(timeout: float = CONNECTION_TIMEOUT_SECONDS) -> "reapy.Project":
                 "REAPER não está aberto ou não foi configurado corretamente, abra o REAPER "
                 "e tente de novo."
             ) from exc
+    finally:
+        executor.shutdown(wait=False)

@@ -10,7 +10,7 @@ dependencies = [
     "music21>=10.5.0",
 ]
 
-[project.optional-dependencies]
+[dependency-groups]
 dev = ["pytest>=9.1.1"]
 
 [tool.pytest.ini_options]
