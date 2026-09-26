@@ -6,11 +6,22 @@ from .errors import ReaperBridgeError
 
 
 def list_tracks(project: "reapy.Project") -> list[str]:
-    return [track.name for track in project.tracks]
+    try:
+        return [track.name for track in project.tracks]
+    except Exception as exc:
+        raise ReaperBridgeError(
+            "não foi possível listar as faixas: verifique se o REAPER está aberto"
+        ) from exc
 
 
 def find_track(project: "reapy.Project", name: str):
-    matches = [track for track in project.tracks if track.name == name]
+    try:
+        matches = [track for track in project.tracks if track.name == name]
+    except Exception as exc:
+        raise ReaperBridgeError(
+            "não foi possível buscar faixas: verifique se o REAPER está aberto"
+        ) from exc
+
     if not matches:
         available = ", ".join(list_tracks(project)) or "(nenhuma)"
         raise ReaperBridgeError(
@@ -25,10 +36,20 @@ def find_track(project: "reapy.Project", name: str):
 
 
 def create_track(project: "reapy.Project", name: str):
-    return project.add_track(index=project.n_tracks, name=name)
+    try:
+        return project.add_track(index=project.n_tracks, name=name)
+    except Exception as exc:
+        raise ReaperBridgeError(
+            "não foi possível criar a faixa: verifique se o REAPER está aberto"
+        ) from exc
 
 
 def rename_track(project: "reapy.Project", name: str, new_name: str):
     track = find_track(project, name)
-    track.name = new_name
+    try:
+        track.name = new_name
+    except Exception as exc:
+        raise ReaperBridgeError(
+            "não foi possível renomear a faixa: verifique se o REAPER está aberto"
+        ) from exc
     return track

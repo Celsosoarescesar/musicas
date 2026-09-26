@@ -39,3 +39,33 @@ def test_rename_track_changes_name():
     project = FakeProject([FakeTrack("bateria")])
     rename_track(project, "bateria", "drums")
     assert list_tracks(project) == ["drums"]
+
+
+def test_list_tracks_wraps_raw_exception():
+    project = FakeProject([FakeTrack("bateria")])
+    # Make tracks raise an exception
+    project.tracks = property(lambda self: (_ for _ in ()).throw(RuntimeError("REAPER disconnected")))
+    with pytest.raises(ReaperBridgeError, match="não foi possível listar"):
+        list_tracks(project)
+
+
+def test_create_track_wraps_raw_exception():
+    project = FakeProject([FakeTrack("bateria")])
+    # Make add_track raise an exception
+    def failing_add_track(*args, **kwargs):
+        raise RuntimeError("REAPER disconnected")
+    project.add_track = failing_add_track
+    with pytest.raises(ReaperBridgeError, match="não foi possível criar"):
+        create_track(project, "baixo")
+
+
+def test_rename_track_wraps_raw_exception():
+    project = FakeProject([FakeTrack("bateria")])
+    track = project.tracks[0]
+    # Make track.name assignment raise an exception
+    def failing_name_setter(value):
+        raise RuntimeError("REAPER disconnected")
+    type(track).name = property(lambda self: self._name, failing_name_setter)
+    track._name = "bateria"
+    with pytest.raises(ReaperBridgeError, match="não foi possível renomear"):
+        rename_track(project, "bateria", "drums")
