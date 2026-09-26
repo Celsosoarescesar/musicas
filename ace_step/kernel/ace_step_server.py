@@ -52,7 +52,6 @@ _SECRETS_DATASET_REF = "celsosoarescesar/ace-step-api-secrets"
 # itself now runs on _ACESTEP_PORT, an internal-only port that proxy_server.py
 # (this folder) forwards the existing endpoints to. See
 # docs/superpowers/specs/2026-09-19-demucs-kernel-proxy-design.md.
-_PROXY_PORT = 8188
 _ACESTEP_PORT = 8189
 # The native `acestep` package (github.com/ace-step/ACE-Step-1.5) replaces
 # the diffusers-based server this file used to run directly. Confirmed live
@@ -298,7 +297,6 @@ def main():
     import os
     import shutil
     import subprocess
-    import sys
     import time
 
     logging.basicConfig(level=logging.INFO)
@@ -307,9 +305,7 @@ def main():
     secrets_dir = resolve_secrets_dataset_dir(Path("/kaggle/input"), _SECRETS_DATASET_REF)
     logger.info(f"Lendo secrets de: {secrets_dir}")
     secrets = load_secrets(secrets_dir)
-    validate_secrets(secrets, ["NGROK_AUTHTOKEN", "NGROK_DOMAIN", "ACE_STEP_API_KEY"])
-    ngrok_authtoken = secrets["NGROK_AUTHTOKEN"]
-    ngrok_domain = secrets["NGROK_DOMAIN"]
+    validate_secrets(secrets, ["ACE_STEP_API_KEY"])
     api_key = secrets["ACE_STEP_API_KEY"]
 
     def log_disk_usage(label: str) -> None:
@@ -445,18 +441,16 @@ def main():
     subprocess.run(
         [
             sys.executable, "-m", "pip", "install", "-q", "--no-cache-dir", "-U",
-            "pyngrok", "fastapi", "uvicorn", "httpx", "demucs",
+            "fastapi", "uvicorn", "demucs",
         ],
         check=True,
     )
     log_disk_usage("depois do pip install")
 
-    from pyngrok import ngrok
-
     env = os.environ.copy()
     env.update(
         {
-            "ACESTEP_API_HOST": "0.0.0.0",
+            "ACESTEP_API_HOST": "127.0.0.1",
             "ACESTEP_API_PORT": str(_ACESTEP_PORT),
             "ACESTEP_API_KEY": api_key,
             "ACESTEP_CONFIG_PATH": _ACESTEP_MODEL_CONFIG,
@@ -493,45 +487,68 @@ def main():
         env=env,
     )
 
-    proxy_script_path = write_proxy_server_script(Path("/kaggle/working/proxy_server.py"))
-    logger.info(f"Subindo proxy_server.py (porta publica {_PROXY_PORT})...")
-    proxy_env = os.environ.copy()
-    proxy_env["ACESTEP_INTERNAL_URL"] = f"http://127.0.0.1:{_ACESTEP_PORT}"
-    proxy_env["ACE_STEP_API_KEY"] = api_key
-    proxy_env["PROXY_PORT"] = str(_PROXY_PORT)
-    proxy_process = subprocess.Popen(
-        [sys.executable, str(proxy_script_path)],
-        env=proxy_env,
-    )
+    api_base_url = f"http://127.0.0.1:{_ACESTEP_PORT}"
+    output_dir = Path("/kaggle/working/output")
+    output_dir.mkdir(parents=True, exist_ok=True)
 
-    ngrok.set_auth_token(ngrok_authtoken)
-    try:
-        tunnel = ngrok.connect(_PROXY_PORT, "http", domain=ngrok_domain)
-    except Exception:
-        logger.exception(
-            f"Falha ao abrir tunel ngrok no dominio {ngrok_domain} -- uma sessao "
-            "anterior do Kaggle pode ainda estar segurando esse dominio; pare "
-            "essa sessao antiga antes de reenviar o kernel"
+    if _JOB_B64 is None:
+        raise RuntimeError(
+            "_JOB_B64 nao foi definido -- este kernel precisa ser renderizado por "
+            "ace_step.kernel_render.render_job_kernel antes de ser enviado ao Kaggle"
         )
-        server_process.terminate()
-        proxy_process.terminate()
-        raise
-    logger.info(f"API publica em: {tunnel.public_url}")
-    print(f"API publica em: {tunnel.public_url}")
+    job = decode_job(_JOB_B64)
 
-    processes = {"acestep.api_server": server_process, "proxy_server": proxy_process}
-    while True:
-        dead_name = first_dead_process(processes)
-        if dead_name is not None:
-            return_code = processes[dead_name].poll()
-            logger.error(f"{dead_name} encerrou sozinho (codigo {return_code})")
-            # `or 1`: mesmo uma saida "limpa" (codigo 0) precisa ser reportada
-            # como falha do kernel -- este kernel so existe para rodar para
-            # sempre como servidor, entao qualquer saida de um dos dois
-            # processos e uma falha, e um exit code 0 faria o Kaggle mostrar
-            # "complete" como se tivesse dado certo.
-            raise SystemExit(return_code or 1)
-        time.sleep(60)
+    generation_status = "error"
+    generation_error = None
+    stems_status = "error"
+    stems_error = None
+
+    try:
+        logger.info("Esperando acestep.api_server ficar saudavel...")
+        wait_for_health(api_base_url, api_key, timeout=600.0, poll_interval=5.0)
+
+        logger.info("Gerando musica...")
+        raw_file_ref = wait_for_generation(
+            api_base_url, api_key, job, timeout=1200.0, poll_interval=5.0
+        )
+        source_path = parse_audio_path(raw_file_ref)
+        raw_dest = output_dir / "raw.wav"
+        shutil.copy(source_path, raw_dest)
+        generation_status = "done"
+        logger.info(f"Musica gerada e copiada para {raw_dest}.")
+
+        try:
+            demucs_out_dir = Path("/kaggle/working/demucs_out")
+            command = build_demucs_command(raw_dest, demucs_out_dir)
+            subprocess.run(command, check=True, capture_output=True, text=True)
+            stems = stems_from_output_dir(demucs_out_dir, "htdemucs_6s", raw_dest.stem)
+            stems_out_dir = output_dir / "stems"
+            stems_out_dir.mkdir(parents=True, exist_ok=True)
+            for name, stem_path in stems.items():
+                shutil.copy(stem_path, stems_out_dir / f"{name}.wav")
+            stems_status = "done"
+            logger.info("Separacao de stems concluida.")
+        except subprocess.CalledProcessError as exc:
+            stems_error = (exc.stderr or "").strip() or str(exc)
+            logger.error(f"Separacao de stems falhou: {stems_error}")
+        except Exception as exc:
+            stems_error = str(exc)
+            logger.error(f"Separacao de stems falhou: {stems_error}")
+    except Exception as exc:
+        generation_error = str(exc)
+        logger.error(f"Geracao falhou: {generation_error}")
+    finally:
+        write_result_json(
+            output_dir / "result.json",
+            generation_status=generation_status,
+            generation_error=generation_error,
+            stems_status=stems_status,
+            stems_error=stems_error,
+        )
+        shutil.rmtree(repo_dir, ignore_errors=True)
+        server_process.terminate()
+
+    sys.exit(0 if generation_status == "done" else 1)
 
 
 if __name__ == "__main__":
