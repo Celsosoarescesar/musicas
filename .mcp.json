@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "reaper-copilot": {
+      "command": "uv",
+      "args": ["run", "python", "mcp_server.py"]
+    }
+  }
+}
