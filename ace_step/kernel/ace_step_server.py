@@ -493,6 +493,7 @@ def main():
     stems_status = "error"
     stems_error = None
     server_process = None
+    demucs_out_dir = Path("/kaggle/working/demucs_out")
 
     try:
         logger.info(f"Subindo acestep.api_server (config={_ACESTEP_MODEL_CONFIG})...")
@@ -525,7 +526,6 @@ def main():
         logger.info(f"Musica gerada e copiada para {raw_dest}.")
 
         try:
-            demucs_out_dir = Path("/kaggle/working/demucs_out")
             command = build_demucs_command(raw_dest, demucs_out_dir)
             subprocess.run(command, check=True, capture_output=True, text=True)
             stems = stems_from_output_dir(demucs_out_dir, "htdemucs_6s", raw_dest.stem)
@@ -553,6 +553,7 @@ def main():
             stems_error=stems_error,
         )
         shutil.rmtree(repo_dir, ignore_errors=True)
+        shutil.rmtree(demucs_out_dir, ignore_errors=True)
         if server_process is not None:
             server_process.terminate()
 

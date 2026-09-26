@@ -99,10 +99,23 @@ def run_generation(
             _KERNEL_REF, timeout=timeout, poll_interval=poll_interval
         )
         if kernel_result["status"] != "complete":
-            detail = kernel_result.get("failure_message") or "sem detalhes"
+            detail = kernel_result.get("failure_message") or ""
+            kernel_detail = None
+            try:
+                kernels.pull_kernel_output(_KERNEL_REF, tmp_pulled_dir)
+                pulled_result = json.loads(
+                    (tmp_pulled_dir / "output" / "result.json").read_text(encoding="utf-8")
+                )
+                kernel_detail = pulled_result.get("generation_error") or pulled_result.get(
+                    "stems_error"
+                )
+            except Exception:
+                pass
+            if kernel_detail:
+                detail = f"{detail} -- {kernel_detail}" if detail else kernel_detail
             raise RuntimeError(
                 f"Kernel {_KERNEL_REF} terminou com status "
-                f"{kernel_result['status']!r}: {detail}"
+                f"{kernel_result['status']!r}: {detail or 'sem detalhes'}"
             )
         kernels.pull_kernel_output(_KERNEL_REF, tmp_pulled_dir)
 

@@ -208,7 +208,9 @@ def test_run_generation_gives_up_after_too_many_consecutive_status_poll_failures
     assert "instabilidade persistente" in detail
 
 
-def test_run_generation_records_error_when_kernel_status_is_error(monkeypatch, tmp_path):
+def test_run_generation_pulls_and_reports_generation_error_when_kernel_status_is_error(
+    monkeypatch, tmp_path
+):
     db_path = tmp_path / "songs.db"
     updates = []
     _stub_common(monkeypatch, updates, tmp_path=tmp_path)
@@ -218,10 +220,37 @@ def test_run_generation_records_error_when_kernel_status_is_error(monkeypatch, t
         lambda ref: {"status": "error", "failure_message": "kernel crashou"},
     )
 
-    def fail_if_called(ref, dest_dir):
-        raise AssertionError("pull_kernel_output should not be called when the kernel errored")
+    def fake_pull_kernel_output(ref, dest_dir):
+        _write_result_json(
+            Path(dest_dir), generation_status="error", generation_error="cuda out of memory"
+        )
+        return Path(dest_dir)
 
-    monkeypatch.setattr(orchestrator.kernels, "pull_kernel_output", fail_if_called)
+    monkeypatch.setattr(orchestrator.kernels, "pull_kernel_output", fake_pull_kernel_output)
+
+    status, detail = orchestrator.run_generation(db_path, tmp_path, 1, **_base_kwargs())
+
+    assert status == "error"
+    assert "kernel crashou" in detail
+    assert "cuda out of memory" in detail
+
+
+def test_run_generation_falls_back_to_failure_message_when_pull_after_error_fails(
+    monkeypatch, tmp_path
+):
+    db_path = tmp_path / "songs.db"
+    updates = []
+    _stub_common(monkeypatch, updates, tmp_path=tmp_path)
+    monkeypatch.setattr(
+        orchestrator.kernels,
+        "get_kernel_status",
+        lambda ref: {"status": "error", "failure_message": "kernel crashou"},
+    )
+
+    def fake_pull_kernel_output(ref, dest_dir):
+        raise KaggleResourceError("kernel foi encerrado antes de escrever qualquer output")
+
+    monkeypatch.setattr(orchestrator.kernels, "pull_kernel_output", fake_pull_kernel_output)
 
     status, detail = orchestrator.run_generation(db_path, tmp_path, 1, **_base_kwargs())
 
