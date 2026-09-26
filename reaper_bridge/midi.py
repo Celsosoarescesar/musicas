@@ -8,6 +8,7 @@ from music21 import scale as m21scale
 from music21 import stream as m21stream
 
 from .errors import ReaperBridgeError
+from .project import find_track
 
 SCALE_TYPES = {
     "major": m21scale.MajorScale,
@@ -79,3 +80,50 @@ def analyze_notes(midi_pitches: list[int]) -> str:
         f"Tonalidade mais provável: {detected_key.tonic.name} {detected_key.mode}. "
         f"Acorde formado pelas notas: {chord_obj.pitchedCommonName}."
     )
+
+
+def write_notes_to_track(
+    project,
+    track_name: str,
+    pitches: list[int],
+    start: float = 0.0,
+    note_length: float = 0.5,
+    velocity: int = 100,
+):
+    if not pitches:
+        raise ReaperBridgeError("nenhuma nota para escrever no piano roll")
+    track = find_track(project, track_name)
+    end = start + note_length * len(pitches)
+    try:
+        item = track.add_midi_item(start=start, end=end)
+        take = item.active_take
+        for index, pitch_value in enumerate(pitches):
+            note_start = start + index * note_length
+            take.add_note(
+                start=note_start,
+                end=note_start + note_length,
+                pitch=pitch_value,
+                velocity=velocity,
+                unit="seconds",
+            )
+    except Exception as exc:
+        raise ReaperBridgeError(
+            "não foi possível escrever as notas no piano roll: verifique se o REAPER está aberto"
+        ) from exc
+    return item
+
+
+def read_notes_from_track(project, track_name: str) -> list[int]:
+    track = find_track(project, track_name)
+    try:
+        pitches = []
+        for item in track.items:
+            take = item.active_take
+            if take is None or not take.is_midi:
+                continue
+            pitches.extend(note.pitch for note in take.notes)
+    except Exception as exc:
+        raise ReaperBridgeError(
+            "não foi possível ler as notas do piano roll: verifique se o REAPER está aberto"
+        ) from exc
+    return pitches
