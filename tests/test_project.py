@@ -6,6 +6,18 @@ from reaper_bridge.project import create_track, find_track, list_tracks, rename_
 from tests.fakes import FakeProject, FakeTrack
 
 
+def test_fake_item_delete_removes_itself_from_track():
+    from tests.fakes import FakeTrack
+
+    track = FakeTrack("piano")
+    item = track.add_midi_item(start=0.0, end=1.0)
+    assert track.items == [item]
+
+    item.delete()
+
+    assert track.items == []
+
+
 def test_list_tracks_returns_track_names():
     project = FakeProject([FakeTrack("bateria"), FakeTrack("baixo")])
     assert list_tracks(project) == ["bateria", "baixo"]

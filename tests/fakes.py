@@ -27,10 +27,15 @@ class FakeTake:
 
 
 class FakeItem:
-    def __init__(self, start=0.0, end=1.0):
+    def __init__(self, start=0.0, end=1.0, track=None):
         self.start = start
         self.end = end
         self.active_take = FakeTake()
+        self._track = track
+
+    def delete(self):
+        if self._track is not None and self in self._track.items:
+            self._track.items.remove(self)
 
 
 class FakeFXParam:
@@ -65,7 +70,7 @@ class FakeTrack:
         return fx
 
     def add_midi_item(self, start=0.0, end=1.0):
-        item = FakeItem(start=start, end=end)
+        item = FakeItem(start=start, end=end, track=self)
         self.items.append(item)
         return item
 
