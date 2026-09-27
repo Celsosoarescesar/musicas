@@ -26,3 +26,11 @@ def test_modulo_03_build_pitches_c_major_then_a_natural_minor():
         48, 50, 52, 53, 55, 57, 59, 60, 62, 64, 65, 67, 69, 71, 72,
         57, 59, 60, 62, 64, 65, 67, 69, 71, 72, 74, 76, 77, 79, 81,
     ]
+
+
+MODULO_04 = "curso_music21.modulos.04_intervalos.licao"
+
+
+def test_modulo_04_build_pitches_root_then_each_interval():
+    licao = importlib.import_module(MODULO_04)
+    assert licao.build_pitches() == [60, 60, 64, 67, 72]
