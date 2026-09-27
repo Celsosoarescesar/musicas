@@ -8,7 +8,7 @@ from music21 import scale as m21scale
 from music21 import stream as m21stream
 
 from .errors import ReaperBridgeError
-from .project import find_track
+from .project import find_track, get_or_create_track
 
 SCALE_TYPES = {
     "major": m21scale.MajorScale,
@@ -141,6 +141,40 @@ def write_events_to_track(
             "não foi possível escrever os eventos no piano roll: verifique se o REAPER está aberto"
         ) from exc
     return item
+
+
+def write_score_to_tracks(
+    project,
+    score: m21stream.Stream,
+    track_prefix: str = "",
+    seconds_per_quarter: float = 0.5,
+):
+    try:
+        parts = list(score.parts)
+    except AttributeError:
+        parts = []
+    if not parts:
+        parts = [score]
+
+    written_tracks = []
+    for index, part in enumerate(parts):
+        part_name = getattr(part, "partName", None) or f"parte {index + 1}"
+        track_name = f"{track_prefix}{part_name}"
+        events = []
+        for element in part.flatten().notes:
+            start = float(element.offset) * seconds_per_quarter
+            duration = float(element.duration.quarterLength) * seconds_per_quarter
+            for pitch_obj in element.pitches:
+                events.append((pitch_obj.midi, start, duration))
+        if not events:
+            continue
+        get_or_create_track(project, track_name)
+        write_events_to_track(project, track_name, events)
+        written_tracks.append(find_track(project, track_name))
+
+    if not written_tracks:
+        raise ReaperBridgeError("nenhuma nota encontrada na partitura para escrever")
+    return written_tracks
 
 
 def read_notes_from_track(project, track_name: str) -> list[int]:
