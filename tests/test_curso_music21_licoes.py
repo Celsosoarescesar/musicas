@@ -164,3 +164,49 @@ def test_modulo_12_build_events_periodo_antecedente_e_consequente():
         (67, 5.5, 1.0), (71, 5.5, 1.0), (74, 5.5, 1.0),
         (60, 6.5, 1.0), (64, 6.5, 1.0), (67, 6.5, 1.0),
     ]
+
+
+MODULO_13 = "curso_music21.modulos.13_musica_real_corpus_e_analise.licao"
+
+
+def test_modulo_13_build_excerto_satb_com_notas_do_coral_de_bach():
+    licao = importlib.import_module(MODULO_13)
+    excerto = licao.build_excerto()
+    dados = {
+        part.partName: [
+            (round(n.offset, 2), n.duration.quarterLength, n.pitch.midi)
+            for n in part.flatten().notes
+        ]
+        for part in excerto.parts
+    }
+    assert dados == {
+        "Soprano": [
+            (0.0, 1.0, 69), (1.0, 1.0, 71), (2.0, 1.0, 73), (3.0, 1.0, 76),
+            (4.0, 1.0, 73), (5.0, 1.0, 71), (6.0, 1.0, 69), (7.0, 1.0, 73),
+        ],
+        "Alto": [
+            (0.0, 1.0, 66), (1.0, 1.0, 64), (2.0, 1.0, 64), (3.0, 1.0, 64),
+            (4.0, 0.5, 64), (4.5, 0.5, 69), (5.0, 1.0, 68), (6.0, 1.0, 64),
+            (7.0, 1.0, 68),
+        ],
+        "Tenor": [
+            (0.0, 1.0, 61), (1.0, 1.0, 59), (2.0, 1.0, 57), (3.0, 1.0, 59),
+            (4.0, 0.5, 57), (4.5, 0.5, 64), (5.0, 0.5, 64), (5.5, 0.5, 62),
+            (6.0, 1.0, 61), (7.0, 1.0, 61),
+        ],
+        "Bass": [
+            (0.0, 1.0, 54), (1.0, 1.0, 56), (2.0, 1.0, 57), (3.0, 1.0, 56),
+            (4.0, 0.5, 57), (4.5, 0.5, 49), (5.0, 1.0, 52), (6.0, 1.0, 45),
+            (7.0, 1.0, 53),
+        ],
+    }
+
+
+def test_modulo_13_build_tonalidade_detectada_confirma_la_maior():
+    licao = importlib.import_module(MODULO_13)
+    assert licao.build_tonalidade_detectada() == "A major"
+
+
+def test_modulo_13_build_total_corais_bach_encontra_pelo_menos_cem():
+    licao = importlib.import_module(MODULO_13)
+    assert licao.build_total_corais_bach() >= 100
