@@ -2,7 +2,15 @@ import pytest
 from unittest.mock import patch
 
 from reaper_bridge.errors import ReaperBridgeError
-from reaper_bridge.project import create_track, find_track, list_tracks, rename_track, import_audio
+from reaper_bridge.project import (
+    clear_track_items,
+    create_track,
+    find_track,
+    get_or_create_track,
+    list_tracks,
+    rename_track,
+    import_audio,
+)
 from tests.fakes import FakeProject, FakeTrack
 
 
@@ -199,3 +207,47 @@ def test_import_audio_wraps_add_track_exception(tmp_path):
     project.add_track = failing_add_track
     with pytest.raises(ReaperBridgeError, match="não foi possível importar"):
         import_audio(project, str(file_path))
+
+
+def test_get_or_create_track_returns_existing_track():
+    drums = FakeTrack("bateria")
+    project = FakeProject([drums])
+    assert get_or_create_track(project, "bateria") is drums
+
+
+def test_get_or_create_track_creates_when_missing():
+    project = FakeProject([])
+    track = get_or_create_track(project, "baixo")
+    assert track.name == "baixo"
+    assert list_tracks(project) == ["baixo"]
+
+
+def test_get_or_create_track_raises_when_ambiguous():
+    project = FakeProject([FakeTrack("voz"), FakeTrack("voz")])
+    with pytest.raises(ReaperBridgeError, match="mais de uma"):
+        get_or_create_track(project, "voz")
+
+
+def test_clear_track_items_removes_all_items():
+    project = FakeProject([FakeTrack("piano")])
+    track = project.tracks[0]
+    track.add_midi_item(start=0.0, end=1.0)
+    track.add_midi_item(start=1.0, end=2.0)
+    assert len(track.items) == 2
+
+    clear_track_items(track)
+
+    assert track.items == []
+
+
+def test_clear_track_items_wraps_raw_exception():
+    project = FakeProject([FakeTrack("piano")])
+    track = project.tracks[0]
+
+    class FailingItem:
+        def delete(self):
+            raise RuntimeError("REAPER disconnected")
+
+    track.items.append(FailingItem())
+    with pytest.raises(ReaperBridgeError, match="não foi possível limpar"):
+        clear_track_items(track)

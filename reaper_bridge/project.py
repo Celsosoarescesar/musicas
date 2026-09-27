@@ -37,6 +37,33 @@ def find_track(project: "reapy.Project", name: str):
     return matches[0]
 
 
+def get_or_create_track(project: "reapy.Project", name: str):
+    try:
+        matches = [track for track in project.tracks if track.name == name]
+    except Exception as exc:
+        raise ReaperBridgeError(
+            "não foi possível buscar faixas: verifique se o REAPER está aberto"
+        ) from exc
+    if len(matches) > 1:
+        raise ReaperBridgeError(
+            f"existe mais de uma faixa chamada '{name}' ({len(matches)} faixas), "
+            "renomeie as faixas duplicadas antes de continuar"
+        )
+    if matches:
+        return matches[0]
+    return create_track(project, name)
+
+
+def clear_track_items(track) -> None:
+    try:
+        for item in list(track.items):
+            item.delete()
+    except Exception as exc:
+        raise ReaperBridgeError(
+            "não foi possível limpar os itens da faixa: verifique se o REAPER está aberto"
+        ) from exc
+
+
 def create_track(project: "reapy.Project", name: str):
     try:
         return project.add_track(index=project.n_tracks, name=name)
