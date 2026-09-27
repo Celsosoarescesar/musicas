@@ -34,3 +34,16 @@ MODULO_04 = "curso_music21.modulos.04_intervalos.licao"
 def test_modulo_04_build_pitches_root_then_each_interval():
     licao = importlib.import_module(MODULO_04)
     assert licao.build_pitches() == [60, 60, 64, 67, 72]
+
+
+MODULO_05 = "curso_music21.modulos.05_acordes_e_triades.licao"
+
+
+def test_modulo_05_build_events_four_triad_qualities_on_same_root():
+    licao = importlib.import_module(MODULO_05)
+    assert licao.build_events() == [
+        (60, 0.0, 1.0), (64, 0.0, 1.0), (67, 0.0, 1.0),
+        (60, 1.0, 1.0), (63, 1.0, 1.0), (67, 1.0, 1.0),
+        (60, 2.0, 1.0), (63, 2.0, 1.0), (66, 2.0, 1.0),
+        (60, 3.0, 1.0), (64, 3.0, 1.0), (68, 3.0, 1.0),
+    ]
