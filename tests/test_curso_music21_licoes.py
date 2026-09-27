@@ -148,3 +148,19 @@ def test_modulo_11_build_events_contraponto():
 def test_modulo_11_build_verificacao_confirma_contraponto_valido():
     licao = importlib.import_module(MODULO_11)
     assert licao.build_verificacao() is True
+
+
+MODULO_12 = "curso_music21.modulos.12_forma_musical.licao"
+
+
+def test_modulo_12_build_events_periodo_antecedente_e_consequente():
+    licao = importlib.import_module(MODULO_12)
+    assert licao.build_events() == [
+        (60, 0.0, 1.0), (64, 0.0, 1.0), (67, 0.0, 1.0),
+        (65, 1.0, 1.0), (69, 1.0, 1.0), (72, 1.0, 1.0),
+        (67, 2.0, 1.0), (71, 2.0, 1.0), (74, 2.0, 1.0),
+        (60, 3.5, 1.0), (64, 3.5, 1.0), (67, 3.5, 1.0),
+        (65, 4.5, 1.0), (69, 4.5, 1.0), (72, 4.5, 1.0),
+        (67, 5.5, 1.0), (71, 5.5, 1.0), (74, 5.5, 1.0),
+        (60, 6.5, 1.0), (64, 6.5, 1.0), (67, 6.5, 1.0),
+    ]
