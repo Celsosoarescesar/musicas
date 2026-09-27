@@ -16,7 +16,7 @@ TRACK_NAME = "Curso 14 - Harmonia Popular (Cifras e Acordes Estendidos)"
 
 def build_events() -> list[tuple[int, float, float]]:
     """A progressão ii-V-I (ii7-V7-IMaj7, a cadência mais comum do jazz)
-    seguido, após uma pausa, da mesma progressão com acordes estendidos
+    seguida, após uma pausa, da mesma progressão com acordes estendidos
     (ii9-V9-IM9) -- mesma harmonia, mais cor."""
     setimas = generate_progression("C", ["ii7", "V7", "IMaj7"])
     nonas = generate_progression("C", ["ii9", "V9", "IM9"])
