@@ -89,3 +89,16 @@ def test_modulo_08_build_events_esqueleto_depois_preenchida():
         (60, 2.5, 0.25), (62, 2.75, 0.25), (64, 3.0, 0.25), (65, 3.25, 0.25),
         (67, 3.5, 0.25), (69, 3.75, 0.25), (71, 4.0, 0.25), (72, 4.25, 0.25),
     ]
+
+
+MODULO_09 = "curso_music21.modulos.09_dominantes_secundarias_e_modulacao.licao"
+
+
+def test_modulo_09_build_events_i_v_de_v_v_i():
+    licao = importlib.import_module(MODULO_09)
+    assert licao.build_events() == [
+        (60, 0.0, 1.0), (64, 0.0, 1.0), (67, 0.0, 1.0),
+        (74, 1.0, 1.0), (78, 1.0, 1.0), (81, 1.0, 1.0),
+        (67, 2.0, 1.0), (71, 2.0, 1.0), (74, 2.0, 1.0),
+        (60, 3.0, 1.0), (64, 3.0, 1.0), (67, 3.0, 1.0),
+    ]
