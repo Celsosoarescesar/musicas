@@ -115,6 +115,34 @@ def write_notes_to_track(
     return item
 
 
+def write_events_to_track(
+    project,
+    track_name: str,
+    events: list[tuple[int, float, float]],
+    velocity: int = 100,
+):
+    if not events:
+        raise ReaperBridgeError("nenhum evento para escrever no piano roll")
+    track = find_track(project, track_name)
+    end = max(start + duration for _, start, duration in events)
+    try:
+        item = track.add_midi_item(start=0.0, end=end)
+        take = item.active_take
+        for pitch_value, start, duration in events:
+            take.add_note(
+                start=start,
+                end=start + duration,
+                pitch=pitch_value,
+                velocity=velocity,
+                unit="seconds",
+            )
+    except Exception as exc:
+        raise ReaperBridgeError(
+            "não foi possível escrever os eventos no piano roll: verifique se o REAPER está aberto"
+        ) from exc
+    return item
+
+
 def read_notes_from_track(project, track_name: str) -> list[int]:
     track = find_track(project, track_name)
     try:
