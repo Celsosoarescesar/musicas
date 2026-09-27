@@ -59,9 +59,16 @@ def _stub_common(monkeypatch, updates, *, tmp_path):
         orchestrator.kernel_render, "render_job_kernel", lambda job, dest_dir: Path(dest_dir)
     )
     monkeypatch.setattr(orchestrator.kernels, "push_kernel", lambda folder: "owner/kernel")
-    monkeypatch.setattr(
-        orchestrator.kernels, "get_kernel_status", lambda ref: {"status": "complete", "failure_message": ""}
-    )
+
+    status_calls = {"count": 0}
+
+    def default_get_kernel_status(ref):
+        status_calls["count"] += 1
+        if status_calls["count"] == 1:
+            return {"status": "running", "failure_message": ""}
+        return {"status": "complete", "failure_message": ""}
+
+    monkeypatch.setattr(orchestrator.kernels, "get_kernel_status", default_get_kernel_status)
 
     def fake_normalize_loudness(input_path, output_path, target_lufs):
         Path(output_path).write_bytes(Path(input_path).read_bytes())
@@ -81,7 +88,9 @@ def test_run_generation_happy_path_returns_done_and_updates_db(monkeypatch, tmp_
 
     monkeypatch.setattr(orchestrator.kernels, "pull_kernel_output", fake_pull_kernel_output)
 
-    status, detail = orchestrator.run_generation(db_path, tmp_path, 1, **_base_kwargs())
+    status, detail = orchestrator.run_generation(
+        db_path, tmp_path, 1, poll_interval=0.01, **_base_kwargs()
+    )
 
     assert status == "done"
     assert detail == str(tmp_path / "1_master.wav")
@@ -115,7 +124,7 @@ def test_run_generation_skips_lyrics_when_lyrics_given(monkeypatch, tmp_path):
     monkeypatch.setattr(orchestrator.kernels, "pull_kernel_output", fake_pull_kernel_output)
 
     status, _detail = orchestrator.run_generation(
-        db_path, tmp_path, 1, lyrics="[en]\n[Verse]\nready", **_base_kwargs()
+        db_path, tmp_path, 1, lyrics="[en]\n[Verse]\nready", poll_interval=0.01, **_base_kwargs()
     )
 
     assert status == "done"
@@ -166,9 +175,50 @@ def test_run_generation_tolerates_transient_status_poll_failures(monkeypatch, tm
         calls["count"] += 1
         if calls["count"] <= 2:
             raise KaggleResourceError("instabilidade transitoria")
+        if calls["count"] == 3:
+            return {"status": "running", "failure_message": ""}
         return {"status": "complete", "failure_message": ""}
 
     monkeypatch.setattr(orchestrator.kernels, "get_kernel_status", flaky_get_kernel_status)
+
+    def fake_pull_kernel_output(ref, dest_dir):
+        output_dir = _write_result_json(Path(dest_dir))
+        _write_raw_and_stems(output_dir)
+        return Path(dest_dir)
+
+    monkeypatch.setattr(orchestrator.kernels, "pull_kernel_output", fake_pull_kernel_output)
+
+    status, _detail = orchestrator.run_generation(
+        db_path, tmp_path, 1, timeout=5.0, poll_interval=0.01, **_base_kwargs()
+    )
+
+    assert status == "done"
+    assert calls["count"] >= 4
+
+
+def test_run_generation_ignores_a_complete_status_seen_before_the_kernel_actually_ran(
+    monkeypatch, tmp_path
+):
+    """The kernel slug is reused for every run and the Kaggle status API
+    carries no per-push version to check against -- a `complete` status on
+    the very first poll right after push could be a stale leftover from the
+    previous run, and must not be trusted until a non-terminal status
+    confirms this run actually started."""
+    db_path = tmp_path / "songs.db"
+    updates = []
+    _stub_common(monkeypatch, updates, tmp_path=tmp_path)
+
+    calls = {"count": 0}
+
+    def fake_get_kernel_status(ref):
+        calls["count"] += 1
+        if calls["count"] == 1:
+            return {"status": "complete", "failure_message": ""}  # stale, from a previous run
+        if calls["count"] == 2:
+            return {"status": "running", "failure_message": ""}  # this run actually started
+        return {"status": "complete", "failure_message": ""}  # the real completion
+
+    monkeypatch.setattr(orchestrator.kernels, "get_kernel_status", fake_get_kernel_status)
 
     def fake_pull_kernel_output(ref, dest_dir):
         output_dir = _write_result_json(Path(dest_dir))
@@ -269,7 +319,9 @@ def test_run_generation_records_error_when_result_json_missing(monkeypatch, tmp_
 
     monkeypatch.setattr(orchestrator.kernels, "pull_kernel_output", fake_pull_kernel_output)
 
-    status, detail = orchestrator.run_generation(db_path, tmp_path, 1, **_base_kwargs())
+    status, detail = orchestrator.run_generation(
+        db_path, tmp_path, 1, poll_interval=0.01, **_base_kwargs()
+    )
 
     assert status == "error"
     assert "result.json" in detail
@@ -288,7 +340,9 @@ def test_run_generation_records_error_when_result_json_is_malformed(monkeypatch,
 
     monkeypatch.setattr(orchestrator.kernels, "pull_kernel_output", fake_pull_kernel_output)
 
-    status, detail = orchestrator.run_generation(db_path, tmp_path, 1, **_base_kwargs())
+    status, detail = orchestrator.run_generation(
+        db_path, tmp_path, 1, poll_interval=0.01, **_base_kwargs()
+    )
 
     assert status == "error"
     assert "result.json" in detail
@@ -307,7 +361,9 @@ def test_run_generation_records_error_when_generation_status_not_done(monkeypatc
 
     monkeypatch.setattr(orchestrator.kernels, "pull_kernel_output", fake_pull_kernel_output)
 
-    status, detail = orchestrator.run_generation(db_path, tmp_path, 1, **_base_kwargs())
+    status, detail = orchestrator.run_generation(
+        db_path, tmp_path, 1, poll_interval=0.01, **_base_kwargs()
+    )
 
     assert status == "error"
     assert detail == "cuda out of memory"
@@ -324,7 +380,9 @@ def test_run_generation_records_error_when_raw_wav_missing_despite_done_status(m
 
     monkeypatch.setattr(orchestrator.kernels, "pull_kernel_output", fake_pull_kernel_output)
 
-    status, detail = orchestrator.run_generation(db_path, tmp_path, 1, **_base_kwargs())
+    status, detail = orchestrator.run_generation(
+        db_path, tmp_path, 1, poll_interval=0.01, **_base_kwargs()
+    )
 
     assert status == "error"
     assert "raw.wav" in detail
@@ -344,7 +402,9 @@ def test_run_generation_records_stems_error_without_failing_generation(monkeypat
 
     monkeypatch.setattr(orchestrator.kernels, "pull_kernel_output", fake_pull_kernel_output)
 
-    status, detail = orchestrator.run_generation(db_path, tmp_path, 1, **_base_kwargs())
+    status, detail = orchestrator.run_generation(
+        db_path, tmp_path, 1, poll_interval=0.01, **_base_kwargs()
+    )
 
     assert status == "done"
     assert {
@@ -364,7 +424,9 @@ def test_run_generation_records_stems_error_when_stem_file_copy_fails(monkeypatc
 
     monkeypatch.setattr(orchestrator.kernels, "pull_kernel_output", fake_pull_kernel_output)
 
-    status, detail = orchestrator.run_generation(db_path, tmp_path, 1, **_base_kwargs())
+    status, detail = orchestrator.run_generation(
+        db_path, tmp_path, 1, poll_interval=0.01, **_base_kwargs()
+    )
 
     assert status == "done"  # missing stems must never flip generation back to error
     error_update = next(u for u in updates if u.get("stems_status") == "error")

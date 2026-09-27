@@ -25,11 +25,23 @@ def _wait_for_kernel_terminal(ref: str, *, timeout: float, poll_interval: float)
     Tolerates up to _MAX_CONSECUTIVE_STATUS_POLL_FAILURES consecutive
     KaggleResourceErrors (transient API hiccups) before giving up -- a
     single failed poll shouldn't abort a kernel that's still running fine.
+
+    A "complete" status is not trusted until a non-terminal status has
+    confirmed this run actually started: the kernel slug is reused for
+    every run and Kaggle's kernel-status API takes no version/run
+    identifier, so a "complete" seen on the very first poll right after
+    push could be a stale leftover from the *previous* run rather than
+    this one -- trusting it would silently pull and master the wrong
+    song's audio. "error"/"cancel_acknowledged" don't carry that same
+    silent-wrong-data risk (worst case is a false failure), so they're
+    still trusted immediately.
+
     Raises TimeoutError if no terminal status is reached within `timeout`
     seconds, or re-raises KaggleResourceError if polling keeps failing.
     """
     deadline = time.monotonic() + timeout
     consecutive_failures = 0
+    seen_non_terminal = False
     while True:
         try:
             result = kernels.get_kernel_status(ref)
@@ -40,8 +52,12 @@ def _wait_for_kernel_terminal(ref: str, *, timeout: float, poll_interval: float)
             time.sleep(poll_interval)
             continue
         consecutive_failures = 0
-        if kernels.is_terminal_kernel_status(result["status"]):
-            return result
+        status = result["status"]
+        if kernels.is_terminal_kernel_status(status):
+            if status != "complete" or seen_non_terminal:
+                return result
+        else:
+            seen_non_terminal = True
         if time.monotonic() >= deadline:
             raise TimeoutError(
                 f"Timeout de {timeout}s esperando o kernel {ref} terminar -- ele "

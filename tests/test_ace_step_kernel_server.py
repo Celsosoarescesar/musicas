@@ -315,3 +315,43 @@ def test_wait_for_generation_raises_on_release_task_error_envelope(monkeypatch):
             "http://127.0.0.1:8189", "key", _TEST_JOB, timeout=5.0, poll_interval=0.01
         )
 
+
+def test_wait_for_generation_tolerates_transient_query_result_failures(monkeypatch):
+    calls = {"count": 0}
+
+    def fake_post_json(url, payload, headers, timeout):
+        if url.endswith("/release_task"):
+            return {"data": {"task_id": "abc"}, "error": None}
+        calls["count"] += 1
+        if calls["count"] <= 2:
+            raise ace_step_server.urllib.error.URLError("instabilidade transitoria")
+        return {
+            "data": [
+                {"status": 1, "result": json.dumps([{"file": "/v1/audio?path=%2Ftmp%2Fa.wav"}])}
+            ],
+            "error": None,
+        }
+
+    monkeypatch.setattr(ace_step_server, "_post_json", fake_post_json)
+
+    result = ace_step_server.wait_for_generation(
+        "http://127.0.0.1:8189", "key", _TEST_JOB, timeout=5.0, poll_interval=0.01
+    )
+
+    assert result == "/v1/audio?path=%2Ftmp%2Fa.wav"
+    assert calls["count"] >= 3
+
+
+def test_wait_for_generation_times_out_when_query_result_always_fails(monkeypatch):
+    def fake_post_json(url, payload, headers, timeout):
+        if url.endswith("/release_task"):
+            return {"data": {"task_id": "abc"}, "error": None}
+        raise ace_step_server.urllib.error.URLError("instabilidade persistente")
+
+    monkeypatch.setattr(ace_step_server, "_post_json", fake_post_json)
+
+    with pytest.raises(TimeoutError, match="instabilidade persistente"):
+        ace_step_server.wait_for_generation(
+            "http://127.0.0.1:8189", "key", _TEST_JOB, timeout=0.05, poll_interval=0.01
+        )
+

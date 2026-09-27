@@ -240,3 +240,27 @@ project has treated other now-unused columns.
   2700s default is an estimate from the one live run so far, which did
   not include stem separation time); may need adjusting after the first
   live batch run.
+- Whether `kernels_output` preserves the `/kaggle/working/output/`
+  subdirectory as-is (`orchestrator.py`'s `tmp_pulled_dir / "output" / ...`
+  paths assume it does) — flagged by final review as the most likely first
+  bug in Task 9; if it doesn't, locate `result.json` via a fallback
+  `rglob("result.json")` instead of hardcoding the `output/` prefix.
+- Where the acestep checkpoints actually land: the kernel's own comment
+  (`ace_step_server.py`, near `_ACESTEP_MODEL_CONFIG`) records that a
+  checkpoint download once filled `/kaggle/working`'s disk, which would
+  put ~10GB of model weights inside the same tree `kernels_output` pulls
+  from. Confirm in Task 9 whether that happened again; if so, point the
+  acestep checkpoint/HF cache dir outside `/kaggle/working` (e.g. `/tmp`)
+  so a crashed-kernel error-path pull (`orchestrator.py`'s best-effort pull
+  after a non-`complete` kernel status) can't drag down the weights.
+- The kernel-status race flagged by final review: the kernel slug is
+  reused for every run and Kaggle's status API takes no per-push version,
+  so in principle a `complete` status on the very first poll right after
+  push could be a stale read of the *previous* run. `orchestrator.py`'s
+  `_wait_for_kernel_terminal` now refuses to trust a `complete` status
+  until a non-terminal one has been observed first (mitigates the risk
+  without changing the job/`result.json` wire shapes) — this heuristic
+  itself is unverified against real Kaggle timing; watch for it
+  unexpectedly stalling in Task 9 if Kaggle ever reports `complete`
+  without a `queued`/`running` status in between for a genuinely fresh
+  run.

@@ -3,15 +3,18 @@
 Roda dentro de um Kaggle Kernel, nao localmente (sem GPU local). Ver
 docs/superpowers/specs/2026-09-19-ace-step-native-package-design.md para o
 desenho completo (por que este script clona e roda o pacote `acestep`
-nativo em vez de carregar o modelo direto via `diffusers`).
+nativo em vez de carregar o modelo direto via `diffusers`) e
+docs/superpowers/specs/2026-09-26-ace-step-batch-kernel-design.md para o
+desenho batch (por que nao ha mais servidor+tunel ngrok).
 
-Ao contrario dos outros kernels deste repo, este fica rodando
-indefinidamente como servidor (o servidor REST do pacote `acestep` +
-tunel ngrok num dominio fixo), ate o Kaggle encerrar a sessao.
+Este kernel roda uma unica musica por execucao: gera via `acestep.api_server`
+(subido so em 127.0.0.1, nunca exposto), separa em stems via Demucs, escreve
+tudo em /kaggle/working/output/ e termina -- sem servidor de longa duracao,
+sem ngrok.
 
 As funcoes abaixo (antes de main()) nao tem nenhum import de terceiros de
 proposito: elas sao a unica parte deste arquivo testavel localmente (sem
-GPU, sem o pacote `acestep`/pyngrok instalados). Tudo que precisa dessas
+GPU, sem o pacote `acestep`/demucs instalados). Tudo que precisa dessas
 bibliotecas pesadas fica dentro de main(), com os imports feitos la dentro
 (lazy) -- assim, importar este arquivo (via importlib, nos testes) nao
 executa o git clone/pip install nem exige essas libs localmente.
@@ -47,11 +50,9 @@ _ACESTEP_REPO_COMMIT = "ca1e85fe9430179831e6bc6be790c332190a3866"
 # accounts for.
 _ACESTEP_MODEL_CONFIG = "acestep-v15-turbo"
 _SECRETS_DATASET_REF = "celsosoarescesar/ace-step-api-secrets"
-# _PROXY_PORT is the port ngrok tunnels (unchanged value from before this
-# split -- the public URL/contract doesn't change). acestep.api_server
-# itself now runs on _ACESTEP_PORT, an internal-only port that proxy_server.py
-# (this folder) forwards the existing endpoints to. See
-# docs/superpowers/specs/2026-09-19-demucs-kernel-proxy-design.md.
+# acestep.api_server binds only to 127.0.0.1:_ACESTEP_PORT -- this kernel is
+# the only client, there's no public HTTP endpoint anywhere anymore. See
+# docs/superpowers/specs/2026-09-26-ace-step-batch-kernel-design.md.
 _ACESTEP_PORT = 8189
 # The native `acestep` package (github.com/ace-step/ACE-Step-1.5) replaces
 # the diffusers-based server this file used to run directly. Confirmed live
@@ -279,22 +280,33 @@ def wait_for_generation(
     task_id = task_envelope["data"]["task_id"]
 
     deadline = time.monotonic() + timeout
+    last_error = None
     while True:
-        query_envelope = _post_json(
-            f"{base_url}/query_result", {"task_id_list": [task_id]}, headers=headers, timeout=30.0
-        )
-        if query_envelope.get("error"):
-            raise RuntimeError(f"POST /query_result devolveu erro: {query_envelope['error']}")
-        query = query_envelope["data"]
-        if query:
-            entry = query[0]
-            status = entry["status"]
-            if status == 1:
-                return json.loads(entry["result"])[0]["file"]
-            if status == 2:
-                raise RuntimeError(f"Geracao falhou (task {task_id}): {entry.get('result')}")
+        try:
+            query_envelope = _post_json(
+                f"{base_url}/query_result",
+                {"task_id_list": [task_id]},
+                headers=headers,
+                timeout=30.0,
+            )
+        except (urllib.error.URLError, OSError, ValueError) as exc:
+            last_error = str(exc)
+        else:
+            if query_envelope.get("error"):
+                raise RuntimeError(f"POST /query_result devolveu erro: {query_envelope['error']}")
+            query = query_envelope["data"]
+            if query:
+                entry = query[0]
+                status = entry["status"]
+                if status == 1:
+                    return json.loads(entry["result"])[0]["file"]
+                if status == 2:
+                    raise RuntimeError(f"Geracao falhou (task {task_id}): {entry.get('result')}")
         if time.monotonic() >= deadline:
-            raise TimeoutError(f"Timeout de {timeout}s esperando a task {task_id} terminar")
+            raise TimeoutError(
+                f"Timeout de {timeout}s esperando a task {task_id} terminar -- "
+                f"ultimo erro: {last_error}"
+            )
         time.sleep(poll_interval)
 
 
@@ -524,6 +536,19 @@ def main():
         shutil.copy(source_path, raw_dest)
         generation_status = "done"
         logger.info(f"Musica gerada e copiada para {raw_dest}.")
+
+        # Encerra o acestep.api_server antes do Demucs: o modelo continua
+        # residente na GPU (em float32 em GPUs pre-Ampere -- ver o patch de
+        # dtype acima) ate o processo terminar, e Demucs rodando ao lado dele
+        # na mesma GPU arrisca CUDA out-of-memory num T4 de 16GB.
+        logger.info("Encerrando acestep.api_server antes de rodar Demucs (libera GPU)...")
+        server_process.terminate()
+        try:
+            server_process.wait(timeout=30.0)
+        except subprocess.TimeoutExpired:
+            server_process.kill()
+            server_process.wait(timeout=30.0)
+        server_process = None
 
         try:
             command = build_demucs_command(raw_dest, demucs_out_dir)
