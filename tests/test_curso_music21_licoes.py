@@ -102,3 +102,25 @@ def test_modulo_09_build_events_i_v_de_v_v_i():
         (67, 2.0, 1.0), (71, 2.0, 1.0), (74, 2.0, 1.0),
         (60, 3.0, 1.0), (64, 3.0, 1.0), (67, 3.0, 1.0),
     ]
+
+
+MODULO_10 = "curso_music21.modulos.10_conducao_de_vozes.licao"
+
+
+def test_modulo_10_build_events_superior_duas_frases_com_pausa():
+    licao = importlib.import_module(MODULO_10)
+    assert licao.build_events_superior() == [
+        (67, 0.0, 1.0), (69, 1.0, 1.0), (67, 2.5, 1.0), (65, 3.5, 1.0),
+    ]
+
+
+def test_modulo_10_build_events_inferior_duas_frases_com_pausa():
+    licao = importlib.import_module(MODULO_10)
+    assert licao.build_events_inferior() == [
+        (60, 0.0, 1.0), (62, 1.0, 1.0), (60, 2.5, 1.0), (62, 3.5, 1.0),
+    ]
+
+
+def test_modulo_10_build_deteccao_paralelas_confirma_problema_e_correcao():
+    licao = importlib.import_module(MODULO_10)
+    assert licao.build_deteccao_paralelas() == (True, False)
