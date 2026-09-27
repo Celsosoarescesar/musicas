@@ -7,7 +7,7 @@ embutido no music21 (offline, sem acesso à internet).
 ## Teoria
 
 Até aqui, todo o material foi gerado programaticamente. Este módulo usa
-o corpus embutido do music21 — centenas de partituras prontas, incluindo
+o corpus embutido do music21 — centenas de obras prontas, incluindo
 uma quantidade grande de corais a quatro vozes de Bach — para trabalhar
 com música real. As quatro vozes (Soprano, Alto, Tenor, Baixo) são
 exatamente o tipo de condução de vozes e contraponto estudado nos
@@ -19,8 +19,10 @@ Carrega o coral BWV 66.6 do corpus (`music21.corpus.parse`), recorta a
 primeira frase (dois compassos), escreve cada voz numa faixa separada do
 REAPER (`write_score_to_tracks`, agora corrigido para limpar a faixa
 antes de reescrever e evitar colisão de nomes entre vozes), detecta a
-tonalidade automaticamente e conta quantos corais de Bach existem no
-corpus.
+tonalidade da primeira frase automaticamente (confirmando que toniciza Lá
+maior — a relativa maior, antes de o coral inteiro resolver em Fá# menor)
+e conta quantas obras de Bach existem no corpus (nem todas são corais a 4
+vozes).
 
 ## O que esperar no piano roll
 

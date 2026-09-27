@@ -26,7 +26,9 @@ def build_excerto() -> m21stream.Score:
 
 def build_tonalidade_detectada() -> str:
     """Usa a análise automática de tonalidade do music21 sobre o trecho
-    -- confirma que é Lá maior sem precisar informar a tonalidade."""
+    -- confirma que a primeira frase toniciza Lá maior (a relativa maior),
+    sem precisar informar a tonalidade. O coral inteiro está em Fá# menor;
+    essa frase inicial "pisca" na relativa maior antes de resolver de volta."""
     excerto = build_excerto()
     tonalidade = excerto.analyze("key")
     return f"{tonalidade.tonic.name} {tonalidade.mode}"
@@ -57,11 +59,18 @@ def main() -> None:
         f"Confira as faixas '{TRACK_PREFIX}Soprano', '{TRACK_PREFIX}Alto', "
         f"'{TRACK_PREFIX}Tenor' e '{TRACK_PREFIX}Bass' no piano roll do REAPER."
     )
-    print(f"Tonalidade detectada automaticamente: {tonalidade}.")
+    print(f"Tonalidade da primeira frase (tonicização): {tonalidade}.")
+    tonalidade_completa = corpus.parse(CORAL).analyze("key")
     print(
-        f"Esse coral é um entre pelo menos {total_corais} corais de Bach "
-        "disponíveis no corpus do music21 -- experimente trocar CORAL por "
-        "outro (ex: 'bach/bwv1.6') para explorar mais."
+        f"O coral inteiro, porém, está em {tonalidade_completa.tonic.name} "
+        f"{tonalidade_completa.mode} -- essa frase toniciza a relativa "
+        "maior antes de resolver de volta."
+    )
+    print(
+        f"Esse coral é uma entre pelo menos {total_corais} obras de Bach "
+        "disponíveis no corpus do music21 (nem todas são corais a 4 vozes) "
+        "-- experimente trocar CORAL por outro (ex: 'bach/bwv1.6') para "
+        "explorar mais."
     )
 
 
