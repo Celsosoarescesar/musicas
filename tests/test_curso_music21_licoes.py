@@ -210,3 +210,18 @@ def test_modulo_13_build_tonalidade_detectada_confirma_la_maior():
 def test_modulo_13_build_total_corais_bach_encontra_pelo_menos_cem():
     licao = importlib.import_module(MODULO_13)
     assert licao.build_total_corais_bach() >= 100
+
+
+MODULO_14 = "curso_music21.modulos.14_harmonia_popular_cifras_e_acordes_estendidos.licao"
+
+
+def test_modulo_14_build_events_setimas_depois_nonas():
+    licao = importlib.import_module(MODULO_14)
+    assert licao.build_events() == [
+        (62, 0.0, 1.0), (65, 0.0, 1.0), (69, 0.0, 1.0), (72, 0.0, 1.0),
+        (67, 1.0, 1.0), (71, 1.0, 1.0), (74, 1.0, 1.0), (77, 1.0, 1.0),
+        (60, 2.0, 1.0), (64, 2.0, 1.0), (67, 2.0, 1.0), (71, 2.0, 1.0),
+        (62, 3.5, 1.0), (65, 3.5, 1.0), (69, 3.5, 1.0), (72, 3.5, 1.0), (76, 3.5, 1.0),
+        (67, 4.5, 1.0), (71, 4.5, 1.0), (74, 4.5, 1.0), (77, 4.5, 1.0), (81, 4.5, 1.0),
+        (60, 5.5, 1.0), (64, 5.5, 1.0), (67, 5.5, 1.0), (71, 5.5, 1.0), (74, 5.5, 1.0),
+    ]
