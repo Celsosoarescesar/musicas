@@ -59,3 +59,39 @@ def test_write_score_to_tracks_raises_for_empty_score():
     project = FakeProject([])
     with pytest.raises(ReaperBridgeError, match="nenhuma nota"):
         write_score_to_tracks(project, empty_score)
+
+
+def test_write_score_to_tracks_is_idempotent_on_rerun():
+    score = m21stream.Score()
+    part = m21stream.Part()
+    part.partName = "Melodia"
+    part.append(note.Note("C4", quarterLength=1.0))
+    part.append(note.Note("D4", quarterLength=1.0))
+    score.append(part)
+    project = FakeProject([])
+
+    write_score_to_tracks(project, score)
+    write_score_to_tracks(project, score)
+
+    track = project.tracks[0]
+    assert len(track.items) == 1
+    assert [n.pitch for n in track.items[0].active_take.notes] == [60, 62]
+
+
+def test_write_score_to_tracks_dedupes_repeated_part_names():
+    score = m21stream.Score()
+    part1 = m21stream.Part()
+    part1.partName = "Voz"
+    part1.append(note.Note("C4", quarterLength=1.0))
+    part2 = m21stream.Part()
+    part2.partName = "Voz"
+    part2.append(note.Note("G4", quarterLength=1.0))
+    score.append(part1)
+    score.append(part2)
+    project = FakeProject([])
+
+    write_score_to_tracks(project, score)
+
+    assert list_tracks(project) == ["Voz", "Voz (2)"]
+    assert [n.pitch for n in project.tracks[0].items[0].active_take.notes] == [60]
+    assert [n.pitch for n in project.tracks[1].items[0].active_take.notes] == [67]

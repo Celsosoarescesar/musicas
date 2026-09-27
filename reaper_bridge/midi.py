@@ -8,7 +8,7 @@ from music21 import scale as m21scale
 from music21 import stream as m21stream
 
 from .errors import ReaperBridgeError
-from .project import find_track, get_or_create_track
+from .project import clear_track_items, find_track, get_or_create_track
 
 SCALE_TYPES = {
     "major": m21scale.MajorScale,
@@ -157,9 +157,13 @@ def write_score_to_tracks(
         parts = [score]
 
     written_tracks = []
+    used_names: set[str] = set()
     for index, part in enumerate(parts):
         part_name = getattr(part, "partName", None) or f"parte {index + 1}"
         track_name = f"{track_prefix}{part_name}"
+        if track_name in used_names:
+            track_name = f"{track_name} ({index + 1})"
+        used_names.add(track_name)
         events = []
         for element in part.flatten().notes:
             start = float(element.offset) * seconds_per_quarter
@@ -168,7 +172,8 @@ def write_score_to_tracks(
                 events.append((pitch_obj.midi, start, duration))
         if not events:
             continue
-        get_or_create_track(project, track_name)
+        track = get_or_create_track(project, track_name)
+        clear_track_items(track)
         write_events_to_track(project, track_name, events)
         written_tracks.append(find_track(project, track_name))
 
