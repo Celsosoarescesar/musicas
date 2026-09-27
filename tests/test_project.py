@@ -228,6 +228,22 @@ def test_get_or_create_track_raises_when_ambiguous():
         get_or_create_track(project, "voz")
 
 
+def test_get_or_create_track_wraps_raw_exception():
+    project = FakeProject([FakeTrack("bateria")])
+    # Make tracks raise an exception when iterated
+    class FailingTracks:
+        def __iter__(self):
+            raise RuntimeError("REAPER disconnected")
+
+    original_tracks = project.tracks
+    try:
+        project.tracks = FailingTracks()
+        with pytest.raises(ReaperBridgeError, match="não foi possível buscar"):
+            get_or_create_track(project, "voz")
+    finally:
+        project.tracks = original_tracks
+
+
 def test_clear_track_items_removes_all_items():
     project = FakeProject([FakeTrack("piano")])
     track = project.tracks[0]
