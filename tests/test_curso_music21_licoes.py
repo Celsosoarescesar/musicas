@@ -225,3 +225,33 @@ def test_modulo_14_build_events_setimas_depois_nonas():
         (67, 4.5, 1.0), (71, 4.5, 1.0), (74, 4.5, 1.0), (77, 4.5, 1.0), (81, 4.5, 1.0),
         (60, 5.5, 1.0), (64, 5.5, 1.0), (67, 5.5, 1.0), (71, 5.5, 1.0), (74, 5.5, 1.0),
     ]
+
+
+MODULO_15 = "curso_music21.modulos.15_composicao_e_arranjo_multi_instrumental.licao"
+
+
+def test_modulo_15_build_events_voz_motivo_e_transformacoes():
+    licao = importlib.import_module(MODULO_15)
+    assert licao.build_events_voz() == [
+        (60, 0.0, 0.5), (62, 0.5, 0.5), (64, 1.0, 0.5), (60, 1.5, 0.5),
+        (65, 2.0, 0.5), (67, 2.5, 0.5), (69, 3.0, 0.5), (65, 3.5, 0.5),
+        (60, 4.0, 0.5), (59, 4.5, 0.5), (57, 5.0, 0.5), (60, 5.5, 0.5),
+        (60, 6.0, 0.5), (64, 6.5, 0.5), (62, 7.0, 0.5), (60, 7.5, 0.5),
+    ]
+
+
+def test_modulo_15_build_events_piano_acordes_em_bloco():
+    licao = importlib.import_module(MODULO_15)
+    assert licao.build_events_piano() == [
+        (60, 0.0, 2.0), (64, 0.0, 2.0), (67, 0.0, 2.0),
+        (65, 2.0, 2.0), (69, 2.0, 2.0), (72, 2.0, 2.0),
+        (67, 4.0, 2.0), (71, 4.0, 2.0), (74, 4.0, 2.0),
+        (60, 6.0, 2.0), (64, 6.0, 2.0), (67, 6.0, 2.0),
+    ]
+
+
+def test_modulo_15_build_events_baixo_fundamental_sustentada():
+    licao = importlib.import_module(MODULO_15)
+    assert licao.build_events_baixo() == [
+        (48, 0.0, 2.0), (53, 2.0, 2.0), (55, 4.0, 2.0), (48, 6.0, 2.0),
+    ]
