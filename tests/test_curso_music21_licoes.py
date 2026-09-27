@@ -77,3 +77,15 @@ def test_modulo_07_build_events_quatro_cadencias_com_pausas():
         (67, 7.5, 1.0), (71, 7.5, 1.0), (74, 7.5, 1.0),
         (69, 8.5, 1.0), (72, 8.5, 1.0), (76, 8.5, 1.0),
     ]
+
+
+MODULO_08 = "curso_music21.modulos.08_notas_de_adorno.licao"
+
+
+def test_modulo_08_build_events_esqueleto_depois_preenchida():
+    licao = importlib.import_module(MODULO_08)
+    assert licao.build_events() == [
+        (60, 0.0, 0.5), (64, 0.5, 0.5), (67, 1.0, 0.5), (72, 1.5, 0.5),
+        (60, 2.5, 0.25), (62, 2.75, 0.25), (64, 3.0, 0.25), (65, 3.25, 0.25),
+        (67, 3.5, 0.25), (69, 3.75, 0.25), (71, 4.0, 0.25), (72, 4.25, 0.25),
+    ]
