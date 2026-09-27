@@ -124,3 +124,27 @@ def test_modulo_10_build_events_inferior_duas_frases_com_pausa():
 def test_modulo_10_build_deteccao_paralelas_confirma_problema_e_correcao():
     licao = importlib.import_module(MODULO_10)
     assert licao.build_deteccao_paralelas() == (True, False)
+
+
+MODULO_11 = "curso_music21.modulos.11_contraponto.licao"
+
+
+def test_modulo_11_build_events_cantus_firmus():
+    licao = importlib.import_module(MODULO_11)
+    assert licao.build_events_cantus_firmus() == [
+        (60, 0.0, 1.0), (62, 1.0, 1.0), (64, 2.0, 1.0), (65, 3.0, 1.0),
+        (64, 4.0, 1.0), (62, 5.0, 1.0), (60, 6.0, 1.0),
+    ]
+
+
+def test_modulo_11_build_events_contraponto():
+    licao = importlib.import_module(MODULO_11)
+    assert licao.build_events_contraponto() == [
+        (72, 0.0, 1.0), (69, 1.0, 1.0), (67, 2.0, 1.0), (69, 3.0, 1.0),
+        (72, 4.0, 1.0), (69, 5.0, 1.0), (72, 6.0, 1.0),
+    ]
+
+
+def test_modulo_11_build_verificacao_confirma_contraponto_valido():
+    licao = importlib.import_module(MODULO_11)
+    assert licao.build_verificacao() is True
