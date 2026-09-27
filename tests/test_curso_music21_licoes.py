@@ -47,3 +47,16 @@ def test_modulo_05_build_events_four_triad_qualities_on_same_root():
         (60, 2.0, 1.0), (63, 2.0, 1.0), (66, 2.0, 1.0),
         (60, 3.0, 1.0), (64, 3.0, 1.0), (68, 3.0, 1.0),
     ]
+
+
+MODULO_06 = "curso_music21.modulos.06_harmonia_funcional_numerais_romanos.licao"
+
+
+def test_modulo_06_build_events_progressao_i_iv_v_i():
+    licao = importlib.import_module(MODULO_06)
+    assert licao.build_events() == [
+        (60, 0.0, 1.0), (64, 0.0, 1.0), (67, 0.0, 1.0),
+        (65, 1.0, 1.0), (69, 1.0, 1.0), (72, 1.0, 1.0),
+        (67, 2.0, 1.0), (71, 2.0, 1.0), (74, 2.0, 1.0),
+        (60, 3.0, 1.0), (64, 3.0, 1.0), (67, 3.0, 1.0),
+    ]
