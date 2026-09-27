@@ -140,8 +140,8 @@ def test_modulo_11_build_events_cantus_firmus():
 def test_modulo_11_build_events_contraponto():
     licao = importlib.import_module(MODULO_11)
     assert licao.build_events_contraponto() == [
-        (72, 0.0, 1.0), (69, 1.0, 1.0), (67, 2.0, 1.0), (69, 3.0, 1.0),
-        (72, 4.0, 1.0), (69, 5.0, 1.0), (72, 6.0, 1.0),
+        (72, 0.0, 1.0), (71, 1.0, 1.0), (67, 2.0, 1.0), (69, 3.0, 1.0),
+        (67, 4.0, 1.0), (71, 5.0, 1.0), (72, 6.0, 1.0),
     ]
 
 

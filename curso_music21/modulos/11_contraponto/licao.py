@@ -15,7 +15,7 @@ TRACK_NAME_CANTUS_FIRMUS = "Curso 11 - Contraponto (Cantus Firmus)"
 TRACK_NAME_CONTRAPONTO = "Curso 11 - Contraponto (Contraponto)"
 
 CANTUS_FIRMUS = [60, 62, 64, 65, 64, 62, 60]  # Do Re Mi Fa Mi Re Do
-CONTRAPONTO = [72, 69, 67, 69, 72, 69, 72]
+CONTRAPONTO = [72, 71, 67, 69, 67, 71, 72]
 CONSONANCIAS = {0, 3, 4, 7, 8, 9, 12}  # unissono, 3m, 3M, 5J, 6m, 6M, 8J
 
 
@@ -40,10 +40,10 @@ def build_events_contraponto() -> list[tuple[int, float, float]]:
 
 
 def build_verificacao() -> bool:
-    """Confirma que o contraponto segue as regras do primeiro espécie:
-    só consonâncias, sem quintas/oitavas/unissonos paralelos entre as
-    vozes, usando music21.voiceLeading.VoiceLeadingQuartet para checar
-    de verdade cada par de notas consecutivas."""
+    """Confirma que o contraponto segue as regras da primeira espécie:
+    só consonâncias, sem quintas/oitavas/unissonos paralelos e ocultos
+    entre as vozes, usando music21.voiceLeading.VoiceLeadingQuartet para
+    checar de verdade cada par de notas consecutivas."""
     for baixo, cima in zip(CANTUS_FIRMUS, CONTRAPONTO):
         if (cima - baixo) not in CONSONANCIAS:
             return False
@@ -54,7 +54,7 @@ def build_verificacao() -> bool:
             note.Note(midi=CANTUS_FIRMUS[index]),
             note.Note(midi=CANTUS_FIRMUS[index + 1]),
         )
-        if vlq.parallelFifth() or vlq.parallelOctave() or vlq.parallelUnison():
+        if vlq.parallelFifth() or vlq.parallelOctave() or vlq.parallelUnison() or vlq.hiddenFifth() or vlq.hiddenOctave():
             return False
     return True
 
