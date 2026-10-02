@@ -60,6 +60,17 @@ class FakeTrack:
         self.fxs = []
         self.items = []
         self.is_selected = False
+        self._info_values = {}
+
+    @property
+    def n_items(self):
+        return len(self.items)
+
+    def get_info_value(self, param_name):
+        return self._info_values.get(param_name, 0.0)
+
+    def set_info_value(self, param_name, value):
+        self._info_values[param_name] = value
 
     def make_only_selected_track(self):
         self.is_selected = True
