@@ -64,17 +64,28 @@ class FakeSend:
 
 
 class FakeTrack:
-    def __init__(self, name, volume=1.0, pan=0.0, is_muted=False, is_solo=False):
+    def __init__(
+        self,
+        name,
+        volume=1.0,
+        pan=0.0,
+        is_muted=False,
+        is_solo=False,
+        color=(0, 0, 0),
+        depth=0,
+    ):
         self.name = name
         self.volume = volume
         self.pan = pan
         self.is_muted = is_muted
         self.is_solo = is_solo
+        self.color = color
+        self.depth = depth
         self.fxs = []
         self.items = []
+        self.sends = []
         self.is_selected = False
         self._info_values = {}
-        self.sends = []
 
     @property
     def n_items(self):

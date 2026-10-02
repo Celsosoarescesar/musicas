@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from .errors import ReaperBridgeError
+from .project import find_track
 
 
 def find_armed_tracks(project) -> list[str]:
@@ -59,4 +60,25 @@ def find_multi_destination_sends(project) -> list[tuple[str, list[str]]]:
     except Exception as exc:
         raise ReaperBridgeError(
             "não foi possível verificar o roteamento das faixas: verifique se o REAPER está aberto"
+        ) from exc
+
+
+def summarize_track(project, track_name: str) -> dict:
+    track = find_track(project, track_name)
+    try:
+        return {
+            "name": track.name,
+            "color": track.color,
+            "depth": track.depth,
+            "is_muted": track.is_muted,
+            "is_armed": track.get_info_value("I_RECARM") == 1.0,
+            "fx": [{"name": fx.name, "enabled": fx.is_enabled} for fx in track.fxs],
+            "sends": [
+                {"dest": send.dest_track.name, "volume": send.volume}
+                for send in track.sends
+            ],
+        }
+    except Exception as exc:
+        raise ReaperBridgeError(
+            f"não foi possível resumir a faixa '{track_name}': verifique se o REAPER está aberto"
         ) from exc

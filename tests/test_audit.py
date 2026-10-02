@@ -6,6 +6,7 @@ from reaper_bridge.audit import (
     find_empty_tracks,
     find_muted_tracks,
     find_multi_destination_sends,
+    summarize_track,
 )
 from reaper_bridge.errors import ReaperBridgeError
 from tests.fakes import FakeFX, FakeProject, FakeTrack
@@ -98,3 +99,34 @@ def test_find_multi_destination_sends_does_not_flag_exactly_one_send():
 def test_find_multi_destination_sends_returns_empty_when_no_sends():
     project = FakeProject([FakeTrack("baixo")])
     assert find_multi_destination_sends(project) == []
+
+
+def test_summarize_track_returns_full_state():
+    track = FakeTrack("piano", is_muted=True, color=(255, 0, 0), depth=1)
+    track.set_info_value("I_RECARM", 1.0)
+    enabled_fx = FakeFX("ReaEQ (Cockos)")
+    bypassed_fx = FakeFX("ReaComp (Cockos)")
+    bypassed_fx.disable()
+    track.fxs.extend([enabled_fx, bypassed_fx])
+    dest = FakeTrack("bus_a")
+    track.add_send(dest, volume=0.8)
+    project = FakeProject([track, dest])
+
+    assert summarize_track(project, "piano") == {
+        "name": "piano",
+        "color": (255, 0, 0),
+        "depth": 1,
+        "is_muted": True,
+        "is_armed": True,
+        "fx": [
+            {"name": "ReaEQ (Cockos)", "enabled": True},
+            {"name": "ReaComp (Cockos)", "enabled": False},
+        ],
+        "sends": [{"dest": "bus_a", "volume": 0.8}],
+    }
+
+
+def test_summarize_track_raises_when_track_not_found():
+    project = FakeProject([FakeTrack("piano")])
+    with pytest.raises(ReaperBridgeError, match="não existe"):
+        summarize_track(project, "baixo")
