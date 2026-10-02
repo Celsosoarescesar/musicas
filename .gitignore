@@ -20,3 +20,6 @@ music_studio/
 
 # Musicas/stems gerados (audio, nao codigo)
 ace_step/output/
+
+# Workspace de execucao do subagent-driven-development (ledger, briefs, etc.)
+.superpowers/
