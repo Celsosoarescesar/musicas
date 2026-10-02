@@ -4,7 +4,7 @@ import threading
 
 from mcp.server import MCPServer
 
-from reaper_bridge import mastering, midi, mixing, stems
+from reaper_bridge import audit, mastering, midi, mixing, stems
 from reaper_bridge import project as project_ops
 from reaper_bridge.connection import get_project
 from reaper_bridge.errors import ReaperBridgeError
@@ -200,6 +200,81 @@ def reaper_analyze_track(track_name: str) -> str:
     def operation():
         pitches = midi.read_notes_from_track(get_project(), track_name)
         return midi.analyze_notes(pitches)
+    return _run(operation)
+
+
+@mcp.tool()
+def reaper_audit_session() -> str:
+    """Audita a sessão REAPER atual: faixas armadas, mutadas, vazias, FX
+    bypassed e faixas com sends para múltiplos destinos."""
+    def operation():
+        project = get_project()
+        lines = ["Auditoria da sessão:"]
+
+        armed = audit.find_armed_tracks(project)
+        if armed:
+            lines.append(f"  ⚠ {len(armed)} faixa(s) armada(s) para gravação: {', '.join(armed)}")
+        else:
+            lines.append("  ✓ nenhuma faixa armada para gravação")
+
+        muted = audit.find_muted_tracks(project)
+        if muted:
+            lines.append(f"  ⚠ {len(muted)} faixa(s) mutada(s): {', '.join(muted)}")
+        else:
+            lines.append("  ✓ nenhuma faixa mutada")
+
+        empty = audit.find_empty_tracks(project)
+        if empty:
+            lines.append(f"  ⚠ {len(empty)} faixa(s) vazia(s): {', '.join(empty)}")
+        else:
+            lines.append("  ✓ nenhuma faixa vazia")
+
+        bypassed = audit.find_bypassed_fx(project)
+        if bypassed:
+            pairs_text = ", ".join(f"{track} → {fx}" for track, fx in bypassed)
+            lines.append(f"  ⚠ {len(bypassed)} FX bypassed: {pairs_text}")
+        else:
+            lines.append("  ✓ nenhum FX bypassed")
+
+        multi_dest = audit.find_multi_destination_sends(project)
+        if multi_dest:
+            pairs_text = ", ".join(
+                f"{track} → {', '.join(dests)}" for track, dests in multi_dest
+            )
+            lines.append(f"  ⚠ {len(multi_dest)} faixa(s) com sends para múltiplos destinos: {pairs_text}")
+        else:
+            lines.append("  ✓ nenhuma faixa com sends para múltiplos destinos")
+
+        return "\n".join(lines)
+    return _run(operation)
+
+
+@mcp.tool()
+def reaper_track_summary(track_name: str) -> str:
+    """Resume o estado de uma faixa: FX chain, sends, cor, pasta, mute/arm."""
+    def operation():
+        summary = audit.summarize_track(get_project(), track_name)
+        lines = [f"Faixa '{summary['name']}':"]
+        lines.append(f"  Mutada: {'sim' if summary['is_muted'] else 'não'}")
+        lines.append(f"  Armada: {'sim' if summary['is_armed'] else 'não'}")
+        lines.append(f"  Cor: {summary['color']}")
+        lines.append(f"  Profundidade de pasta: {summary['depth']}")
+        if summary["fx"]:
+            fx_text = ", ".join(
+                f"{fx['name']} ({'ativo' if fx['enabled'] else 'bypassed'})"
+                for fx in summary["fx"]
+            )
+            lines.append(f"  FX: {fx_text}")
+        else:
+            lines.append("  FX: (nenhum)")
+        if summary["sends"]:
+            sends_text = ", ".join(
+                f"{send['dest']} ({send['volume']})" for send in summary["sends"]
+            )
+            lines.append(f"  Sends: {sends_text}")
+        else:
+            lines.append("  Sends: (nenhum)")
+        return "\n".join(lines)
     return _run(operation)
 
 

@@ -3,11 +3,13 @@ from unittest.mock import patch
 from mcp_server import (
     reaper_add_fx,
     reaper_apply_master,
+    reaper_audit_session,
     reaper_generate_scale,
     reaper_import_audio,
     reaper_list_tracks,
     reaper_set_volume,
     reaper_split_stems,
+    reaper_track_summary,
 )
 from reaper_bridge.errors import ReaperBridgeError
 
@@ -98,3 +100,72 @@ def test_reaper_apply_master_wraps_fx_name_read_failure():
         with patch("mcp_server.mastering.apply_master_chain", return_value=[BrokenFX()]):
             result = reaper_apply_master()
     assert result.startswith("Erro: master aplicado")
+
+
+def test_reaper_audit_session_reports_all_clean_when_nothing_found():
+    with patch("mcp_server.get_project", return_value=object()):
+        with patch("mcp_server.audit.find_armed_tracks", return_value=[]):
+            with patch("mcp_server.audit.find_muted_tracks", return_value=[]):
+                with patch("mcp_server.audit.find_empty_tracks", return_value=[]):
+                    with patch("mcp_server.audit.find_bypassed_fx", return_value=[]):
+                        with patch(
+                            "mcp_server.audit.find_multi_destination_sends", return_value=[]
+                        ):
+                            result = reaper_audit_session()
+    assert result.count("✓") == 5
+    assert "⚠" not in result
+
+
+def test_reaper_audit_session_reports_findings():
+    with patch("mcp_server.get_project", return_value=object()):
+        with patch("mcp_server.audit.find_armed_tracks", return_value=["voz"]):
+            with patch("mcp_server.audit.find_muted_tracks", return_value=["baixo"]):
+                with patch("mcp_server.audit.find_empty_tracks", return_value=[]):
+                    with patch(
+                        "mcp_server.audit.find_bypassed_fx",
+                        return_value=[("piano", "ReaComp (Cockos)")],
+                    ):
+                        with patch(
+                            "mcp_server.audit.find_multi_destination_sends", return_value=[]
+                        ):
+                            result = reaper_audit_session()
+    assert "voz" in result
+    assert "baixo" in result
+    assert "ReaComp (Cockos)" in result
+    # armed, muted, and bypassed-fx each contribute one ⚠; empty and
+    # multi-dest-sends are clean, contributing one ✓ each.
+    assert result.count("⚠") == 3
+    assert result.count("✓") == 2
+
+
+def test_reaper_audit_session_returns_error_message_on_bridge_error():
+    with patch("mcp_server.get_project", side_effect=ReaperBridgeError("REAPER fechado")):
+        assert reaper_audit_session() == "Erro: REAPER fechado"
+
+
+def test_reaper_track_summary_formats_fields():
+    summary = {
+        "name": "piano",
+        "color": (255, 0, 0),
+        "depth": 0,
+        "is_muted": True,
+        "is_armed": False,
+        "fx": [{"name": "ReaEQ (Cockos)", "enabled": True}],
+        "sends": [{"dest": "bus_a", "volume": 0.8}],
+    }
+    with patch("mcp_server.get_project", return_value=object()):
+        with patch("mcp_server.audit.summarize_track", return_value=summary):
+            result = reaper_track_summary("piano")
+    assert "piano" in result
+    assert "ReaEQ (Cockos)" in result
+    assert "bus_a" in result
+
+
+def test_reaper_track_summary_returns_error_message_on_bridge_error():
+    with patch("mcp_server.get_project", return_value=object()):
+        with patch(
+            "mcp_server.audit.summarize_track",
+            side_effect=ReaperBridgeError("faixa 'xyz' não existe, faixas disponíveis: piano"),
+        ):
+            result = reaper_track_summary("xyz")
+    assert result == "Erro: faixa 'xyz' não existe, faixas disponíveis: piano"

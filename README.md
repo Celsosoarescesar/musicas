@@ -55,6 +55,11 @@ verdade. Rode pelo Claude Code, num projeto REAPER vazio:
 - [ ] "Analisa o que eu toquei nessa faixa" (depois de tocar/gravar algo com um teclado
       MIDI conectado ao REAPER numa faixa MIDI) → devolve uma análise de
       tonalidade/acorde coerente com o que foi tocado.
+- [ ] "Audita a sessão" → lista faixas armadas/mutadas/vazias, FX bypassed
+      e sends para múltiplos destinos (ou confirma que não há nenhum,
+      faixa por faixa).
+- [ ] "Resume a faixa drums" → mostra mute/arm, FX chain, sends, cor e
+      profundidade de pasta dessa faixa.
 
 ## Limitações conhecidas
 
