@@ -73,6 +73,7 @@ class FakeTrack:
         is_solo=False,
         color=(0, 0, 0),
         depth=0,
+        n_receives=0,
     ):
         self.name = name
         self.volume = volume
@@ -81,6 +82,7 @@ class FakeTrack:
         self.is_solo = is_solo
         self.color = color
         self.depth = depth
+        self.n_receives = n_receives
         self.fxs = []
         self.items = []
         self.sends = []

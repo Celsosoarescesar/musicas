@@ -61,6 +61,19 @@ def test_find_empty_tracks_returns_empty_when_all_have_items():
     assert find_empty_tracks(project) == []
 
 
+def test_find_empty_tracks_excludes_folder_parent():
+    folder_parent = FakeTrack("bateria (pasta)")
+    folder_parent.set_info_value("I_FOLDERDEPTH", 1.0)
+    project = FakeProject([folder_parent])
+    assert find_empty_tracks(project) == []
+
+
+def test_find_empty_tracks_excludes_bus_with_incoming_send():
+    bus = FakeTrack("reverb_bus", n_receives=1)
+    project = FakeProject([bus])
+    assert find_empty_tracks(project) == []
+
+
 def test_find_bypassed_fx_returns_only_disabled_plugins():
     track = FakeTrack("piano")
     track.fxs.append(FakeFX("ReaEQ (Cockos)"))

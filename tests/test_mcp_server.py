@@ -161,6 +161,39 @@ def test_reaper_track_summary_formats_fields():
     assert "bus_a" in result
 
 
+def test_reaper_track_summary_shows_default_color_label_for_black():
+    summary = {
+        "name": "piano",
+        "color": (0, 0, 0),
+        "depth": 0,
+        "is_muted": False,
+        "is_armed": False,
+        "fx": [],
+        "sends": [],
+    }
+    with patch("mcp_server.get_project", return_value=object()):
+        with patch("mcp_server.audit.summarize_track", return_value=summary):
+            result = reaper_track_summary("piano")
+    assert "padrão do tema" in result
+    assert "(0, 0, 0)" not in result
+
+
+def test_reaper_track_summary_shows_custom_color_as_tuple():
+    summary = {
+        "name": "piano",
+        "color": (255, 0, 0),
+        "depth": 0,
+        "is_muted": False,
+        "is_armed": False,
+        "fx": [],
+        "sends": [],
+    }
+    with patch("mcp_server.get_project", return_value=object()):
+        with patch("mcp_server.audit.summarize_track", return_value=summary):
+            result = reaper_track_summary("piano")
+    assert "(255, 0, 0)" in result
+
+
 def test_reaper_track_summary_returns_error_message_on_bridge_error():
     with patch("mcp_server.get_project", return_value=object()):
         with patch(

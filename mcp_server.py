@@ -257,7 +257,8 @@ def reaper_track_summary(track_name: str) -> str:
         lines = [f"Faixa '{summary['name']}':"]
         lines.append(f"  Mutada: {'sim' if summary['is_muted'] else 'não'}")
         lines.append(f"  Armada: {'sim' if summary['is_armed'] else 'não'}")
-        lines.append(f"  Cor: {summary['color']}")
+        color_text = "padrão do tema" if summary["color"] == (0, 0, 0) else str(summary["color"])
+        lines.append(f"  Cor: {color_text}")
         lines.append(f"  Profundidade de pasta: {summary['depth']}")
         if summary["fx"]:
             fx_text = ", ".join(

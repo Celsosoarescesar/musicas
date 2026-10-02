@@ -107,7 +107,7 @@ Mais uma função, de resumo de uma faixa específica:
   {
       "name": str,
       "color": tuple[int, int, int],      # ex.: (0, 0, 0) = cor padrão do tema
-      "depth": int,                        # 0 = normal; 1 = abre pasta; -1 = fecha pasta
+      "depth": int,                        # nivel de nesting (0 = nivel superior, 1 = dentro de uma pasta, etc.) -- NAO e o mesmo que I_FOLDERDEPTH
       "is_muted": bool,
       "is_armed": bool,
       "fx": [{"name": str, "enabled": bool}, ...],
