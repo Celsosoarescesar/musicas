@@ -45,9 +45,22 @@ class FakeFXParam:
 
 
 class FakeFX:
-    def __init__(self, name, param_names=()):
+    def __init__(self, name, param_names=(), is_enabled=True):
         self.name = name
         self.params = [FakeFXParam(param_name) for param_name in param_names]
+        self.is_enabled = is_enabled
+
+    def disable(self):
+        self.is_enabled = False
+
+    def enable(self):
+        self.is_enabled = True
+
+
+class FakeSend:
+    def __init__(self, dest_track, volume=0.0):
+        self.dest_track = dest_track
+        self.volume = volume
 
 
 class FakeTrack:
@@ -61,10 +74,20 @@ class FakeTrack:
         self.items = []
         self.is_selected = False
         self._info_values = {}
+        self.sends = []
 
     @property
     def n_items(self):
         return len(self.items)
+
+    @property
+    def n_sends(self):
+        return len(self.sends)
+
+    def add_send(self, dest_track, volume=0.0):
+        send = FakeSend(dest_track, volume=volume)
+        self.sends.append(send)
+        return send
 
     def get_info_value(self, param_name):
         return self._info_values.get(param_name, 0.0)

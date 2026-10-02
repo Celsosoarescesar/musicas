@@ -1,8 +1,14 @@
 import pytest
 
-from reaper_bridge.audit import find_armed_tracks, find_empty_tracks, find_muted_tracks
+from reaper_bridge.audit import (
+    find_armed_tracks,
+    find_bypassed_fx,
+    find_empty_tracks,
+    find_muted_tracks,
+    find_multi_destination_sends,
+)
 from reaper_bridge.errors import ReaperBridgeError
-from tests.fakes import FakeProject, FakeTrack
+from tests.fakes import FakeFX, FakeProject, FakeTrack
 
 
 def test_find_armed_tracks_returns_only_armed():
@@ -52,3 +58,43 @@ def test_find_empty_tracks_returns_empty_when_all_have_items():
     track.add_midi_item()
     project = FakeProject([track])
     assert find_empty_tracks(project) == []
+
+
+def test_find_bypassed_fx_returns_only_disabled_plugins():
+    track = FakeTrack("piano")
+    track.fxs.append(FakeFX("ReaEQ (Cockos)"))
+    bypassed = FakeFX("ReaComp (Cockos)")
+    bypassed.disable()
+    track.fxs.append(bypassed)
+    project = FakeProject([track])
+    assert find_bypassed_fx(project) == [("piano", "ReaComp (Cockos)")]
+
+
+def test_find_bypassed_fx_returns_empty_when_none_bypassed():
+    track = FakeTrack("piano")
+    track.fxs.append(FakeFX("ReaEQ (Cockos)"))
+    project = FakeProject([track])
+    assert find_bypassed_fx(project) == []
+
+
+def test_find_multi_destination_sends_flags_more_than_one_send():
+    source = FakeTrack("baixo")
+    dest_a = FakeTrack("bus_a")
+    dest_b = FakeTrack("bus_b")
+    source.add_send(dest_a)
+    source.add_send(dest_b)
+    project = FakeProject([source, dest_a, dest_b])
+    assert find_multi_destination_sends(project) == [("baixo", ["bus_a", "bus_b"])]
+
+
+def test_find_multi_destination_sends_does_not_flag_exactly_one_send():
+    source = FakeTrack("baixo")
+    dest = FakeTrack("bus_a")
+    source.add_send(dest)
+    project = FakeProject([source, dest])
+    assert find_multi_destination_sends(project) == []
+
+
+def test_find_multi_destination_sends_returns_empty_when_no_sends():
+    project = FakeProject([FakeTrack("baixo")])
+    assert find_multi_destination_sends(project) == []
