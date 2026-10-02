@@ -255,3 +255,33 @@ def test_modulo_15_build_events_baixo_fundamental_sustentada():
     assert licao.build_events_baixo() == [
         (48, 0.0, 2.0), (53, 2.0, 2.0), (55, 4.0, 2.0), (48, 6.0, 2.0),
     ]
+
+
+def test_modulo_15_build_events_bateria_kick_alinhado_com_baixo():
+    licao = importlib.import_module(MODULO_15)
+    assert licao.build_events_bateria() == [
+        (36, 0.0, 0.5), (42, 0.5, 0.5), (38, 1.0, 0.5), (42, 1.5, 0.5),
+        (36, 2.0, 0.5), (42, 2.5, 0.5), (38, 3.0, 0.5), (42, 3.5, 0.5),
+        (36, 4.0, 0.5), (42, 4.5, 0.5), (38, 5.0, 0.5), (42, 5.5, 0.5),
+        (36, 6.0, 0.5), (42, 6.5, 0.5), (38, 7.0, 0.5), (42, 7.5, 0.5),
+    ]
+
+
+def test_modulo_15_build_events_guitarra_arpejo():
+    licao = importlib.import_module(MODULO_15)
+    assert licao.build_events_guitarra() == [
+        (60, 0.0, 0.5), (64, 0.5, 0.5), (67, 1.0, 0.5), (64, 1.5, 0.5),
+        (65, 2.0, 0.5), (69, 2.5, 0.5), (72, 3.0, 0.5), (69, 3.5, 0.5),
+        (67, 4.0, 0.5), (71, 4.5, 0.5), (74, 5.0, 0.5), (71, 5.5, 0.5),
+        (60, 6.0, 0.5), (64, 6.5, 0.5), (67, 7.0, 0.5), (64, 7.5, 0.5),
+    ]
+
+
+def test_modulo_15_build_events_cordas_pad():
+    licao = importlib.import_module(MODULO_15)
+    assert licao.build_events_cordas() == [
+        (64, 0.0, 2.0), (67, 0.0, 2.0),
+        (69, 2.0, 2.0), (72, 2.0, 2.0),
+        (71, 4.0, 2.0), (74, 4.0, 2.0),
+        (64, 6.0, 2.0), (67, 6.0, 2.0),
+    ]
