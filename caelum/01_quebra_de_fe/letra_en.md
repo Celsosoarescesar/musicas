@@ -1,36 +1,47 @@
 [en]
-[Verse]
-I carried your word to every door
-I shut my eyes to every tear I saw
-Every coin that I took from the poor
-Smelled like the altar where I learned to believe
+[Intro - ambient]
 
-[Chorus]
-Tell me who I'm supposed to trust
-If the light I fought for left me in the dust
-I was your voice, I took your place
-Now there's only ashes where I used to have a face
+[Verse 1 - low]
+The highway has no end
+And I don't know where I'm going
+The seat beside me empty
+Nobody waiting there
 
-[Verse]
-I prayed on my knees for all the sick
-I begged for an answer, silence was all I got
-I see the man behind the pulpit
-And the hand that blessed me was the one that sold me
+[Pre-Chorus]
+The radio plays an old song
+And it reminds me who I was
 
-[Chorus]
-Tell me who I'm supposed to trust
-If the light I fought for left me in the dust
-I was your voice, I took your place
-Now there's only ashes where I used to have a face
+[Chorus - melodic]
+I'm on a highway with no end
+Nobody waiting for me
+The headlights only show what I lost
+And the night won't ever end
 
-[Bridge]
-Liar! It was all a lie!
-You sell the faith and you live off the pain!
-I'll break your altar! I'll burn your name!
-Never call me son again!
+[Verse 2 - low]
+Mile markers going by
+Gas station neon in the dark
+I'm just another headlight
+Fading around the bend
 
-[Chorus]
-Tell me who I'm supposed to trust
-If the light I fought for left me in the dust
-I was your voice, I took your place
-Now I'm the fire that won't fade away
+[Pre-Chorus]
+The radio plays an old song
+And it reminds me who I was
+
+[Chorus - melodic]
+I'm on a highway with no end
+Nobody waiting for me
+The headlights only show what I lost
+And the night won't ever end
+
+[Bridge - shouted]
+WHERE AM I GOING?
+I DON'T KNOW!
+BUT I WILL KNOW WHEN I GET THERE!
+
+[Chorus - melodic]
+I'm on a highway with no end
+Nobody waiting for me
+The headlights only show what I lost
+And the morning starts to break
+
+[Outro]

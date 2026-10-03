@@ -1,64 +1,64 @@
-# Quebra de fé -- folha de pronuncia
+# Sozinho -- folha de pronuncia
 
 Legenda: pronuncia escrita em portugues; **negrito** = silaba tonica; (!) = palavra dificil.
 Aproximacao para guiar a voz, nao pronuncia exata: o guia de audio e o vocal da IA (guia_ia).
 
-## Verso 1
+## Verso 1 (baixo)
 
 | Linha em ingles | Pronuncia (PT-BR) | Observacoes |
 |---|---|---|
-| I carried your word to every door | ai **kér**-rid (!) iór uêrd (!) tu **év**-ri dór | "carried": r inglês, sem rolar, "-ed" = d fraco; "word": uêrd, r pós-vogal (língua recolhida); "every": 2 sílabas (év-ri); "door": dór |
-| I shut my eyes to every tear I saw | ai chât mai aiz tu **év**-ri tír (!) ai só | "shut": vogal curta "â"; "tear" (lágrima): tír, não "tér" (que é rasgar); "saw": só, vogal longa |
-| Every coin that I took from the poor | **év**-ri kóin dét ai túk frâm dâ púr (!) | "coin": kóin; "took": túk, "u" curto; "from": frâm; "the": th sonoro (dâ); "poor": púr |
-| Smelled like the altar where I learned to believe | smélld laik dâ **ól**-ter uér ai lârnd (!) tu bi-**lív** | "smelled/learned": -ed vira "d" (lârnd); "altar": ól-ter, o "a" é "ó" |
+| The highway has no end | dâ **rrái**-uêi rrés nôu **énd** (!) | "the": th sonoro (dâ); "highway": rrái-uêi, h aspirado, tônica no início; "has": rrés; "end": énd, termina em "nd" |
+| And I don't know where I'm going | end ai **dôunt** nôu uér aim **gôu**-in | "don't": o "t" quase mudo; "where": uér; "going": gôu-in, "ng" nasal sem "g" forte |
+| The seat beside me empty | dâ **sit** bi-**sáid** mi **émp**-ti (!) | "seat": sit, "ea" longo; "beside": bi-sáid; "empty": émp-ti, o "p" aparece |
+| Nobody waiting there | **nôu**-bó-di **uêi**-tin dér (!) | "nobody": nôu-bó-di; "waiting": uêi-tin; "there": dér, th sonoro, r recolhido |
 
-## Refrao (limpo)
-
-| Linha em ingles | Pronuncia (PT-BR) | Observacoes |
-|---|---|---|
-| Tell me who I'm supposed to trust | tél mi rru (!) aim sâ-**pôuzd** (!) tu trâst | "who": h aspirado leve (rru); "supposed": -ed = d; "trust": tr com língua recuada |
-| If the light I fought for left me in the dust | if dâ láit ai fót (!) fór léft mi in dâ dâst | "fought": vogal "ó" longa, o "gh" é mudo; "left": cuidado com o "ft" final |
-| I was your voice, I took your place | ai uóz iór vóis, ai túk iór pléis | "voice": vóis, v com os dentes no lábio; "took": túk; "place": pléis |
-| Now there's only ashes where I used to have a face | náu dérz **ôun**-li **é**-chiz uér ai **iust**-tu rrév (!) a feis | "used to" colado: iúss-tu; "have": h aspirado; "ashes": é-chiz |
-
-## Verso 2
+## Pre-refrao
 
 | Linha em ingles | Pronuncia (PT-BR) | Observacoes |
 |---|---|---|
-| I prayed on my knees for all the sick | ai préid on mai nis (!) fór ól dâ sík | "prayed": préid; "knees": o k é mudo, começa com "n"; "sick": sík, "í" curto |
-| I begged for an answer, silence was all I got | ai bégd (!) fór en **én**-sêr (!), **sái**-lens uóz ól ai gót | "begged": -ed = d; "answer": o "w" é mudo (én-sêr); "silence": sái-lens |
-| I see the man behind the pulpit | ai si dâ mén bi-**ráind** dâ **púl**-pit (!) | "behind": h leve; "pulpit": púl-pit, "u" curto como em "put" (não "pâl") |
-| And the hand that blessed me was the one that sold me | end dâ rrénd dét **blést** (!) mi uóz dâ uân dét **sôuld** (!) mi | "hand": h aspirado e "é" aberto; "blessed" (verbo): blést, -ed = t; "one": uân; "sold": sôuld, o "d" final leve |
+| The radio plays an old song | dâ **rêi**-di-ôu pléiz en **ôuld** sóng (!) | "radio": rêi-di-ôu, tônica no início; "plays": pléiz, termina em "z"; "old": ôuld, "d" final leve; "song": sóng, "ng" nasal |
+| And it reminds me who I was | end it ri-**máindz** (!) mi rru ai uóz | "reminds": ri-máindz, termina em "ndz"; "who": h aspirado leve (rru); "was": uóz |
+
+## Refrao (melodico)
+
+| Linha em ingles | Pronuncia (PT-BR) | Observacoes |
+|---|---|---|
+| I'm on a highway with no end | aim on a **rrái**-uêi uíth nôu énd | "with": uíth, th sonoro (ou uíd) |
+| Nobody waiting for me | **nôu**-bó-di **uêi**-tin fór mi | igual ao verso 1 |
+| The headlights only show what I lost | dâ **réd**-láits **ôun**-li chôu uót ai **lóst** (!) | "headlights": réd-láits, termina em "ts"; "only": ôun-li; "show": chôu; "lost": lóst, "st" final |
+| And the night won't ever end | end dâ náit **uôunt** **é**-ver énd | "night": náit; "won't": uôunt, o "t" quase mudo; "ever": é-ver, r final recolhido |
+| And the morning starts to break | end dâ **mór**-nin stárts tu **bréik** (!) | "morning": mór-nin, r recolhido; "starts": stárts, termina em "rts"; "break": bréik, éi longo |
+
+## Verso 2 (baixo)
+
+| Linha em ingles | Pronuncia (PT-BR) | Observacoes |
+|---|---|---|
+| Mile markers going by | **máil** **már**-kers **gôu**-in **bái** | "mile": máil; "markers": már-kers, r recolhido |
+| Gas station neon in the dark | **gés** **stêi**-chen **ní**-on in dâ **dárk** (!) | "gas": gés, "a" aberto; "station": stêi-chen; "neon": ní-on; "dark": dárk, r recolhido |
+| I'm just another headlight | aim djâst a-**nâ**-dher **réd**-láit (!) | "another": a-nâ-dher, th sonoro, "o" soa "â"; "headlight": réd-láit |
+| Fading around the bend | **fêi**-din a-**ráund** dâ **bénd** | "fading": fêi-din; "around": a-ráund; "bend": bénd |
 
 ## Ponte (gritada)
 
 | Linha em ingles | Pronuncia (PT-BR) | Observacoes |
 |---|---|---|
-| Liar! It was all a lie! | **lái**-êr! it uóz ól a lái! | grito aberto em "lái"; a vogal longa sustenta o grito |
-| You sell the faith and you live off the pain! | iu sél dâ **féiθ** (!) end iu lív óf dâ péin | "faith": féiθ, th surdo (língua entre os dentes, sopro sem vibrar; se travar, "féis"); "live" (verbo): lív, "í" curto; "pain": péin |
-| I'll break your altar! I'll burn your name! | ail bréik iór **ól**-ter! ail bârn (!) iór neim! | "burn": r pós-vogal, "bârn" sem rolar; "break": éi longo, bom para gritar |
-| Never call me son again! | **né**-vêr kól mi sân a-**guén** (!) | "son": "sân", igual a "sun"; "again": a-guén (ou a-guéin) |
-
-## Refrao final
-
-| Linha em ingles | Pronuncia (PT-BR) | Observacoes |
-|---|---|---|
-| (3 primeiras linhas: iguais ao refrão) | -- | -- |
-| Now I'm the fire that won't fade away | náu aim dâ **fái**-er (!) dét uôunt feid a-**uéi** | "fire": fái-er, quase 1 sílaba e meia; "won't": uôunt, o "t" é quase mudo |
+| WHERE AM I GOING? | **uér** ém ai **gôu**-in? | grito aberto em "uér" e em "gôu" |
+| I DON'T KNOW! | ai **dôunt** **nôu**! | grito curto e seco |
+| BUT I WILL KNOW WHEN I GET THERE! | bât ai uíl **nôu** uén ai **guét** **dér**! (!) | "when": uén; "get": guét; "there": dér, th sonoro e r recolhido |
 
 ## Palavras dificeis (th, -ed final, r, h, vogais curtas/longas)
 
-- **th sonoro em "the", "there", "that":** língua entre os dentes, vibrando. Se sair "d", ainda funciona na música (use "dâ"). **th surdo em "faith":** sopro sem vibrar.
-- **-ed final:** vira "t" depois de som surdo (blessed = blést) e "d" depois de som sonoro (smelled = smélld, learned = lârnd, begged = bégd, prayed = préid).
-- **r inglês:** língua recuada, sem vibrar. Em "carried", "word", "door", "altar", "learned", "burn", "answer" é onde o português tropeça.
-- **h aspirado:** "who", "hand", "have", "behind": sopro suave, como o "rr" de "carro" em PT-BR.
-- **Vogais curtas vs longas:** "shut/chât" (curta), "took/túk" (curta), "pulpit/púl-pit" (curta), "saw/só" (longa), "hand/rrénd" (aberta).
-- **Letras mudas:** "knees" (k mudo), "answer" (w mudo), "fought" (gh mudo).
+- **th sonoro em "the", "there", "with", "another":** língua entre os dentes, vibrando. Se sair "d", ainda funciona na música (use "dâ", "dér").
+- **r inglês:** língua recuada, sem vibrar. Em "there", "where", "markers", "dark", "ever", "morning" é onde o português tropeça.
+- **h aspirado:** "highway", "who", "headlights": sopro suave, como o "rr" de "carro" em PT-BR.
+- **Grupos de consoantes:** "end" (nd), "reminds" (ndz), "headlights" (ts), "starts" (rts), "lost" (st), "bend" (nd): não coloque vogal entre as consoantes.
+- **Vogais curtas vs longas:** "seat/sit" (longa), "night/náit", "break/bréik" (éi longo), "just/djâst" (curta).
+- **Letras mudas:** o "e" final de "mile", "break", "plays" (termina em "z").
 
 ## Palavras para considerar trocar
 
-- **"supposed to" (refrão, linha 1):** a combinação "-posed to" ("pôuzd tu") é difícil de cantar rápido, e o refrão é a parte mais importante. Alternativa: "Tell me who I'm meant to trust". Só troque se travar nos takes.
-- **"ashes where I used to have a face" (refrão, linha 4):** "used to have" encadeia 3 sons seguidos de sibilante/vogal curta. Se travar, uma alternativa é "Now there's only ashes where my face used to be".
-- **"pulpit" (verso 2):** o "u" curto costuma sair "â" ou "u" longo. Se travar, "I see the man behind the stage".
+- **"highway" (verso 1 e refrão):** o "h" aspirado e o "ai-uêi" costumam sair "ái-uei" com "h" fraco. Alternativa: "road" ("rôud"), que é mais simples. Só troque se travar.
+- **"reminds" (pré-refrão):** o "ndz" final é difícil de sustentar. Alternativa: "And it brings me back to who I was". Só se travar.
+- **"empty" (verso 1):** o "mp-ti" no meio. Alternativa: "The seat beside me bare". Só se travar.
 
 Todas as demais palavras são comuns e devem sair bem com a pronúncia acima.
