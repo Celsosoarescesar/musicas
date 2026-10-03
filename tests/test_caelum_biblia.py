@@ -74,3 +74,14 @@ def test_unwritten_tracks_keep_the_template_files():
     for slug in UNWRITTEN:
         for name in ("letra_en.md", "pronuncia.md"):
             assert (CAELUM_ROOT / slug / name).is_file(), f"{slug}/{name} ausente"
+
+
+def test_biblia_document_covers_every_track_and_the_two_axes():
+    text = (CAELUM_ROOT / "BIBLIA.md").read_text(encoding="utf-8-sig")
+    for slug, bpm, keyscale in BIBLIA:
+        assert slug in text, f"{slug} nao aparece na biblia"
+        assert f"{bpm}" in text and keyscale.replace(" minor", " menor") in text
+    assert "executor" in text.lower()
+    assert "quem e o monstro" in text.lower()
+    assert "Obey. Don't ask." in text and "Ask. Don't obey." in text
+    assert "ReaAssist" in text

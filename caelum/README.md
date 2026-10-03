@@ -3,6 +3,9 @@
 Pasta de trabalho do album (10 musicas). Design:
 `docs/superpowers/specs/2026-10-02-caelum-album-design.md`.
 
+Biblia do album (arco das 10 faixas, plano sonoro, camada REAPER):
+`BIBLIA.md` (spec: `docs/superpowers/specs/2026-10-03-caelum-album-biblia-design.md`).
+
 ## Uma pasta por faixa
 
 Copie `_modelo/` para `NN_<slug>/` (ex.: `01_semente/`). Cada faixa tem:

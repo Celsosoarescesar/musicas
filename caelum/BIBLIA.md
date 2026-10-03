@@ -1,0 +1,136 @@
+# Caelum -- biblia do album 1
+
+Spec: `docs/superpowers/specs/2026-10-03-caelum-album-biblia-design.md`.
+Como usar as pastas: `caelum/README.md`.
+
+## Conceito
+
+**Caelum e um executor da Ordem Grave.** O executor medieval cumpria ordens
+sem questionar; Caelum e a analogia de quem vive dentro de um sistema
+fazendo o que mandam sem perguntar por que. O album conta o dia em que ele
+pergunta, o que isso custa e a vida que escolhe depois: sair do sistema e
+viver como acredita ser o certo, sendo julgado por quem ainda vive dentro
+dele.
+
+Dois eixos em todas as faixas:
+
+1. **Obediencia sem questionar** (o executor).
+2. **Quem e o monstro.** O sistema chama de "monstro" quem esta fora dele
+   (as criaturas que a Ordem fabrica e, no fim, o proprio Caelum). A virada:
+   os verdadeiros monstros sao quem controla o sistema. Aparecem nas letras
+   como "voces"/"eles", sem rosto fixo.
+
+**Final (album 1): caminho do meio.** A Ordem continua de pe; Caelum vive
+livre fora dela, com os monstros que ela criou, e aceita ser julgado. A
+historia segue num album 2.
+
+Genero: nu metal melodico, vocal limpo + grito, sem rap, uma voz so
+(Caelum, primeira pessoa), sem narrador.
+
+## Arco e faixas
+
+As faixas 02-03 sao flashback (a 01 abre pelo ponto de virada).
+
+| Ato | # | Pasta | Cena | "Monstro" quer dizer |
+|---|---|---|---|---|
+| Fe | 01 | `01_quebra_de_fe` (pronta) | Descobre que a Ordem cria os monstros que executava | Os monstros eram obra da Ordem |
+| | 02 | `02_executor` | Orgulho de cumprir ordens; a primeira duvida | O que a Ordem manda executar |
+| | 03 | `03_silencio` | Ignora os sinais para nao perder a fe | O silencio dele alimenta o sistema |
+| Ruptura | 04 | `04_a_mao_que_me_fez` | Raiva contra a Ordem que o formou | A mao que cria merece o nome |
+| | 05 | `05_culpa` | Cada monstro executado tinha um rosto | Os "monstros" tinham rosto |
+| | 06 | `06_revolta` | Rompe com a Ordem | Ja e chamado de monstro |
+| | 07 | `07_do_outro_lado` | Luta contra a Ordem, aliado aos monstros | Escolhe ficar com eles |
+| Nova realidade | 08 | `08_monstros` | Ve o mundo pelos olhos dos monstros | **Virada:** o monstro e quem controla o sistema |
+| | 09 | `09_fora_do_sistema` | E discriminado por quem vive dentro | Quem esta dentro o chama de monstro |
+| | 10 | `10_caelum` | Faixa-titulo: quem se tornou, julgado e assumido | Assume o rotulo sem aceitar o significado |
+
+A 08 e o centro do album: o refrao dela e o mais importante para a inversao
+do "monstro".
+
+## Plano sonoro
+
+Subir por quintas (mais sustenidos) soa como tensao e afastamento de casa;
+descer por quartas, como assentar e voltar. O album se afasta ao maximo do
+D menor da 01 (na 06, C# menor) e volta a ele na 10.
+
+| # | Tom | BPM | Peso | Voz |
+|---|---|---|---|---|
+| 01 | D menor | 100 | Medio | Verso contido, refrao limpo, ponte gritada |
+| 02 | A menor | 96 | Medio | Verso falado, refrao limpo, grito curto; groove "marcha" |
+| 03 | E menor | 88 | Leve | Sussurro e limpo, sem grito |
+| 04 | B menor | 108 | Pesado | Refrao alterna limpo e grito; riff sincopado |
+| 05 | F# menor | 92 | Muito pesado | Limpo e grito alternados; a mais suja |
+| 06 | C# menor | 120 | O mais rapido | Gang vocals, grito forte; breakdown |
+| 07 | F# menor | 112 | Pesado, anthem | Coro (os monstros), refrao grande |
+| 08 | B menor | 98 | Medio | Refrao limpo, o mais importante; mantra invertido |
+| 09 | E menor | 104 | Medio | Verso falado, refrao limpo, grito curto |
+| 10 | D menor | 100 | Medio a pesado | Refrao gigante, grito final; volta ao tom/BPM da 01 |
+
+Valores sao pontos de partida; ajuste de ouvido na geracao.
+
+### Escalas
+
+- **Menor natural:** base dos riffs de todas as faixas.
+- **Menor harmonica (7a elevada):** a voz da Ordem (mantra, pre-refrao e ponte nas faixas 01-03).
+- **Menor melodica (6a e 7a elevadas, subindo):** melodias de refrao do ato 3; esperanca; mantra invertido.
+
+O ACE-Step so recebe o tom (`keyscale`) e nao distingue harmonica de
+melodica; isso fica na melodia que voce grava e na camada REAPER.
+
+### Motivos
+
+- **Mantra da Ordem:** "Obey. Don't ask." sussurrado/monotono nas faixas
+  01-03; invertido, "Ask. Don't obey.", nas 08-10. Gravado com a sua voz no
+  REAPER.
+- **Curva do grito:** nenhum na 03, maximo nas 05 e 06, contido nas 08-10.
+- **Breakdown** nas faixas 04, 06 e 07.
+- **Linguagem do genero:** frases curtas e diretas, confessionais; ganchos
+  repetidos; contraste verso falado, refrao aberto, grito na ponte.
+
+## Producao hibrida
+
+**Camada 1 -- ACE-Step (Kaggle):** banda (bateria, baixo, guitarras de 7
+cordas), estrutura, groove, peso do refrao e vocal guia; Demucs separa os
+stems.
+
+**Camada 2 -- REAPER:** mantra da Ordem, texturas e transicoes (glitches,
+risers, pads frios, impactos), scratches/samples (se voce tiver ou gravar),
+tratamento da voz (grito, dobros, efeitos por ato) e edicoes (breakdown,
+ganchos repetidos).
+
+Capacidades do `reaper_bridge`:
+
+- **Ja existem (verificadas):** volume, pan, FX, importar audio, aplicar
+  master, renderizar, montar a sessao vocal.
+- **Nao verificadas ao vivo (so entram quando uma faixa precisar, sempre
+  confirmadas em faixas temporarias novas):** posicionar itens na linha do
+  tempo, envelopes, recortar/dividir itens, criar samples. Ate la, sao
+  trabalho manual no REAPER.
+
+O ReaAssist (assistente em Lua para o REAPER) nao e recriado aqui: a
+licenca e "all rights reserved" (sem redistribuicao nem obra derivada), ele
+so funciona como janela de chat dentro do REAPER e exige chave de API paga.
+Voce pode instalar e usar por conta propria.
+
+## Fichas das faixas
+
+Cada pasta `caelum/NN_slug/` tem `faixa.toml` (prompt, BPM, tom) e
+`letra_pt.md` com o contexto da cena. `letra_en.md` e `pronuncia.md` das
+faixas 02-10 sao feitos na producao de cada uma (o `caelum_gerar` recusa
+gerar enquanto a `letra_en.md` for o modelo).
+
+Camada REAPER por faixa ([MCP] = ja da para fazer com as ferramentas
+atuais; [manual] = no REAPER, por enquanto):
+
+| # | Camada REAPER |
+|---|---|
+| 01 | Mantra sussurrado ao fundo do verso [MCP: faixa + FX; posicionar: manual] |
+| 02 | Mantra falado; textura seca de "marcha" [manual] |
+| 03 | Texturas frias e silencios [manual]; reverb/delay na voz [MCP] |
+| 04 | Breakdown: corte/repeticao de trecho [manual] |
+| 05 | Saturacao extra no baixo e na voz [MCP: FX] |
+| 06 | Breakdown seco antes do refrao final [manual]; gang vocals dobrados [MCP] |
+| 07 | Coro de vozes empilhadas no refrao [MCP: faixas + pan] |
+| 08 | Mantra invertido "Ask. Don't obey." (sua voz, melodica) [MCP + manual] |
+| 09 | Texturas eletronicas frias / glitches [manual] |
+| 10 | Mantra invertido + camada final de coro; master [MCP: apply_master] |
