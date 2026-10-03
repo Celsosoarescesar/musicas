@@ -1,0 +1,9 @@
+# Configuracao da faixa. So 'prompt' e obrigatorio.
+# Chaves desconhecidas sao erro (evita typo silencioso).
+prompt = "melodic nu metal, downtuned 7-string guitars, electronic textures, big emotional clean chorus, melodic and hopeful, restrained scream, no rap, 98 bpm, B minor"
+duration = 180.0       # segundos
+seed = 42
+bpm = 98
+keyscale = "B minor"
+vocal_language = "en"
+lufs_target = -9.0
