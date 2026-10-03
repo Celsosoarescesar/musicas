@@ -34,7 +34,7 @@ Legenda: pronuncia escrita em portugues; **negrito** = silaba tonica; (!) = pala
 | Linha em ingles | Pronuncia (PT-BR) | Observacoes |
 |---|---|---|
 | Liar! It was all a lie! | **lái**-êr! it uóz ól a lái! | grito aberto em "lái"; vogal longa dá corpo ao grito |
-| You made me the monster that I hunted! | iu méid mi dâ **món**-ster (!) dét ai **rrân**-tid (!) | "monster": mon-ster, o "s" claro; "hunted": h aspirado, "hân-tid" |
+| You made me the monster that I hunted! | iu méid mi dâ **món**-ster (!) dét ai **ék**-se-kiu-tid (!) | "monster": mon-ster, o "s" claro; "executed": ék-se-kiu-tid, quatro sílabas, tônica na primeira (executar = cumprir ordens) |
 | I'll break your altar! I'll burn your name! | ail bréik iór **ól**-ter! ail bârn (!) iór neim! | "burn": r pós-vogal, "bârn" sem rolar; "break": éi longo, bom para gritar |
 | Never call me son again! | **né**-vêr kól mi sân a-**guén** (!) | "son": "sân", igual a "sun"; "again": a-guén (ou a-guéin) |
 
@@ -50,7 +50,7 @@ Legenda: pronuncia escrita em portugues; **negrito** = silaba tonica; (!) = pala
 - **th (sonoro) em "the", "there", "that", "the dust":** língua entre os dentes, vibrando. Se sair "d" ou "z", ainda funciona na música (use "dâ"). Para "thing"/"think" não há no texto.
 - **-ed final:** vira "t" depois de som surdo (dropped = drópt, blessed = blést) e "d" depois de som sonoro (smelled = smélld, learned = lârnd, begged = bégd, prayed = préid). Nunca "-êd" com vogal.
 - **r inglês:** língua recuada, sem vibrar. Em "carried", "heard", "learned", "burn", "answer", "monster" é onde o português tropeça.
-- **h aspirado:** "who", "hand", "have", "hunted", "behind": sopro suave, como o "rr" de "carro" em PT-BR.
+- **h aspirado:** "who", "hand", "have", "behind": sopro suave, como o "rr" de "carro" em PT-BR.
 - **Vogais curtas vs longas:** "shut/sâ" (curta), "beast/bíst" (longa), "fought/fót" (longa), "dust/dâst" (curta), "hand/rrénd" (aberta).
 - **Letras mudas:** "knees" (k mudo), "answer" (w mudo), "fought" (gh mudo).
 

@@ -25,7 +25,7 @@ Now there's only ashes where I used to have a face
 
 [Bridge]
 Liar! It was all a lie!
-You made me the monster that I hunted!
+You made me the monster that I executed!
 I'll break your altar! I'll burn your name!
 Never call me son again!
 

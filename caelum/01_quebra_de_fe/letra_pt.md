@@ -2,8 +2,8 @@
 
 Contexto da cena (o que acontece, o que Caelum sente):
 
-- Caelum cacou monstros por anos, em nome da Ordem Grave, acreditando que protegia as pessoas.
-- Descobre que a propria Igreja cria os monstros com alquimia. Tudo que ele matou foi obra deles.
+- Caelum era um executor da Ordem Grave: cumpria ordens sem questionar, acreditando que protegia as pessoas.
+- Descobre que a propria Igreja cria os monstros com alquimia. Tudo que ele executou foi obra deles.
 - Sente traicao, culpa pelo sangue que derramou e raiva de ter sido a arma deles. A fe vira cinza.
 
 ## Letra
@@ -34,7 +34,7 @@ E agora o que sobrou de mim é só cinza no chão
 
 [Ponte -- gritada]
 Mentira! Foi tudo mentira!
-Vocês me fizeram o monstro que eu caçava!
+Vocês me fizeram o monstro que eu executava!
 Eu quebro o seu altar! Eu queimo o seu nome!
 Não me chamem de filho nunca mais!
 
