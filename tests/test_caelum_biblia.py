@@ -1,5 +1,6 @@
 """Trava as pastas do album contra a tabela da biblia
-(docs/superpowers/specs/2026-10-03-caelum-album-biblia-design.md)."""
+(docs/superpowers/specs/2026-10-03-caelum-album-biblia-design.md) e o conceito
+real (docs/superpowers/specs/2026-10-03-caelum-album-realismo-design.md)."""
 
 import tomllib
 
@@ -122,38 +123,68 @@ def test_biblia_document_covers_every_track_and_the_two_axes():
 
 # Vocabulario da alegoria medieval, trocado por cenas reais na revisao de
 # conceito (docs/superpowers/specs/2026-10-03-caelum-album-realismo-design.md).
-FORBIDDEN_TERMS = ("ordem grave", "executor", "alquimia", "lamina", "lâmina", "cacador")
+# Cobre PT e EN (letra_en.md e o que o ACE-Step canta). "ordem"/"order" soltos
+# sao palavras comuns e nao entram.
+FORBIDDEN_TERMS = (
+    "ordem grave", "execut", "alquimia", "lamina", "lâmina", "cacador", "caçador",
+    "the order", "blade", "alchemy",
+)
 
 # Pastas cujas letras ainda sao do conceito antigo e serao refeitas com o
 # usuario (uma sessao por faixa). Tire a pasta daqui quando a letra nova for
-# aprovada e commitada.
+# aprovada e commitada (o teste de expiracao abaixo avisa).
 PENDING_REWRITE = ("01_quebra_de_fe", "02_obedecer")
 
 
-def _album_text_files():
+def _find_forbidden(text):
+    """Termos proibidos em `text`, ignorando caixa e quebras de linha."""
+    normalized = " ".join(text.lower().split())
+    return [term for term in FORBIDDEN_TERMS if term in normalized]
+
+
+def _album_text_files(include_pending=False):
     for path in sorted(CAELUM_ROOT.rglob("*")):
         if path.suffix not in (".md", ".toml") or not path.is_file():
             continue
         rel = path.relative_to(CAELUM_ROOT)
         if "saida" in rel.parts or "__pycache__" in rel.parts:
             continue
-        if rel.parts[0] in PENDING_REWRITE:
+        if not include_pending and rel.parts[0] in PENDING_REWRITE:
             continue
-        yield rel, path.read_text(encoding="utf-8-sig").lower()
+        yield rel, path.read_text(encoding="utf-8-sig")
 
 
 def test_no_allegorical_vocabulary_outside_pending_rewrites():
     offenders = [
         f"{rel}: '{term}'"
         for rel, text in _album_text_files()
-        for term in FORBIDDEN_TERMS
-        if term in text
+        for term in _find_forbidden(text)
     ]
     assert not offenders, "vocabulario alegorico encontrado: " + "; ".join(offenders)
+
+
+def test_find_forbidden_catches_terms_wrapped_across_lines():
+    assert _find_forbidden("a Ordem\nGrave caiu") == ["ordem grave"]
+    assert _find_forbidden("the\norder falls") == ["the order"]
+    assert _find_forbidden("uma ordem e a order comum") == []
+
+
+@pytest.mark.parametrize("slug", PENDING_REWRITE)
+def test_pending_rewrite_exemption_is_still_needed(slug):
+    found = [
+        term
+        for rel, text in _album_text_files(include_pending=True)
+        if rel.parts[0] == slug
+        for term in _find_forbidden(text)
+    ]
+    assert found, (
+        f"{slug}: letra ja refeita -- tire '{slug}' de PENDING_REWRITE "
+        "em tests/test_caelum_biblia.py"
+    )
 
 
 def test_scan_actually_covers_biblia_readme_and_tracks():
     scanned = {str(rel).replace("\\", "/") for rel, _ in _album_text_files()}
     assert "BIBLIA.md" in scanned and "README.md" in scanned
     assert "03_silencio/letra_pt.md" in scanned and "10_caelum/faixa.toml" in scanned
-    assert not any(p.startswith(("01_quebra_de_fe/", "02_obedecer/")) for p in scanned)
+    assert not any(p.split("/")[0] in PENDING_REWRITE for p in scanned)

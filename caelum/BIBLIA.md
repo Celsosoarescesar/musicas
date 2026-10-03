@@ -26,7 +26,8 @@ Eixos em todas as faixas:
 
 **Guarda de abordagem:** a critica e ao **mecanismo de controle** (quem
 manipula e lucra com fe, medo, culpa e esperanca), nao as pessoas que
-acreditam. Figuras genericas, sem nomes reais.
+acreditam. Figuras genericas, sem nomes reais. O mesmo vale para pessoas privadas
+(ex-parceiro, familia, conhecidos): nada que as identifique.
 
 **Final (album 1): caminho do meio.** O sistema continua; Caelum vive livre
 fora dele e aceita ser julgado. A historia segue num album 2.
@@ -38,11 +39,13 @@ primeira pessoa), sem narrador.
 
 As faixas 02-03 sao flashback (a 01 abre pelo ponto de virada). As letras
 das faixas 01 e 02 foram escritas no conceito antigo (alegorico) e sao
-refeitas com o usuario no conceito real.
+refeitas com o usuario no conceito real. A varredura de vocabulario dos testes
+isenta essas duas pastas ate as letras serem refeitas (ver `PENDING_REWRITE` em
+`tests/test_caelum_biblia.py`).
 
 | Ato | # | Pasta | Cena | "Monstro" quer dizer |
 |---|---|---|---|---|
-| Fe | 01 | `01_quebra_de_fe` (pronta) | Descobre que o pastor em quem confiava vive do sofrimento dos outros | O pastor que lucra com a fe |
+| Fe | 01 | `01_quebra_de_fe` (musica pronta; letra a refazer) | Descobre que o pastor em quem confiava vive do sofrimento dos outros | O pastor que lucra com a fe |
 | | 02 | `02_obedecer` | Crescer fazendo o que mandam, sem perguntar | Quem manda sem dar razao |
 | | 03 | `03_silencio` | Ve os sinais e cala para nao perder o lugar | O silencio alimenta o sistema |
 | Ruptura | 04 | `04_pastor` | Raiva do falso pastor que lucra com a dor | Quem vive do sofrimento alheio |
