@@ -34,7 +34,7 @@ Legenda: pronuncia escrita em portugues; **negrito** = silaba tonica; (!) = pala
 | Linha em ingles | Pronuncia (PT-BR) | Observacoes |
 |---|---|---|
 | Liar! It was all a lie! | **lái**-êr! it uóz ól a lái! | grito aberto em "lái"; vogal longa dá corpo ao grito |
-| You made me the monster that I hunted! | iu méid mi dâ **món**-ster (!) dét ai **ék**-se-kiu-tid (!) | "monster": mon-ster, o "s" claro; "executed": ék-se-kiu-tid, quatro sílabas, tônica na primeira (executar = cumprir ordens) |
+| You made me the monster that I executed! | iu méid mi dâ **món**-ster (!) dét ai **ék**-se-kiu-tid (!) | "monster": mon-ster, o "s" claro; "executed": ék-se-kiu-tid, quatro sílabas, tônica na primeira (executar = cumprir ordens) |
 | I'll break your altar! I'll burn your name! | ail bréik iór **ól**-ter! ail bârn (!) iór neim! | "burn": r pós-vogal, "bârn" sem rolar; "break": éi longo, bom para gritar |
 | Never call me son again! | **né**-vêr kól mi sân a-**guén** (!) | "son": "sân", igual a "sun"; "again": a-guén (ou a-guéin) |
 
