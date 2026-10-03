@@ -38,14 +38,14 @@ primeira pessoa), sem narrador.
 ## Arco e faixas
 
 As faixas 02-03 sao flashback (a 01 abre pelo ponto de virada). As letras
-das faixas 01 e 02 foram escritas no conceito antigo (alegorico) e sao
-refeitas com o usuario no conceito real. A varredura de vocabulario dos testes
-isenta essas duas pastas ate as letras serem refeitas (ver `PENDING_REWRITE` em
+da faixa 01 foram refeitas no conceito real (2026-10-03). A letra da faixa 02
+ainda e do conceito antigo (alegorico) e sera refeita com o usuario: a varredura
+de vocabulario dos testes isenta essa pasta ate la (ver `PENDING_REWRITE` em
 `tests/test_caelum_biblia.py`).
 
 | Ato | # | Pasta | Cena | "Monstro" quer dizer |
 |---|---|---|---|---|
-| Fe | 01 | `01_quebra_de_fe` (musica pronta; letra a refazer) | Descobre que o pastor em quem confiava vive do sofrimento dos outros | O pastor que lucra com a fe |
+| Fe | 01 | `01_quebra_de_fe` (pronta; letra no conceito real) | Descobre que o pastor em quem confiava vive do sofrimento dos outros | O pastor que lucra com a fe |
 | | 02 | `02_obedecer` | Crescer fazendo o que mandam, sem perguntar | Quem manda sem dar razao |
 | | 03 | `03_silencio` | Ve os sinais e cala para nao perder o lugar | O silencio alimenta o sistema |
 | Ruptura | 04 | `04_pastor` | Raiva do falso pastor que lucra com a dor | Quem vive do sofrimento alheio |
