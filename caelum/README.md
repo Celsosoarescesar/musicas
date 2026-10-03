@@ -1,0 +1,24 @@
+# Caelum -- album de nu metal
+
+Pasta de trabalho do album (10 musicas). Design:
+`docs/superpowers/specs/2026-10-02-caelum-album-design.md`.
+
+## Uma pasta por faixa
+
+Copie `_modelo/` para `NN_<slug>/` (ex.: `01_semente/`). Cada faixa tem:
+
+- `letra_pt.md` -- fonte da verdade (significado e emocao)
+- `letra_en.md` -- adaptacao para ingles, enviada INTEIRA ao ACE-Step (sem comentarios)
+- `pronuncia.md` -- folha de pronuncia linha a linha
+- `faixa.toml` -- prompt de estilo, bpm, tom, seed, duracao
+- `saida/` -- gerado (nao versionado): `songs.db`, `<id>_master.wav`, `<id>_stem_*.wav`
+
+## Fluxo
+
+1. Letra em portugues -> adaptacao para ingles -> folha de pronuncia (com o Claude).
+2. Gerar: `uv run python scripts/caelum_gerar.py 01_semente` (use `--seed N` para outra tentativa).
+3. No REAPER (projeto novo e vazio), com o MCP conectado: `reaper_build_vocal_session` com a pasta `caelum/01_semente/saida` e o id da musica. Cria as faixas dos stems, `guia_ia` (vocal da IA, silenciado, so para referencia) e `voz_caelum` (armada).
+4. Escolha a entrada de audio da faixa `voz_caelum` no REAPER (depende da sua interface) e grave.
+5. Mix e master (frente 4 da spec).
+
+O vocal da IA (`guia_ia`) serve so de referencia de pronuncia/fraseado.

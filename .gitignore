@@ -20,6 +20,13 @@ music_studio/
 
 # Musicas/stems gerados (audio, nao codigo)
 ace_step/output/
+music21_test_output/
+
+# Album Caelum: audio, stems, bancos e projetos do REAPER gerados por faixa
+caelum/*/saida/
+caelum/*/*.rpp
+caelum/*/*.rpp-bak
+caelum/*/*.reapeaks
 
 # Workspace de execucao do subagent-driven-development (ledger, briefs, etc.)
 .superpowers/
