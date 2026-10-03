@@ -75,7 +75,7 @@ Valores sao pontos de partida; ajuste de ouvido na geracao.
 
 - **Menor natural:** base dos riffs de todas as faixas.
 - **Menor harmonica (7a elevada):** a voz da Ordem (mantra, pre-refrao e ponte nas faixas 01-03).
-- **Menor melodica (6a e 7a elevadas, subindo):** melodias de refrao do ato 3; esperanca; mantra invertido.
+- **Menor melodica (6a e 7a elevadas, subindo):** melodias de refrao do ato 3 e o refrao da 07 (uniao com os monstros, decisao do usuario); esperanca; mantra invertido.
 
 O ACE-Step so recebe o tom (`keyscale`) e nao distingue harmonica de
 melodica; isso fica na melodia que voce grava e na camada REAPER.

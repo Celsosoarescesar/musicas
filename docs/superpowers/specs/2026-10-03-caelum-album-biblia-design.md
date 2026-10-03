@@ -86,7 +86,7 @@ centro.
 |---|---|---|
 | Menor natural | Estavel, escura | Base dos riffs de todas as faixas |
 | Menor harmonica (7a elevada) | Tensa, ritual, "oficial" | A voz da Ordem: mantra, pre-refrao e ponte nas faixas 01-03 |
-| Menor melodica (6a e 7a elevadas, subindo) | Aberta, ascendente | Melodias de refrao do ato 3; sensacao de saida e esperanca; mantra invertido |
+| Menor melodica (6a e 7a elevadas, subindo) | Aberta, ascendente | Melodias de refrao do ato 3 e o refrao da 07 (uniao com os monstros); sensacao de saida e esperanca; mantra invertido |
 
 **Limite do ACE-Step:** o campo `keyscale` aceita tom (ex.: "D minor") e
 nao distingue harmonica de melodica; isso so entra como sugestao no texto
