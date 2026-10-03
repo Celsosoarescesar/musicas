@@ -1,50 +1,55 @@
-# Obedecer -- letra em portugues (fonte da verdade)
+# Rotina (programa) -- letra em portugues (fonte da verdade)
 
 Contexto da cena (o que acontece, o que Caelum sente):
 
-- Caelum cresce obedecendo ao pastor e a igreja, com orgulho de ser um bom membro; num domingo, recolhe a oferta de uma mulher que entrega o pouco que tem, e a primeira duvida aparece (flashback, antes da quebra de fe).
-- 'Monstro' aqui quer dizer: quem manda sem dar razao e chama de rebelde quem pergunta.
-- Voz: verso falado, refrao limpo, grito curto; o mantra 'Obey. Don't ask.' sussurrado.
-- Tom e escala: A minor -- A menor; menor harmonica na voz do sistema (mantra, pre-refrao), natural nos riffs.
-- Guarda: criticar o mecanismo, nao pessoas; sem nomes nem detalhes que identifiquem alguem real (ver BIBLIA).
+- Faixa sobre a rotina como vida no piloto automatico. Imagem unica: um programa que roda o mesmo dia (carregando, termos aceitos sem ler, atualizacao, erro, codigo, acordar). Tom ironico nos versos (quem e elogiado por ser igual), refrao limpo e dolorido.
+- Referencia de tom (so o tom, sem copiar nada): a ironia amarga de 'Do the Evolution' (Pearl Jam); ideia de viver uma vida programada e escolher acordar (Matrix), sem citar falas nem a expressao 'pilula vermelha'.
+- Voz: verso baixo e irônico, refrao limpo e melodico, ponte gritada curta ('eu quero acordar!').
+- Tom e escala: A minor -- A menor natural; groove de marcha, caixa seca.
 
 ## Letra
 
-[Intro -- mantra sussurrado]
-Obey. Don't ask.
+[Intro -- pulso eletronico, instrumental]
 
 [Verso 1]
-Eu acordo antes do sol
-Visto o terno de domingo
-Recebo a ordem do pastor
-Eu não pergunto por quê
-Eu só sei onde é meu lugar
+Carregando mais um dia
+Versão igual à de ontem
+Zero erro, zero falha
+Sou o orgulho do sistema
 
-[Refrao -- limpo, melodico]
-Eu faço o que mandam, eu faço bem feito
-Ninguém me viu hesitar
-Me chamam de fiel, me chamam de exemplo
-Eu nunca precisei saber o porquê
+[Pre-refrao]
+Eu aceito os termos sem ler
+Eu clico em continuar
+
+[Refrao -- melodico]
+Será que alguém escreveu o meu dia?
+Linha por linha, sem eu perceber
+Eu rodo o mesmo programa
+E o erro sou eu querer saber
 
 [Verso 2]
-Hoje ela olhou pra mim
-Não tinha mais nada pra dar
-Tinha medo, tinha fome
-E eu já tinha a mão na oferta
-Não me perguntei por quê
+Atualização concluída
+Mais rápido e mais calado
+Me deram um nome e um número
+E disseram que isso é viver
 
-[Refrao -- limpo, melodico]
-Eu faço o que mandam, eu faço bem feito
-Ninguém me viu hesitar
-Me chamam de fiel, me chamam de exemplo
-Mas hoje a minha mão demorou
+[Pre-refrao]
+Eu aceito os termos sem ler
+Eu clico em continuar
+
+[Refrao -- melodico]
+Será que alguém escreveu o meu dia?
+Linha por linha, sem eu perceber
+Eu rodo o mesmo programa
+E o erro sou eu querer saber
 
 [Ponte -- gritada]
-Por quê?
-Por que eu nunca perguntei?
+EU VEJO O CÓDIGO!
+EU NÃO QUERO MAIS RODAR!
+EU QUERO ACORDAR!
 
-[Refrao final -- limpo, melodico]
-Eu faço o que mandam, eu faço bem feito
-Mas agora eu quero saber
-A voz é minha, a ordem não é
-Eu nunca precisei saber o porquê
+[Refrao final -- melodico]
+Será que alguém escreveu o meu dia?
+Linha por linha, sem eu perceber
+Eu rodo o mesmo programa
+E o erro agora é a minha saída

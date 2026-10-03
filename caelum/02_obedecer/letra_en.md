@@ -1,39 +1,47 @@
 [en]
-[Intro]
-Obey. Don't ask.
+[Intro - electronic pulse]
 
-[Verse]
-I wake before the sun
-Put on my Sunday suit
-I get my orders from the pastor
-I never ask the reason why
-I only know where I belong
+[Verse 1 - low]
+Loading another day
+Same version as yesterday
+Zero errors, zero faults
+I'm the pride of the system
 
-[Chorus]
-I do what I'm told, I do it well
-Nobody saw me flinch
-They call me faithful, they call me a model
-I never needed to know why
+[Pre-Chorus]
+I accept the terms without reading
+I click on continue
 
-[Verse]
-Today that woman looked at me
-Nothing left to give
-Just fear, just hunger
-And my hand was on the plate
-I never asked myself why
+[Chorus - melodic]
+Did somebody write my day?
+Line by line, I never noticed
+I run the same program
+And the bug is me wanting to know
 
-[Chorus]
-I do what I'm told, I do it well
-Nobody saw me flinch
-They call me faithful, they call me a model
-But today my hand was slow
+[Verse 2 - low]
+Update complete
+Faster and more silent
+They gave me a name and a number
+And told me that this is living
 
-[Bridge]
-Why?
-Why did I never ask?
+[Pre-Chorus]
+I accept the terms without reading
+I click on continue
 
-[Chorus]
-I do what I'm told, I do it well
-But now I want to know
-The voice is mine, the commands aren't
-I never needed to know why
+[Chorus - melodic]
+Did somebody write my day?
+Line by line, I never noticed
+I run the same program
+And the bug is me wanting to know
+
+[Bridge - shouted]
+I SEE THE CODE!
+I DON'T WANT TO RUN ANYMORE!
+I WANT TO WAKE UP!
+
+[Chorus - melodic]
+Did somebody write my day?
+Line by line, I never noticed
+I run the same program
+And the bug is now my way out
+
+[Outro]
