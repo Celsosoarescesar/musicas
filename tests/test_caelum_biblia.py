@@ -25,7 +25,6 @@ BIBLIA = [
 # uma faixa, remova o slug desta lista: ela passa a ser checada por load_faixa
 # completo (test_written_tracks_load_completely).
 UNWRITTEN = [
-    "02_executor",
     "03_silencio",
     "04_a_mao_que_me_fez",
     "05_culpa",
