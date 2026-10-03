@@ -71,3 +71,115 @@ def test_modelo_is_a_loadable_faixa():
     faixa = load_faixa(CAELUM_ROOT / "_modelo")
     assert faixa.vocal_language == "en"
     assert faixa.lyrics.startswith("[en]")
+
+
+# Fix Round 1: Type validation tests
+
+@pytest.mark.parametrize("key,value", [
+    ("seed", "true"),
+    ("duration", "true"),
+    ("bpm", "true"),
+])
+def test_load_faixa_rejects_boolean_as_numeric(tmp_path, key, value):
+    """Booleans must not be coerced to numbers."""
+    toml = f'prompt = "x"\n{key} = {value}\n'
+    with pytest.raises(FaixaError, match="tipo"):
+        load_faixa(_make_faixa(tmp_path, toml=toml))
+
+
+@pytest.mark.parametrize("key,value,expected_match", [
+    ("keyscale", "5", "tipo"),
+    ("vocal_language", "5", "tipo"),
+    ("vocal_language", '""', "vazio"),
+    ("keyscale", '""', "vazio"),
+])
+def test_load_faixa_validates_string_fields(tmp_path, key, value, expected_match):
+    """keyscale and vocal_language must be non-empty strings."""
+    toml = f'prompt = "x"\n{key} = {value}\n'
+    with pytest.raises(FaixaError, match=expected_match):
+        load_faixa(_make_faixa(tmp_path, toml=toml))
+
+
+@pytest.mark.parametrize("key,value", [
+    ("bpm", '"140"'),
+    ("seed", '"7"'),
+    ("duration", '"200"'),
+    ("lufs_target", '"8.5"'),
+])
+def test_load_faixa_rejects_quoted_numeric_strings(tmp_path, key, value):
+    """Numeric fields must be TOML numbers, not strings."""
+    toml = f'prompt = "x"\n{key} = {value}\n'
+    with pytest.raises(FaixaError, match="tipo"):
+        load_faixa(_make_faixa(tmp_path, toml=toml))
+
+
+@pytest.mark.parametrize("key", ["bpm", "seed"])
+def test_load_faixa_rejects_float_for_integer_fields(tmp_path, key):
+    """bpm and seed must be integers, not floats."""
+    toml = f'prompt = "x"\n{key} = 140.5\n'
+    with pytest.raises(FaixaError, match="tipo"):
+        load_faixa(_make_faixa(tmp_path, toml=toml))
+
+
+@pytest.mark.parametrize("key,value", [
+    ("bpm", "inf"),
+    ("duration", "inf"),
+    ("lufs_target", "inf"),
+    ("duration", "nan"),
+])
+def test_load_faixa_rejects_infinite_and_nan(tmp_path, key, value):
+    """Reject infinite and NaN values."""
+    toml = f'prompt = "x"\n{key} = {value}\n'
+    with pytest.raises(FaixaError, match="invalido"):
+        load_faixa(_make_faixa(tmp_path, toml=toml))
+
+
+@pytest.mark.parametrize("value", [0, -100, -1])
+def test_load_faixa_rejects_non_positive_bpm(tmp_path, value):
+    """bpm must be positive."""
+    toml = f'prompt = "x"\nbpm = {value}\n'
+    with pytest.raises(FaixaError, match="positivo"):
+        load_faixa(_make_faixa(tmp_path, toml=toml))
+
+
+@pytest.mark.parametrize("value", [0, -100, -1])
+def test_load_faixa_rejects_non_positive_duration(tmp_path, value):
+    """duration must be positive."""
+    toml = f'prompt = "x"\nduration = {value}\n'
+    with pytest.raises(FaixaError, match="positivo"):
+        load_faixa(_make_faixa(tmp_path, toml=toml))
+
+
+def test_load_faixa_handles_non_utf8_toml(tmp_path):
+    """Non-UTF-8 faixa.toml should raise FaixaError, not UnicodeDecodeError."""
+    (tmp_path / "faixa.toml").write_bytes(b'prompt = "x"\n' + b'\xff\xfe')
+    (tmp_path / "letra_en.md").write_text("[en]\nhello", encoding="utf-8")
+    with pytest.raises(FaixaError, match="encoding"):
+        load_faixa(tmp_path)
+
+
+def test_load_faixa_handles_non_utf8_lyrics(tmp_path):
+    """Non-UTF-8 letra_en.md should raise FaixaError, not UnicodeDecodeError."""
+    (tmp_path / "faixa.toml").write_text('prompt = "x"\n', encoding="utf-8")
+    (tmp_path / "letra_en.md").write_bytes(b"[en]\n" + b'\xff\xfe')
+    with pytest.raises(FaixaError, match="encoding"):
+        load_faixa(tmp_path)
+
+
+def test_load_faixa_handles_bom_in_lyrics(tmp_path):
+    """UTF-8 BOM should be stripped from letra_en.md."""
+    (tmp_path / "faixa.toml").write_text('prompt = "x"\n', encoding="utf-8")
+    # Write with UTF-8 BOM
+    (tmp_path / "letra_en.md").write_bytes(b'\xef\xbb\xbf[en]\n[Verse]\nhello')
+    faixa = load_faixa(tmp_path)
+    assert faixa.lyrics.startswith("[en]")
+    assert not faixa.lyrics.startswith("﻿")
+
+
+def test_load_faixa_handles_bom_in_toml(tmp_path):
+    """UTF-8 BOM should be stripped from faixa.toml."""
+    # Write with UTF-8 BOM
+    (tmp_path / "faixa.toml").write_bytes(b'\xef\xbb\xbf' + b'prompt = "x"\n')
+    (tmp_path / "letra_en.md").write_text("[en]\nhello", encoding="utf-8")
+    faixa = load_faixa(tmp_path)
+    assert faixa.prompt == "x"
