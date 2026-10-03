@@ -112,7 +112,48 @@ def test_biblia_document_covers_every_track_and_the_two_axes():
                  and keyscale.replace(" minor", " menor") in l]
         assert sound, f"{num}: tom {keyscale} nao esta na tabela do plano sonoro"
         assert any(f"| {bpm} |" in l for l in sound), f"{num}: BPM {bpm} errado"
-    assert "executor" in text.lower()
-    assert "quem e o monstro" in text.lower()
+    lowered = text.lower()
+    assert "obediencia sem questionar" in lowered
+    assert "quem e o monstro" in lowered
+    assert "mecanismo de controle" in lowered
     assert "Obey. Don't ask." in text and "Ask. Don't obey." in text
     assert "ReaAssist" in text
+
+
+# Vocabulario da alegoria medieval, trocado por cenas reais na revisao de
+# conceito (docs/superpowers/specs/2026-10-03-caelum-album-realismo-design.md).
+FORBIDDEN_TERMS = ("ordem grave", "executor", "alquimia", "lamina", "lâmina", "cacador")
+
+# Pastas cujas letras ainda sao do conceito antigo e serao refeitas com o
+# usuario (uma sessao por faixa). Tire a pasta daqui quando a letra nova for
+# aprovada e commitada.
+PENDING_REWRITE = ("01_quebra_de_fe", "02_obedecer")
+
+
+def _album_text_files():
+    for path in sorted(CAELUM_ROOT.rglob("*")):
+        if path.suffix not in (".md", ".toml") or not path.is_file():
+            continue
+        rel = path.relative_to(CAELUM_ROOT)
+        if "saida" in rel.parts or "__pycache__" in rel.parts:
+            continue
+        if rel.parts[0] in PENDING_REWRITE:
+            continue
+        yield rel, path.read_text(encoding="utf-8-sig").lower()
+
+
+def test_no_allegorical_vocabulary_outside_pending_rewrites():
+    offenders = [
+        f"{rel}: '{term}'"
+        for rel, text in _album_text_files()
+        for term in FORBIDDEN_TERMS
+        if term in text
+    ]
+    assert not offenders, "vocabulario alegorico encontrado: " + "; ".join(offenders)
+
+
+def test_scan_actually_covers_biblia_readme_and_tracks():
+    scanned = {str(rel).replace("\\", "/") for rel, _ in _album_text_files()}
+    assert "BIBLIA.md" in scanned and "README.md" in scanned
+    assert "03_silencio/letra_pt.md" in scanned and "10_caelum/faixa.toml" in scanned
+    assert not any(p.startswith(("01_quebra_de_fe/", "02_obedecer/")) for p in scanned)

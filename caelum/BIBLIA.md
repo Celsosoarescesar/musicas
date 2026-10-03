@@ -1,38 +1,44 @@
 # Caelum -- biblia do album 1
 
-Spec: `docs/superpowers/specs/2026-10-03-caelum-album-biblia-design.md`.
-Como usar as pastas: `caelum/README.md`.
+Specs: `docs/superpowers/specs/2026-10-03-caelum-album-biblia-design.md` (estrutura, plano sonoro)
+e `docs/superpowers/specs/2026-10-03-caelum-album-realismo-design.md` (conceito real, que
+substitui as cenas da spec anterior). Como usar as pastas: `caelum/README.md`.
 
 ## Conceito
 
-**Caelum e um executor da Ordem Grave.** O executor medieval cumpria ordens
-sem questionar; Caelum e a analogia de quem vive dentro de um sistema
-fazendo o que mandam sem perguntar por que. O album conta o dia em que ele
-pergunta, o que isso custa e a vida que escolhe depois: sair do sistema e
-viver como acredita ser o certo, sendo julgado por quem ainda vive dentro
-dele.
+**Caelum** (latim: "ceu") e o autor em primeira pessoa: cresceu olhando para
+cima, dentro de um sistema de fe e poder, obedeceu sem perguntar, descobriu
+como esse sistema usa as pessoas, saiu e vive do seu jeito, julgado por quem
+ainda esta dentro. A historia parte da vivencia do usuario (falsos pastores,
+politicos, relacionamentos); as faixas misturam confissao direta e
+personagem, sem nomear pessoas, igrejas ou partidos reais.
 
-Dois eixos em todas as faixas:
+Eixos em todas as faixas:
 
-1. **Obediencia sem questionar** (o executor).
-2. **Quem e o monstro.** O sistema chama de "monstro" quem esta fora dele
-   (as criaturas que a Ordem fabrica e, no fim, o proprio Caelum). A virada:
-   os verdadeiros monstros sao quem controla o sistema. Aparecem nas letras
-   como "voces"/"eles", sem rosto fixo.
+1. **Obediencia sem questionar:** o membro que faz o que mandam.
+2. **Quem e o monstro.** O sistema chama de "perdido", "rebelde" ou "inimigo"
+   quem acorda. A virada: os verdadeiros monstros sao quem manipula (o pastor
+   que vive do sofrimento dos outros, o politico que rouba a nacao, quem
+   mente no amor), nao quem acorda. Quem julga Caelum tambem e vitima do
+   mesmo controle. Aparecem nas letras como "voces"/"eles", sem rosto fixo.
+3. **Varias formas de ser enganado:** por lideres de fe, por politicos, por
+   quem se ama.
 
-**Final (album 1): caminho do meio.** A Ordem continua de pe; Caelum vive
-livre fora dela, com os monstros que ela criou, e aceita ser julgado. A
-historia segue num album 2.
+**Guarda de abordagem:** a critica e ao **mecanismo de controle** (quem
+manipula e lucra com fe, medo, culpa e esperanca), nao as pessoas que
+acreditam. Figuras genericas, sem nomes reais.
 
-Genero: nu metal melodico, vocal limpo + grito, sem rap, uma voz so
-(Caelum, primeira pessoa), sem narrador.
+**Final (album 1): caminho do meio.** O sistema continua; Caelum vive livre
+fora dele e aceita ser julgado. A historia segue num album 2.
+
+Genero: nu metal melodico, vocal limpo + grito, sem rap, uma voz so (Caelum,
+primeira pessoa), sem narrador.
 
 ## Arco e faixas
 
-Nota: a letra e a pronuncia da faixa 01 foram corrigidas em 2026-10-03 para
-"executor" (ele executava monstros = seguia ordens), e nao "cacador".
-
-As faixas 02-03 sao flashback (a 01 abre pelo ponto de virada).
+As faixas 02-03 sao flashback (a 01 abre pelo ponto de virada). As letras
+das faixas 01 e 02 foram escritas no conceito antigo (alegorico) e sao
+refeitas com o usuario no conceito real.
 
 | Ato | # | Pasta | Cena | "Monstro" quer dizer |
 |---|---|---|---|---|
@@ -62,9 +68,9 @@ D menor da 01 (na 06, C# menor) e volta a ele na 10.
 | 02 | A menor | 96 | Medio | Verso falado, refrao limpo, grito curto; groove "marcha" |
 | 03 | E menor | 88 | Leve | Sussurro e limpo, sem grito |
 | 04 | B menor | 108 | Pesado | Refrao alterna limpo e grito; riff sincopado |
-| 05 | F# menor | 92 | Muito pesado | Limpo e grito alternados; a mais suja |
-| 06 | C# menor | 120 | O mais rapido | Gang vocals, grito forte; breakdown |
-| 07 | F# menor | 112 | Pesado, anthem | Coro (os monstros), refrao grande |
+| 05 | F# menor | 92 | Muito pesado | Limpo e grito alternados; a mais suja (a dor do amor) |
+| 06 | C# menor | 120 | O mais rapido | Gang vocals, grito forte; breakdown (raiva publica) |
+| 07 | F# menor | 112 | Pesado, anthem | Coro (os enganados), refrao grande |
 | 08 | B menor | 98 | Medio | Refrao limpo, o mais importante; mantra invertido |
 | 09 | E menor | 104 | Medio | Verso falado, refrao limpo, grito curto |
 | 10 | D menor | 100 | Medio a pesado | Refrao gigante, grito final; volta ao tom/BPM da 01 |
@@ -74,17 +80,18 @@ Valores sao pontos de partida; ajuste de ouvido na geracao.
 ### Escalas
 
 - **Menor natural:** base dos riffs de todas as faixas.
-- **Menor harmonica (7a elevada):** a voz da Ordem (mantra, pre-refrao e ponte nas faixas 01-03).
-- **Menor melodica (6a e 7a elevadas, subindo):** melodias de refrao do ato 3 e o refrao da 07 (uniao com os monstros, decisao do usuario); esperanca; mantra invertido.
+- **Menor harmonica (7a elevada):** a voz do sistema (mantra, pre-refrao e ponte nas faixas 01-03).
+- **Menor melodica (6a e 7a elevadas, subindo):** melodias de refrao do ato 3 e o refrao da 07 (a uniao dos enganados, decisao do usuario); esperanca; mantra invertido.
 
 O ACE-Step so recebe o tom (`keyscale`) e nao distingue harmonica de
 melodica; isso fica na melodia que voce grava e na camada REAPER.
 
 ### Motivos
 
-- **Mantra da Ordem:** "Obey. Don't ask." sussurrado/monotono nas faixas
-  01-03; invertido, "Ask. Don't obey.", nas 08-10. Gravado com a sua voz no
-  REAPER.
+- **Mantra da obediencia:** "Obey. Don't ask." sussurrado/monotono nas
+  faixas 01-03; invertido, "Ask. Don't obey.", nas 08-10. E a voz de qualquer
+  sistema que pede obediencia (pulpito, palanque, relacao abusiva). Gravado
+  com a sua voz no REAPER.
 - **Curva do grito:** nenhum na 03, maximo nas 05 e 06, contido nas 08-10.
 - **Breakdown** nas faixas 04, 06 e 07.
 - **Prompt-base comum:** os dez prompts compartilham a base "melodic nu
@@ -99,10 +106,10 @@ melodica; isso fica na melodia que voce grava e na camada REAPER.
 cordas), estrutura, groove, peso do refrao e vocal guia; Demucs separa os
 stems.
 
-**Camada 2 -- REAPER:** mantra da Ordem, texturas e transicoes (glitches,
-risers, pads frios, impactos), scratches/samples (se voce tiver ou gravar),
-tratamento da voz (grito, dobros, efeitos por ato) e edicoes (breakdown,
-ganchos repetidos).
+**Camada 2 -- REAPER:** mantra da obediencia, texturas e transicoes
+(glitches, risers, pads frios, impactos), scratches/samples (se voce tiver ou
+gravar), tratamento da voz (grito, dobros, efeitos por ato) e edicoes
+(breakdown, ganchos repetidos).
 
 Capacidades do `reaper_bridge`:
 
@@ -122,8 +129,8 @@ Voce pode instalar e usar por conta propria, sem ligacao com o repositorio.
 
 Cada pasta `caelum/NN_slug/` tem `faixa.toml` (prompt, BPM, tom) e
 `letra_pt.md` com o contexto da cena. `letra_en.md` e `pronuncia.md` das
-faixas 02-10 sao feitos na producao de cada uma (o `caelum_gerar` recusa
-gerar enquanto a `letra_en.md` for o modelo).
+faixas ainda nao escritas sao feitos na producao de cada uma (o
+`caelum_gerar` recusa gerar enquanto a `letra_en.md` for o modelo).
 
 Camada REAPER por faixa ([MCP] = ja da para fazer com as ferramentas
 atuais; [manual] = no REAPER, por enquanto):
@@ -131,7 +138,7 @@ atuais; [manual] = no REAPER, por enquanto):
 | # | Camada REAPER |
 |---|---|
 | 01 | Mantra sussurrado ao fundo do verso [MCP: faixa + FX; posicionar: manual] |
-| 02 | Mantra falado; textura seca de "marcha" [manual] |
+| 02 | Mantra falado, voz de pulpito; textura seca e ritmada [manual] |
 | 03 | Texturas frias e silencios [manual]; reverb/delay na voz [MCP] |
 | 04 | Breakdown: corte/repeticao de trecho [manual] |
 | 05 | Saturacao extra no baixo e na voz [MCP: FX] |
