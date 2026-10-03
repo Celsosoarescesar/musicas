@@ -78,9 +78,15 @@ def test_unwritten_tracks_keep_the_template_files():
 
 def test_biblia_document_covers_every_track_and_the_two_axes():
     text = (CAELUM_ROOT / "BIBLIA.md").read_text(encoding="utf-8-sig")
+    lines = text.splitlines()
     for slug, bpm, keyscale in BIBLIA:
-        assert slug in text, f"{slug} nao aparece na biblia"
-        assert f"{bpm}" in text and keyscale.replace(" minor", " menor") in text
+        num = slug[:2]
+        arc = [l for l in lines if f"| {num} | `{slug}`" in l]
+        assert arc, f"{slug} nao aparece na tabela do arco"
+        sound = [l for l in lines if l.startswith(f"| {num} | ")
+                 and keyscale.replace(" minor", " menor") in l]
+        assert sound, f"{num}: tom {keyscale} nao esta na tabela do plano sonoro"
+        assert any(f"| {bpm} |" in l for l in sound), f"{num}: BPM {bpm} errado"
     assert "executor" in text.lower()
     assert "quem e o monstro" in text.lower()
     assert "Obey. Don't ask." in text and "Ask. Don't obey." in text

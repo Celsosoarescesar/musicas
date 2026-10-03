@@ -110,7 +110,7 @@ Capacidades do `reaper_bridge`:
 O ReaAssist (assistente em Lua para o REAPER) nao e recriado aqui: a
 licenca e "all rights reserved" (sem redistribuicao nem obra derivada), ele
 so funciona como janela de chat dentro do REAPER e exige chave de API paga.
-Voce pode instalar e usar por conta propria.
+Voce pode instalar e usar por conta propria, sem ligacao com o repositorio.
 
 ## Fichas das faixas
 
@@ -129,8 +129,8 @@ atuais; [manual] = no REAPER, por enquanto):
 | 03 | Texturas frias e silencios [manual]; reverb/delay na voz [MCP] |
 | 04 | Breakdown: corte/repeticao de trecho [manual] |
 | 05 | Saturacao extra no baixo e na voz [MCP: FX] |
-| 06 | Breakdown seco antes do refrao final [manual]; gang vocals dobrados [MCP] |
+| 06 | Breakdown seco antes do refrao final [manual]; gang vocals dobrados [MCP; alinhar/posicionar: manual] |
 | 07 | Coro de vozes empilhadas no refrao [MCP: faixas + pan] |
 | 08 | Mantra invertido "Ask. Don't obey." (sua voz, melodica) [MCP + manual] |
 | 09 | Texturas eletronicas frias / glitches [manual] |
-| 10 | Mantra invertido + camada final de coro; master [MCP: apply_master] |
+| 10 | Mantra invertido + camada final de coro; master [MCP: apply_master_chain; alinhar/posicionar: manual] |
