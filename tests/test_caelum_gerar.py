@@ -98,3 +98,15 @@ def test_gerar_instrumental_sends_instrumental_tag_instead_of_lyrics(tmp_path):
         gerar(faixa_dir, instrumental=True)
 
     assert mock_run.call_args.kwargs["lyrics"] == "[Instrumental]"
+
+
+def test_gerar_template_lyrics_fail_before_touching_db_or_kaggle(tmp_path):
+    faixa_dir = _make_faixa(tmp_path)
+    (faixa_dir / "letra_en.md").write_text(
+        "[en]\n[Verse]\n(write the English lyrics here)\n", encoding="utf-8"
+    )
+    with patch("caelum.gerar.orchestrator.run_generation") as mock_run:
+        with pytest.raises(FaixaError, match="modelo"):
+            gerar(faixa_dir)
+    mock_run.assert_not_called()
+    assert not (faixa_dir / "saida").exists()

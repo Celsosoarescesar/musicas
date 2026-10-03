@@ -11,6 +11,8 @@ from pathlib import Path
 CAELUM_ROOT = Path(__file__).resolve().parent
 
 _ALLOWED_KEYS = {"prompt", "duration", "seed", "bpm", "keyscale", "vocal_language", "lufs_target"}
+# Texto dos placeholders de caelum/_modelo/letra_en.md ("(write the ... here)").
+_TEMPLATE_LYRICS_MARKER = "(write "
 
 
 class FaixaError(ValueError):
@@ -83,6 +85,11 @@ def load_faixa(faixa_dir: Path | str) -> Faixa:
 
     if not lyrics:
         raise FaixaError(f"{lyrics_path.name} esta vazio")
+    if _TEMPLATE_LYRICS_MARKER in lyrics.lower():
+        raise FaixaError(
+            f"{lyrics_path.name} ainda tem texto de modelo ('{_TEMPLATE_LYRICS_MARKER}...'): "
+            "escreva a letra em ingles antes de gerar"
+        )
 
     try:
         # Validate and convert duration

@@ -67,10 +67,38 @@ def test_load_faixa_rejects_invalid_toml_and_bad_values(tmp_path):
         load_faixa(_make_faixa(tmp_path, toml='prompt = "x"\nbpm = "rapido"\n'))
 
 
-def test_modelo_is_a_loadable_faixa():
-    faixa = load_faixa(CAELUM_ROOT / "_modelo")
-    assert faixa.vocal_language == "en"
-    assert faixa.lyrics.startswith("[en]")
+def test_modelo_letra_is_rejected_as_template():
+    # O modelo existe para ser copiado; carregar sua letra como se fosse real
+    # gastaria uma geracao do Kaggle com "(write the English lyrics here)".
+    with pytest.raises(FaixaError, match="modelo"):
+        load_faixa(CAELUM_ROOT / "_modelo")
+
+
+@pytest.mark.parametrize(
+    "lyrics",
+    [
+        "[en]\n[Verse]\nreal line\n(write the chorus here)\n[Bridge]\nmore real\n",
+        "[en]\n[Verse]\n(Write The English lyrics here)\n",
+        "[en]\r\n[Verse]\r\n(write the English lyrics here)\r\n",
+    ],
+)
+def test_load_faixa_rejects_partially_template_lyrics(tmp_path, lyrics):
+    with pytest.raises(FaixaError, match="modelo"):
+        load_faixa(_make_faixa(tmp_path, lyrics=lyrics))
+
+
+def test_load_faixa_rejects_template_lyrics_with_bom(tmp_path):
+    faixa_dir = _make_faixa(tmp_path, lyrics=None)
+    (faixa_dir / "letra_en.md").write_bytes(
+        b"\xef\xbb\xbf[en]\n[Verse]\n(write the English lyrics here)\n"
+    )
+    with pytest.raises(FaixaError, match="modelo"):
+        load_faixa(faixa_dir)
+
+
+def test_load_faixa_accepts_lyrics_that_merely_mention_writing(tmp_path):
+    faixa = load_faixa(_make_faixa(tmp_path, lyrics="[en]\n[Verse]\nI write my name in ash\n"))
+    assert "write my name" in faixa.lyrics
 
 
 # Fix Round 1: Type validation tests
