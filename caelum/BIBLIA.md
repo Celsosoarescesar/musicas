@@ -96,8 +96,8 @@ melodica; isso fica na melodia que voce grava e na camada REAPER.
   com a sua voz no REAPER.
 - **Curva do grito:** nenhum na 03, maximo nas 05 e 06, contido nas 08-10.
 - **Breakdown** nas faixas 04, 06 e 07.
-- **Prompt-base comum:** os dez prompts compartilham a base "melodic nu
-  metal, downtuned 7-string guitars, ..., no rap"; cada faixa varia so BPM,
+- **Prompt-base comum:** os dez prompts compartilham a base "2000s nu
+  metal, downtuned 7-string guitars, ..., no rap" (sem "melodic": a palavra puxa para metal melodico); cada faixa varia so BPM,
   tom, peso e textura.
 - **Linguagem do genero:** frases curtas e diretas, confessionais; ganchos
   repetidos; contraste verso falado, refrao aberto, grito na ponte.
