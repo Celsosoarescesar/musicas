@@ -29,6 +29,9 @@ Genero: nu metal melodico, vocal limpo + grito, sem rap, uma voz so
 
 ## Arco e faixas
 
+Nota: a letra e a pronuncia da faixa 01 foram corrigidas em 2026-10-03 para
+"executor" (ele executava monstros = seguia ordens), e nao "cacador".
+
 As faixas 02-03 sao flashback (a 01 abre pelo ponto de virada).
 
 | Ato | # | Pasta | Cena | "Monstro" quer dizer |
@@ -84,6 +87,9 @@ melodica; isso fica na melodia que voce grava e na camada REAPER.
   REAPER.
 - **Curva do grito:** nenhum na 03, maximo nas 05 e 06, contido nas 08-10.
 - **Breakdown** nas faixas 04, 06 e 07.
+- **Prompt-base comum:** os dez prompts compartilham a base "melodic nu
+  metal, downtuned 7-string guitars, ..., no rap"; cada faixa varia so BPM,
+  tom, peso e textura.
 - **Linguagem do genero:** frases curtas e diretas, confessionais; ganchos
   repetidos; contraste verso falado, refrao aberto, grito na ponte.
 

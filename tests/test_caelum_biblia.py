@@ -21,9 +21,20 @@ BIBLIA = [
     ("10_caelum", 100, "D minor"),
 ]
 
-# Faixas cuja letra_en.md ainda e o modelo. Ao terminar uma faixa, tire o slug
-# daqui: ela passa a ser checada por load_faixa completo (ver o teste da 01).
-UNWRITTEN = [slug for slug, _, _ in BIBLIA[1:]]
+# Faixas cuja letra_en.md ainda e o modelo. Quando terminar a letra_en.md de
+# uma faixa, remova o slug desta lista: ela passa a ser checada por load_faixa
+# completo (test_written_tracks_load_completely).
+UNWRITTEN = [
+    "02_executor",
+    "03_silencio",
+    "04_a_mao_que_me_fez",
+    "05_culpa",
+    "06_revolta",
+    "07_do_outro_lado",
+    "08_monstros",
+    "09_fora_do_sistema",
+    "10_caelum",
+]
 
 
 def _toml(slug):
@@ -48,9 +59,17 @@ def test_faixa_toml_matches_biblia(slug, bpm, keyscale):
     assert data["lufs_target"] == -9.0
 
 
-def test_pilot_track_loads_completely():
-    faixa = load_faixa(CAELUM_ROOT / "01_quebra_de_fe")
-    assert faixa.bpm == 100 and faixa.keyscale == "D minor"
+def test_unwritten_is_subset_of_biblia():
+    assert set(UNWRITTEN) <= {slug for slug, _, _ in BIBLIA}
+    assert "01_quebra_de_fe" not in UNWRITTEN
+
+
+@pytest.mark.parametrize(
+    "slug,bpm,keyscale", [row for row in BIBLIA if row[0] not in UNWRITTEN]
+)
+def test_written_tracks_load_completely(slug, bpm, keyscale):
+    faixa = load_faixa(CAELUM_ROOT / slug)
+    assert faixa.bpm == bpm and faixa.keyscale == keyscale
     assert faixa.lyrics.startswith("[en]")
 
 
@@ -58,8 +77,15 @@ def test_pilot_track_loads_completely():
 def test_unwritten_tracks_are_valid_except_template_lyrics(slug):
     # Prova que prompt/bpm/tipos do faixa.toml estao certos: a unica coisa que
     # falta e a letra em ingles (a recusa e a de letra de modelo).
-    with pytest.raises(FaixaError, match="modelo"):
+    try:
         load_faixa(CAELUM_ROOT / slug)
+    except FaixaError as exc:
+        assert "modelo" in str(exc)
+    else:
+        pytest.fail(
+            f"{slug}: letra_en.md ja foi escrita -- tire '{slug}' de UNWRITTEN "
+            "em tests/test_caelum_biblia.py"
+        )
 
 
 @pytest.mark.parametrize("slug", UNWRITTEN)

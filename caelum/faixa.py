@@ -4,6 +4,7 @@ Ver docs/superpowers/specs/2026-10-02-caelum-album-design.md.
 """
 
 import math
+import re
 import tomllib
 from dataclasses import dataclass
 from pathlib import Path
@@ -11,8 +12,9 @@ from pathlib import Path
 CAELUM_ROOT = Path(__file__).resolve().parent
 
 _ALLOWED_KEYS = {"prompt", "duration", "seed", "bpm", "keyscale", "vocal_language", "lufs_target"}
-# Texto dos placeholders de caelum/_modelo/letra_en.md ("(write the ... here)").
-_TEMPLATE_LYRICS_MARKER = "(write "
+# Placeholders de caelum/_modelo/letra_en.md: "(write the ... here)". So eles
+# sao recusados; um ad-lib real como "(Write my name in blood)" passa.
+_TEMPLATE_LYRICS_RE = re.compile(r"\(write the [^)]* here\)", re.IGNORECASE)
 
 
 class FaixaError(ValueError):
@@ -85,9 +87,9 @@ def load_faixa(faixa_dir: Path | str) -> Faixa:
 
     if not lyrics:
         raise FaixaError(f"{lyrics_path.name} esta vazio")
-    if _TEMPLATE_LYRICS_MARKER in lyrics.lower():
+    if _TEMPLATE_LYRICS_RE.search(lyrics):
         raise FaixaError(
-            f"{lyrics_path.name} ainda tem texto de modelo ('{_TEMPLATE_LYRICS_MARKER}...'): "
+            f"{lyrics_path.name} ainda tem texto de modelo ('(write the ... here)'): "
             "escreva a letra em ingles antes de gerar"
         )
 

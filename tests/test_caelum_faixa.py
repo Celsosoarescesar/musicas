@@ -96,6 +96,11 @@ def test_load_faixa_rejects_template_lyrics_with_bom(tmp_path):
         load_faixa(faixa_dir)
 
 
+def test_load_faixa_accepts_real_adlib_starting_with_write(tmp_path):
+    faixa = load_faixa(_make_faixa(tmp_path, lyrics="[en]\n[Verse]\n(Write my name in blood)\n"))
+    assert "(Write my name in blood)" in faixa.lyrics
+
+
 def test_load_faixa_accepts_lyrics_that_merely_mention_writing(tmp_path):
     faixa = load_faixa(_make_faixa(tmp_path, lyrics="[en]\n[Verse]\nI write my name in ash\n"))
     assert "write my name" in faixa.lyrics
