@@ -265,7 +265,6 @@ def wait_for_generation(
     payload = {
         "prompt": job["prompt"],
         "lyrics": job["lyrics"],
-        "audio_duration": job["duration"],
         "audio_format": "wav",
         "use_random_seed": False,
         "seed": job["seed"],
@@ -274,6 +273,9 @@ def wait_for_generation(
         "vocal_language": job["vocal_language"],
         "task_type": "text2music",
     }
+    # Sem audio_duration o ACE-Step escolhe a duracao pela letra (recomendado na doc quando ha letra).
+    if job["duration"] is not None:
+        payload["audio_duration"] = job["duration"]
     task_envelope = _post_json(f"{base_url}/release_task", payload, headers=headers, timeout=30.0)
     if task_envelope.get("error"):
         raise RuntimeError(f"POST /release_task devolveu erro: {task_envelope['error']}")

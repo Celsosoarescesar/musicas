@@ -355,3 +355,35 @@ def test_wait_for_generation_times_out_when_query_result_always_fails(monkeypatc
             "http://127.0.0.1:8189", "key", _TEST_JOB, timeout=0.05, poll_interval=0.01
         )
 
+
+
+def _capture_release_payload(monkeypatch, job):
+    seen = {}
+
+    def fake_post_json(url, payload, headers, timeout):
+        if url.endswith("/release_task"):
+            seen["payload"] = payload
+            return {"data": {"task_id": "abc"}, "error": None}
+        return {
+            "data": [
+                {"status": 1, "result": json.dumps([{"file": "/v1/audio?path=%2Ftmp%2Fa.wav"}])}
+            ],
+            "error": None,
+        }
+
+    monkeypatch.setattr(ace_step_server, "_post_json", fake_post_json)
+    ace_step_server.wait_for_generation(
+        "http://127.0.0.1:8189", "key", job, timeout=5.0, poll_interval=0.01
+    )
+    return seen["payload"]
+
+
+def test_wait_for_generation_sends_audio_duration_when_set(monkeypatch):
+    payload = _capture_release_payload(monkeypatch, _TEST_JOB)
+    assert payload["audio_duration"] == 60.0
+
+
+def test_wait_for_generation_omits_audio_duration_when_automatic(monkeypatch):
+    # docs do ACE-Step: com letra, deixar a duracao automatica (nao enviar o campo)
+    payload = _capture_release_payload(monkeypatch, {**_TEST_JOB, "duration": None})
+    assert "audio_duration" not in payload

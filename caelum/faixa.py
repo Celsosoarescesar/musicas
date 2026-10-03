@@ -26,7 +26,7 @@ class Faixa:
     dir: Path
     prompt: str
     lyrics: str
-    duration: float
+    duration: float | None  # None = automatica (duration = "auto" no faixa.toml)
     seed: int
     bpm: int | None
     keyscale: str | None
@@ -95,7 +95,12 @@ def load_faixa(faixa_dir: Path | str) -> Faixa:
 
     try:
         # Validate and convert duration
-        if "duration" in data:
+        if "duration" in data and data["duration"] == "auto":
+            # A doc do ACE-Step recomenda duracao automatica quando ha letra.
+            duration = None
+        elif "duration" in data and isinstance(data["duration"], str):
+            raise TypeError('tipo invalido: duration aceita numero positivo ou "auto"')
+        elif "duration" in data:
             duration = _validate_numeric_type(data["duration"], allow_float=True)
             duration = float(duration)
             if not math.isfinite(duration):

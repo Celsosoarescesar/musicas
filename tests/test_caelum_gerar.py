@@ -110,3 +110,16 @@ def test_gerar_template_lyrics_fail_before_touching_db_or_kaggle(tmp_path):
             gerar(faixa_dir)
     mock_run.assert_not_called()
     assert not (faixa_dir / "saida").exists()
+
+
+def test_gerar_automatic_duration_passes_none_and_stores_zero(tmp_path):
+    faixa_dir = _make_faixa(tmp_path)
+    (faixa_dir / "faixa.toml").write_text(
+        'prompt = "nu metal"\nduration = "auto"\nseed = 42\n', encoding="utf-8"
+    )
+    with patch(
+        "caelum.gerar.orchestrator.run_generation", return_value=("done", "x.wav")
+    ) as mock_run:
+        gerar(faixa_dir)
+    assert mock_run.call_args.kwargs["duration"] is None
+    assert song_db.get_song(faixa_dir / "saida" / "songs.db", 1)["duration"] == 0.0

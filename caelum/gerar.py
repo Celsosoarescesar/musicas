@@ -52,7 +52,7 @@ def gerar(
     song_id = song_db.create_song(
         db_path,
         prompt=faixa.prompt,
-        duration=faixa.duration,
+        duration=0.0 if faixa.duration is None else faixa.duration,  # 0.0 = automatica
         seed=used_seed,
         bpm=faixa.bpm,
         keyscale=faixa.keyscale,

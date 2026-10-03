@@ -73,7 +73,7 @@ def run_generation(
     song_id: int,
     *,
     prompt: str,
-    duration: float,
+    duration: float | None,
     seed: int,
     bpm: int | None,
     keyscale: str | None,

@@ -216,3 +216,13 @@ def test_load_faixa_handles_bom_in_toml(tmp_path):
     (tmp_path / "letra_en.md").write_text("[en]\nhello", encoding="utf-8")
     faixa = load_faixa(tmp_path)
     assert faixa.prompt == "x"
+
+
+def test_load_faixa_accepts_automatic_duration(tmp_path):
+    faixa = load_faixa(_make_faixa(tmp_path, toml='prompt = "x"\nduration = "auto"\n'))
+    assert faixa.duration is None
+
+
+def test_load_faixa_rejects_other_duration_strings(tmp_path):
+    with pytest.raises(FaixaError, match="duration"):
+        load_faixa(_make_faixa(tmp_path, toml='prompt = "x"\nduration = "longa"\n'))
