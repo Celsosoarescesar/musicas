@@ -4,6 +4,18 @@ from ace_step.kaggle_client import KaggleResourceError, get_kaggle_api
 
 NOTEBOOKS_DIR = Path("notebooks")
 
+_TERMINAL_KERNEL_STATUSES = frozenset({"complete", "error", "cancel_acknowledged"})
+
+
+def is_terminal_kernel_status(status: str) -> bool:
+    """Return True if `status` (as normalized by get_kernel_status) means the
+    kernel run has finished, one way or another (success, failure, or
+    cancellation) -- False for anything still in progress, including a
+    status value this code doesn't recognize (keep polling rather than
+    silently misclassifying an unknown status as done).
+    """
+    return status in _TERMINAL_KERNEL_STATUSES
+
 
 def search_kernels(query: str) -> list[str]:
     """Return kernel refs (e.g. 'owner/kernel-slug') matching query."""

@@ -118,3 +118,18 @@ def test_pull_kernel_output_wraps_errors_with_kernel_ref(monkeypatch, tmp_path):
 
     with pytest.raises(KaggleResourceError, match="owner/does-not-exist"):
         kernels.pull_kernel_output("owner/does-not-exist", tmp_path / "out")
+
+
+@pytest.mark.parametrize(
+    "status,expected",
+    [
+        ("queued", False),
+        ("running", False),
+        ("complete", True),
+        ("error", True),
+        ("cancel_acknowledged", True),
+        ("some_future_status_not_seen_yet", False),
+    ],
+)
+def test_is_terminal_kernel_status(status, expected):
+    assert kernels.is_terminal_kernel_status(status) is expected

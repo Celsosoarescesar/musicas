@@ -233,10 +233,28 @@ project has treated other now-unused columns.
 
 ## Open risks (to confirm live during implementation)
 
+- ~~Whether `kernels_output` preserves the `/kaggle/working/output/`
+  subdirectory as-is~~ — **confirmed live 2026-09-27**: song #3's full run
+  (generation + stems) pulled correctly through `tmp_pulled_dir / "output"
+  / ...` with no path adjustment needed.
+- ~~The kernel-status race~~ (a `complete` status on the very first poll
+  right after push being a stale read of the previous run) — **not
+  observed live 2026-09-27**: the `_wait_for_kernel_terminal` gate added
+  after final review didn't stall the run, so either Kaggle reliably
+  reports a non-terminal status first for a genuinely fresh run, or the
+  race window is narrow enough not to hit in practice. Kept as a
+  safeguard regardless, since the underlying "no per-push version" fact
+  is still true.
 - Whether `kernels_output` behaves sensibly against a kernel that exited
   non-zero (partial output, if any, should still be retrievable for
-  debugging) — not verified in this codebase yet.
-- Actual end-to-end wall-clock time per song under the new model (the
-  2700s default is an estimate from the one live run so far, which did
-  not include stem separation time); may need adjusting after the first
-  live batch run.
+  debugging) — still not verified (song #3's run succeeded end to end).
+- Actual end-to-end wall-clock time per song under the new model — a
+  30s-duration run (song #3, 2026-09-27) completed in ~5m18s (created
+  10:51:16, updated 10:56:34) including cold-start (clone + pip install +
+  model load) and stem separation; the 2700s default has comfortable
+  headroom for a 30s song, but a full ~240s song's timing is still
+  unconfirmed.
+- Where the acestep checkpoints actually land relative to
+  `/kaggle/working/output/` — not directly observed from the local side;
+  no disk-related failure occurred on this run, but this doesn't rule out
+  the checkpoint download later filling disk on a longer/repeated run.

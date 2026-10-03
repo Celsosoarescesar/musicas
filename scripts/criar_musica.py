@@ -1,6 +1,14 @@
-import argparse
 import os
+import subprocess
 import sys
+
+if not sys.flags.utf8_mode:
+    env = os.environ.copy()
+    env["PYTHONUTF8"] = "1"
+    result = subprocess.run([sys.executable, __file__, *sys.argv[1:]], env=env)
+    sys.exit(result.returncode)
+
+import argparse
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -13,7 +21,7 @@ DEFAULT_OUTPUT_DIR = Path("ace_step/output")
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Cria uma musica: letra via Claude + geracao via ACE-Step (Fase 1) + masterizacao."
+        description="Cria uma musica: letra via Claude + geracao+separacao via kernel batch no Kaggle."
     )
     parser.add_argument("--prompt", required=True, help="Descricao de estilo/mood da musica")
     parser.add_argument("--duration", type=float, default=60.0)
@@ -27,17 +35,16 @@ def main():
     parser.add_argument(
         "--timeout",
         type=float,
-        default=300.0,
-        help="Orcamento total (segundos) para a geracao assincrona (release_task + poll) -- aumente para musicas mais longas",
+        default=2700.0,
+        help=(
+            "Orcamento total (segundos) para o kernel batch terminar (setup + "
+            "geracao + separacao) -- cada musica paga o custo de setup do zero, "
+            "aumente para musicas mais longas ou kernels lentos pra iniciar"
+        ),
     )
     args = parser.parse_args()
 
     load_dotenv()
-    base_url = os.environ.get("ACE_STEP_API_URL")
-    api_key = os.environ.get("ACE_STEP_API_KEY")
-    if not base_url or not api_key:
-        print("ACE_STEP_API_URL e/ou ACE_STEP_API_KEY nao encontrados no .env.", file=sys.stderr)
-        sys.exit(1)
 
     song_id = song_db.create_song(
         args.db,
@@ -54,8 +61,6 @@ def main():
         args.db,
         DEFAULT_OUTPUT_DIR,
         song_id,
-        base_url=base_url,
-        api_key=api_key,
         prompt=args.prompt,
         duration=args.duration,
         seed=args.seed,

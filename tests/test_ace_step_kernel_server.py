@@ -7,7 +7,9 @@ imports at the top level (see ace_step_server.py's docstring), so this
 works without torch/fastapi/diffusers installed locally.
 """
 
+import base64
 import importlib.util
+import json
 from pathlib import Path
 
 import pytest
@@ -97,51 +99,259 @@ def test_resolve_secrets_dataset_dir_defaults_to_flat_when_neither_exists(tmp_pa
     assert result == tmp_path / "ace-step-api-secrets"
 
 
-def test_first_dead_process_returns_none_when_all_alive():
-    class FakeAlive:
-        def poll(self):
-            return None
-
-    result = ace_step_server.first_dead_process({"acestep": FakeAlive(), "proxy": FakeAlive()})
-
-    assert result is None
-
-
-def test_first_dead_process_returns_name_of_dead_one():
-    class FakeAlive:
-        def poll(self):
-            return None
-
-    class FakeDead:
-        def poll(self):
-            return 1
-
-    result = ace_step_server.first_dead_process({"acestep": FakeAlive(), "proxy": FakeDead()})
-
-    assert result == "proxy"
+def test_decode_job_round_trips_dict():
+    job = {
+        "prompt": "epic metal", "lyrics": "[en]\n[Verse]\nx", "duration": 60.0,
+        "seed": 42, "bpm": None, "keyscale": None, "vocal_language": "en",
+    }
+    encoded = base64.b64encode(json.dumps(job).encode("utf-8")).decode("ascii")
+    assert ace_step_server.decode_job(encoded) == job
 
 
-def test_write_proxy_server_script_matches_repo_file(tmp_path):
-    """Guards against embedded/real-file drift.
-
-    Kaggle's `script`-type kernel push only stores the single `code_file`
-    (confirmed live -- `proxy_server.py` never reached the kernel, so the
-    proxy subprocess failed with FileNotFoundError and took the whole
-    kernel down). `ace_step_server.py` now carries proxy_server.py's exact
-    bytes base64-embedded and writes them out at runtime instead of relying
-    on a sibling file. This test decodes that same embedded constant and
-    diffs it against the real file, so an edit to proxy_server.py without
-    regenerating the embedded copy fails here instead of on a live kernel.
-    """
-    real_proxy_path = (
-        Path(__file__).resolve().parents[1]
-        / "ace_step"
-        / "kernel"
-        / "proxy_server.py"
+def test_write_result_json_writes_expected_shape(tmp_path):
+    dest = tmp_path / "output" / "result.json"
+    result = ace_step_server.write_result_json(
+        dest,
+        generation_status="done",
+        generation_error=None,
+        stems_status="error",
+        stems_error="cuda out of memory",
     )
-    dest = tmp_path / "proxy_server.py"
-
-    result = ace_step_server.write_proxy_server_script(dest)
-
     assert result == dest
-    assert dest.read_bytes() == real_proxy_path.read_bytes()
+    assert json.loads(dest.read_text(encoding="utf-8")) == {
+        "generation_status": "done",
+        "generation_error": None,
+        "stems_status": "error",
+        "stems_error": "cuda out of memory",
+    }
+
+
+def test_parse_audio_path_extracts_path_from_query_string():
+    result = ace_step_server.parse_audio_path("/v1/audio?path=%2Fkaggle%2Fworking%2Fmusica.wav")
+    assert result == "/kaggle/working/musica.wav"
+
+
+def test_parse_audio_path_raises_when_path_param_missing():
+    with pytest.raises(ValueError, match="path"):
+        ace_step_server.parse_audio_path("/v1/audio?other=1")
+
+
+def test_build_demucs_command_has_expected_args(tmp_path):
+    input_path = tmp_path / "musica.wav"
+    out_dir = tmp_path / "out"
+
+    command = ace_step_server.build_demucs_command(input_path, out_dir)
+
+    assert command[0] == ace_step_server.sys.executable
+    assert command[1:3] == ["-m", "demucs"]
+    assert command[command.index("-n") + 1] == "htdemucs_6s"
+    assert command[command.index("-d") + 1] == "cuda"
+    assert command[command.index("--out") + 1] == str(out_dir)
+    assert command[-1] == str(input_path)
+
+
+def test_stems_from_output_dir_returns_all_six_paths(tmp_path):
+    track_dir = tmp_path / "htdemucs_6s" / "musica"
+    track_dir.mkdir(parents=True)
+    for name in ("vocals", "drums", "bass", "guitar", "piano", "other"):
+        (track_dir / f"{name}.wav").write_bytes(b"fake")
+
+    stems = ace_step_server.stems_from_output_dir(tmp_path, "htdemucs_6s", "musica")
+
+    assert set(stems) == {"vocals", "drums", "bass", "guitar", "piano", "other"}
+    assert stems["vocals"] == track_dir / "vocals.wav"
+
+
+def test_stems_from_output_dir_raises_when_a_stem_is_missing(tmp_path):
+    track_dir = tmp_path / "htdemucs_6s" / "musica"
+    track_dir.mkdir(parents=True)
+    for name in ("vocals", "drums", "bass", "guitar", "piano"):  # "other" missing on purpose
+        (track_dir / f"{name}.wav").write_bytes(b"fake")
+
+    with pytest.raises(ValueError, match="other"):
+        ace_step_server.stems_from_output_dir(tmp_path, "htdemucs_6s", "musica")
+
+
+class _FakeHTTPResponse:
+    def __init__(self, body):
+        self._body = json.dumps(body).encode("utf-8")
+
+    def read(self):
+        return self._body
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *args):
+        return False
+
+
+def test_post_json_sends_body_and_parses_response(monkeypatch):
+    captured = {}
+
+    def fake_urlopen(request, timeout):
+        captured["url"] = request.full_url
+        captured["method"] = request.get_method()
+        captured["data"] = request.data
+        captured["headers"] = dict(request.header_items())
+        captured["timeout"] = timeout
+        return _FakeHTTPResponse({"task_id": "abc"})
+
+    monkeypatch.setattr(ace_step_server.urllib.request, "urlopen", fake_urlopen)
+
+    result = ace_step_server._post_json(
+        "http://127.0.0.1:8189/release_task",
+        {"prompt": "epic metal"},
+        headers={"Authorization": "Bearer key"},
+        timeout=30.0,
+    )
+
+    assert result == {"task_id": "abc"}
+    assert captured["method"] == "POST"
+    assert captured["url"] == "http://127.0.0.1:8189/release_task"
+    assert json.loads(captured["data"]) == {"prompt": "epic metal"}
+    assert captured["headers"].get("Authorization") == "Bearer key"
+    assert captured["timeout"] == 30.0
+
+
+def test_get_json_sends_headers_and_parses_response(monkeypatch):
+    captured = {}
+
+    def fake_urlopen(request, timeout):
+        captured["url"] = request.full_url
+        captured["headers"] = dict(request.header_items())
+        return _FakeHTTPResponse({"data": {"status": "ok"}})
+
+    monkeypatch.setattr(ace_step_server.urllib.request, "urlopen", fake_urlopen)
+
+    result = ace_step_server._get_json(
+        "http://127.0.0.1:8189/health", headers={"Authorization": "Bearer key"}, timeout=10.0
+    )
+
+    assert result == {"data": {"status": "ok"}}
+    assert captured["url"] == "http://127.0.0.1:8189/health"
+    assert captured["headers"].get("Authorization") == "Bearer key"
+
+
+def test_wait_for_health_returns_when_status_ok(monkeypatch):
+    monkeypatch.setattr(
+        ace_step_server, "_get_json", lambda url, headers, timeout: {"data": {"status": "ok"}}
+    )
+    ace_step_server.wait_for_health("http://127.0.0.1:8189", "key", timeout=5.0, poll_interval=0.01)
+
+
+def test_wait_for_health_times_out_when_never_ok(monkeypatch):
+    monkeypatch.setattr(
+        ace_step_server, "_get_json", lambda url, headers, timeout: {"data": {"status": "loading"}}
+    )
+    with pytest.raises(TimeoutError):
+        ace_step_server.wait_for_health(
+            "http://127.0.0.1:8189", "key", timeout=0.05, poll_interval=0.01
+        )
+
+
+_TEST_JOB = {
+    "prompt": "epic metal", "lyrics": "[en]\nx", "duration": 60.0, "seed": 42,
+    "bpm": None, "keyscale": None, "vocal_language": "en",
+}
+
+
+def test_wait_for_generation_returns_file_ref_on_status_1(monkeypatch):
+    def fake_post_json(url, payload, headers, timeout):
+        if url.endswith("/release_task"):
+            return {"data": {"task_id": "abc"}, "error": None}
+        return {
+            "data": [
+                {"status": 1, "result": json.dumps([{"file": "/v1/audio?path=%2Ftmp%2Fa.wav"}])}
+            ],
+            "error": None,
+        }
+
+    monkeypatch.setattr(ace_step_server, "_post_json", fake_post_json)
+
+    result = ace_step_server.wait_for_generation(
+        "http://127.0.0.1:8189", "key", _TEST_JOB, timeout=5.0, poll_interval=0.01
+    )
+
+    assert result == "/v1/audio?path=%2Ftmp%2Fa.wav"
+
+
+def test_wait_for_generation_raises_runtime_error_on_status_2(monkeypatch):
+    def fake_post_json(url, payload, headers, timeout):
+        if url.endswith("/release_task"):
+            return {"data": {"task_id": "abc"}, "error": None}
+        return {"data": [{"status": 2, "result": "cuda out of memory"}], "error": None}
+
+    monkeypatch.setattr(ace_step_server, "_post_json", fake_post_json)
+
+    with pytest.raises(RuntimeError, match="cuda out of memory"):
+        ace_step_server.wait_for_generation(
+            "http://127.0.0.1:8189", "key", _TEST_JOB, timeout=5.0, poll_interval=0.01
+        )
+
+
+def test_wait_for_generation_times_out_when_never_done(monkeypatch):
+    def fake_post_json(url, payload, headers, timeout):
+        if url.endswith("/release_task"):
+            return {"data": {"task_id": "abc"}, "error": None}
+        return {"data": [{"status": 0, "result": None}], "error": None}
+
+    monkeypatch.setattr(ace_step_server, "_post_json", fake_post_json)
+
+    with pytest.raises(TimeoutError):
+        ace_step_server.wait_for_generation(
+            "http://127.0.0.1:8189", "key", _TEST_JOB, timeout=0.05, poll_interval=0.01
+        )
+
+
+def test_wait_for_generation_raises_on_release_task_error_envelope(monkeypatch):
+    def fake_post_json(url, payload, headers, timeout):
+        return {"data": None, "error": "modelo nao carregado"}
+
+    monkeypatch.setattr(ace_step_server, "_post_json", fake_post_json)
+
+    with pytest.raises(RuntimeError, match="modelo nao carregado"):
+        ace_step_server.wait_for_generation(
+            "http://127.0.0.1:8189", "key", _TEST_JOB, timeout=5.0, poll_interval=0.01
+        )
+
+
+def test_wait_for_generation_tolerates_transient_query_result_failures(monkeypatch):
+    calls = {"count": 0}
+
+    def fake_post_json(url, payload, headers, timeout):
+        if url.endswith("/release_task"):
+            return {"data": {"task_id": "abc"}, "error": None}
+        calls["count"] += 1
+        if calls["count"] <= 2:
+            raise ace_step_server.urllib.error.URLError("instabilidade transitoria")
+        return {
+            "data": [
+                {"status": 1, "result": json.dumps([{"file": "/v1/audio?path=%2Ftmp%2Fa.wav"}])}
+            ],
+            "error": None,
+        }
+
+    monkeypatch.setattr(ace_step_server, "_post_json", fake_post_json)
+
+    result = ace_step_server.wait_for_generation(
+        "http://127.0.0.1:8189", "key", _TEST_JOB, timeout=5.0, poll_interval=0.01
+    )
+
+    assert result == "/v1/audio?path=%2Ftmp%2Fa.wav"
+    assert calls["count"] >= 3
+
+
+def test_wait_for_generation_times_out_when_query_result_always_fails(monkeypatch):
+    def fake_post_json(url, payload, headers, timeout):
+        if url.endswith("/release_task"):
+            return {"data": {"task_id": "abc"}, "error": None}
+        raise ace_step_server.urllib.error.URLError("instabilidade persistente")
+
+    monkeypatch.setattr(ace_step_server, "_post_json", fake_post_json)
+
+    with pytest.raises(TimeoutError, match="instabilidade persistente"):
+        ace_step_server.wait_for_generation(
+            "http://127.0.0.1:8189", "key", _TEST_JOB, timeout=0.05, poll_interval=0.01
+        )
+
