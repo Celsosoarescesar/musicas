@@ -4,6 +4,7 @@ from mcp_server import (
     reaper_add_fx,
     reaper_apply_master,
     reaper_audit_session,
+    reaper_build_vocal_session,
     reaper_generate_scale,
     reaper_import_audio,
     reaper_list_tracks,
@@ -202,3 +203,26 @@ def test_reaper_track_summary_returns_error_message_on_bridge_error():
         ):
             result = reaper_track_summary("xyz")
     assert result == "Erro: faixa 'xyz' não existe, faixas disponíveis: piano"
+
+
+def test_reaper_build_vocal_session_lists_created_tracks():
+    with patch("mcp_server.get_project", return_value=object()):
+        with patch(
+            "mcp_server.vocal_session.build_vocal_session",
+            return_value=["drums", "guia_ia", "voz_caelum"],
+        ) as mock_build:
+            result = reaper_build_vocal_session("C:/stems", 3)
+    mock_build.assert_called_once()
+    assert mock_build.call_args.args[1:] == ("C:/stems", 3)
+    assert "drums, guia_ia, voz_caelum" in result
+    assert "voz_caelum" in result
+
+
+def test_reaper_build_vocal_session_returns_error_message_on_bridge_error():
+    with patch("mcp_server.get_project", return_value=object()):
+        with patch(
+            "mcp_server.vocal_session.build_vocal_session",
+            side_effect=ReaperBridgeError("já existe(m) no projeto faixa(s) com o nome: voz_caelum"),
+        ):
+            result = reaper_build_vocal_session("C:/stems", 3)
+    assert result.startswith("Erro: já existe")
