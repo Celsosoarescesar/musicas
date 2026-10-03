@@ -46,7 +46,7 @@ de vocabulario dos testes vale para todas as pastas (a lista de isencao
 |---|---|---|---|---|
 | Fe | 01 | `01_quebra_de_fe` (pronta; letra no conceito real) | Descobre que o pastor em quem confiava vive do sofrimento dos outros | O pastor que lucra com a fe |
 | | 02 | `02_obedecer` | Crescer fazendo o que mandam, sem perguntar | Quem manda sem dar razao |
-| | 03 | `03_silencio` | Ve os sinais e cala para nao perder o lugar | O silencio alimenta o sistema |
+| | 03 | `03_silencio` | Ama quem nao o ama de volta e cala para nao perder a amizade | Nao ha monstro: o silencio pesa mais que um nao |
 | Ruptura | 04 | `04_pastor` | Raiva do falso pastor que lucra com a dor | Quem vive do sofrimento alheio |
 | | 05 | `05_veneno` | O amor que nao deu certo: enganado por quem dizia amar | Quem usa o amor como arma |
 | | 06 | `06_promessas` | Politicos que roubam a nacao; a promessa vendida ao povo | Quem rouba e promete |
@@ -91,7 +91,7 @@ melodica; isso fica na melodia que voce grava e na camada REAPER.
 ### Motivos
 
 - **Mantra da obediencia:** "Obey. Don't ask." sussurrado/monotono nas
-  faixas 01-03; invertido, "Ask. Don't obey.", nas 08-10. E a voz de qualquer
+  faixas 01-02 (na 03 vira "Don't ask. Don't hope.", a voz dele mesmo); invertido, "Ask. Don't obey.", nas 08-10. E a voz de qualquer
   sistema que pede obediencia (pulpito, palanque, relacao abusiva). Gravado
   com a sua voz no REAPER.
 - **Curva do grito:** nenhum na 03, maximo nas 05 e 06, contido nas 08-10.

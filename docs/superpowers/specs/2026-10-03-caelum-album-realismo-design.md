@@ -53,7 +53,7 @@ posicao. Os titulos e cenas mudam:
 |---|---|---|---|---|---|
 | Fe | 01 | `01_quebra_de_fe` | Quebra de fe | Descobre que o pastor em quem confiava vive do sofrimento dos outros (a virada; flashback para 02-03) | O pastor que lucra com a fe |
 | | 02 | `02_obedecer` | Obedecer | Crescer fazendo o que mandam, sem perguntar | Quem manda sem dar razao |
-| | 03 | `03_silencio` | Silencio | Ve os sinais e cala para nao perder o lugar | O silencio alimenta o sistema |
+| | 03 | `03_silencio` | Silencio | Ama quem nao o ama de volta e cala para nao perder a amizade (amor nao correspondido; a 05 e o amor que engana) | Nao ha monstro: o silencio pesa mais que um nao |
 | Ruptura | 04 | `04_pastor` | Pastor | Raiva do falso pastor que lucra com a dor | Quem vive do sofrimento alheio |
 | | 05 | `05_veneno` | Veneno | O amor que nao deu certo: enganado por quem dizia amar | Quem usa o amor como arma |
 | | 06 | `06_promessas` | Promessas | Politicos que roubam a nacao; a promessa vendida ao povo | Quem rouba e promete |

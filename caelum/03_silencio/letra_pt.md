@@ -2,47 +2,47 @@
 
 Contexto da cena (o que acontece, o que Caelum sente):
 
-- Caelum nota os sinais de que algo esta errado (dinheiro, favores, castigos) e cala para nao perder o lugar e a comunidade (flashback).
-- 'Monstro' aqui quer dizer: o silencio de quem ve alimenta quem manipula.
+- Caelum ama alguem que nao o ama de volta e cala para nao perder a amizade: o amor nao correspondido (flashback). Diferente da 05 (Veneno), onde o amor engana.
+- 'Monstro' aqui quer dizer: nao ha monstro; o que pesa e o proprio silencio (a dor de nunca ter ouvido um 'nao').
 - Voz: sussurro e voz limpa, SEM grito; a faixa mais contida do album. Versos e ponte sussurrados, refrao limpo.
 - Tom e escala: E minor -- E menor; menor harmonica nos trechos do sistema, natural no resto.
 - Guarda: criticar o mecanismo, nao pessoas; sem nomes nem detalhes que identifiquem alguem real (ver BIBLIA).
 
 ## Letra
 
-[Intro -- mantra sussurrado]
-Obey. Don't ask.
+[Intro -- sussurrado]
+Don't ask. Don't hope.
 
 [Verso 1]
-O carro novo do pastor
-Parado na porta da igreja
-Eu vi o envelope sumir
-Eu vi e fiquei calado
+Eu te vejo toda manhã
+Você passa e não me olha
+Eu guardo o seu nome na boca
+Eu te amo e fico calado
 
 [Refrao -- limpo, melodico]
-Eu vi, eu vi, mas não disse nada
-Quem pergunta perde o seu lugar
+Eu quis, eu quis, mas não disse nada
+Se eu falo, eu perco o que eu tenho
 Cada silêncio que eu guardei
 Foi um tijolo na parede
 
 [Verso 2]
-Um irmão perguntou uma vez
-No outro domingo ele não veio
-Ninguém falou o nome dele
-E eu fiz como todos fizeram
+Um dia eu quase te falei
+Você chegou com outro alguém
+Eu sorri e disse parabéns
+E guardei a dor pra mim
 
 [Refrao -- limpo, melodico]
-Eu vi, eu vi, mas não disse nada
-Quem pergunta perde o seu lugar
+Eu quis, eu quis, mas não disse nada
+Se eu falo, eu perco o que eu tenho
 Cada silêncio que eu guardei
 Foi um tijolo na parede
 
 [Ponte -- sussurrada, sem grito]
-Se eu falo, eu perco o meu lugar
+Se eu falo, eu perco a amizade
 Se eu calo, eu perco a mim
 
 [Refrao final -- limpo, melodico]
-Eu vi, eu vi, mas não disse nada
-Quem pergunta perde o seu lugar
+Eu quis, eu quis, mas não disse nada
+Se eu falo, eu perco o que eu tenho
 Cada silêncio que eu guardei
-Pesa mais do que a verdade
+Dói mais do que um não
