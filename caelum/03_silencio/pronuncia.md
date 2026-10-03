@@ -3,7 +3,7 @@
 Legenda: pronuncia escrita em portugues; **negrito** = silaba tonica; (!) = palavra dificil.
 Aproximacao para guiar a voz, nao pronuncia exata: o guia de audio e o vocal da IA (guia_ia).
 
-## Intro (sussurrado)
+## Mantra (gravado por voce no REAPER; nao vai na letra enviada ao ACE-Step)
 
 | Linha em ingles | Pronuncia (PT-BR) | Observacoes |
 |---|---|---|
@@ -22,7 +22,7 @@ Aproximacao para guiar a voz, nao pronuncia exata: o guia de audio e o vocal da 
 
 | Linha em ingles | Pronuncia (PT-BR) | Observacoes |
 |---|---|---|
-| I wished, I wished, but I said nothing | ai **uíchtt** (!), ai uíchtt, bât ai séd **nâ**-θin (!) | "wished": uíchtt, -ed vira "t" depois do "sh": "ch" curto + "t"; "said": séd; "nothing": nâ-θin, th surdo (sopro), "u" soa "â" |
+| I wished, I wished, I said nothing | ai **uíchtt** (!), ai uíchtt, ai séd **nâ**-θin (!) | "wished": uíchtt, -ed vira "t" depois do "sh": "ch" curto + "t"; "said": séd; "nothing": nâ-θin, th surdo (sopro), "u" soa "â" |
 | If I speak, I lose it all | if ai **spík** (!), ai lúz it ól | "speak": spík, "sp" junto, sem "i" antes; "lose": lúz, termina em "z"; "all": ól |
 | Every silence that I kept | **év**-ri **sái**-lens dét ai képt | "silence": sái-lens; "that": dét, th sonoro; "kept": képt, o "t" final leve |
 | Was a brick inside the wall | uóz a **bric** in-**sáid** dâ **uól** (!) | "was": uóz; "brick": bric, "i" curto e "ck" seco; "wall": uól, "all" longo |
@@ -62,7 +62,7 @@ Aproximacao para guiar a voz, nao pronuncia exata: o guia de audio e o vocal da 
 
 ## Palavras para considerar trocar
 
-- **"wished" (refrão, linha 1):** o "sht" final é o som mais difícil da faixa. Alternativa: "I tried, I tried, but I said nothing" ("trái-d"), só se travar.
+- **"wished" (refrão, linha 1):** o "sht" final é o som mais difícil da faixa. Alternativa: "I tried, I tried, I said nothing" ("trái-d"), só se travar.
 - **"congrats" (verso 2):** o "grats" termina em "ts". Alternativa: "I smiled and said goodbye". Só se travar.
 - **"mouth" (verso 1):** o "th" surdo no final. Alternativa: "I keep your name inside my heart". Só se travar.
 

@@ -27,3 +27,12 @@ do formato). Cada faixa tem:
 5. Mix e master (frente 4 da spec).
 
 O vocal da IA (`guia_ia`) serve so de referencia de pronuncia/fraseado.
+
+## Regras da letra em ingles para o ACE-Step
+
+Fonte: docs oficiais do ACE-Step (Musician's Guide e Tutorial). Letras fora disso saem puladas ou misturadas:
+
+- Linhas de **6 a 10 silabas**, com tamanhos parecidos entre versos (+-2). Linha de 13 ou 15 silabas e resumida ou pulada.
+- Etiquetas **numeradas e com uma dica curta**: `[Verse 1 - whispered]`, `[Chorus - melodic]`, `[Bridge - whispered]`. Nada de empilhar dicas.
+- `[Intro]` e para atmosfera (instrumental, ex.: `[Intro - ambient]`): **nao ponha letra nele**. O mantra e gravado por voce no REAPER.
+- Linha em branco entre seccoes; a dica na etiqueta deve combinar com o `prompt` do `faixa.toml` (sem conflito).

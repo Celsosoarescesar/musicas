@@ -141,7 +141,7 @@ atuais; [manual] = no REAPER, por enquanto):
 |---|---|
 | 01 | Mantra sussurrado ao fundo do verso [MCP: faixa + FX; posicionar: manual] |
 | 02 | Mantra falado, voz de pulpito; textura seca e ritmada [manual] |
-| 03 | Texturas frias e silencios [manual]; reverb/delay na voz [MCP] |
+| 03 | Mantra "Don't ask. Don't hope." sussurrado, gravado com a sua voz [MCP: faixa + FX; posicionar: manual]; texturas frias e silencios [manual]; reverb/delay na voz [MCP] |
 | 04 | Breakdown: corte/repeticao de trecho [manual] |
 | 05 | Saturacao extra no baixo e na voz [MCP: FX] |
 | 06 | Breakdown seco antes do refrao final [manual]; gang vocals dobrados [MCP; alinhar/posicionar: manual] |
