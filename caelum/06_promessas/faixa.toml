@@ -1,7 +1,7 @@
 # Configuracao da faixa. So 'prompt' e obrigatorio.
 # Chaves desconhecidas sao erro (evita typo silencioso).
 prompt = "melodic nu metal, downtuned 7-string guitars, aggressive, fast, driving drums, shouted gang vocals, strong scream, brutal breakdown before the final chorus, no rap, 120 bpm, C# minor"
-duration = 180.0       # segundos
+duration = "auto"       # automatica: o ACE-Step ajusta a duracao a letra
 seed = 42
 bpm = 120
 keyscale = "C# minor"

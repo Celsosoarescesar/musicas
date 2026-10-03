@@ -14,7 +14,7 @@ do formato). Cada faixa tem:
 - `letra_pt.md` -- fonte da verdade (significado e emocao)
 - `letra_en.md` -- adaptacao para ingles, enviada INTEIRA ao ACE-Step (sem comentarios)
 - `pronuncia.md` -- folha de pronuncia linha a linha
-- `faixa.toml` -- prompt de estilo, bpm, tom, seed, duracao
+- `faixa.toml` -- prompt de estilo, bpm, tom, seed, duracao (`duration = "auto"`: cada musica fica com o tamanho que a letra pede; ou um numero em segundos)
 - `saida/` -- gerado (nao versionado): `songs.db`, `<id>_master.wav`, `<id>_stem_*.wav`
 
 ## Fluxo
