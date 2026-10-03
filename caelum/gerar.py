@@ -32,6 +32,7 @@ def gerar(
     *,
     seed: int | None = None,
     instrumental: bool = False,
+    stems: bool = False,
     timeout: float = 2700.0,
 ) -> tuple[int, str, str | None]:
     """Roda a geracao+separacao de uma faixa. Devolve (song_id, status, detalhe).
@@ -39,6 +40,9 @@ def gerar(
     Valida a faixa ANTES de criar a musica no banco ou falar com o Kaggle
     (FaixaError sobe). Depois, o pipeline nunca levanta: erros voltam como
     status "error" e ficam gravados na linha da musica.
+
+    `stems=False` (padrao) gera so a musica: os stems sao separados depois, com
+    `scripts/caelum_stems.py`, se o usuario gostar dela. `stems=True` separa no kernel.
 
     `instrumental=True` (plano B da spec) gera a base sem vocal: manda a tag
     "[Instrumental]" no lugar da letra_en.md. Note que a letra faz parte da
@@ -70,6 +74,7 @@ def gerar(
         vocal_language=faixa.vocal_language,
         lufs_target=faixa.lufs_target,
         lyrics=INSTRUMENTAL_LYRICS if instrumental else faixa.lyrics,
+        stems=stems,
         timeout=timeout,
     )
     return song_id, status, detail

@@ -156,6 +156,11 @@ def write_result_json(
     return dest_path
 
 
+def wants_stems(job: dict) -> bool:
+    """Separar stems (Demucs) neste kernel? Padrao: sim; `stems: false` pula."""
+    return job.get("stems", True)
+
+
 def parse_audio_path(file_ref: str) -> str:
     """Extract the raw filesystem path from a `/v1/audio?path=...`-style string.
 
@@ -539,35 +544,40 @@ def main():
         generation_status = "done"
         logger.info(f"Musica gerada e copiada para {raw_dest}.")
 
-        # Encerra o acestep.api_server antes do Demucs: o modelo continua
-        # residente na GPU (em float32 em GPUs pre-Ampere -- ver o patch de
-        # dtype acima) ate o processo terminar, e Demucs rodando ao lado dele
-        # na mesma GPU arrisca CUDA out-of-memory num T4 de 16GB.
-        logger.info("Encerrando acestep.api_server antes de rodar Demucs (libera GPU)...")
-        server_process.terminate()
-        try:
-            server_process.wait(timeout=30.0)
-        except subprocess.TimeoutExpired:
-            server_process.kill()
-            server_process.wait(timeout=30.0)
-        server_process = None
+        if not wants_stems(job):
+            # Gerar so a musica: os stems sao separados depois (caelum_stems), se o usuario gostar dela.
+            stems_status = "skipped"
+            logger.info("Separacao de stems pulada (stems=false no job).")
+        else:
+            # Encerra o acestep.api_server antes do Demucs: o modelo continua
+            # residente na GPU (em float32 em GPUs pre-Ampere -- ver o patch de
+            # dtype acima) ate o processo terminar, e Demucs rodando ao lado dele
+            # na mesma GPU arrisca CUDA out-of-memory num T4 de 16GB.
+            logger.info("Encerrando acestep.api_server antes de rodar Demucs (libera GPU)...")
+            server_process.terminate()
+            try:
+                server_process.wait(timeout=30.0)
+            except subprocess.TimeoutExpired:
+                server_process.kill()
+                server_process.wait(timeout=30.0)
+            server_process = None
 
-        try:
-            command = build_demucs_command(raw_dest, demucs_out_dir)
-            subprocess.run(command, check=True, capture_output=True, text=True)
-            stems = stems_from_output_dir(demucs_out_dir, "htdemucs_6s", raw_dest.stem)
-            stems_out_dir = output_dir / "stems"
-            stems_out_dir.mkdir(parents=True, exist_ok=True)
-            for name, stem_path in stems.items():
-                shutil.copy(stem_path, stems_out_dir / f"{name}.wav")
-            stems_status = "done"
-            logger.info("Separacao de stems concluida.")
-        except subprocess.CalledProcessError as exc:
-            stems_error = (exc.stderr or "").strip() or str(exc)
-            logger.error(f"Separacao de stems falhou: {stems_error}")
-        except Exception as exc:
-            stems_error = str(exc)
-            logger.error(f"Separacao de stems falhou: {stems_error}")
+            try:
+                command = build_demucs_command(raw_dest, demucs_out_dir)
+                subprocess.run(command, check=True, capture_output=True, text=True)
+                stems = stems_from_output_dir(demucs_out_dir, "htdemucs_6s", raw_dest.stem)
+                stems_out_dir = output_dir / "stems"
+                stems_out_dir.mkdir(parents=True, exist_ok=True)
+                for name, stem_path in stems.items():
+                    shutil.copy(stem_path, stems_out_dir / f"{name}.wav")
+                stems_status = "done"
+                logger.info("Separacao de stems concluida.")
+            except subprocess.CalledProcessError as exc:
+                stems_error = (exc.stderr or "").strip() or str(exc)
+                logger.error(f"Separacao de stems falhou: {stems_error}")
+            except Exception as exc:
+                stems_error = str(exc)
+                logger.error(f"Separacao de stems falhou: {stems_error}")
     except Exception as exc:
         generation_error = str(exc)
         logger.error(f"Geracao falhou: {generation_error}")

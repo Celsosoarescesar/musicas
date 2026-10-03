@@ -123,3 +123,14 @@ def test_gerar_automatic_duration_passes_none_and_stores_zero(tmp_path):
         gerar(faixa_dir)
     assert mock_run.call_args.kwargs["duration"] is None
     assert song_db.get_song(faixa_dir / "saida" / "songs.db", 1)["duration"] == 0.0
+
+
+def test_gerar_defaults_to_music_only_and_com_stems_flag_enables_stems(tmp_path):
+    faixa_dir = _make_faixa(tmp_path)
+    with patch(
+        "caelum.gerar.orchestrator.run_generation", return_value=("done", "x.wav")
+    ) as mock_run:
+        gerar(faixa_dir)
+        assert mock_run.call_args.kwargs["stems"] is False
+        gerar(faixa_dir, stems=True)
+        assert mock_run.call_args.kwargs["stems"] is True

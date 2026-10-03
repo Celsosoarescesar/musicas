@@ -431,3 +431,32 @@ def test_run_generation_records_stems_error_when_stem_file_copy_fails(monkeypatc
     assert status == "done"  # missing stems must never flip generation back to error
     error_update = next(u for u in updates if u.get("stems_status") == "error")
     assert "stems_error_message" in error_update
+
+
+def test_run_generation_without_stems_sends_flag_and_marks_skipped(monkeypatch, tmp_path):
+    db_path = tmp_path / "songs.db"
+    updates = []
+    _stub_common(monkeypatch, updates, tmp_path=tmp_path)
+    jobs = []
+    monkeypatch.setattr(
+        orchestrator.kernel_render,
+        "render_job_kernel",
+        lambda job, dest_dir: jobs.append(job) or Path(dest_dir),
+    )
+
+    def fake_pull_kernel_output(ref, dest_dir):
+        output_dir = _write_result_json(Path(dest_dir), stems_status="skipped")
+        _write_raw_and_stems(output_dir, with_stems=False)
+        return Path(dest_dir)
+
+    monkeypatch.setattr(orchestrator.kernels, "pull_kernel_output", fake_pull_kernel_output)
+
+    status, detail = orchestrator.run_generation(
+        db_path, tmp_path, 1, poll_interval=0.01, stems=False, **_base_kwargs()
+    )
+
+    assert status == "done"
+    assert jobs[0]["stems"] is False
+    assert {"stems_status": "skipped"} in updates
+    assert not any(u.get("stems_status") == "error" for u in updates)
+    assert not (tmp_path / "1_stem_vocals.wav").exists()

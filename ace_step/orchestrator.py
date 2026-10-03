@@ -80,6 +80,7 @@ def run_generation(
     vocal_language: str,
     lufs_target: float,
     lyrics: str | None = None,
+    stems: bool = True,
     timeout: float = 2700.0,
     poll_interval: float = 20.0,
 ) -> tuple[str, str | None]:
@@ -107,6 +108,7 @@ def run_generation(
             "bpm": bpm,
             "keyscale": keyscale,
             "vocal_language": vocal_language,
+            "stems": stems,
         }
         kernel_render.render_job_kernel(job, tmp_kernel_dir)
         kernels.push_kernel(tmp_kernel_dir)
@@ -160,7 +162,9 @@ def run_generation(
         song_db.update_song(db_path, song_id, status="done", output_path=str(final_path))
 
         try:
-            if result.get("stems_status") == "done":
+            if result.get("stems_status") == "skipped":
+                song_db.update_song(db_path, song_id, stems_status="skipped")
+            elif result.get("stems_status") == "done":
                 fields = {}
                 for name in _STEM_NAMES:
                     stem_src = tmp_pulled_dir / "output" / "stems" / f"{name}.wav"

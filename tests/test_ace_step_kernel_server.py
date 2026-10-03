@@ -387,3 +387,9 @@ def test_wait_for_generation_omits_audio_duration_when_automatic(monkeypatch):
     # docs do ACE-Step: com letra, deixar a duracao automatica (nao enviar o campo)
     payload = _capture_release_payload(monkeypatch, {**_TEST_JOB, "duration": None})
     assert "audio_duration" not in payload
+
+
+def test_wants_stems_defaults_to_true_and_respects_false():
+    assert ace_step_server.wants_stems({"prompt": "x"}) is True
+    assert ace_step_server.wants_stems({"stems": True}) is True
+    assert ace_step_server.wants_stems({"stems": False}) is False

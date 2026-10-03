@@ -32,6 +32,11 @@ def main():
         action="store_true",
         help="Plano B: gera a base sem vocal (manda [Instrumental] no lugar da letra)",
     )
+    parser.add_argument(
+        "--com-stems",
+        action="store_true",
+        help="Separa os stems ja no kernel (mais lento). Padrao: so a musica; use scripts/caelum_stems.py depois",
+    )
     parser.add_argument("--timeout", type=float, default=2700.0)
     args = parser.parse_args()
 
@@ -40,7 +45,8 @@ def main():
     try:
         faixa_dir = resolve_faixa_dir(args.faixa)
         song_id, status, detail = gerar(
-            faixa_dir, seed=args.seed, instrumental=args.instrumental, timeout=args.timeout
+            faixa_dir, seed=args.seed, instrumental=args.instrumental, stems=args.com_stems,
+            timeout=args.timeout
         )
     except FaixaError as exc:
         print(f"Erro: {exc}", file=sys.stderr)

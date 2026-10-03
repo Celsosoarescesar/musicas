@@ -20,9 +20,10 @@ do formato). Cada faixa tem:
 ## Fluxo
 
 1. Letra em portugues -> adaptacao para ingles -> folha de pronuncia (com o Claude).
-2. Gerar: `uv run python scripts/caelum_gerar.py 02_obedecer` (use `--seed N` para outra tentativa).
+2. Gerar so a musica: `uv run python scripts/caelum_gerar.py 02_obedecer` (use `--seed N` para outra tentativa; `--com-stems` separa os stems ja no kernel, mais lento).
    `--instrumental` tambem exige uma `letra_en.md` sem texto de modelo (a checagem roda primeiro): ponha qualquer texto sem placeholder la se so quiser a base instrumental.
-3. No REAPER (projeto novo e vazio), com o MCP conectado: `reaper_build_vocal_session` com a pasta `caelum/02_obedecer/saida` e o id da musica. Cria as faixas dos stems, `guia_ia` (vocal da IA, silenciado, so para referencia) e `voz_caelum` (armada).
+   Ouca o `<id>_master.wav`. **So se voce gostou**, separe os stems (Demucs local, na CPU leva alguns minutos): `uv run python scripts/caelum_stems.py 02_obedecer <id>`.
+3. No REAPER (projeto novo e vazio), com o MCP conectado: `reaper_build_vocal_session` com a pasta `caelum/02_obedecer/saida` e o id da musica (precisa dos stems do passo anterior). Cria as faixas dos stems, `guia_ia` (vocal da IA, silenciado, so para referencia) e `voz_caelum` (armada).
 4. Escolha a entrada de audio da faixa `voz_caelum` no REAPER (depende da sua interface) e grave.
 5. Mix e master (frente 4 da spec).
 
