@@ -133,7 +133,7 @@ FORBIDDEN_TERMS = (
 # Pastas cujas letras ainda sao do conceito antigo e serao refeitas com o
 # usuario (uma sessao por faixa). Tire a pasta daqui quando a letra nova for
 # aprovada e commitada (o teste de expiracao abaixo avisa).
-PENDING_REWRITE = ("02_obedecer",)
+PENDING_REWRITE = ()
 
 
 def _find_forbidden(text):

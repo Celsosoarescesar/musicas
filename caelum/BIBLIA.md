@@ -38,10 +38,9 @@ primeira pessoa), sem narrador.
 ## Arco e faixas
 
 As faixas 02-03 sao flashback (a 01 abre pelo ponto de virada). As letras
-da faixa 01 foram refeitas no conceito real (2026-10-03). A letra da faixa 02
-ainda e do conceito antigo (alegorico) e sera refeita com o usuario: a varredura
-de vocabulario dos testes isenta essa pasta ate la (ver `PENDING_REWRITE` em
-`tests/test_caelum_biblia.py`).
+das faixas 01 e 02 foram refeitas no conceito real (2026-10-03). A varredura
+de vocabulario dos testes vale para todas as pastas (a lista de isencao
+`PENDING_REWRITE` em `tests/test_caelum_biblia.py` esta vazia).
 
 | Ato | # | Pasta | Cena | "Monstro" quer dizer |
 |---|---|---|---|---|
