@@ -1,9 +1,9 @@
-# A mao que me fez -- letra em portugues (fonte da verdade)
+# Pastor -- letra em portugues (fonte da verdade)
 
 Contexto da cena (o que acontece, o que Caelum sente):
 
-- Caelum sente raiva da Ordem que o formou e usou.
-- 'Monstro' aqui quer dizer: a mao que cria os monstros e a que mais merece o nome.
+- Caelum sente raiva do falso pastor que vive do sofrimento e do dinheiro de quem acredita nele.
+- 'Monstro' aqui quer dizer: monstro e quem lucra com a dor alheia em nome da fe.
 - Voz: refrao alterna voz limpa e grito; breakdown antes do refrao final.
 - Tom e escala: B minor -- B menor natural (raiva); sem harmonica.
 

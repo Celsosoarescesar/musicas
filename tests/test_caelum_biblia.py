@@ -10,11 +10,11 @@ from caelum.faixa import CAELUM_ROOT, FaixaError, load_faixa
 # (slug, bpm, keyscale) -- fonte da verdade: tabela do plano/biblia.
 BIBLIA = [
     ("01_quebra_de_fe", 100, "D minor"),
-    ("02_executor", 96, "A minor"),
+    ("02_obedecer", 96, "A minor"),
     ("03_silencio", 88, "E minor"),
-    ("04_a_mao_que_me_fez", 108, "B minor"),
-    ("05_culpa", 92, "F# minor"),
-    ("06_revolta", 120, "C# minor"),
+    ("04_pastor", 108, "B minor"),
+    ("05_veneno", 92, "F# minor"),
+    ("06_promessas", 120, "C# minor"),
     ("07_do_outro_lado", 112, "F# minor"),
     ("08_monstros", 98, "B minor"),
     ("09_fora_do_sistema", 104, "E minor"),
@@ -26,9 +26,9 @@ BIBLIA = [
 # completo (test_written_tracks_load_completely).
 UNWRITTEN = [
     "03_silencio",
-    "04_a_mao_que_me_fez",
-    "05_culpa",
-    "06_revolta",
+    "04_pastor",
+    "05_veneno",
+    "06_promessas",
     "07_do_outro_lado",
     "08_monstros",
     "09_fora_do_sistema",

@@ -2,10 +2,10 @@
 
 Contexto da cena (o que acontece, o que Caelum sente):
 
-- Caelum nota os sinais de que algo esta errado e escolhe nao ver, para nao perder a fe (flashback).
-- 'Monstro' aqui quer dizer: o silencio dele alimenta o sistema que cria os monstros.
+- Caelum nota os sinais de que algo esta errado (dinheiro, favores, castigos) e cala para nao perder o lugar e a comunidade (flashback).
+- 'Monstro' aqui quer dizer: o silencio de quem ve alimenta quem manipula.
 - Voz: sussurro e voz limpa, SEM grito; a faixa mais contida do album.
-- Tom e escala: E minor -- E menor; menor harmonica nos trechos da Ordem, natural no resto.
+- Tom e escala: E minor -- E menor; menor harmonica nos trechos do sistema, natural no resto.
 
 ## Letra
 

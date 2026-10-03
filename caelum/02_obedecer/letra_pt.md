@@ -1,11 +1,11 @@
-# Executor -- letra em portugues (fonte da verdade)
+# Obedecer -- letra em portugues (fonte da verdade)
 
 Contexto da cena (o que acontece, o que Caelum sente):
 
-- Caelum cumpre as ordens da Ordem Grave com orgulho; a primeira duvida aparece (flashback, antes da quebra de fe).
-- 'Monstro' aqui quer dizer: monstro e o que a Ordem manda executar, sem perguntar por que.
+- Caelum cresce obedecendo o que mandam, no pulpito e em casa, com orgulho de ser um bom membro; a primeira duvida aparece (flashback, antes da quebra de fe).
+- 'Monstro' aqui quer dizer: monstro e quem manda sem dar razao e chama de rebelde quem pergunta.
 - Voz: verso falado, refrao limpo, grito curto; o mantra 'Obey. Don't ask.' sussurrado.
-- Tom e escala: A minor -- A menor; menor harmonica na voz da Ordem (mantra, pre-refrao), natural nos riffs.
+- Tom e escala: A minor -- A menor; menor harmonica na voz do sistema (mantra, pre-refrao), natural nos riffs.
 
 ## Letra
 

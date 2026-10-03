@@ -36,15 +36,15 @@ As faixas 02-03 sao flashback (a 01 abre pelo ponto de virada).
 
 | Ato | # | Pasta | Cena | "Monstro" quer dizer |
 |---|---|---|---|---|
-| Fe | 01 | `01_quebra_de_fe` (pronta) | Descobre que a Ordem cria os monstros que executava | Os monstros eram obra da Ordem |
-| | 02 | `02_executor` | Orgulho de cumprir ordens; a primeira duvida | O que a Ordem manda executar |
-| | 03 | `03_silencio` | Ignora os sinais para nao perder a fe | O silencio dele alimenta o sistema |
-| Ruptura | 04 | `04_a_mao_que_me_fez` | Raiva contra a Ordem que o formou | A mao que cria merece o nome |
-| | 05 | `05_culpa` | Cada monstro executado tinha um rosto | Os "monstros" tinham rosto |
-| | 06 | `06_revolta` | Rompe com a Ordem | Ja e chamado de monstro |
-| | 07 | `07_do_outro_lado` | Luta contra a Ordem, aliado aos monstros | Escolhe ficar com eles |
-| Nova realidade | 08 | `08_monstros` | Ve o mundo pelos olhos dos monstros | **Virada:** o monstro e quem controla o sistema |
-| | 09 | `09_fora_do_sistema` | E discriminado por quem vive dentro | Quem esta dentro o chama de monstro |
+| Fe | 01 | `01_quebra_de_fe` (pronta) | Descobre que o pastor em quem confiava vive do sofrimento dos outros | O pastor que lucra com a fe |
+| | 02 | `02_obedecer` | Crescer fazendo o que mandam, sem perguntar | Quem manda sem dar razao |
+| | 03 | `03_silencio` | Ve os sinais e cala para nao perder o lugar | O silencio alimenta o sistema |
+| Ruptura | 04 | `04_pastor` | Raiva do falso pastor que lucra com a dor | Quem vive do sofrimento alheio |
+| | 05 | `05_veneno` | O amor que nao deu certo: enganado por quem dizia amar | Quem usa o amor como arma |
+| | 06 | `06_promessas` | Politicos que roubam a nacao; a promessa vendida ao povo | Quem rouba e promete |
+| | 07 | `07_do_outro_lado` | Percebe que nao esta sozinho: muita gente enganada e julgada | Os rotulados sao os enganados |
+| Nova realidade | 08 | `08_monstros` | O monstro nao e quem acorda, e quem manipula | **Virada:** quem controla o sistema |
+| | 09 | `09_fora_do_sistema` | E julgado por quem ainda vive dentro dele | Quem esta dentro o chama de monstro |
 | | 10 | `10_caelum` | Faixa-titulo: quem se tornou, julgado e assumido | Assume o rotulo sem aceitar o significado |
 
 A 08 e o centro do album: o refrao dela e o mais importante para a inversao
