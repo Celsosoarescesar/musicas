@@ -88,3 +88,13 @@ def test_gerar_invalid_faixa_fails_before_touching_db_or_kaggle(tmp_path):
             gerar(faixa_dir)
     mock_run.assert_not_called()
     assert not (faixa_dir / "saida").exists()
+
+
+def test_gerar_instrumental_sends_instrumental_tag_instead_of_lyrics(tmp_path):
+    faixa_dir = _make_faixa(tmp_path)
+    with patch(
+        "caelum.gerar.orchestrator.run_generation", return_value=("done", "x.wav")
+    ) as mock_run:
+        gerar(faixa_dir, instrumental=True)
+
+    assert mock_run.call_args.kwargs["lyrics"] == "[Instrumental]"

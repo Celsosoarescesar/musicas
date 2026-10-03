@@ -24,14 +24,25 @@ def resolve_faixa_dir(arg: str, root: Path = CAELUM_ROOT) -> Path:
     raise FaixaError(f"pasta da faixa '{arg}' nao encontrada (procurei em {root} e como caminho)")
 
 
+INSTRUMENTAL_LYRICS = "[Instrumental]"
+
+
 def gerar(
-    faixa_dir: Path | str, *, seed: int | None = None, timeout: float = 2700.0
+    faixa_dir: Path | str,
+    *,
+    seed: int | None = None,
+    instrumental: bool = False,
+    timeout: float = 2700.0,
 ) -> tuple[int, str, str | None]:
     """Roda a geracao+separacao de uma faixa. Devolve (song_id, status, detalhe).
 
     Valida a faixa ANTES de criar a musica no banco ou falar com o Kaggle
     (FaixaError sobe). Depois, o pipeline nunca levanta: erros voltam como
     status "error" e ficam gravados na linha da musica.
+
+    `instrumental=True` (plano B da spec) gera a base sem vocal: manda a tag
+    "[Instrumental]" no lugar da letra_en.md. Note que a letra faz parte da
+    geracao -- a mesma seed com outra letra dá outra musica.
     """
     faixa = load_faixa(faixa_dir)
     used_seed = faixa.seed if seed is None else seed
@@ -58,7 +69,7 @@ def gerar(
         keyscale=faixa.keyscale,
         vocal_language=faixa.vocal_language,
         lufs_target=faixa.lufs_target,
-        lyrics=faixa.lyrics,
+        lyrics=INSTRUMENTAL_LYRICS if instrumental else faixa.lyrics,
         timeout=timeout,
     )
     return song_id, status, detail
