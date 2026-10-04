@@ -2,36 +2,36 @@
 [Intro - heavy riff]
 
 [Verse 1 - low]
-I stayed on the ground so long
-That the ground became my place
-The days kept passing by me
-Too weak to stand again
+I stayed at the foot of the mountain
+So long, looking up
+Everyone had already passed
+And I had no strength to start
 
 [Chorus - clean]
-I won't stay on the ground
+I won't die here
 I'm going up
 
 [Verse 2 - low]
 They said: you won't make it
-They gave me a wall
-I made it a staircase
+They said: it's too high
+I stepped on the first stone
 
 [Chorus - clean, then scream]
-I won't stay on the ground
+I won't die here
 I'm going up, I'm going up
-I WON'T STAY ON THE GROUND
-Every no became a step
+I WON'T DIE HERE
+Every stone became a step
 
 [Verse 3 - low]
-My arms can hardly hold
+The wind cuts through my skin
 But the ground is far behind
 
 [Build]
 
 [Chorus - scream]
-I WON'T STAY ON THE GROUND
+I WON'T DIE HERE
 I'M GOING UP, I'M GOING UP
-I WON'T STAY ON THE GROUND
+I WON'T DIE HERE
 CLIMB! CLIMB! CLIMB!
 
 [Breakdown - dry, whispered]
@@ -40,8 +40,8 @@ Two steps. Three...
 The wind screams. I keep going.
 
 [Outro - spoken]
-Up here the sky is bigger
-Bigger than I thought
+I got through it all and I'm still standing
+Up here the sky is so big
 
 [Final - scream]
 I MADE IT!
