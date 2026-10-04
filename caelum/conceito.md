@@ -48,6 +48,32 @@ escolhidos com o autor, uma faixa por vez.
 
 A 08 e o centro do album: o refrao dela e o mais luminoso e importante.
 
+## Estrutura por faixa (cada musica com a sua forma)
+
+As faixas nao devem seguir a mesma formula (verso, pre-refrao, refrao, ponte). A forma de cada uma
+acompanha o sentimento. Tags aceitas pelo ACE-Step (docs oficiais, Tutorial e Musician's Guide):
+`[Intro]`, `[Verse]`, `[Pre-Chorus]`, `[Chorus]`, `[Bridge]`, `[Outro]`, `[Build]`, `[Breakdown]`,
+`[Drop]` (eletronico), `[Instrumental]`, `[Guitar Solo]`, `[Piano Interlude]`, `[Fade Out]`, `[Silence]`;
+descritores como `[Chorus - anthemic]`; vozes de apoio entre parenteses. Nao empilhar muitos
+modificadores; a letra e o `prompt` do `faixa.toml` nao podem se contradizer (se a letra pede piano,
+o prompt cita piano). As tags sao um pedido, nao garantia: conferir na geracao.
+
+Alavancas para variar: ordem e presenca das secoes; secoes instrumentais; dinamica (build/breakdown);
+o final (fade, silencio, corte seco); o tamanho da letra (duracao automatica: menos letra = mais espaco).
+
+| # | Estrutura | Por que |
+|---|---|---|
+| 01 | Classica: intro, verso, pre, refrao, verso, pre, refrao, ponte, refrao final (feita) | Base do album |
+| 02 | Refrao primeiro, sem pre-refrao, breakdown (feita) | Comeca pelo gancho |
+| 03 | Intro, verso, verso, refrao tardio, interludio de piano, ponte, refrao final, fade out | A mais lenta: a espera, sem pressa de chegar ao refrao |
+| 04 | Intro de riff, verso curto, build, refrao, verso, build, refrao, breakdown sussurrado (a contagem), ponte | A ansiedade sobe e nao alivia |
+| 05 | Intro longo, verso, riff instrumental pesado, verso, refrao, breakdown, riff, refrao curto, fade out | Pouca letra e peso arrastado |
+| 06 | Comeca direto no verso (sem intro nem pre), refrao curto, breakdown, ponte gritada, dois refroes, corte seco | O tempo acaba de repente |
+| 07 | Verso esparso, pre, refrao pequeno, verso, pre, build, refrao enorme com coro, final cantado em coro | O hino cresce ate a multidao |
+| 08 | Guitarra limpa sozinha, entrada gradual, refrao cedo, solo melodico, refrao final | Alegria; o solo e a comemoracao |
+| 09 | Verso falado, refrao, verso falado, silencio, ponte, refrao gritado | A duvida fala e o refrao responde |
+| 10 | Espelho da 01 (mesmo intro de highway), refrao final, volta ao intro com piano | Fecha o circulo |
+
 ## Plano sonoro
 
 Subir por quintas (mais sustenidos) soa como tensao e afastamento de casa;

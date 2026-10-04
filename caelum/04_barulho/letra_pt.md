@@ -2,60 +2,58 @@
 
 Contexto da cena (o que acontece, o que Caelum sente):
 
-- Parte da vida real: a faculdade abandonada e os 8 anos sem estudar; sentir-se incapaz. A letra 'Barulho' (a voz de dentro) esta feita; ajustar os versos para 'voce nao consegue' ligado a faculdade.
-- Faixa sobre a mente que nao cala: insonia as tres da manha, pensamentos em loop, a voz de dentro que ninguem mais ouve. Imagem unica: o teto, o relogio contando cada erro, e a cabeca abrindo a porta para uma multidao.
-- Nao ha vilao: a virada e perceber que a voz que quer calar e a propria (por isso o refrao termina em "mas a voz sou eu").
-- Voz: verso baixo, refrao alterna voz limpa e grito, breakdown sussurrado (contar ate dez, nao adianta), ponte gritada.
-- Tom e escala: B minor -- B menor natural (raiva e agonia); sem harmonica.
+- Parte da vida real (so nas entrelinhas): a faculdade abandonada e os 8 anos sem estudar; sentir-se incapaz de acompanhar. A letra nao diz "faculdade"; fala da voz de dentro que repete um veredito, para que qualquer pessoa que ja se achou incapaz se reconheca.
+- Sentimento: sentir-se incapaz. Imagem unica: a voz que diz "voce nao consegue" (e na virada percebe que a voz e propria).
+- Estilo: subjetivo, metaforico (os anos viram pedra no bolso do casaco); nada literal.
+- Estrutura: intro de riff, verso curto, build, refrao, verso, build, refrao, breakdown sussurrado (a contagem), ponte gritada, refrao final.
+- Voz: verso baixo, refrao alterna voz limpa e grito, breakdown sussurrado, ponte gritada.
+- Tom e escala: B minor -- B menor natural; sem harmonica.
+- Guarda: so a historia do proprio autor; sem nomes nem detalhes que identifiquem pessoas reais (ver conceito.md).
 
 ## Letra
 
 [Intro -- riff pesado, instrumental]
 
 [Verso 1]
-Três da manhã, o teto me olha
-O relógio conta cada erro
-Fecho os olhos, a cabeça
-Abre a porta pra multidão
+Todo mundo foi pra frente
+Eu fiquei no mesmo degrau
+Uma voz sabe o meu nome
+E só sabe dizer não
 
-[Pre-refrao]
-Cada pensamento grita
-Mais alto que o anterior
+[Build -- cresce, instrumental]
 
 [Refrao -- limpo, depois grito]
-Cala essa voz dentro de mim
-Eu não aguento mais ouvir
-CALA ESSA VOZ DENTRO DE MIM
-Mas a voz sou eu
+Você não consegue, diz a voz
+Você nunca vai chegar
+VOCÊ NÃO CONSEGUE, DIZ A VOZ
+Mas essa voz é minha
 
 [Verso 2]
-Sete da manhã, de pé de novo
-Sorrio pra quem me pergunta
-Ninguém ouve o que eu carrego
-Só eu escuto o tempo todo
+Os anos viraram pedra
+No bolso do meu casaco
+Cada passo pesa o dobro
+E ela conta cada um
 
-[Pre-refrao]
-Cada pensamento grita
-Mais alto que o anterior
+[Build -- cresce, instrumental]
 
 [Refrao -- limpo, depois grito]
-Cala essa voz dentro de mim
-Eu não aguento mais ouvir
-CALA ESSA VOZ DENTRO DE MIM
-Mas a voz sou eu
+Você não consegue, diz a voz
+Você nunca vai chegar
+VOCÊ NÃO CONSEGUE, DIZ A VOZ
+Mas essa voz é minha
 
 [Breakdown -- seco, sussurrado]
 Respira. Conta até dez.
 Um, dois, três...
-Não adianta.
+Ela conta mais alto.
 
 [Ponte -- gritada]
-EU NÃO CONSIGO PARAR!
-EU NÃO CONSIGO CALAR!
-SAI DA MINHA CABEÇA!
+EU NÃO SOU O QUE ELA DIZ!
+EU AINDA ESTOU DE PÉ!
+EU VOU CHEGAR!
 
 [Refrao final -- limpo, depois grito]
-Cala essa voz dentro de mim
-Eu não aguento mais ouvir
-CALA ESSA VOZ DENTRO DE MIM
-Fala. Hoje eu escuto.
+Você não consegue, diz a voz
+Você nunca vai chegar
+VOCÊ NÃO CONSEGUE, DIZ A VOZ
+E agora eu falo mais alto

@@ -1,6 +1,6 @@
 # Configuracao da faixa. So 'prompt' e obrigatorio.
 # Chaves desconhecidas sao erro (evita typo silencioso).
-prompt = "2000s nu metal ballad, downtuned guitars with clean muted passages, deep bass, minimal drums, cold ambient electronic textures, in the style of early Linkin Park, whispered verses, emotional clean male vocal, no screaming, no rap, 88 bpm, E minor"
+prompt = "2000s nu metal ballad, downtuned guitars with clean muted passages, deep bass, minimal drums, soft piano interlude, cold ambient electronic textures, in the style of early Linkin Park, whispered verses, emotional clean male vocal, no screaming, no rap, 88 bpm, E minor"
 duration = "auto"       # automatica: o ACE-Step ajusta a duracao a letra
 seed = 42
 bpm = 88
