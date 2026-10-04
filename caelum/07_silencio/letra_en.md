@@ -2,37 +2,37 @@
 [Intro - ambient]
 
 [Verse 1 - whispered]
-I see you every morning
-You never look at me
-I keep your name inside my mouth
-I love you and I stay quiet
+I sing a song of love each day
+I don't know who will hear
+I search for someone to sing with
+Because this is our love song
 
 [Chorus - melodic]
-I wished, I wished, I said nothing
-If I speak, I lose it all
-Every silence that I kept
-Was a brick inside the wall
+This is the moment I've waited for
+Today I sing to find you
+If you hear, sing with me
+It only makes sense for two
 
 [Verse 2 - whispered]
-One day I almost told you
-You came with someone else
-I smiled and said congrats
-And I kept the pain to myself
+I've composed this song for years
+Singing, waiting for you
+Hoping you'll answer me
+I keep the song for us both
 
 [Chorus - melodic]
-I wished, I wished, I said nothing
-If I speak, I lose it all
-Every silence that I kept
-Was a brick inside the wall
+This is the moment I've waited for
+Today I sing to find you
+If you hear, sing with me
+It only makes sense for two
 
 [Bridge - whispered]
-If I speak, I lose my friend
-If I stay silent, I lose myself
+Alone, the song is only half
+But today I'm going to sing
 
 [Chorus - melodic]
-I wished, I wished, I said nothing
-If I speak, I lose it all
-Every silence that I kept
-Hurts more than a no
+This is the song I sing to find you
+I keep on waiting for you
+If you hear, sing with me
+All I need is your voice
 
 [Outro]

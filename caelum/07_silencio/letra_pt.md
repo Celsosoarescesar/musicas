@@ -11,7 +11,7 @@ Contexto da cena (o que acontece, o que Caelum sente):
 - Estrutura: a classica da balada (intro, verso, refrao, verso, refrao, ponte, refrao final).
 - Audios ja gerados (geracoes 1-3 do antigo "Silencio", E minor 88 bpm) e os projetos `silencio*.RPP` estao em `saida/`. A geracao 3 e a que tem a letra antiga em ingles.
 - Rascunho guardado do hino "Alguem ai?" (imagem do radio): `rascunho_radio.md`.
-- **Pendente:** a letra em ingles (`letra_en.md`) e a pronuncia ainda sao as da versao antiga; adaptar para esta letra na mesma metrica.
+- Letra em ingles e pronuncia adaptadas na mesma metrica da antiga (2026-10-04); a geracao 4 em diante usa esta letra.
 - Guarda: so a historia do proprio autor; sem nomes nem detalhes que identifiquem pessoas reais (ver conceito.md).
 
 ## Letra
@@ -19,35 +19,35 @@ Contexto da cena (o que acontece, o que Caelum sente):
 [Intro -- instrumental]
 
 [Verso 1]
-Eu escrevo toda manhã
+Eu canto uma canção de amor
 Não sei quem vai me ouvir
-Eu guardo uma canção comigo
-Eu espero quem não conheço
+Procuro alguém pra cantar comigo
+É que essa é a nossa canção de amor
 
 [Refrao -- limpo, melodico]
-Essa é a canção que eu nunca cantei
+Esse é o momento que eu sempre esperei
 Hoje eu canto pra te achar
 Se você ouvir, canta comigo
-Ela só vive quando é a dois
+Só faz sentido cantada a dois
 
 [Verso 2]
-Faz tempo que estou sozinho
-Cantando só pra ninguém ouvir
-Espero alguém que responda
+Faz tempo que eu componho a canção
+Cantando só, esperando você
+Espero que um dia responda
 Guardo a canção pra nós dois
 
 [Refrao -- limpo, melodico]
-Essa é a canção que eu nunca cantei
+Esse é o momento que eu sempre esperei
 Hoje eu canto pra te achar
 Se você ouvir, canta comigo
-Ela só vive quando é a dois
+Só faz sentido cantada a dois
 
 [Ponte -- sussurrada, sem grito]
 Sozinho, a canção é metade
 Mas hoje eu vou cantar
 
 [Refrao final -- limpo, melodico]
-Essa é a canção que eu nunca cantei
-Hoje eu canto pra te achar
+Essa é a canção que eu canto pra te achar
+Continuo a te esperar
 Se você ouvir, canta comigo
 Falta só a sua voz
