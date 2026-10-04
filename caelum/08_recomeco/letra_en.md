@@ -1,38 +1,38 @@
 [en]
-[Intro - single clean guitar]
+[Intro - a cappella, one sung note]
 
 [Verse 1 - low]
-The guitar stayed in the corner
-Covered in dust and time
-I spent years without playing
-Thinking it was all behind me
+For years my voice
+Stayed locked inside my chest
+No air and no one to hear
+I thought it was over
 
 [Build]
 
 [Chorus - bright, melodic]
-Today I play the first note
-And the world gets its color back
-I begin, I begin again
-Every string is a start
+The wind carries my voice
+Every wave goes farther
+To places I never dreamed
+I just sing, the air does the rest
 
 [Verse 2 - low]
-Every song I write
-Is a piece of me coming back
-I sing for who I was
-And for who I can be
+Sound needs a way to travel
+And someone unseen opened it
+The voice I kept in silence
+Now crosses the air
 
 [Chorus - bright, melodic]
-Today I play the first note
-And the world gets its color back
-I begin, I begin again
-Every string is a start
+The wind carries my voice
+Every wave goes farther
+To places I never dreamed
+I just sing, the air does the rest
 
 [Guitar Solo]
 
 [Final Chorus - anthemic, bright]
-Today I play the first note
-And the world gets its color back
-I begin, I begin again
-I BEGIN RIGHT NOW!
+The wind carries my voice
+Every wave goes farther
+To places I never dreamed
+I JUST SING!
 
-[Outro - single clean guitar]
+[Outro - a cappella, fading]

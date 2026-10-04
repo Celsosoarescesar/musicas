@@ -43,7 +43,7 @@ escolhidos com o autor, uma faixa por vez.
 | | 05 | `05_vazio` | Pandemia em casa, depressao | Vazio e peso: como se a pessoa estivesse se afogando; gancho "me puxa, me puxa" (pedido de socorro) |
 | | 06 | `06_tempo_perdido` | Anos perdidos aos 45; "por que eu fiz aquilo? por que nao fiz melhor?" (hoje e fruto das escolhas do passado) | Raiva de si e do tempo perdido: um sonho em que olha para o proprio passado e fala com o garoto que foi; "por que?" -> "a conta e minha" -> "o passado foi minha escolha, o futuro tambem" |
 | Procura | 07 | `07_silencio` | Anos sem amor; busca de quem o compreenda | Amor calado e desejo de ser entendido (BALADA; letra do antigo "Silencio", a trabalhar) |
-| Recomeco | 08 | `08_recomeco` | Criar musica hoje | Alegria, recomeco (centro do album) |
+| Recomeco | 08 | `08_recomeco` | Criar musica hoje, sozinho, com uma ajuda invisivel (IA) que realiza o sonho de ser cantor e mostrar o trabalho | Alegria, recomeco (centro do album): o vento/ar leva a voz como onda sonora a lugares que nunca imaginou |
 | | 09 | `09_tarde_demais` | Banda que nao deu certo; sonho de ser cantor | Medo de ser tarde demais |
 | | 10 | `10_caelum` ("Caelum") | Esperanca | O ceu, esperanca |
 | Extra | 11 | `11_obedecer` (a refazer) | A musica antiga "da igreja" (ex-faixa 02): crescer obedecendo e a primeira duvida | Obedecer sem perguntar |
@@ -72,7 +72,7 @@ o final (fade, silencio, corte seco); o tamanho da letra (duracao automatica: me
 | 05 | Intro longo (som de agua), verso, refrao cedo e grande, riff pesado, verso, refrao, breakdown gritado, respiro sussurrado, refrao final que sobe, fade out | Afunda e volta a tona (pegada Evanescence/Three Days Grace) |
 | 06 | Estrutura da musica antiga reaproveitada (decisao do autor): intro sussurrado, verso, refrao em coro com eco, verso, refrao, ponte gritada, refrao final. Letra em molde de silabas igual ao da antiga, para aproveitar melodia e instrumental | Um sonho olhando para o passado: nao consegue acordar... e comeca a acordar |
 | 07 | Estrutura classica da balada (intro, verso, refrao, verso, refrao, ponte, refrao final); o autor vai trabalhar a letra | Balada gostosa; a letra e a do antigo Silencio |
-| 08 | Uma guitarra limpa sozinha (a primeira nota), verso, build com entrada gradual, refrao cedo e luminoso, verso, refrao, solo melodico, refrao final com grito curto de alegria, volta a nota sozinha. Sem ponte | Uma nota que vira banda; o solo e a comemoracao |
+| 08 | Uma voz sozinha a capela (uma nota), verso, build com entrada gradual dos instrumentos (como ondas), refrao cedo e luminoso, verso, refrao, solo melodico, refrao final com grito curto de alegria, volta a voz sozinha sumindo no ar. Sem ponte | Uma voz que vira onda; o solo e a onda mais longe |
 | 09 | Verso falado, refrao, verso falado, silencio, ponte, refrao gritado | A duvida fala e o refrao responde |
 | 10 | Espelho da 01 (mesmo intro de highway), refrao final, volta ao intro com piano | Fecha o circulo |
 | 11 | Estrutura classica da versao antiga (intro, verso, refrao, verso, refrao, ponte, refrao final); a refazer | Faixa extra |

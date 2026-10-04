@@ -7,49 +7,49 @@ Aproximacao para guiar a voz, nao pronuncia exata: o guia de audio e o vocal da 
 
 | Linha em ingles | Pronuncia (PT-BR) | Observacoes |
 |---|---|---|
-| The guitar stayed in the corner | dâ gui-**tár** **stêid** in dâ **kór**-ner (!) | "guitar": gui-tár, "g" duro, tonica no fim; "stayed": stêid, "st" junto; "corner": kór-ner, r recolhido |
-| Covered in dust and time | **kâ**-verd in **dâst** end **táim** (!) | "covered": kâ-verd, "o" soa "â", -ed vira "d"; "dust": dâst, termina em "st" |
-| I spent years without playing | ai **spént** **iírz** uíth-**áut** **plêi**-in (!) | "spent": spént, "sp" junto; "years": iírz, "ye" curto; "without": uíth-áut; "playing": plêi-in, "pl" junto |
-| Thinking it was all behind me | **thín**-kin it uóz **ól** bi-**ráind** **mi** (!) | "thinking": thín-kin, th surdo (sopro) no comeco, "ng" nasal; "behind": bi-ráind, h aspirado (sopro) |
+| For years my voice | for **iírz** mai **vóis** | "years": iírz, "ye" curto, termina em "z"; "voice": vóis, "v" com os dentes no labio |
+| Stayed locked inside my chest | **stêid** **lókt** in-**sáid** mai **tchést** (!) | "stayed": stêid, "st" junto; "locked": lókt, -ed vira "t"; "chest": tchést, "ch" como "tch" |
+| No air and no one to hear | **nôu** **ér** end **nôu** **uân** tu **rír** | "air": ér, r recolhido; "one": uân, "o" soa "â"; "hear": rír, h aspirado (sopro) |
+| I thought it was over | ai **thót** it uóz **ôu**-ver (!) | "thought": thót, th surdo (sopro), "ough" soa "ó"; "over": ôu-ver, r recolhido |
 
 ## Refrao (luminoso)
 
 | Linha em ingles | Pronuncia (PT-BR) | Observacoes |
 |---|---|---|
-| Today I play the first note | tu-**dêi** ai **plêi** dâ **fârst** **nôut** (!) | "today": tu-dêi; "first": fârst, "ir" soa "âr", termina em "st"; "note": nôut |
-| And the world gets its color back | end dâ **uârld** **gués** its **kâ**-ler **bék** (!) | "world": uârld, "or" soa "âr", termina em "ld"; "gets": gués, "g" duro; "color": kâ-ler, "o" soa "â", r recolhido |
-| I begin, I begin again | ai bi-**guín**, ai bi-**guín** a-**guén** (!) | "begin": bi-guín, "g" duro; "again": a-guén, "ai" soa "é" |
-| Every string is a start | **év**-ri **strín** iz a **stárt** (!) | "every": év-ri; "string": strín, "str" junto, "ng" nasal sem "g"; "start": stárt, "st" junto, r recolhido |
+| The wind carries my voice | dâ **uínd** **kér**-iz mai **vóis** (!) | "the": dâ, th sonoro; "wind": uínd, "i" curto; "carries": kér-iz, r recolhido |
+| Every wave goes farther | **év**-ri **uêiv** **gôuz** **fár**-dher (!) | "every": év-ri; "wave": uêiv, "v" com os dentes no labio; "goes": gôuz; "farther": fár-dher, th sonoro, r recolhido |
+| To places I never dreamed | tu **plêi**-ses ai **né**-ver **drímd** (!) | "places": plêi-ses, "pl" junto; "never": né-ver; "dreamed": drímd, "dr" junto, -ed vira "d" |
+| I just sing, the air does the rest | ai **djâst** **sin**, dí **ér** **dâz** dâ **rést** (!) | "just": djâst, "u" soa "â"; "sing": sin, "ng" nasal; "does": dâz, "oe" soa "â"; "rest": rést, termina em "st" |
 
 ## Verso 2 (baixo)
 
 | Linha em ingles | Pronuncia (PT-BR) | Observacoes |
 |---|---|---|
-| Every song I write | **év**-ri **sóng** ai **ráit** | "song": sóng; "write": ráit, o "w" e mudo |
-| Is a piece of me coming back | iz a **pis** âv mi **kâ**-min **bék** | "piece": pis, "ie" longo; "of": âv; "coming": kâ-min, "o" soa "â" |
-| I sing for who I was | ai **sin** for **rú** ai **uóz** | "who": rú, h aspirado (sopro) |
-| And for who I can be | end for **rú** ai kén **bi** | "can": kén; "be": bi, "ee" longo |
+| Sound needs a way to travel | **sáund** **nídz** a **uêi** tu **tré**-vol (!) | "sound": sáund, termina em "nd"; "needs": nídz, "ee" longo; "travel": tré-vol |
+| And someone unseen opened it | end **sâm**-uân ân-**sín** **ôu**-pend it (!) | "someone": sâm-uân, "o" soa "â"; "unseen": ân-sín, "ee" longo; "opened": ôu-pend, o "e" fraco |
+| The voice I kept in silence | dâ **vóis** ai **képt** in **sái**-lens | "kept": képt, o "t" final leve; "silence": sái-lens |
+| Now crosses the air | **náu** **kró**-ses dí **ér** | "crosses": kró-ses; "air": ér, r recolhido |
 
 ## Refrao final
 
 | Linha em ingles | Pronuncia (PT-BR) | Observacoes |
 |---|---|---|
 | (3 primeiras linhas: iguais ao refrao) | -- | -- |
-| I BEGIN RIGHT NOW! | ai bi-**guín** **ráit** **náu**! | "right": ráit, "r" recuado, o "gh" e mudo; "now": náu; grite aberto e feche seco |
+| I JUST SING! | ai **djâst** **sin**! | grite aberto e feche seco |
 
 ## Palavras dificeis (th, r, h, vogais curtas/longas)
 
-- **th surdo em "thinking":** sopro sem vibrar, ponta da lingua entre os dentes. **th sonoro em "the":** lingua entre os dentes vibrando (dâ).
-- **r inglês:** lingua recuada, sem vibrar. Em "guitar", "corner", "color", "world", "first", "start" é onde o portugues tropeça.
-- **h aspirado:** "who", "behind": sopro suave, como o "rr" de "carro" em PT-BR.
-- **Grupos de consoantes:** "st" em "stayed", "dust", "start", "sp" em "spent", "str" em "string", "pl" em "playing": nao coloque vogal entre as consoantes.
-- **Letras mudas:** o "w" de "write", o "gh" de "right", o "b" de "climb", o "e" final de "note".
-- **Vogais curtas vs longas:** "piece/pis" (longa), "begin/bi-guín" (curta), "again/a-guén".
+- **th surdo em "thought":** sopro sem vibrar, ponta da lingua entre os dentes. **th sonoro em "the", "farther":** lingua entre os dentes vibrando. Se sair "d", ainda funciona na musica (dâ, fár-der).
+- **r inglês:** lingua recuada, sem vibrar. Em "air", "hear", "over", "carries", "farther", "never", "travel" é onde o portugues tropeça.
+- **h aspirado:** "hear": sopro suave, como o "rr" de "carro" em PT-BR.
+- **Grupos de consoantes:** "st" em "stayed", "rest", "dr" em "dreamed", "pl" em "places": nao coloque vogal entre as consoantes.
+- **Letras mudas:** o "gh" de "thought", o "e" final de "wave", "places", o "d" suave em "opened".
+- **-ed final:** vira "t" depois de som surdo (locked = lókt), "d" depois de som sonoro (dreamed = drímd).
 
 ## Palavras para considerar trocar
 
-- **"world" (refrao):** "or" soa "âr" e termina em "ld": a mais dificil. Alternativa: "And everything gets color back". So se travar.
-- **"guitar" (verso 1):** tonica no fim. Alternativa: "The old guitar stayed in the corner". So se travar.
-- **"thinking" (verso 1):** th surdo + "ng". Alternativa: "Believing it was all behind me". So se travar.
+- **"farther" (refrao):** th sonoro + r no fim. Alternativa: "Every wave goes far". So se travar.
+- **"thought" (verso 1):** th surdo + "ough". Alternativa: "I figured it was over". So se travar.
+- **"unseen" (verso 2):** duas silabas coladas. Alternativa: "And someone opened it". So se travar.
 
 Todas as demais palavras sao comuns e devem sair bem com a pronuncia acima.
