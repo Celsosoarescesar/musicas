@@ -1,39 +1,39 @@
 [en]
-[Verse 1 - fast, low]
-Kid, I go back in time
-I find you sitting, silent
-You said yes to everything
-And never asked why
+[Intro]
+Look back. Don't wake.
 
-[Chorus - short, shouted]
-WHY? WHY?
-Tell me why I did it
+[Verse]
+I walk back through my dream
+The clocks run in reverse
+I find a boy sitting in silence
+And he never asks me why
+He only says yes to all
 
-[Verse 2 - fast, low]
-Every choice was a step
-And I live where I arrived
-I could have done it different
-I could have done it better
+[Chorus]
+Why? Why? Tell me why I did it
+I cannot seem to wake (wake up)
+They call it the past but it feels like today
+It's on me, it's all on me
 
-[Chorus - gang vocals, shouted]
-WHY? WHY?
-TELL ME WHY I DID IT
-WHY? WHY?
-IT'S ON ME
+[Verse]
+Tonight I see him stand up
+Nothing left to say
+Just fear, just my eyes
+And my hand reached out to him
+I never asked him why
 
-[Breakdown - dry, spoken]
-I did what I knew how to do
-With what I had in my hands
+[Chorus]
+Why? Why? Tell me why I did it
+I cannot seem to wake (wake up)
+They call it the past but it feels like today
+But now I think I'm waking
 
-[Bridge - screamed]
-BUT NOW I KNOW!
-THE PAST WAS MY CHOICE!
-SO IS THE FUTURE!
+[Bridge]
+Why?
+Why did I never ask?
 
-[Final Chorus - gang vocals, shouted]
-WHY? WHY?
-WHY NOT NOW?
-WHY? WHY?
-THE TIME IS STILL MINE
-
-[Silence]
+[Chorus]
+Why? Why? Tell me why I did it
+Now I'm starting to wake (wake up)
+The past was my choice, the future too
+And the time is still all mine

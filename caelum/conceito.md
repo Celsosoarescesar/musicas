@@ -40,7 +40,7 @@ escolhidos com o autor, uma faixa por vez.
 | | 03 | `03_o_que_nao_veio` (a refazer) | Fim do casamento de 10+ anos; esterilidade | Luto pelo que nao veio |
 | Queda | 04 | `04_barulho` | Faculdade abandonada, 8+ anos sem estudar... e a volta: terminou a faculdade, 2 pos-graduacoes e varios cursos | Superar as dificuldades: subir uma montanha; "eu nao morro aqui, eu vou subir" (pegada Three Days Grace) |
 | | 05 | `05_vazio` | Pandemia em casa, depressao | Vazio e peso: como se a pessoa estivesse se afogando; gancho "me puxa, me puxa" (pedido de socorro) |
-| | 06 | `06_tempo_perdido` | Anos perdidos aos 45; "por que eu fiz aquilo? por que nao fiz melhor?" (hoje e fruto das escolhas do passado) | Raiva de si e do tempo perdido: falar com o garoto que fui; "por que?" -> "a conta e minha" -> "por que nao agora?" |
+| | 06 | `06_tempo_perdido` | Anos perdidos aos 45; "por que eu fiz aquilo? por que nao fiz melhor?" (hoje e fruto das escolhas do passado) | Raiva de si e do tempo perdido: um sonho em que olha para o proprio passado e fala com o garoto que foi; "por que?" -> "a conta e minha" -> "o passado foi minha escolha, o futuro tambem" |
 | Procura | 07 | `07_alguem_ai` | Anos sem amor; busca de quem o compreenda | Desejo de ser entendido |
 | Recomeco | 08 | `08_recomeco` | Criar musica hoje | Alegria, recomeco (centro do album) |
 | | 09 | `09_tarde_demais` | Banda que nao deu certo; sonho de ser cantor | Medo de ser tarde demais |
@@ -68,7 +68,7 @@ o final (fade, silencio, corte seco); o tamanho da letra (duracao automatica: me
 | 03 | Intro de riff, verso, verso, refrao tardio, solo de guitarra, ponte, refrao final | Metal melodico mais rapido (Three Days Grace); o refrao so chega depois de dois versos |
 | 04 | Sem ponte: versos que encolhem (4, 3, 2 linhas), refrao que cresce (curto, inteiro, gritado em coro), build, breakdown sussurrado (contagem de degraus), resposta falada (o ceu visto de cima), grito curto "eu cheguei" e final seco | A montanha... e ele sobe |
 | 05 | Intro longo (som de agua), verso, refrao cedo e grande, riff pesado, verso, refrao, breakdown gritado, respiro sussurrado, refrao final que sobe, fade out | Afunda e volta a tona (pegada Evanescence/Three Days Grace) |
-| 06 | Ataque direto: comeca no verso (sem intro nem pre), refrao curto em coro, verso, refrao inteiro, breakdown seco falado, ponte gritada, refrao final transformado e corte seco | O tempo acaba de repente |
+| 06 | Estrutura da musica antiga reaproveitada (decisao do autor): intro sussurrado, verso, refrao em coro com eco, verso, refrao, ponte gritada, refrao final. Letra em molde de silabas igual ao da antiga, para aproveitar melodia e instrumental | Um sonho olhando para o passado: nao consegue acordar... e comeca a acordar |
 | 07 | Verso esparso, pre, refrao pequeno, verso, pre, build, refrao enorme com coro, final cantado em coro | O hino cresce ate a multidao |
 | 08 | Guitarra limpa sozinha, entrada gradual, refrao cedo, solo melodico, refrao final | Alegria; o solo e a comemoracao |
 | 09 | Verso falado, refrao, verso falado, silencio, ponte, refrao gritado | A duvida fala e o refrao responde |

@@ -4,52 +4,51 @@ Contexto da cena (o que acontece, o que Caelum sente):
 
 - Parte da vida real: os anos perdidos, 45 anos, os 8 anos sem estudar (antes de voltar), a banda que ficou para tras, o trabalho que nao escolheu. A letra nao conta esses fatos; usa uma imagem, para que qualquer pessoa que olha para tras e se pergunta "por que eu fiz aquilo?" se reconheca.
 - **Ideia central (decisao do autor, 2026-10-04):** questionar o porque. *Por que eu fiz aquilo? Por que eu nao fiz de uma forma melhor? Se hoje estou nessa situacao, e fruto das minhas escolhas do passado.* A raiva e de si e do tempo; nao e culpar os outros, e assumir que as escolhas foram dele, inclusive a de obedecer calado. E a virada: **o passado foi escolha minha, o futuro tambem.**
-- **Imagem unica (sugestao minha, a confirmar com o autor): VOLTAR NO TEMPO E FALAR COM O GAROTO QUE FUI.** Ele o encontra sentado e calado, dizendo sim para tudo e nunca perguntando por que; cada escolha foi um passo e ele mora onde chegou. (Evitar repetir as imagens das outras faixas: a casa e a porta sao da 03, a montanha e da 04, o afogamento e da 05, a highway e da 01 e da 10.)
-- Gancho (simples, repetido, de cantar junto, gritado em coro): **"POR QUE? POR QUE?"**. A resposta que vem: **"A conta e minha"**. No final o gancho vira **"POR QUE NAO AGORA?"** e fecha com **"O tempo ainda e meu"**.
-- Base antiga: a letra da versao "da igreja" da antiga faixa 02 (a que o autor gostou muito) foi a base; a pergunta "por que eu nunca perguntei?" e a ideia de obedecer calado ficaram no verso 1. A letra antiga esta em `base_antiga_letra_en.md` e no Git (`git show 66913c4:caelum/02_obedecer/letra_pt.md`); os audios das geracoes 1 e 2 dela estao em `saida/`.
-- Pegada: nu metal rapido e agressivo, raiva direta (Linkin Park, Korn); gang vocals e grito forte; sem melodia lenta.
-- **Estrutura (decisao do autor: nao repetir a formula das outras): "ataque direto".** Comeca no verso, sem intro e sem pre-refrao; refrao curto; verso; refrao inteiro em coro; breakdown seco falado (a raiva vira compreensao); ponte gritada (a virada); refrao final transformado; CORTE SECO (o tempo acaba de repente).
-- Voz: verso baixo e rapido; refrao gritado em coro (gang vocals); breakdown seco e falado; ponte gritada; final gritado.
-- Tom e escala: C# minor -- C# menor natural; a faixa mais rapida (120 bpm), ponto mais distante de casa no plano de tons.
+- **Imagem unica (decisao do autor, 2026-10-04): UM SONHO EM QUE ELE OLHA PARA O PROPRIO PASSADO.** Ele caminha de volta pelo sonho, os relogios andam para tras, encontra o garoto que foi sentado e calado, dizendo sim a tudo; pergunta "por que?", nao consegue acordar, e aos poucos comeca a acordar. (Evitar repetir as imagens das outras faixas: a casa e a porta sao da 03, a montanha e da 04, o afogamento e da 05.)
+- **Pegada (referencia de TOM so, o autor colou a letra de "Bring Me To Life" do Evanescence; nada e copiado):** clima de sonho, de quem quer acordar; vozes de eco entre parenteses ("acorda"); dramatica e emocional. Evitar as frases e o gancho da referencia (e o tema de ser salvo por outra pessoa).
+- **REAPROVEITAMENTO DA MUSICA JA GERADA (decisao do autor):** a letra em ingles foi escrita no MESMO MOLDE de silabas da letra antiga (a "da igreja"), linha por linha (17 de 18 linhas com a mesma contagem, no maximo 1 de diferenca), para a melodia e o instrumental da geracao 2 poderem ser aproveitados (gravando a voz por cima dos stems, ou pela tarefa `cover` do ACE-Step). Por isso a ESTRUTURA aqui e a da musica antiga: intro, verso, refrao, verso, refrao, ponte, refrao final. **Atencao:** essa musica antiga e A minor, 96 bpm; o plano do album previa C# minor, 120 bpm para a 06. Reaproveitar muda o plano sonoro da 06 (decisao pendente).
+- Gancho (simples, repetido, de cantar junto): **"POR QUE? POR QUE?"**; a resposta **"a conta e minha"**; no fim, a virada **"o passado foi minha escolha, o futuro tambem"**.
+- Voz: verso baixo; refrao em coro com eco ("acorda"); ponte gritada ("Por que? Por que eu nunca perguntei?").
+- Tom e escala: C# minor no plano (ou A minor se a musica antiga for reaproveitada).
 - Guarda: so a historia do proprio autor; sem nomes nem detalhes que identifiquem pessoas reais (ver conceito.md).
 
 ## Letra
 
-[Verso 1]
-Garoto, eu volto no tempo
-Te encontro sentado, calado
-Você disse sim pra tudo
-E nunca perguntou por quê
+[Intro -- sussurrado]
+Olha pra trás. Não acorda.
 
-[Refrao curto -- gritado, em coro]
-POR QUÊ? POR QUÊ?
-Me diz por que eu fiz isso
+[Verso 1]
+Eu caminho pelo sonho
+Os relógios andam pra trás
+Encontro um garoto calado
+Ele nunca pergunta por quê
+Ele só sabe dizer sim
+
+[Refrao -- em coro, com eco]
+Por quê? Por quê? Me diz por que eu fiz isso
+Eu não consigo acordar (acorda)
+Chamam de passado, mas parece hoje
+A conta é minha, é toda minha
 
 [Verso 2]
-Cada escolha foi um passo
-E eu moro onde cheguei
-Podia ter feito diferente
-Podia ter feito melhor
+Hoje eu vejo ele de pé
+Não tem mais nada pra dizer
+Só medo, só os meus olhos
+E a minha mão se estendeu
+Eu nunca perguntei por quê
 
-[Refrao -- gritado, em coro]
-POR QUÊ? POR QUÊ?
-ME DIZ POR QUE EU FIZ ISSO
-POR QUÊ? POR QUÊ?
-A CONTA É MINHA
-
-[Breakdown -- seco, falado]
-Eu fiz o que sabia fazer
-Com o que eu tinha na mão
+[Refrao -- em coro, com eco]
+Por quê? Por quê? Me diz por que eu fiz isso
+Eu não consigo acordar (acorda)
+Chamam de passado, mas parece hoje
+Mas agora eu começo a acordar
 
 [Ponte -- gritada]
-MAS HOJE EU SEI!
-O PASSADO FOI MINHA ESCOLHA!
-O FUTURO TAMBÉM!
+Por quê?
+Por que eu nunca perguntei?
 
-[Refrao final -- gritado, em coro]
-POR QUÊ? POR QUÊ?
-POR QUE NÃO AGORA?
-POR QUÊ? POR QUÊ?
-O TEMPO AINDA É MEU
-
-[Silencio -- corte seco]
+[Refrao final -- em coro, com eco]
+Por quê? Por quê? Me diz por que eu fiz isso
+Agora eu começo a acordar (acorda)
+O passado foi minha escolha, o futuro também
+E o tempo ainda é todo meu
