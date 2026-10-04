@@ -100,7 +100,7 @@ def test_unwritten_tracks_keep_the_template_files():
 
 
 def test_biblia_document_covers_every_track_and_the_real_life_concept():
-    text = (CAELUM_ROOT / "BIBLIA.md").read_text(encoding="utf-8-sig")
+    text = (CAELUM_ROOT / "conceito.md").read_text(encoding="utf-8-sig")
     lines = text.splitlines()
     for slug, bpm, keyscale in BIBLIA:
         num = slug[:2]
@@ -182,6 +182,6 @@ def test_pending_rewrite_exemption_is_still_needed(slug):
 
 def test_scan_actually_covers_biblia_readme_and_tracks():
     scanned = {str(rel).replace("\\", "/") for rel, _ in _album_text_files()}
-    assert "BIBLIA.md" in scanned and "README.md" in scanned
+    assert "conceito.md" in scanned and "README.md" in scanned
     assert "03_o_que_nao_veio/letra_pt.md" in scanned and "10_caelum/faixa.toml" in scanned
     assert not any(p.split("/")[0] in PENDING_REWRITE for p in scanned)

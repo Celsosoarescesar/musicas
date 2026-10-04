@@ -7,7 +7,7 @@ Contexto da cena (o que acontece, o que Caelum sente):
 - Nao ha vilao: a duvida e a voz de dentro; o refrao responde a ela.
 - Voz: verso falado, refrao limpo, grito curto.
 - Tom e escala: E minor -- E menor natural nos riffs; melodica nas melodias de refrao.
-- Guarda: so a historia do proprio autor; sem nomes nem detalhes que identifiquem pessoas reais (ver BIBLIA).
+- Guarda: so a historia do proprio autor; sem nomes nem detalhes que identifiquem pessoas reais (ver conceito.md).
 
 ## Letra
 

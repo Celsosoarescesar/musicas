@@ -5,11 +5,11 @@ Pasta de trabalho do album (10 musicas), baseado na vida real do autor (um senti
 `docs/superpowers/specs/2026-10-02-caelum-album-design.md`.
 
 Biblia do album (arco das 10 faixas, plano sonoro, camada REAPER):
-`BIBLIA.md` (spec: `docs/superpowers/specs/2026-10-03-caelum-album-biblia-design.md` e `2026-10-03-caelum-album-realismo-design.md`).
+`conceito.md` (spec: `docs/superpowers/specs/2026-10-03-caelum-album-biblia-design.md` e `2026-10-03-caelum-album-realismo-design.md`).
 
 ## Uma pasta por faixa
 
-As dez pastas `NN_<slug>/` ja existem (ver `BIBLIA.md`; `_modelo/` e so a referencia
+As dez pastas `NN_<slug>/` ja existem (ver `conceito.md`; `_modelo/` e so a referencia
 do formato). Cada faixa tem:
 
 - `letra_pt.md` -- fonte da verdade (significado e emocao)

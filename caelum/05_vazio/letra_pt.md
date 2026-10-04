@@ -7,7 +7,7 @@ Contexto da cena (o que acontece, o que Caelum sente):
 - Nao ha vilao: o que pesa e o vazio. Nomear o peso, sem romantizar e sem sugerir autolesao.
 - Voz: limpo e grito alternados ja nos versos; a faixa mais suja, pesada e arrastada do album.
 - Tom e escala: F# minor -- F# menor natural; sem harmonica.
-- Guarda: so a historia do proprio autor; sem nomes nem detalhes que identifiquem pessoas reais (ver BIBLIA).
+- Guarda: so a historia do proprio autor; sem nomes nem detalhes que identifiquem pessoas reais (ver conceito.md).
 
 ## Letra
 

@@ -7,7 +7,7 @@ Contexto da cena (o que acontece, o que Caelum sente):
 - Nao ha vilao: e vontade e esperanca de encontrar quem entenda.
 - Voz: hino; refrao grande e cantavel, vozes empilhadas (o autor em coro) e lider limpo.
 - Tom e escala: F# minor -- F# menor natural nos riffs; menor melodica no refrao (6a e 7a elevadas subindo, decisao do usuario); comeca a volta por quartas.
-- Guarda: so a historia do proprio autor; sem nomes nem detalhes que identifiquem pessoas reais (ver BIBLIA).
+- Guarda: so a historia do proprio autor; sem nomes nem detalhes que identifiquem pessoas reais (ver conceito.md).
 
 ## Letra
 

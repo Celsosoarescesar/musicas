@@ -7,7 +7,7 @@ Contexto da cena (o que acontece, o que Caelum sente):
 - 'Monstro' aqui quer dizer: nao ha monstro; o que pesa e o proprio silencio (a dor de nunca ter ouvido um 'nao').
 - Voz: sussurro e voz limpa, SEM grito; a faixa mais contida do album. Versos e ponte sussurrados, refrao limpo.
 - Tom e escala: E minor -- E menor; menor harmonica nos trechos do sistema, natural no resto.
-- Guarda: criticar o mecanismo, nao pessoas; sem nomes nem detalhes que identifiquem alguem real (ver BIBLIA).
+- Guarda: criticar o mecanismo, nao pessoas; sem nomes nem detalhes que identifiquem alguem real (ver conceito.md).
 
 ## Letra
 

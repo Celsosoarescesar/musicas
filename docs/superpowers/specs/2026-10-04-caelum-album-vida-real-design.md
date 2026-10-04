@@ -24,7 +24,7 @@ alegria atual do autor.
 
 ## Arco: um sentimento por parte da vida
 
-O tom, o bpm e o peso sonoro de cada faixa seguem o plano da `BIBLIA.md` (sobe por quintas,
+O tom, o bpm e o peso sonoro de cada faixa seguem o plano da `conceito.md` (sobe por quintas,
 volta ao D menor na 10). O arco vai do isolamento ate a esperanca.
 
 | # | Tom / bpm | Pasta | Titulo | Parte da vida | Sentimento | Imagem unica |

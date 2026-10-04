@@ -1,4 +1,4 @@
-# Caelum -- biblia do album 1
+# Caelum -- conceito do album 1
 
 **Fonte da verdade do conceito:** `docs/superpowers/specs/2026-10-04-caelum-album-vida-real-design.md`
 (a vida real do autor, o mapa faixa -> parte da vida -> sentimento e as regras de escrita).
