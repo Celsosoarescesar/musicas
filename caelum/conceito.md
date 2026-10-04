@@ -40,7 +40,7 @@ escolhidos com o autor, uma faixa por vez.
 | | 03 | `03_o_que_nao_veio` (a refazer) | Fim do casamento de 10+ anos; esterilidade | Luto pelo que nao veio |
 | Queda | 04 | `04_barulho` | Faculdade abandonada, 8+ anos sem estudar | Sentir-se incapaz |
 | | 05 | `05_vazio` | Pandemia em casa, depressao | Vazio e peso |
-| | 06 | `06_tempo_perdido` | Anos perdidos aos 45 | Raiva do tempo perdido |
+| | 06 | `06_tempo_perdido` | Anos perdidos aos 45; "por que eu fiz aquilo? por que nao fiz melhor?" (hoje e fruto das escolhas do passado) | Raiva de si e do tempo perdido |
 | Procura | 07 | `07_alguem_ai` | Anos sem amor; busca de quem o compreenda | Desejo de ser entendido |
 | Recomeco | 08 | `08_recomeco` | Criar musica hoje | Alegria, recomeco (centro do album) |
 | | 09 | `09_tarde_demais` | Banda que nao deu certo; sonho de ser cantor | Medo de ser tarde demais |

@@ -43,6 +43,13 @@ volta ao D menor na 10). O arco vai do isolamento ate a esperanca.
 Os titulos de trabalho sao confirmados com o autor, uma faixa por vez.
 Pastas renomeadas em 2026-10-04 (01-03 com o REAPER fechado; caminhos em `songs.db` e nos .RPP corrigidos). A pasta 03 usa titulo provisorio.
 
+## Ideias registradas (decisoes do autor)
+
+- **06 Tempo perdido (2026-10-04):** o centro e questionar o porque: *por que eu fiz aquilo? por que nao fiz de uma forma melhor? se hoje estou nessa situacao, e fruto das minhas escolhas do passado.* A raiva e de si e do tempo; nao e culpar os outros e sim assumir as escolhas, inclusive a de obedecer calado. A base da letra e a versao antiga da faixa 02 (a "da igreja": terno de domingo, a ordem do pastor, a oferta, a mao que demora, "por que eu nunca perguntei?"), que o autor gostou muito; sera reescrita. As geracoes 1 e 2 dessa versao antiga (audio e stems) estao em `06_tempo_perdido/saida/`.
+- **10 Caelum:** a base da letra e a da versao antiga da faixa 01 (a "alegorica"); o autor gostou da melodia e do instrumental dela; as geracoes 1 e 3 estao em `10_caelum/saida/`. Ideia tecnica: tarefa `cover` do ACE-Step 1.5 (precisa ser acrescentada ao kernel e testada).
+- **07 Alguem ai?:** a base da letra e a do antigo "Silencio" (amor nao correspondido); as geracoes 1-3 dele estao em `07_alguem_ai/saida/`.
+- **03 Nunca foi lar:** a casa que nunca foi um lar; "voce nunca quis fazer um lar... eu nunca fui o bastante"; termina em "eu prefiro ficar sozinho". Som: metal melodico mais rapido (112 bpm), pegada Three Days Grace.
+
 ## Regras de escrita (valem para todas as faixas)
 
 - Primeira pessoa, uma imagem unica por faixa, sem vilao e sem narrador.
