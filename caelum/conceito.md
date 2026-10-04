@@ -38,7 +38,7 @@ escolhidos com o autor, uma faixa por vez.
 | Isolamento | 01 | `01_sozinho` ("Sozinho") | Sem amigos, vida na solidao | Solidao |
 | | 02 | `02_rotina` ("Rotina") | Moto para um trabalho chato e repetitivo, todo dia | Tedio, piloto automatico |
 | | 03 | `03_o_que_nao_veio` (a refazer) | Fim do casamento de 10+ anos; esterilidade | Luto pelo que nao veio |
-| Queda | 04 | `04_barulho` | Faculdade abandonada, 8+ anos sem estudar... e a volta: terminou a faculdade, 2 pos-graduacoes e varios cursos | Superar as dificuldades: o muro de "naos" que vira escada ("me deram um muro, eu fiz dele escada") |
+| Queda | 04 | `04_barulho` | Faculdade abandonada, 8+ anos sem estudar... e a volta: terminou a faculdade, 2 pos-graduacoes e varios cursos | Superar as dificuldades: do chao ao ceu; o muro de "naos" que vira escada; gancho "eu nao vou ficar no chao / eu vou subir" (pegada Three Days Grace) |
 | | 05 | `05_vazio` | Pandemia em casa, depressao | Vazio e peso |
 | | 06 | `06_tempo_perdido` | Anos perdidos aos 45; "por que eu fiz aquilo? por que nao fiz melhor?" (hoje e fruto das escolhas do passado) | Raiva de si e do tempo perdido |
 | Procura | 07 | `07_alguem_ai` | Anos sem amor; busca de quem o compreenda | Desejo de ser entendido |
@@ -66,7 +66,7 @@ o final (fade, silencio, corte seco); o tamanho da letra (duracao automatica: me
 | 01 | Classica: intro, verso, pre, refrao, verso, pre, refrao, ponte, refrao final (feita) | Base do album |
 | 02 | Refrao primeiro, sem pre-refrao, breakdown (feita) | Comeca pelo gancho |
 | 03 | Intro de riff, verso, verso, refrao tardio, solo de guitarra, ponte, refrao final | Metal melodico mais rapido (Three Days Grace); o refrao so chega depois de dois versos |
-| 04 | Sem ponte: versos que encolhem (4, 3, 2 linhas), refrao que cresce (curto, inteiro, gritado em coro), build, breakdown sussurrado (contagem de degraus), resposta falada (o ceu visto de cima), grito curto "eu cheguei" e final seco | O muro cresce... e ele sobe |
+| 04 | Sem ponte: versos que encolhem (4, 3, 2 linhas), refrao que cresce (curto, inteiro, gritado em coro), build, breakdown sussurrado (contagem de degraus), resposta falada (o ceu visto de cima), grito curto "eu cheguei" e final seco | O chao... e ele sobe |
 | 05 | Intro longo, verso, riff instrumental pesado, verso, refrao, breakdown, riff, refrao curto, fade out | Pouca letra e peso arrastado |
 | 06 | Comeca direto no verso (sem intro nem pre), refrao curto, breakdown, ponte gritada, dois refroes, corte seco | O tempo acaba de repente |
 | 07 | Verso esparso, pre, refrao pequeno, verso, pre, build, refrao enorme com coro, final cantado em coro | O hino cresce ate a multidao |

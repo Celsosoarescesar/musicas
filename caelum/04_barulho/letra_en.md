@@ -2,25 +2,25 @@
 [Intro - heavy riff]
 
 [Verse 1 - low]
-Every no they threw at me
-Turned into a brick on the ground
-They raised a wall around me
-And the sky stayed on the other side
+I stayed on the ground so long
+That the ground became my place
+The days kept passing by me
+Too weak to stand again
 
 [Chorus - clean]
-They gave me a wall
-I made it a staircase
+I won't stay on the ground
+I'm going up
 
 [Verse 2 - low]
-They said: you won't get past
 They said: you won't make it
-I counted every brick
-
-[Chorus - clean, then scream]
 They gave me a wall
 I made it a staircase
-EVERY NO BECAME A STEP
-And the sky got closer
+
+[Chorus - clean, then scream]
+I won't stay on the ground
+I'm going up, I'm going up
+I WON'T STAY ON THE GROUND
+Every no became a step
 
 [Verse 3 - low]
 My arms can hardly hold
@@ -29,9 +29,9 @@ But the ground is far behind
 [Build]
 
 [Chorus - scream]
-THEY GAVE ME A WALL
-I MADE IT A STAIRCASE
-EVERY NO BECAME A STEP
+I WON'T STAY ON THE GROUND
+I'M GOING UP, I'M GOING UP
+I WON'T STAY ON THE GROUND
 CLIMB! CLIMB! CLIMB!
 
 [Breakdown - dry, whispered]
