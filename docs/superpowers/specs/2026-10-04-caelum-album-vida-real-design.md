@@ -54,6 +54,8 @@ Pastas renomeadas em 2026-10-04 (01-03 com o REAPER fechado; caminhos em `songs.
 
 - **05 Vazio (2026-10-04):** a pandemia e a depressao em uma imagem so: **como se a pessoa estivesse se afogando** (ideia do autor: a agua sobe sem perceber a hora, ja nao da pe, bate os bracos e afunda, o peito aperta, a agua engole o grito, ninguem olha). Gancho "me puxa, me puxa / eu estou me afogando" (pedido de socorro; liga com a 07). Pegada (referencia de tom, "Going Under" do Evanescence, sem copiar e sem linhas de morte): dramatica, emocional, afogamento ate o fim. Estrutura propria "afunda e volta a tona": intro longo (som de agua), verso, refrao cedo e grande, riff pesado, verso, refrao, breakdown gritado "ME OUCAM! ME PUXEM! EU NAO AFUNDO AQUI!" (pedido de ajuda e recusa; liga com o "eu nao morro aqui" da 04), respiro sussurrado ("so mais um folego"), refrao final que SOBE ("eu subo, eu subo / estou voltando a tona"), fade out. Sem romantizar o fundo nem sugerir autolesao. O final mostra a luta, nao a entrega: "eu ainda bato os bracos / la em cima tem luz".
 
+- **06 Tempo perdido (2026-10-04, letra escrita):** imagem = voltar no tempo e falar com o garoto que fui (sentado, calado, dizendo sim a tudo); gancho gritado em coro "POR QUE? POR QUE?"; resposta "a conta e minha"; ponte "o passado foi minha escolha, o futuro tambem"; final "por que nao agora? / o tempo ainda e meu" e corte seco. A base foi a letra antiga da faixa 02 "da igreja". Imagem a confirmar com o autor.
+
 ## Regras de escrita (valem para todas as faixas)
 
 - Primeira pessoa, uma imagem unica por faixa, sem vilao e sem narrador.
