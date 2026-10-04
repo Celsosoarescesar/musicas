@@ -29,6 +29,7 @@ Genero: nu metal, vocal limpo + grito, sem rap, uma voz so (Caelum, primeira pes
 
 ## Arco e faixas
 
+Faixa extra 11 (`11_obedecer`): a musica antiga da igreja, que o autor quer refazer; fora do arco das 10.
 Letras prontas: 01 "Sozinho", 02 "Rotina", 03 (a refazer: fim do casamento), 04 "Barulho" (a ajustar).
 Os nomes das pastas seguem os titulos de trabalho (renomeadas em 2026-10-04). Os titulos podem mudar:
 escolhidos com o autor, uma faixa por vez.
@@ -45,6 +46,7 @@ escolhidos com o autor, uma faixa por vez.
 | Recomeco | 08 | `08_recomeco` | Criar musica hoje | Alegria, recomeco (centro do album) |
 | | 09 | `09_tarde_demais` | Banda que nao deu certo; sonho de ser cantor | Medo de ser tarde demais |
 | | 10 | `10_caelum` ("Caelum") | Esperanca | O ceu, esperanca |
+| Extra | 11 | `11_obedecer` (a refazer) | A musica antiga "da igreja" (ex-faixa 02): crescer obedecendo e a primeira duvida | Obedecer sem perguntar |
 
 A 08 e o centro do album: o refrao dela e o mais luminoso e importante.
 
@@ -73,6 +75,7 @@ o final (fade, silencio, corte seco); o tamanho da letra (duracao automatica: me
 | 08 | Guitarra limpa sozinha, entrada gradual, refrao cedo, solo melodico, refrao final | Alegria; o solo e a comemoracao |
 | 09 | Verso falado, refrao, verso falado, silencio, ponte, refrao gritado | A duvida fala e o refrao responde |
 | 10 | Espelho da 01 (mesmo intro de highway), refrao final, volta ao intro com piano | Fecha o circulo |
+| 11 | Estrutura classica da versao antiga (intro, verso, refrao, verso, refrao, ponte, refrao final); a refazer | Faixa extra |
 
 ## Plano sonoro
 
@@ -92,6 +95,7 @@ D menor da 01 (na 06, C# menor) e volta a ele na 10.
 | 08 | B menor | 98 | Medio | Refrao limpo e luminoso, o mais importante |
 | 09 | E menor | 104 | Medio | Verso falado, refrao limpo, grito curto |
 | 10 | D menor | 100 | Medio a pesado | Refrao gigante, grito final; volta ao tom/BPM da 01 |
+| 11 | A menor | 96 | Medio | Verso falado, refrao limpo, grito curto; groove de marcha (a musica antiga ja gerada) |
 
 Valores sao pontos de partida; ajuste de ouvido na geracao.
 

@@ -1,8 +1,3 @@
-# Letra em ingles da versao ANTIGA da faixa 02, "da igreja" (base da faixa 06)
-
-Referencia apenas: NAO e enviada ao ACE-Step (o gerador le so `letra_en.md`). Foi a letra cantada na geracao 2 da antiga faixa 02. Ao reescrever a 06, manter o numero de silabas por linha para aproveitar a melodia, se for usado o `cover`.
-
-```
 [en]
 [Intro]
 Obey. Don't ask.
@@ -42,4 +37,3 @@ I do what I'm told, I do it well
 But now I want to know
 The voice is mine, the commands aren't
 I never needed to know why
-```

@@ -9,7 +9,7 @@ Biblia do album (arco das 10 faixas, plano sonoro, camada REAPER):
 
 ## Uma pasta por faixa
 
-As dez pastas `NN_<slug>/` ja existem (ver `conceito.md`; `_modelo/` e so a referencia
+As onze pastas `NN_<slug>/` (10 do album + a faixa extra 11) ja existem (ver `conceito.md`; `_modelo/` e so a referencia
 do formato). Cada faixa tem:
 
 - `letra_pt.md` -- fonte da verdade (significado e emocao)

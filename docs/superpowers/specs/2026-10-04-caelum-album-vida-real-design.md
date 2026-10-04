@@ -56,6 +56,8 @@ Pastas renomeadas em 2026-10-04 (01-03 com o REAPER fechado; caminhos em `songs.
 
 - **06 Tempo perdido (2026-10-04, letra escrita):** imagem (decisao do autor) = **um sonho em que ele olha para o proprio passado** (os relogios andam para tras; encontra o garoto que foi, sentado e calado, dizendo sim a tudo; nao consegue acordar e aos poucos comeca a acordar); pegada "Bring Me To Life" do Evanescence so no tom (clima de sonho, ecos entre parenteses). Gancho gritado em coro "POR QUE? POR QUE?"; resposta "a conta e minha"; virada "o passado foi minha escolha, o futuro tambem". **A letra foi escrita no molde de silabas da letra antiga (a "da igreja", faixa 02, geracao 2) para reaproveitar a musica ja gerada** (A minor, 96 bpm; o plano previa C# minor, 120 bpm: decisao pendente).
 
+- **11 Obedecer (faixa extra, 2026-10-04):** a musica antiga da faixa 02 "da igreja" (A minor, 96 bpm), que o autor gostou muito, virou a faixa 11 para ser refeita (a letra da igreja e o ponto de partida; as duas versoes antigas, em PT e EN, estao em `11_obedecer/versoes_antigas.md`). As geracoes 1 e 2 (stems) e o projeto `obedecer.RPP` estao em `11_obedecer/saida/`. Fica fora do arco das 10 faixas; a 06 voltou a ter som proprio.
+
 ## Regras de escrita (valem para todas as faixas)
 
 - Primeira pessoa, uma imagem unica por faixa, sem vilao e sem narrador.

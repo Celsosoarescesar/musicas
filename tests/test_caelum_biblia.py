@@ -19,6 +19,7 @@ BIBLIA = [
     ("08_recomeco", 98, "B minor"),
     ("09_tarde_demais", 104, "E minor"),
     ("10_caelum", 100, "D minor"),
+    ("11_obedecer", 96, "A minor"),
 ]
 
 # Faixas cuja letra_en.md ainda e o modelo. Quando terminar a letra_en.md de
@@ -36,7 +37,7 @@ def _toml(slug):
     return tomllib.loads((CAELUM_ROOT / slug / "faixa.toml").read_text(encoding="utf-8-sig"))
 
 
-def test_album_has_exactly_the_ten_track_folders():
+def test_album_has_exactly_the_track_folders():
     folders = sorted(p.name for p in CAELUM_ROOT.glob("[0-9][0-9]_*") if p.is_dir())
     assert folders == [slug for slug, _, _ in BIBLIA]
 
@@ -128,7 +129,7 @@ FORBIDDEN_TERMS = (
 # Pastas cujas letras ainda sao do conceito antigo e serao refeitas com o
 # usuario (uma sessao por faixa). Tire a pasta daqui quando a letra nova for
 # aprovada e commitada (o teste de expiracao abaixo avisa).
-PENDING_REWRITE = ("10_caelum",)
+PENDING_REWRITE = ("10_caelum", "11_obedecer")
 
 
 def _find_forbidden(text):
