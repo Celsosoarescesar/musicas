@@ -1,6 +1,6 @@
 # Configuracao da faixa. So 'prompt' e obrigatorio.
 # Chaves desconhecidas sao erro (evita typo silencioso).
-prompt = "2000s nu metal, groove-driven, downtuned 7-string guitars with percussive syncopated palm-muted riffs, deep distorted bass, punchy hip-hop influenced drums, DJ scratches and electronic samples, raw heavy production, in the style of early Linkin Park and Korn, cold electronic glitch textures, spoken-word verses, emotional clean male vocal in the chorus, short scream, no rap, 104 bpm, E minor"
+prompt = "2000s nu metal, groove-driven, downtuned 7-string guitars with percussive syncopated palm-muted riffs, deep distorted bass, punchy hip-hop influenced drums, DJ scratches and electronic samples, raw heavy production, in the style of early Linkin Park and Korn, baroque violin strings in the style of Vivaldi's Four Seasons: short tremolo winter strings in the intro and rising spring violins in the bridge, cold electronic textures, spoken-word male verses, one verse-free silent gap before the bridge, emotional clean male vocal in the chorus, shouted male gang vocals in the final chorus, no rap, 104 bpm, E minor"
 duration = "auto"       # automatica: o ACE-Step ajusta a duracao a letra
 seed = 42
 bpm = 104
