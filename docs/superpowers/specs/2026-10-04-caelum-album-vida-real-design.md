@@ -32,7 +32,7 @@ volta ao D menor na 10). O arco vai do isolamento ate a esperanca.
 | 01 | D / 100 | `01_sozinho` | Sozinho | Sem amigos, vida na solidao | Solidao | Highway a noite, banco vazio (letra ja feita) |
 | 02 | A / 96 | `02_rotina` | Rotina | Moto para o trabalho chato, todo dia | Piloto automatico, tedio | Programa que roda o mesmo dia (ja feita; ajustar cena para a moto se o autor quiser) |
 | 03 | E / 88 | `03_o_que_nao_veio` | (titulo de trabalho) | Fim do casamento de 10+ anos; esterilidade | Luto pelo que nao veio; culpa que nao e culpa | Quarto vazio / a casa depois (faixa mais leve, sussurrada) |
-| 04 | B / 108 | `04_barulho` | Barulho | Faculdade abandonada, 8 anos sem estudar; depois voltou e terminou, 2 pos e varios cursos | Superar a incapacidade | A voz que diz "voce nao consegue" e o degrau; termina em "eu consegui" |
+| 04 | B / 108 | `04_barulho` | Barulho | Faculdade abandonada, 8 anos sem estudar; depois voltou e terminou, 2 pos e varios cursos | Superar as dificuldades | O muro de "naos" que vira escada: "me deram um muro, eu fiz dele escada"; o ceu do outro lado; termina em "eu cheguei" |
 | 05 | F# / 92 | `05_vazio` | (titulo de trabalho) | Pandemia em casa, depressao | Vazio, peso, sem vontade | Janela fechada, dia que nao passa (a faixa mais pesada e arrastada) |
 | 06 | C# / 120 | `06_tempo_perdido` | (titulo de trabalho) | Anos perdidos, 45 anos | Raiva do tempo perdido | Relogio, pressa (a mais rapida; gang vocals) |
 | 07 | F# / 112 | `07_alguem_ai` | (titulo de trabalho) | Anos sem amor; procura quem o compreenda | Desejo de ser entendido por alguem | "Alguem ai?" (hino, refrao grande) |
@@ -50,7 +50,7 @@ Pastas renomeadas em 2026-10-04 (01-03 com o REAPER fechado; caminhos em `songs.
 - **07 Alguem ai?:** a base da letra e a do antigo "Silencio" (amor nao correspondido); as geracoes 1-3 dele estao em `07_alguem_ai/saida/`.
 - **03 Nunca foi lar:** a casa que nunca foi um lar; "voce nunca quis fazer um lar... eu nunca fui o bastante"; termina em "eu prefiro ficar sozinho". Som: metal melodico mais rapido (112 bpm), pegada Three Days Grace.
 
-- **04 Barulho (2026-10-04):** a pessoa que passou por muita dificuldade, achou que nao ia conseguir e conseguiu: voltou, terminou a faculdade, fez 2 pos-graduacoes e varios cursos. A voz de dentro estava errada. Imagem: o degrau; a contagem que no comeco nao funciona vira a contagem dos degraus; fecha com "EU CONSEGUI".
+- **04 Barulho (2026-10-04):** a pessoa que passou por muita dificuldade, achou que nao ia conseguir e conseguiu: voltou, terminou a faculdade, fez 2 pos-graduacoes e varios cursos. A voz de dentro estava errada. Imagem (decisao do autor: faltava uma imagem, estava literal): **o muro que vira escada** - cada "nao" vira tijolo e ele os empilha e sobe neles; o ceu (Caelum) do outro lado e maior do que imaginava; a contagem vira contagem de degraus; fecha com "EU CHEGUEI". Evitar a imagem da pedra no bolso (associacao pesada).
 
 ## Regras de escrita (valem para todas as faixas)
 

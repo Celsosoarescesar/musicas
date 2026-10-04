@@ -2,46 +2,46 @@
 [Intro - heavy riff]
 
 [Verse 1 - low]
-Everybody moved ahead
-I stayed on the same old step
-One voice knows my name
-And it only says no
+Every no they threw at me
+Turned into a brick on the ground
+They raised a wall around me
+And the sky stayed on the other side
 
 [Chorus - clean]
-You can't do it, says the voice
-You'll never get there
+They gave me a wall
+I made it a staircase
 
 [Verse 2 - low]
-The years turned into stone
-In my jacket pocket
-Every step weighs double
+They said: you won't get past
+They said: you won't make it
+I counted every brick
 
 [Chorus - clean, then scream]
-You can't do it, says the voice
-You'll never get there
-YOU CAN'T DO IT, SAYS THE VOICE
-I've heard it a thousand times
+They gave me a wall
+I made it a staircase
+EVERY NO BECAME A STEP
+And the sky got closer
 
 [Verse 3 - low]
-It talks faster and faster
-I can't catch my breath
+My arms can hardly hold
+But the ground is far behind
 
 [Build]
 
 [Chorus - scream]
-YOU CAN'T DO IT, SAYS THE VOICE
-YOU'LL NEVER GET THERE
-YOU CAN'T DO IT, SAYS THE VOICE
-SHUT UP! SHUT UP! SHUT UP!
+THEY GAVE ME A WALL
+I MADE IT A STAIRCASE
+EVERY NO BECAME A STEP
+CLIMB! CLIMB! CLIMB!
 
 [Breakdown - dry, whispered]
 Breathe. One step.
 Two steps. Three...
-It still screams. I keep going.
+The wind screams. I keep going.
 
 [Outro - spoken]
-I went back and I finished
-And I kept climbing
+Up here the sky is bigger
+Bigger than I thought
 
 [Final - scream]
 I MADE IT!

@@ -2,11 +2,12 @@
 
 Contexto da cena (o que acontece, o que Caelum sente):
 
-- Parte da vida real: a faculdade abandonada, os 8 anos sem estudar, a sensacao de ser incapaz de acompanhar... e a volta: **ele voltou, terminou a faculdade, fez 2 pos-graduacoes e varios cursos** (decisao do autor, 2026-10-04). A letra nao diz "faculdade" nem "pos"; fala da voz de dentro que dizia "voce nao consegue" e de ter provado que ela errou, para que qualquer pessoa que ja foi dada como incapaz e superou se reconheca.
-- Sentimento: superar a incapacidade; a pessoa que passou por muita dificuldade, achou que nao ia conseguir e conseguiu. Imagem unica: o **degrau** (parado no mesmo degrau no comeco; depois, um degrau de cada vez; a contagem que no inicio nao funciona vira a contagem dos degraus).
-- Estilo: subjetivo, metaforico (os anos viram pedra no bolso do casaco); nada literal.
-- **Estrutura (decisao do autor: nao repetir a formula das outras): "o barulho aperta... e ele sobe".** Sem intro longo e sem ponte. Os versos ENCOLHEM (4 linhas, 3, 2) como se a voz fechasse o cerco; o refrao comeca curto (2 linhas), aparece inteiro e termina GRITADO. Depois do grito vem o breakdown sussurrado (a contagem vira contagem de degraus), a RESPOSTA falada ("eu voltei, eu terminei") e um grito curto e seco de vitoria: "EU CONSEGUI". Sem refrao final.
-- Voz: versos baixos, refrao limpo no comeco e grito no fim, breakdown sussurrado, resposta falada, grito final.
+- Parte da vida real: a faculdade abandonada, os 8 anos sem estudar, a sensacao de ser incapaz de acompanhar... e a volta: **ele voltou, terminou a faculdade, fez 2 pos-graduacoes e varios cursos** (decisao do autor, 2026-10-04). A letra nao diz "faculdade" nem "pos"; usa uma imagem, para que qualquer pessoa que ja foi dada como incapaz e superou se reconheca.
+- Sentimento: superar as dificuldades; a pessoa que passou por muita coisa, achou que nao ia conseguir e conseguiu.
+- **Imagem unica (decisao do autor: faltava uma imagem; antes estava literal): O MURO QUE VIRA ESCADA.** Cada "nao" que lhe jogaram virou um tijolo; levantaram um muro em volta e o ceu ficou do outro lado. Ele nao quebra o muro: **empilha os "naos" e sobe neles** (a barreira vira o degrau). No alto, o ceu (Caelum) e maior do que imaginava. Gancho: "Me deram um muro / Eu fiz dele escada".
+- Evitar a imagem da pedra no bolso do casaco (associacao pesada com um fim tragico); evitar tambem "voce nao consegue" literal, trocado por "disseram".
+- **Estrutura (decisao do autor: nao repetir a formula das outras): "o muro cresce... e ele sobe".** Sem intro longo e sem ponte. Os versos ENCOLHEM (4 linhas, 3, 2) como se o muro fechasse o cerco; o refrao comeca curto (2 linhas), aparece inteiro e termina GRITADO em coro ("SOBE! SOBE! SOBE!"). Depois do grito vem o breakdown sussurrado (a contagem dos degraus), a RESPOSTA falada (o ceu visto de cima) e um grito curto e seco de vitoria: "EU CHEGUEI". Sem refrao final.
+- Voz: versos baixos, refrao limpo no comeco e grito no fim (coro), breakdown sussurrado, resposta falada, grito final.
 - Tom e escala: B minor -- B menor natural; sem harmonica.
 - Guarda: so a historia do proprio autor; sem nomes nem detalhes que identifiquem pessoas reais (ver conceito.md).
 
@@ -15,48 +16,48 @@ Contexto da cena (o que acontece, o que Caelum sente):
 [Intro -- riff pesado, curto, instrumental]
 
 [Verso 1]
-Todo mundo foi pra frente
-Eu fiquei no mesmo degrau
-Uma voz sabe o meu nome
-E só sabe dizer não
+Cada não que me jogaram
+Virou tijolo no chão
+Levantaram um muro em volta
+E o céu ficou do outro lado
 
 [Refrao curto -- limpo]
-Você não consegue, diz a voz
-Você nunca vai chegar
+Me deram um muro
+Eu fiz dele escada
 
 [Verso 2]
-Os anos viraram pedra
-No bolso do meu casaco
-Cada passo pesa o dobro
+Disseram: daqui não passa
+Disseram: você não chega
+Eu contei cada tijolo
 
 [Refrao -- limpo, depois grito]
-Você não consegue, diz a voz
-Você nunca vai chegar
-VOCÊ NÃO CONSEGUE, DIZ A VOZ
-Eu já ouvi isso mil vezes
+Me deram um muro
+Eu fiz dele escada
+CADA NÃO VIROU DEGRAU
+E o céu ficou mais perto
 
 [Verso 3 -- curto, apertado]
-Ela fala mais rápido
-Eu não consigo respirar
+Os braços já não aguentam
+Mas o chão ficou pra trás
 
 [Build -- cresce, instrumental]
 
-[Refrao -- gritado]
-VOCÊ NÃO CONSEGUE, DIZ A VOZ
-VOCÊ NUNCA VAI CHEGAR
-VOCÊ NÃO CONSEGUE, DIZ A VOZ
-CALA! CALA! CALA!
+[Refrao -- gritado, em coro]
+ME DERAM UM MURO
+EU FIZ DELE ESCADA
+CADA NÃO VIROU DEGRAU
+SOBE! SOBE! SOBE!
 
 [Breakdown -- seco, sussurrado]
 Respira. Um degrau.
 Dois degraus. Três...
-Ela ainda grita. Eu continuo.
+O vento grita. Eu continuo.
 
 [Resposta -- falada, baixa]
-Eu voltei e terminei
-E ainda subi mais
+Lá de cima o céu é grande
+Maior do que eu imaginei
 
 [Final -- gritado, curto]
-EU CONSEGUI!
+EU CHEGUEI!
 
 [Silencio -- final seco]
