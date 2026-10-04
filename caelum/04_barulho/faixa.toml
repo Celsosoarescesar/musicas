@@ -1,8 +1,10 @@
 # Configuracao da faixa. So 'prompt' e obrigatorio.
 # Chaves desconhecidas sao erro (evita typo silencioso).
-prompt = "2000s nu metal, groove-driven, downtuned 7-string guitars with percussive syncopated palm-muted riffs, deep distorted bass, punchy hip-hop influenced drums, DJ scratches and electronic samples, raw heavy production, in the style of early Linkin Park and Korn, anxious relentless syncopated riff, low verses, emotional clean vocal alternating with aggressive scream in the chorus, dry whispered breakdown, no rap, 108 bpm, B minor"
+# versao 2 (2026-10-04): metal melodico, pegada Three Days Grace, tom de superacao
+prompt = "2000s melodic alternative metal, post-grunge, driving drop-tuned guitars with tight palm-muted riffs, big soaring anthemic chorus, triumphant uplifting feeling of overcoming, melodic lead guitar, punchy tight drums, deep bass, in the style of Three Days Grace, restrained low verses building to a powerful emotional clean male vocal, shouted gang vocals in the final chorus, dry whispered breakdown, no rap, 108 bpm, B minor"
+# versao 1 (nu metal): prompt = "2000s nu metal, groove-driven, downtuned 7-string guitars with percussive syncopated palm-muted riffs, deep distorted bass, punchy hip-hop influenced drums, DJ scratches and electronic samples, raw heavy production, in the style of early Linkin Park and Korn, anxious relentless syncopated riff, low verses, emotional clean vocal alternating with aggressive scream in the chorus, dry whispered breakdown, no rap, 108 bpm, B minor"
 duration = "auto"       # automatica: o ACE-Step ajusta a duracao a letra
-seed = 42
+seed = 7
 bpm = 108
 keyscale = "B minor"
 vocal_language = "en"

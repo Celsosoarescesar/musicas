@@ -59,7 +59,4 @@ O vento grita. Eu continuo.
 Passei por tudo e estou de pé
 Lá de cima o céu é grande
 
-[Final -- gritado, curto]
-EU CHEGUEI!
 
-[Silencio -- final seco]
