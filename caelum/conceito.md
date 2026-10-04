@@ -72,7 +72,7 @@ o final (fade, silencio, corte seco); o tamanho da letra (duracao automatica: me
 | 05 | Intro longo (som de agua), verso, refrao cedo e grande, riff pesado, verso, refrao, breakdown gritado, respiro sussurrado, refrao final que sobe, fade out | Afunda e volta a tona (pegada Evanescence/Three Days Grace) |
 | 06 | Estrutura da musica antiga reaproveitada (decisao do autor): intro sussurrado, verso, refrao em coro com eco, verso, refrao, ponte gritada, refrao final. Letra em molde de silabas igual ao da antiga, para aproveitar melodia e instrumental | Um sonho olhando para o passado: nao consegue acordar... e comeca a acordar |
 | 07 | Estrutura classica da balada (intro, verso, refrao, verso, refrao, ponte, refrao final); o autor vai trabalhar a letra | Balada gostosa; a letra e a do antigo Silencio |
-| 08 | Guitarra limpa sozinha, entrada gradual, refrao cedo, solo melodico, refrao final | Alegria; o solo e a comemoracao |
+| 08 | Uma guitarra limpa sozinha (a primeira nota), verso, build com entrada gradual, refrao cedo e luminoso, verso, refrao, solo melodico, refrao final com grito curto de alegria, volta a nota sozinha. Sem ponte | Uma nota que vira banda; o solo e a comemoracao |
 | 09 | Verso falado, refrao, verso falado, silencio, ponte, refrao gritado | A duvida fala e o refrao responde |
 | 10 | Espelho da 01 (mesmo intro de highway), refrao final, volta ao intro com piano | Fecha o circulo |
 | 11 | Estrutura classica da versao antiga (intro, verso, refrao, verso, refrao, ponte, refrao final); a refazer | Faixa extra |
