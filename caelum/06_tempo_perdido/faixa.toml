@@ -1,6 +1,6 @@
 # Configuracao da faixa. So 'prompt' e obrigatorio.
 # Chaves desconhecidas sao erro (evita typo silencioso).
-prompt = "2000s nu metal, groove-driven, downtuned 7-string guitars with percussive syncopated palm-muted riffs, deep distorted bass, punchy hip-hop influenced drums, DJ scratches and electronic samples, raw heavy production, in the style of early Linkin Park and Korn, dreamlike whispered intro, aggressive, fast, driving drums, low fast verses, shouted gang vocals with echo backing vocals in every chorus, strong scream in the bridge, no rap, 120 bpm, C# minor"
+prompt = "2000s nu metal, groove-driven, downtuned 7-string guitars with percussive syncopated palm-muted riffs, deep distorted bass, punchy hip-hop influenced drums, DJ scratches and electronic samples, raw heavy production, in the style of early Linkin Park, Korn and Slipknot, heavier and thicker, raw deep male lead vocal, male vocalist only, aggressive male screams, dreamlike whispered male intro, aggressive, fast, driving drums, low fast male verses, shouted male gang vocals with echo backing vocals in every chorus, strong male scream in the bridge, no rap, 120 bpm, C# minor"
 duration = "auto"       # automatica: o ACE-Step ajusta a duracao a letra
 seed = 42
 bpm = 120
