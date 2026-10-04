@@ -3,8 +3,8 @@
 Contexto da cena (o que acontece, o que Caelum sente):
 
 - **Decisao do autor (2026-10-04): esta letra e a da FAIXA 07, uma BALADA "bem gostosa".** Parte da letra do antigo "Silencio" (a antiga faixa 03), na MESMA METRICA (numero de silabas por linha), para o autor aproveitar a musica ja gerada. A versao antiga esta em `git show 7eb40cb:caelum/03_silencio/letra_pt.md`.
-- Parte da vida real: muitos anos sem um amor; estar sozinho ha muito tempo; a procura por alguem que o compreenda e que cante junto com ele.
-- **Imagem unica (escolha do autor): A CANCAO QUE NUNCA FOI CANTADA.** Ele escreveu uma cancao para alguem e nunca teve coragem de cantar; guarda a cancao ha muito tempo; esta sozinho e procura quem cante junto. O silencio do antigo "Silencio" virou a cancao calada. O fecho e um convite: "Falta so a sua voz".
+- Parte da vida real: muitos anos sem um amor; estar sozinho ha muito tempo; a procura por alguem (que ainda nao conhece) que o compreenda e cante junto com ele.
+- **Imagem unica (escolha do autor): A CANCAO QUE NUNCA FOI CANTADA.** A musica E a propria cancao: ele a canta AGORA para PROCURAR alguem que cante junto com ele. **Ele AINDA NAO CONHECE a pessoa: esta a procura** (por isso o "voce" e quem vai ouvir, nao alguem que ele ja ama em segredo). Escreve e guarda a cancao ha muito tempo, esta sozinho; na ponte decide cantar ("hoje eu vou cantar"); o refrao e o chamado; o fecho e um convite: "Falta so a sua voz".
 - **Pegada (referencia de TOM so, o autor citou "Someone You Loved" do Lewis Capaldi; a letra dela nao foi usada nem copiada):** balada de piano, crua e direta; linguagem simples e conversada; refrao como um desabafo de cantar junto; voz proxima e vulneravel.
 - Sentimento: amor calado, a coragem que faltou, a solidao, o desejo de ser entendido e de cantar junto.
 - Som: a mesma da musica antiga (balada, E minor, 88 bpm, sussurrada, sem grito); da para gerar uma versao nova com piano e voz emocional no mesmo tom e andamento.
@@ -20,34 +20,34 @@ Contexto da cena (o que acontece, o que Caelum sente):
 
 [Verso 1]
 Eu escrevo toda manhã
-Você passa e não me ouve
+Não sei quem vai me ouvir
 Eu guardo uma canção comigo
-Eu te amo e fico calado
+Eu espero quem não conheço
 
 [Refrao -- limpo, melodico]
-Eu escrevi uma canção pra você
-E nunca tive coragem
-Cada verso que eu não cantei
-Virou uma canção calada
+Essa é a canção que eu nunca cantei
+Hoje eu canto pra te achar
+Se você ouvir, canta comigo
+Ela só vive quando é a dois
 
 [Verso 2]
 Faz tempo que estou sozinho
 Cantando só pra ninguém ouvir
-Procuro quem cante comigo
+Espero alguém que responda
 Guardo a canção pra nós dois
 
 [Refrao -- limpo, melodico]
-Eu escrevi uma canção pra você
-E nunca tive coragem
-Cada verso que eu não cantei
-Virou uma canção calada
+Essa é a canção que eu nunca cantei
+Hoje eu canto pra te achar
+Se você ouvir, canta comigo
+Ela só vive quando é a dois
 
 [Ponte -- sussurrada, sem grito]
 Sozinho, a canção é metade
-Se eu calo, eu perco a mim
+Mas hoje eu vou cantar
 
 [Refrao final -- limpo, melodico]
-Eu escrevi uma canção pra você
-E nunca tive coragem
-Cada verso que eu não cantei
+Essa é a canção que eu nunca cantei
+Hoje eu canto pra te achar
+Se você ouvir, canta comigo
 Falta só a sua voz
