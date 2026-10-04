@@ -15,7 +15,7 @@ BIBLIA = [
     ("04_barulho", 108, "B minor"),
     ("05_vazio", 92, "F# minor"),
     ("06_tempo_perdido", 120, "C# minor"),
-    ("07_alguem_ai", 112, "F# minor"),
+    ("07_silencio", 88, "E minor"),
     ("08_recomeco", 98, "B minor"),
     ("09_tarde_demais", 104, "E minor"),
     ("10_caelum", 100, "D minor"),

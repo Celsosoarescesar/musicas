@@ -1,9 +1,0 @@
-# Configuracao da faixa. So 'prompt' e obrigatorio.
-# Chaves desconhecidas sao erro (evita typo silencioso).
-prompt = "2000s nu metal, groove-driven, downtuned 7-string guitars with percussive syncopated palm-muted riffs, deep distorted bass, punchy hip-hop influenced drums, DJ scratches and electronic samples, raw heavy production, in the style of early Linkin Park and Korn, anthemic, radio static intro, sparse low verses that build, huge singalong chorus with male gang choir vocals in call and response, final crowd sing-along, raw male lead vocal, male vocalist only, emotional clean male lead, no rap, 112 bpm, F# minor"
-duration = "auto"       # automatica: o ACE-Step ajusta a duracao a letra
-seed = 42
-bpm = 112
-keyscale = "F# minor"
-vocal_language = "en"
-lufs_target = -9.0

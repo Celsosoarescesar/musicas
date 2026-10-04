@@ -42,7 +42,7 @@ escolhidos com o autor, uma faixa por vez.
 | Queda | 04 | `04_barulho` | Faculdade abandonada, 8+ anos sem estudar... e a volta: terminou a faculdade, 2 pos-graduacoes e varios cursos | Superar as dificuldades: subir uma montanha; "eu nao morro aqui, eu vou subir" (pegada Three Days Grace) |
 | | 05 | `05_vazio` | Pandemia em casa, depressao | Vazio e peso: como se a pessoa estivesse se afogando; gancho "me puxa, me puxa" (pedido de socorro) |
 | | 06 | `06_tempo_perdido` | Anos perdidos aos 45; "por que eu fiz aquilo? por que nao fiz melhor?" (hoje e fruto das escolhas do passado) | Raiva de si e do tempo perdido: um sonho em que olha para o proprio passado e fala com o garoto que foi; "por que?" -> "a conta e minha" -> "o passado foi minha escolha, o futuro tambem" |
-| Procura | 07 | `07_alguem_ai` | Anos sem amor; busca de quem o compreenda | Desejo de ser entendido: um radio sintonizando no escuro, "alguem ai?" |
+| Procura | 07 | `07_silencio` | Anos sem amor; busca de quem o compreenda | Amor calado e desejo de ser entendido (BALADA; letra do antigo "Silencio", a trabalhar) |
 | Recomeco | 08 | `08_recomeco` | Criar musica hoje | Alegria, recomeco (centro do album) |
 | | 09 | `09_tarde_demais` | Banda que nao deu certo; sonho de ser cantor | Medo de ser tarde demais |
 | | 10 | `10_caelum` ("Caelum") | Esperanca | O ceu, esperanca |
@@ -71,7 +71,7 @@ o final (fade, silencio, corte seco); o tamanho da letra (duracao automatica: me
 | 04 | Sem ponte: versos que encolhem (4, 3, 2 linhas), refrao que cresce (curto, inteiro, gritado em coro), build, breakdown sussurrado (contagem de degraus), resposta falada (o ceu visto de cima), grito curto "eu cheguei" e final seco | A montanha... e ele sobe |
 | 05 | Intro longo (som de agua), verso, refrao cedo e grande, riff pesado, verso, refrao, breakdown gritado, respiro sussurrado, refrao final que sobe, fade out | Afunda e volta a tona (pegada Evanescence/Three Days Grace) |
 | 06 | Estrutura da musica antiga reaproveitada (decisao do autor): intro sussurrado, verso, refrao em coro com eco, verso, refrao, ponte gritada, refrao final. Letra em molde de silabas igual ao da antiga, para aproveitar melodia e instrumental | Um sonho olhando para o passado: nao consegue acordar... e comeca a acordar |
-| 07 | Intro de chiado de radio, verso esparso, pre, refrao pequeno, verso, pre, build, refrao enorme em chamada e resposta ("alguem ai?" / "eu estou aqui"), final cantado em coro ("eu te ouvi"). Sem ponte | O hino cresce ate a multidao |
+| 07 | Estrutura classica da balada (intro, verso, refrao, verso, refrao, ponte, refrao final); o autor vai trabalhar a letra | Balada gostosa; a letra e a do antigo Silencio |
 | 08 | Guitarra limpa sozinha, entrada gradual, refrao cedo, solo melodico, refrao final | Alegria; o solo e a comemoracao |
 | 09 | Verso falado, refrao, verso falado, silencio, ponte, refrao gritado | A duvida fala e o refrao responde |
 | 10 | Espelho da 01 (mesmo intro de highway), refrao final, volta ao intro com piano | Fecha o circulo |
@@ -91,7 +91,7 @@ D menor da 01 (na 06, C# menor) e volta a ele na 10.
 | 04 | B menor | 108 | Pesado | Refrao alterna limpo e grito; riff sincopado |
 | 05 | F# menor | 92 | Muito pesado | Limpo e grito alternados; a mais suja (a dor do amor) |
 | 06 | C# menor | 120 | O mais rapido | Gang vocals, grito forte; breakdown (raiva publica) |
-| 07 | F# menor | 112 | Pesado, anthem | Coro (o autor empilhado), refrao grande |
+| 07 | E menor | 88 | Leve, balada | Sussurro e limpo, sem grito (a musica antiga ja gerada) |
 | 08 | B menor | 98 | Medio | Refrao limpo e luminoso, o mais importante |
 | 09 | E menor | 104 | Medio | Verso falado, refrao limpo, grito curto |
 | 10 | D menor | 100 | Medio a pesado | Refrao gigante, grito final; volta ao tom/BPM da 01 |
