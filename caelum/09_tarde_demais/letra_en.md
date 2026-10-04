@@ -27,6 +27,6 @@ One brushstroke of red
 A flower tearing through the snow
 
 [Final Chorus - shouted, gang vocals]
-THE BRUSH IS MINE!
+THE CANVAS IS MINE!
 SNOW DOESN'T HAVE THE LAST COLOR!
-I PAINT A FLOWER IN WINTER!
+I GIVE WINTER ITS COLOR!

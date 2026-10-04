@@ -42,9 +42,9 @@ Aproximacao para guiar a voz, nao pronuncia exata: o guia de audio e o vocal da 
 
 | Linha em ingles | Pronuncia (PT-BR) | Observacoes |
 |---|---|---|
-| THE BRUSH IS MINE! | dâ **brâch** iz **máin**! | "brush": brâch, "u" soa "â"; "mine": máin |
+| THE CANVAS IS MINE! | dâ **kén**-vas iz **máin**! | "canvas": kén-vas; "mine": máin |
 | SNOW DOESN'T HAVE THE LAST COLOR! | **snôu** **dâ**-zent **rév** dâ **lést** **kâ**-ler! (!) | "doesn't": dâ-zent, "oe" soa "â"; "have": rév, h aspirado; "last": lést, termina em "st"; "color": kâ-ler, "o" soa "â" |
-| I PAINT A FLOWER IN WINTER! | ai **pêint** a **flá**-uer in **uín**-ter! | "paint": pêint; "flower": flá-uer |
+| I GIVE WINTER ITS COLOR! | ai **guiv** **uín**-ter its **kâ**-ler! | "give": guiv, "g" duro, "i" curto; "winter": uín-ter; "color": kâ-ler, "o" soa "â" |
 
 ## Palavras dificeis (th, r, h, vogais curtas/longas)
 
