@@ -39,7 +39,7 @@ escolhidos com o autor, uma faixa por vez.
 | | 02 | `02_rotina` ("Rotina") | Moto para um trabalho chato e repetitivo, todo dia | Tedio, piloto automatico |
 | | 03 | `03_o_que_nao_veio` (a refazer) | Fim do casamento de 10+ anos; esterilidade | Luto pelo que nao veio |
 | Queda | 04 | `04_barulho` | Faculdade abandonada, 8+ anos sem estudar... e a volta: terminou a faculdade, 2 pos-graduacoes e varios cursos | Superar as dificuldades: subir uma montanha; "eu nao morro aqui, eu vou subir" (pegada Three Days Grace) |
-| | 05 | `05_vazio` | Pandemia em casa, depressao | Vazio e peso: o fundo do mar, o mundo abafado la em cima (gancho "tudo pesa") |
+| | 05 | `05_vazio` | Pandemia em casa, depressao | Vazio e peso: como se a pessoa estivesse se afogando; gancho "me puxa, me puxa" (pedido de socorro) |
 | | 06 | `06_tempo_perdido` | Anos perdidos aos 45; "por que eu fiz aquilo? por que nao fiz melhor?" (hoje e fruto das escolhas do passado) | Raiva de si e do tempo perdido |
 | Procura | 07 | `07_alguem_ai` | Anos sem amor; busca de quem o compreenda | Desejo de ser entendido |
 | Recomeco | 08 | `08_recomeco` | Criar musica hoje | Alegria, recomeco (centro do album) |

@@ -7,48 +7,56 @@ Aproximacao para guiar a voz, nao pronuncia exata: o guia de audio e o vocal da 
 
 | Linha em ingles | Pronuncia (PT-BR) | Observacoes |
 |---|---|---|
-| The world goes on up there | dâ **uârld** **gôuz** ón **âp** **dér** (!) | "world": uârld, "or" soa "âr", termina em "ld"; "goes": gôuz, termina em "z"; "there": dér, th sonoro, r recolhido |
-| I hear everything muffled | ai **rír** **év**-ri-thin **mâ**-fold (!) | "hear": rír, h aspirado (sopro); "everything": év-ri-thin, th surdo no fim; "muffled": mâ-fold, "u" soa "â" |
-| Every day weighs a whole sea | **év**-ri **dêi** **uêiz** a **rôul** **si** (!) | "weighs": uêiz, o "gh" e mudo; "whole": rôul, h aspirado, "o" longo; "sea": si, "ea" longo |
-| And I have no strength to swim | end ai **réve** **nôu** **strénkth** tu **suím** (!) | "have": réve, h aspirado; "strength": strénkth, "str" junto e termina em "kth" (se travar: "strénk"); "swim": suím, "sw" junto |
+| The water rises past my feet | dâ **uó**-der **rái**-zis **pést** mai **fit** (!) | "water": uó-der, o "t" soa "d" (flap), r recolhido; "rises": rái-zis, "s" soa "z"; "past": pést, termina em "st"; "feet": fit, "ee" longo |
+| I never noticed the hour | ai **né**-ver **nôu**-tist dí **áu**-er (!) | "never": né-ver; "noticed": nôu-tist, -ed vira "t"; "hour": áu-er, o "h" e mudo, duas silabas |
+| By the time I looked it was deep | bai dâ **táim** ai **lúkt** it uóz **dip** | "time": táim; "looked": lúkt, -ed vira "t"; "deep": dip, "ee" longo |
+| I couldn't touch the ground | ai **kú**-dent **tâtch** dâ **gráund** (!) | "couldn't": kú-dent, o "l" e mudo; "touch": tâtch, "ou" soa "â"; "ground": gráund, "gr" junto |
 
 ## Verso 2 (baixo)
 
 | Linha em ingles | Pronuncia (PT-BR) | Observacoes |
 |---|---|---|
-| I scream, the water swallows it | ai **skrím**, dâ **uó**-der **suó**-lôuz it (!) | "scream": skrím, "scr" junto; "water": uó-der, o "t" soa "d" (flap), r recolhido; "swallows": suó-lôuz, "sw" junto |
-| No one turns to look | **nôu** **uân** **târnz** tu **lúk** | "one": uân, "o" soa "â"; "turns": târnz, "ur" soa "âr", termina em "nz"; "look": lúk, "oo" curto |
-| I don't know how long | ai **dôunt** **nôu** **ráu** **lóng** | "don't": dôunt; "know": nôu, o "k" e mudo; "how": ráu, h aspirado; "long": lóng, "ng" nasal sem "g" forte |
-| I've been living down here | aiv **bín** **lí**-vin **dáun** **rír** | "been": bín; "living": lí-vin, "ng" nasal; "down": dáun; "here": rír, h aspirado |
+| I flail my arms and sink | ai **fl**êil mai **árms** end **sink** (!) | "flail": flêil, "fl" junto; "arms": árms, termina em "ms"; "sink": sink, termina em "nk" |
+| My chest is tight, no air | mai **tchést** iz **táit**, **nôu** **ér** | "chest": tchést; "tight": táit, o "gh" e mudo; "air": ér, r recolhido |
+| I scream and the water comes in | ai **skrím** end dâ **uó**-der **kâmz** **in** | "scream": skrím, "scr" junto; "comes": kâmz, termina em "z" |
+| No one turns to look | **nôu** **uân** **târnz** tu **lúk** | "one": uân, "o" soa "â"; "turns": târnz, "ur" soa "âr"; "look": lúk, "oo" curto |
 
 ## Refrao (limpo, pesado)
 
 | Linha em ingles | Pronuncia (PT-BR) | Observacoes |
 |---|---|---|
-| Everything is heavy, everything is heavy | **év**-ri-thin iz **ré**-vi, **év**-ri-thin iz **ré**-vi | "heavy": ré-vi, h aspirado, "ea" soa "é" |
-| I can't make it up | ai **ként** **mêik** it **âp** | "can't": ként; "make": mêik; "up": âp, "p" final leve |
-| Up there, so far away | **âp** **dér**, **sôu** **fár** a-**uêi** | "there": dér, th sonoro; "far": fár, r recolhido; "away": a-uêi |
-| But up there, there is light | bât **âp** **dér**, **dér** iz **láit** | "light": láit, o "gh" e mudo |
+| Pull me up, pull me up | **pul** mi **âp**, **pul** mi **âp** | "pull": pul, "u" curto como em "pull"; "up": âp, "p" final leve |
+| I'm drowning | aim **dráu**-nin (!) | "drowning": dráu-nin, "dr" junto, "ng" nasal sem "g" forte |
+| Everything is getting far | **év**-ri-thin iz **gué**-tin **fár** (!) | "everything": év-ri-thin, th surdo (sopro) no fim; "getting": gué-tin, "g" duro; "far": fár, r recolhido |
 
 ## Breakdown (arrastado, gritado)
 
 | Linha em ingles | Pronuncia (PT-BR) | Observacoes |
 |---|---|---|
-| HEAR ME! | **rír** **mi**! | "hear": rír, h aspirado; segure o "rír" e feche seco |
+| HEAR ME! | **rír** **mi**! | "hear": rír, h aspirado (sopro); segure o "rír" |
+| PULL ME UP! | **pul** mi **âp**! | igual ao refrao, gritado; feche seco no "âp" |
+
+## Refrao curto
+
+| Linha em ingles | Pronuncia (PT-BR) | Observacoes |
+|---|---|---|
+| Pull me up, pull me up | **pul** mi **âp**, **pul** mi **âp** | igual ao refrao |
+| I still fight the water | ai **stíl** **fáit** dâ **uó**-der | "still": stíl, "st" junto; "fight": fáit, o "gh" e mudo |
+| But up there, there is light | bât **âp** **dér**, **dér** iz **láit** | "there": dér, th sonoro, r recolhido; "light": láit, o "gh" e mudo |
 
 ## Palavras dificeis (th, r, h, vogais curtas/longas)
 
-- **th surdo em "everything", "strength":** sopro sem vibrar, ponta da lingua entre os dentes. **th sonoro em "the", "there":** lingua entre os dentes vibrando. Se sair "d" ou "t", ainda funciona na musica.
-- **r inglês:** lingua recuada, sem vibrar. Em "world", "there", "far", "here", "water" é onde o portugues tropeça.
-- **h aspirado:** "hear", "heavy", "have", "whole", "how", "here": sopro suave, como o "rr" de "carro" em PT-BR.
-- **Grupos de consoantes:** "scr" em "scream", "sw" em "swim", "swallows", "str" em "strength": nao coloque vogal entre as consoantes.
-- **Letras mudas:** o "k" de "know", o "gh" de "weighs" e "light", o "w" de "whole".
-- **Vogais curtas vs longas:** "been/bín" (curta), "sea/si" (longa), "look/lúk" (curta), "light/láit" (ditongo).
+- **th surdo em "everything":** sopro sem vibrar, ponta da lingua entre os dentes. **th sonoro em "the", "there":** lingua entre os dentes vibrando. Se sair "d", ainda funciona na musica.
+- **r inglês:** lingua recuada, sem vibrar. Em "water", "never", "hour", "air", "far", "there" é onde o portugues tropeça.
+- **h aspirado:** "hear": sopro suave, como o "rr" de "carro" em PT-BR. **"hour" nao tem "h":** "áu-er".
+- **Grupos de consoantes:** "fl" em "flail", "scr" em "scream", "dr" em "drowning", "st" em "still", "gr" em "ground": nao coloque vogal entre as consoantes.
+- **Letras mudas:** o "l" de "couldn't", o "gh" de "tight", "light" e "fight", o "h" de "hour".
+- **Vogais curtas vs longas:** "pull/pul" (curta), "feet/fit" (longa), "deep/dip" (longa).
 
 ## Palavras para considerar trocar
 
-- **"strength" (verso 1):** "str" + "kth" juntos: o som mais dificil da faixa. Alternativa: "And I have no power to swim". So se travar.
-- **"swallows" (verso 2):** "sw" + "ow" em duas silabas. Alternativa: "I scream, the water drowns it". So se travar.
-- **"everything" (refrao):** quatro silabas com th no fim. Alternativa: "All of it is heavy, all of it is heavy". So se travar.
+- **"drowning" (refrao):** a palavra mais dificil da faixa ("dr" + "ow" + "ning"). Alternativa: "I'm going under". So se travar.
+- **"noticed" (verso 1):** -ed vira "t" depois de "s". Alternativa: "I never saw the time". So se travar.
+- **"couldn't" (verso 1):** o "l" mudo. Alternativa: "I could not touch the ground". So se travar.
 
 Todas as demais palavras sao comuns e devem sair bem com a pronuncia acima.
