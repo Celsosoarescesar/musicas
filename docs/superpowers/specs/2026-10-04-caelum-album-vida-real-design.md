@@ -32,7 +32,7 @@ volta ao D menor na 10). O arco vai do isolamento ate a esperanca.
 | 01 | D / 100 | `01_sozinho` | Sozinho | Sem amigos, vida na solidao | Solidao | Highway a noite, banco vazio (letra ja feita) |
 | 02 | A / 96 | `02_rotina` | Rotina | Moto para o trabalho chato, todo dia | Piloto automatico, tedio | Programa que roda o mesmo dia (ja feita; ajustar cena para a moto se o autor quiser) |
 | 03 | E / 88 | `03_o_que_nao_veio` | (titulo de trabalho) | Fim do casamento de 10+ anos; esterilidade | Luto pelo que nao veio; culpa que nao e culpa | Quarto vazio / a casa depois (faixa mais leve, sussurrada) |
-| 04 | B / 108 | `04_barulho` | Barulho | Faculdade abandonada, 8 anos sem estudar; depois voltou e terminou, 2 pos e varios cursos | Superar as dificuldades | O muro de "naos" que vira escada: "me deram um muro, eu fiz dele escada"; o ceu do outro lado; termina em "eu cheguei" |
+| 04 | B / 108 | `04_barulho` | Barulho | Faculdade abandonada, 8 anos sem estudar; depois voltou e terminou, 2 pos e varios cursos | Superar as dificuldades | Subir uma montanha: "eu nao morro aqui, eu vou subir"; o ceu no topo; termina em "eu cheguei" |
 | 05 | F# / 92 | `05_vazio` | (titulo de trabalho) | Pandemia em casa, depressao | Vazio, peso, sem vontade | Janela fechada, dia que nao passa (a faixa mais pesada e arrastada) |
 | 06 | C# / 120 | `06_tempo_perdido` | (titulo de trabalho) | Anos perdidos, 45 anos | Raiva do tempo perdido | Relogio, pressa (a mais rapida; gang vocals) |
 | 07 | F# / 112 | `07_alguem_ai` | (titulo de trabalho) | Anos sem amor; procura quem o compreenda | Desejo de ser entendido por alguem | "Alguem ai?" (hino, refrao grande) |
