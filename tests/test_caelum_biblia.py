@@ -26,7 +26,6 @@ BIBLIA = [
 # uma faixa, remova o slug desta lista: ela passa a ser checada por load_faixa
 # completo (test_written_tracks_load_completely).
 UNWRITTEN = [
-    "10_caelum",
 ]
 
 

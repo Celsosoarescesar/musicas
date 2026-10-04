@@ -45,7 +45,7 @@ escolhidos com o autor, uma faixa por vez.
 | Procura | 07 | `07_silencio` | Anos sem amor; busca de quem o compreenda | Amor calado e desejo de ser entendido (BALADA; letra do antigo "Silencio", a trabalhar) |
 | Recomeco | 08 | `08_recomeco` | Criar musica hoje, sozinho, com uma ajuda invisivel (IA) que realiza o sonho de ser cantor e mostrar o trabalho | Alegria, recomeco (centro do album): o vento/ar leva a voz como onda sonora a lugares que nunca imaginou |
 | | 09 | `09_tarde_demais` | Banda que nao deu certo; sonho de ser cantor | Medo de ser tarde demais: uma pintura das quatro estacoes (ideia de Vivaldi); a flor vermelha na neve, "a tela e minha" |
-| | 10 | `10_caelum` ("Caelum") | Esperanca | O ceu, esperanca |
+| | 10 | `10_caelum` ("Caelum") | Esperanca | O ceu, esperanca: os passaros atravessam o inverno atras de um lugar melhor, guiados pelo ceu |
 | Extra | 11 | `11_obedecer` (a refazer) | A musica antiga "da igreja" (ex-faixa 02): crescer obedecendo e a primeira duvida | Obedecer sem perguntar |
 
 A 08 e o centro do album: o refrao dela e o mais luminoso e importante.
@@ -74,7 +74,7 @@ o final (fade, silencio, corte seco); o tamanho da letra (duracao automatica: me
 | 07 | Estrutura classica da balada (intro, verso, refrao, verso, refrao, ponte, refrao final); o autor vai trabalhar a letra | Balada gostosa; a letra e a do antigo Silencio |
 | 08 | Uma voz sozinha a capela (uma nota), verso, build com entrada gradual dos instrumentos (como ondas), refrao cedo e luminoso, verso, refrao, solo melodico, refrao final com grito curto de alegria, volta a voz sozinha sumindo no ar. Sem ponte | Uma voz que vira onda; o solo e a onda mais longe |
 | 09 | Intro curto de cordas barrocas (inverno), verso falado (vozes dos outros), refrao limpo (a pergunta), verso falado, SILENCIO, ponte com cordas da primavera (a virada), refrao final gritado em coro (a resposta) | Uma pintura das quatro estacoes: no meio do quadro branco, uma flor vermelha; "a tela e minha" |
-| 10 | Espelho da 01 (mesmo intro de highway), refrao final, volta ao intro com piano | Fecha o circulo |
+| 10 | A estrutura da musica antiga da 01 (verso, refrao, verso, refrao, ponte gritada, refrao final), letra no molde de silabas do ingles dela | Fecha o circulo: levanta a cabeca; passaros cruzam o inverno guiados pelo ceu |
 | 11 | Estrutura classica da versao antiga (intro, verso, refrao, verso, refrao, ponte, refrao final); a refazer | Faixa extra |
 
 ## Plano sonoro

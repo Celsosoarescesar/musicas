@@ -2,50 +2,49 @@
 
 Contexto da cena (o que acontece, o que Caelum sente):
 
-- Parte da vida real: a esperanca; 'caelum' e o ceu, a ideia de que apesar de tudo ainda ha um lugar melhor.
-- Sentimento: esperanca. Imagem unica (sugestao): a mesma highway da faixa 01, agora olhando para cima, com destino.
-- Faixa-titulo: fecha o circulo e volta ao tom e BPM da 01. O album 1 aponta para o ceu sem fechar tudo.
-- Voz: refrao limpo gigante, grito final.
+- **Faixa-titulo e ultima do album (decisao do autor, 2026-10-04).** "Caelum" = ceu em latim = esperanca: apesar de tudo, ainda existe um lugar melhor. Fecha o circulo: volta ao tom e ao BPM da faixa 01 (D minor, 100 bpm).
+- **Imagem unica (sugestao minha, a confirmar com o autor): OS PASSAROS QUE ATRAVESSAM O INVERNO ATRAS DE UM LUGAR MELHOR, GUIADOS PELO CEU.** Durante o album inteiro ele olhou para baixo (o chao, a agua, o quadro branco); aqui LEVANTA A CABECA e ve o ceu, que sempre esteve la. O inverno vem da faixa 09; o "lugar melhor" e para onde os passaros vao e para onde ele vai. (Evitar repetir as imagens das outras faixas: a casa e a luz sao da 03, a montanha e da 04, a agua e da 05, o sonho e o garoto sao da 06, a cancao e o radio sao da 07, o vento e as ondas sao da 08, a pintura e as estacoes sao da 09, a highway e da 01.)
+- Gancho: **"Hoje eu levanto a minha cabeca"** e **"o ceu sempre soube o caminho"**. A ponte gritada resume a historia ("passei por tudo o que diziam que eu nao passava"). O ultimo refrao nao diz que chegou: diz que continua, "ate onde o ceu me levar".
+- **Reaproveitamento da musica antiga (decisao do autor):** a letra foi escrita no MESMO MOLDE DE SILABAS do INGLES da musica antiga da faixa 01 (geracoes 1 e 3 em `saida/`, D minor 100 bpm), que e o que o ACE-Step cantou; o portugues e a fonte do sentido e e mais longo (nao casa silaba por silaba; se for gravado em portugues sobre a melodia, precisa de uma adaptacao mais curta a parte). A letra antiga (alegorica) esta em `base_antiga_letra_en.md` e no Git.
+- Estrutura: a da musica antiga (verso, refrao, verso, refrao, ponte gritada, refrao final), sem intro.
+- Voz: versos baixos; refrao limpo e gigante; ponte gritada; voz masculina.
 - Tom e escala: D minor -- D menor, mesmo tom da 01 (la, a solidao; aqui, a esperanca); melodica no refrao.
 - Guarda: so a historia do proprio autor; sem nomes nem detalhes que identifiquem pessoas reais (ver conceito.md).
-- **BASE (decisao do autor, 2026-10-04):** a letra abaixo e a da versao ANTIGA da faixa 01 (a "alegorica": caçador a servico de uma Ordem, a Igreja que cria os monstros). O autor gostou da melodia e do instrumental dessa versao (geracao 1 da 01, D minor, 100 bpm). Ela e so BASE e sera reescrita para a esperanca/ceu, no MESMO MOLDE de silabas (4 versos de 10 a 12 sílabas por estrofe; refrao repetido; ponte gritada; refrao final com virada), para a melodia e o instrumental serem aproveitados. A letra em ingles dessa versao esta em `base_antiga_letra_en.md` (nao e enviada ao ACE-Step). Os audios das geracoes 1 e 3 da antiga faixa 01 estao em `saida/`. Ideia tecnica: usar a tarefa `cover` do ACE-Step 1.5 (`src_audio` + `audio_cover_strength`) sobre `1_master.wav`; o nosso kernel hoje so faz `text2music`, entao isso precisa ser acrescentado e testado.
 
 ## Letra
 
-[Intro -- instrumental]
-
 [Verso 1]
-Eu carreguei o seu nome em cada lâmina
-Eu fechei os olhos pra cada grito que vi
-Cada besta que eu derrubei no escuro
-Tinha o cheiro do altar onde eu aprendi a crer
+Eu andei de cabeça baixa por tanto tempo
+Olhando só o chão, contando cada passo
+Esqueci que lá em cima havia o céu
+Que sempre esteve ali, esperando eu olhar
 
 [Refrao -- limpo, melodico]
-Me diz em quem eu devo acreditar
-Se a luz que eu defendi foi quem me fez sangrar
-Eu fui a sua mão, eu fui o seu perdão
-E agora o que sobrou de mim é só cinza no chão
+Hoje eu levanto a minha cabeça
+Os pássaros cruzam o inverno atrás do sol
+O céu sempre soube o caminho
+E eu vou também, porque existe um lugar melhor pra mim
 
 [Verso 2]
-Eu rezei de joelhos sobre os corpos
-Eu pedi uma resposta e o silêncio me deu
-Hoje eu vejo a mão por trás do monstro
-E a mão que me abençoou era a mesma que o fez
+Eu carreguei cada queda comigo
+Cada tombo que eu levei me ensinou o rumo
+Agora eu vejo o céu inteiro sobre mim
+E é maior que todo inverno que eu passei
 
 [Refrao -- limpo, melodico]
-Me diz em quem eu devo acreditar
-Se a luz que eu defendi foi quem me fez sangrar
-Eu fui a sua mão, eu fui o seu perdão
-E agora o que sobrou de mim é só cinza no chão
+Hoje eu levanto a minha cabeça
+Os pássaros cruzam o inverno atrás do sol
+O céu sempre soube o caminho
+E eu vou também, porque existe um lugar melhor pra mim
 
 [Ponte -- gritada]
-Mentira! Foi tudo mentira!
-Vocês me fizeram o monstro que eu caçava!
-Eu quebro o seu altar! Eu queimo o seu nome!
-Não me chamem de filho nunca mais!
+Apesar de tudo, eu estou aqui!
+Passei por tudo o que diziam que eu não passava!
+O céu me abre os braços e me chama!
+Eu vou pra um lugar muito melhor!
 
 [Refrao final -- limpo, melodico]
-Me diz em quem eu devo acreditar
-Se a luz que eu defendi foi quem me fez sangrar
-Eu fui a sua mão, eu fui o seu perdão
-Agora eu sou a chama que não vai se apagar
+Hoje eu levanto a minha cabeça
+Os pássaros cruzam o inverno atrás do sol
+O céu sempre soube o caminho
+E sigo com eles até onde o céu me levar
