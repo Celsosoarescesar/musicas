@@ -26,7 +26,7 @@ def main():
             "pelo caelum_gerar, se voce gostou dela."
         )
     )
-    parser.add_argument("faixa", help="Slug da faixa (ex.: 01_quebra_de_fe) ou caminho da pasta")
+    parser.add_argument("faixa", help="Slug da faixa (ex.: 01_sozinho) ou caminho da pasta")
     parser.add_argument("song_id", type=int, help="Id da musica (o numero em <id>_master.wav)")
     args = parser.parse_args()
 

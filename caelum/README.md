@@ -1,6 +1,7 @@
 # Caelum -- album de nu metal
 
-Pasta de trabalho do album (10 musicas). Design:
+Pasta de trabalho do album (10 musicas), baseado na vida real do autor (um sentimento por faixa). Conceito atual:
+`docs/superpowers/specs/2026-10-04-caelum-album-vida-real-design.md`. Design original:
 `docs/superpowers/specs/2026-10-02-caelum-album-design.md`.
 
 Biblia do album (arco das 10 faixas, plano sonoro, camada REAPER):
@@ -20,10 +21,10 @@ do formato). Cada faixa tem:
 ## Fluxo
 
 1. Letra em portugues -> adaptacao para ingles -> folha de pronuncia (com o Claude).
-2. Gerar so a musica: `uv run python scripts/caelum_gerar.py 02_obedecer` (use `--seed N` para outra tentativa; `--com-stems` separa os stems ja no kernel, mais lento).
+2. Gerar so a musica: `uv run python scripts/caelum_gerar.py 02_rotina` (use `--seed N` para outra tentativa; `--com-stems` separa os stems ja no kernel, mais lento).
    `--instrumental` tambem exige uma `letra_en.md` sem texto de modelo (a checagem roda primeiro): ponha qualquer texto sem placeholder la se so quiser a base instrumental.
-   Ouca o `<id>_master.wav`. **So se voce gostou**, separe os stems (Demucs local, na CPU leva alguns minutos): `uv run python scripts/caelum_stems.py 02_obedecer <id>`.
-3. No REAPER (projeto novo e vazio), com o MCP conectado: `reaper_build_vocal_session` com a pasta `caelum/02_obedecer/saida` e o id da musica (precisa dos stems do passo anterior). Cria as faixas dos stems, `guia_ia` (vocal da IA, silenciado, so para referencia) e `voz_caelum` (armada).
+   Ouca o `<id>_master.wav`. **So se voce gostou**, separe os stems (Demucs local, na CPU leva alguns minutos): `uv run python scripts/caelum_stems.py 02_rotina <id>`.
+3. No REAPER (projeto novo e vazio), com o MCP conectado: `reaper_build_vocal_session` com a pasta `caelum/02_rotina/saida` e o id da musica (precisa dos stems do passo anterior). Cria as faixas dos stems, `guia_ia` (vocal da IA, silenciado, so para referencia) e `voz_caelum` (armada).
 4. Escolha a entrada de audio da faixa `voz_caelum` no REAPER (depende da sua interface) e grave.
 5. Mix e master (frente 4 da spec).
 
@@ -35,5 +36,5 @@ Fonte: docs oficiais do ACE-Step (Musician's Guide e Tutorial). Letras fora diss
 
 - Linhas de **6 a 10 silabas**, com tamanhos parecidos entre versos (+-2). Linha de 13 ou 15 silabas e resumida ou pulada.
 - Etiquetas **numeradas e com uma dica curta**: `[Verse 1 - whispered]`, `[Chorus - melodic]`, `[Bridge - whispered]`. Nada de empilhar dicas.
-- `[Intro]` e para atmosfera (instrumental, ex.: `[Intro - ambient]`): **nao ponha letra nele**. O mantra e gravado por voce no REAPER.
+- `[Intro]` e para atmosfera (instrumental, ex.: `[Intro - ambient]`): **nao ponha letra nele**.
 - Linha em branco entre seccoes; a dica na etiqueta deve combinar com o `prompt` do `faixa.toml` (sem conflito).

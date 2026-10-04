@@ -1,5 +1,7 @@
 # Caelum -- revisao de conceito: do alegorico para o real (design)
 
+> **SUBSTITUIDO em 2026-10-04** pelo conceito da vida real: `2026-10-04-caelum-album-vida-real-design.md`. As cenas e os eixos abaixo (pastor, politicos, "monstros", mantra da obediencia) nao valem mais; a estrutura tecnica (tons, bpm, pesos) continua valendo.
+
 Revisa o **conceito e as cenas** de `2026-10-03-caelum-album-biblia-design.md`
 (frente 2). O plano sonoro (tons, BPM, curva do grito, escalas, mantra,
 producao hibrida) e a estrutura em tres atos NAO mudam. Esta spec troca a

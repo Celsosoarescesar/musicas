@@ -1,5 +1,7 @@
 # Caelum -- biblia do album (frente 2) (design)
 
+> **SUBSTITUIDO em 2026-10-04** pelo conceito da vida real: `2026-10-04-caelum-album-vida-real-design.md`. As cenas e os eixos abaixo (pastor, politicos, "monstros", mantra da obediencia) nao valem mais; a estrutura tecnica (tons, bpm, pesos) continua valendo.
+
 Continua `2026-10-02-caelum-album-design.md` (frente 1: piloto). Esta spec
 cobre a **frente 2: a biblia do album** -- o arco das 10 faixas, o plano
 sonoro, a divisao de trabalho entre ACE-Step e REAPER e as pastas prontas

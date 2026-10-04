@@ -1,5 +1,7 @@
 # Caelum -- album de nu metal (design)
 
+> **SUBSTITUIDO em 2026-10-04** pelo conceito da vida real: `2026-10-04-caelum-album-vida-real-design.md`. As cenas e os eixos abaixo (pastor, politicos, "monstros", mantra da obediencia) nao valem mais; a estrutura tecnica (tons, bpm, pesos) continua valendo.
+
 ## Contexto e objetivo
 
 Projeto de um album completo de **10 musicas de nu metal melodico**, no

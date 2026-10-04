@@ -1,6 +1,5 @@
-"""Trava as pastas do album contra a tabela da biblia
-(docs/superpowers/specs/2026-10-03-caelum-album-biblia-design.md) e o conceito
-real (docs/superpowers/specs/2026-10-03-caelum-album-realismo-design.md)."""
+"""Trava as pastas do album contra a tabela da biblia e o conceito da vida real
+(docs/superpowers/specs/2026-10-04-caelum-album-vida-real-design.md)."""
 
 import tomllib
 
@@ -10,15 +9,15 @@ from caelum.faixa import CAELUM_ROOT, FaixaError, load_faixa
 
 # (slug, bpm, keyscale) -- fonte da verdade: tabela do plano/biblia.
 BIBLIA = [
-    ("01_quebra_de_fe", 100, "D minor"),
-    ("02_obedecer", 96, "A minor"),
-    ("03_silencio", 88, "E minor"),
-    ("04_pastor", 108, "B minor"),
-    ("05_veneno", 92, "F# minor"),
-    ("06_promessas", 120, "C# minor"),
-    ("07_do_outro_lado", 112, "F# minor"),
-    ("08_monstros", 98, "B minor"),
-    ("09_fora_do_sistema", 104, "E minor"),
+    ("01_sozinho", 100, "D minor"),
+    ("02_rotina", 96, "A minor"),
+    ("03_o_que_nao_veio", 88, "E minor"),
+    ("04_barulho", 108, "B minor"),
+    ("05_vazio", 92, "F# minor"),
+    ("06_tempo_perdido", 120, "C# minor"),
+    ("07_alguem_ai", 112, "F# minor"),
+    ("08_recomeco", 98, "B minor"),
+    ("09_tarde_demais", 104, "E minor"),
     ("10_caelum", 100, "D minor"),
 ]
 
@@ -26,12 +25,11 @@ BIBLIA = [
 # uma faixa, remova o slug desta lista: ela passa a ser checada por load_faixa
 # completo (test_written_tracks_load_completely).
 UNWRITTEN = [
-    "04_pastor",
-    "05_veneno",
-    "06_promessas",
-    "07_do_outro_lado",
-    "08_monstros",
-    "09_fora_do_sistema",
+    "05_vazio",
+    "06_tempo_perdido",
+    "07_alguem_ai",
+    "08_recomeco",
+    "09_tarde_demais",
     "10_caelum",
 ]
 
@@ -60,7 +58,7 @@ def test_faixa_toml_matches_biblia(slug, bpm, keyscale):
 
 def test_unwritten_is_subset_of_biblia():
     assert set(UNWRITTEN) <= {slug for slug, _, _ in BIBLIA}
-    assert "01_quebra_de_fe" not in UNWRITTEN
+    assert "01_sozinho" not in UNWRITTEN
 
 
 @pytest.mark.parametrize(
@@ -101,7 +99,7 @@ def test_unwritten_tracks_keep_the_template_files():
             assert (CAELUM_ROOT / slug / name).is_file(), f"{slug}/{name} ausente"
 
 
-def test_biblia_document_covers_every_track_and_the_two_axes():
+def test_biblia_document_covers_every_track_and_the_real_life_concept():
     text = (CAELUM_ROOT / "BIBLIA.md").read_text(encoding="utf-8-sig")
     lines = text.splitlines()
     for slug, bpm, keyscale in BIBLIA:
@@ -113,10 +111,10 @@ def test_biblia_document_covers_every_track_and_the_two_axes():
         assert sound, f"{num}: tom {keyscale} nao esta na tabela do plano sonoro"
         assert any(f"| {bpm} |" in l for l in sound), f"{num}: BPM {bpm} errado"
     lowered = text.lower()
-    assert "obediencia sem questionar" in lowered
-    assert "quem e o monstro" in lowered
-    assert "mecanismo de controle" in lowered
-    assert "Obey. Don't ask." in text and "Ask. Don't obey." in text
+    assert "vida real" in lowered
+    assert "um sentimento" in lowered
+    assert "guarda de abordagem" in lowered
+    assert "2026-10-04-caelum-album-vida-real-design.md" in text
     assert "ReaAssist" in text
 
 
@@ -185,5 +183,5 @@ def test_pending_rewrite_exemption_is_still_needed(slug):
 def test_scan_actually_covers_biblia_readme_and_tracks():
     scanned = {str(rel).replace("\\", "/") for rel, _ in _album_text_files()}
     assert "BIBLIA.md" in scanned and "README.md" in scanned
-    assert "03_silencio/letra_pt.md" in scanned and "10_caelum/faixa.toml" in scanned
+    assert "03_o_que_nao_veio/letra_pt.md" in scanned and "10_caelum/faixa.toml" in scanned
     assert not any(p.split("/")[0] in PENDING_REWRITE for p in scanned)

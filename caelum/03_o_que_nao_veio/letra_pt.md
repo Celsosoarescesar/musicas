@@ -2,6 +2,7 @@
 
 Contexto da cena (o que acontece, o que Caelum sente):
 
+- Parte da vida real PARA REFAZER: o fim do casamento de mais de 10 anos e a esterilidade (luto pelo que nao veio; sem culpar ninguem). A letra atual, de amor nao correspondido, sera reescrita; o desejo de um novo amor vai para a 07.
 - Caelum ama alguem que nao o ama de volta e cala para nao perder a amizade: o amor nao correspondido (flashback). Diferente da 05 (Veneno), onde o amor engana.
 - 'Monstro' aqui quer dizer: nao ha monstro; o que pesa e o proprio silencio (a dor de nunca ter ouvido um 'nao').
 - Voz: sussurro e voz limpa, SEM grito; a faixa mais contida do album. Versos e ponte sussurrados, refrao limpo.

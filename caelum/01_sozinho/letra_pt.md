@@ -2,6 +2,7 @@
 
 Contexto da cena (o que acontece, o que Caelum sente):
 
+- Parte da vida real: nao ter amigos; vida na solidao. (Letra feita: "Sozinho".)
 - Faixa sobre a solidao: nunca ter tido muitos amigos, viver isolado, mesmo cercado de gente. Imagem unica: uma highway sem fim a noite, dirigindo sozinho (banco do passageiro vazio, farol que so mostra o que ficou para tras, radio com uma musica antiga).
 - Nao ha vilao: o que pesa e a propria solidao, e a teimosia de seguir sem saber para onde.
 - Voz: verso baixo, refrao limpo e melodico, ponte gritada ("pra onde eu vou? eu nao sei, mas vou saber quando chegar").
