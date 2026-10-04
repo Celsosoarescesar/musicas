@@ -66,7 +66,7 @@ o final (fade, silencio, corte seco); o tamanho da letra (duracao automatica: me
 | 01 | Classica: intro, verso, pre, refrao, verso, pre, refrao, ponte, refrao final (feita) | Base do album |
 | 02 | Refrao primeiro, sem pre-refrao, breakdown (feita) | Comeca pelo gancho |
 | 03 | Intro de riff, verso, verso, refrao tardio, solo de guitarra, ponte, refrao final | Metal melodico mais rapido (Three Days Grace); o refrao so chega depois de dois versos |
-| 04 | Intro de riff, verso curto, build, refrao, verso, build, refrao, breakdown sussurrado (a contagem), ponte | A ansiedade sobe e nao alivia |
+| 04 | Sem ponte: versos que encolhem (4, 3, 2 linhas), refrao que cresce (curto, inteiro, gritado), build, breakdown sussurrado, resposta falada e final seco | O barulho aperta; no fim ele fala primeiro |
 | 05 | Intro longo, verso, riff instrumental pesado, verso, refrao, breakdown, riff, refrao curto, fade out | Pouca letra e peso arrastado |
 | 06 | Comeca direto no verso (sem intro nem pre), refrao curto, breakdown, ponte gritada, dois refroes, corte seco | O tempo acaba de repente |
 | 07 | Verso esparso, pre, refrao pequeno, verso, pre, build, refrao enorme com coro, final cantado em coro | O hino cresce ate a multidao |
