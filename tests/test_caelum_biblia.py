@@ -130,7 +130,7 @@ FORBIDDEN_TERMS = (
 # Pastas cujas letras ainda sao do conceito antigo e serao refeitas com o
 # usuario (uma sessao por faixa). Tire a pasta daqui quando a letra nova for
 # aprovada e commitada (o teste de expiracao abaixo avisa).
-PENDING_REWRITE = ()
+PENDING_REWRITE = ("10_caelum",)
 
 
 def _find_forbidden(text):
@@ -183,5 +183,5 @@ def test_pending_rewrite_exemption_is_still_needed(slug):
 def test_scan_actually_covers_biblia_readme_and_tracks():
     scanned = {str(rel).replace("\\", "/") for rel, _ in _album_text_files()}
     assert "conceito.md" in scanned and "README.md" in scanned
-    assert "03_o_que_nao_veio/letra_pt.md" in scanned and "10_caelum/faixa.toml" in scanned
+    assert "03_o_que_nao_veio/letra_pt.md" in scanned and "09_tarde_demais/faixa.toml" in scanned
     assert not any(p.split("/")[0] in PENDING_REWRITE for p in scanned)
