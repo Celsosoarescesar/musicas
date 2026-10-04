@@ -7,57 +7,58 @@ Aproximacao para guiar a voz, nao pronuncia exata: o guia de audio e o vocal da 
 
 | Linha em ingles | Pronuncia (PT-BR) | Observacoes |
 |---|---|---|
-| They say it's already autumn | dêi **sêi** its ol-**ré**-di **ó**-tem (!) | "they": dêi, th sonoro; "already": ol-ré-di; "autumn": ó-tem, o "n" final e mudo |
-| That spring is far behind | dét **sprín** iz **fár** bi-**ráind** (!) | "spring": sprín, "spr" junto, "ng" nasal sem "g"; "far": fár, r recolhido; "behind": bi-ráind, h aspirado |
-| That you're past the age | dét **iór** **pést** dí **êidj** | "you're": iór; "past": pést, termina em "st"; "age": êidj |
-| That nobody starts anything now | dét **nôu**-bó-di **stárts** **é**-ni-thin **náu** (!) | "nobody": nôu-bó-di; "starts": stárts, "st" junto, termina em "ts"; "anything": é-ni-thin, th surdo (sopro) no fim |
+| There was a spring of fresh paint | dér uóz a **sprín** âv **fréch** **pêint** (!) | "there": dér, th sonoro, r recolhido; "spring": sprín, "spr" junto, "ng" nasal sem "g"; "fresh": fréch, "sh" como "ch" chiado; "paint": pêint |
+| Pink and green dripping from the canvas | **pink** end **grin** **drí**-pin frâm dâ **kén**-vas (!) | "pink": pink, termina em "nk"; "dripping": drí-pin, "dr" junto; "from": frâm; "canvas": kén-vas |
+| Then summer, a field of gold | **dén** **sâ**-mer, a **fíld** âv **gôuld** | "then": dén, th sonoro; "summer": sâ-mer, "u" soa "â", r recolhido; "field": fíld, "ie" longo; "gold": gôuld, "d" final leve |
+| Where the light was in no hurry | **uér** dâ **láit** uóz in **nôu** **râ**-ri (!) | "where": uér, r recolhido; "light": láit, o "gh" e mudo; "hurry": râ-ri, h aspirado (sopro), "u" soa "â" |
 
 ## Refrao (limpo, melodico)
 
 | Linha em ingles | Pronuncia (PT-BR) | Observacoes |
 |---|---|---|
-| Is it too late? | iz it **tú** **lêit** | "too": tú, "oo" longo; "late": lêit |
-| Has the hour passed? | **réz** dí **áu**-er **pést** (!) | "has": réz, h aspirado; "hour": áu-er, o "h" e mudo, duas silabas |
-| I look at the calendar | ai **lúk** et dâ **ké**-len-der (!) | "look": lúk, "oo" curto; "calendar": ké-len-der, r recolhido |
-| And it says winter | end it **séz** **uín**-ter | "says": séz, "ay" soa "é"; "winter": uín-ter, r recolhido |
+| The sun is setting early now | dâ **sân** iz **sé**-tin **ér**-li **náu** (!) | "sun": sân; "setting": sé-tin, "tt" soa "d" suave; "early": ér-li, "ear" soa "ér" |
+| The leaves turn copper and fall | dâ **lívz** **târn** **kó**-per end **fól** | "leaves": lívz, "ea" longo, termina em "vz"; "turn": târn, "ur" soa "âr"; "copper": kó-per; "fall": fól |
+| I hold the light between my hands | ai **rôuld** dâ **láit** bi-**tuín** mai **rénds** (!) | "hold": rôuld, h aspirado; "between": bi-tuín; "hands": rénds, termina em "ndz" |
+| Before the canvas darkens | bi-**fór** dâ **kén**-vas **dár**-kens (!) | "before": bi-fór, r recolhido; "darkens": dár-kens, r recolhido |
 
 ## Verso 2 (falado)
 
 | Linha em ingles | Pronuncia (PT-BR) | Observacoes |
 |---|---|---|
-| They say the cold has come | dêi **sêi** dâ **kôuld** réz **kâm** | "cold": kôuld, "d" final leve; "has": réz, h aspirado; "come": kâm, "o" soa "â" |
-| That no one plants in winter | dét **nôu** **uân** **plénts** in **uín**-ter | "one": uân; "plants": plénts, "pl" junto, termina em "nts" |
-| That my season is over | dét mai **sí**-zen iz **ôu**-ver | "season": sí-zen; "over": ôu-ver, r recolhido |
-| And I should have stayed quiet | end ai **shúd** rév **stêid** **kuái**-et (!) | "should": shúd, o "l" e mudo; "have": rév, h aspirado; "stayed": stêid, "st" junto; "quiet": kuái-et, duas silabas |
+| Now winter is a white painting | **náu** **uín**-ter iz a **uáit** **pêin**-tin | "winter": uín-ter, r recolhido; "white": uáit, "wh" soa "u"; "painting": pêin-tin, "ng" nasal |
+| Bare branches scratching the silence | **bér** **brén**-tchis **skré**-tchin dâ **sái**-lens (!) | "bare": bér, r recolhido; "branches": brén-tchis, "br" junto; "scratching": skré-tchin, "scr" junto |
+| The lake is a mirror of ice | dâ **lêik** iz a **mí**-rer âv **áis** | "lake": lêik; "mirror": mí-rer, "rr" simples; "ice": áis |
+| And in it I don't recognize myself | end in it ai **dôunt** **ré**-kég-náiz mai-**sélf** (!) | "don't": dôunt, termina em "nt"; "recognize": ré-kég-náiz, tonica na primeira; "myself": mai-sélf |
 
 ## Ponte (cordas barrocas, subindo)
 
 | Linha em ingles | Pronuncia (PT-BR) | Observacoes |
 |---|---|---|
-| But the flower doesn't know the calendar | bât dâ **flá**-uer **dâ**-zent **nôu** dâ **ké**-len-der (!) | "flower": flá-uer, "fl" junto, duas silabas; "doesn't": dâ-zent, "oe" soa "â" |
-| It opens when it's time to open | it **ôu**-pens **uén** its **táim** tu **ôu**-pen | "opens": ôu-pens; "when": uén, "wh" soa "u" |
+| But in the middle of all the white | bât in dâ **mí**-dol âv **ól** dâ **uáit** | "but": bât; "middle": mí-dol; "all": ól, "all" longo |
+| One brushstroke of red | **uân** **brâch**-strôuk âv **réd** (!) | "one": uân, "o" soa "â"; "brushstroke": brâch-strôuk, "sh" chiado, "str" junto |
+| A flower tearing through the snow | a **flá**-uer **té**-rin **thrú** dâ **snôu** (!) | "flower": flá-uer, "fl" junto, duas silabas; "tearing" (rasgando): té-rin, "ear" soa "é"; "through": thrú, th surdo (sopro) + r; "snow": snôu, "sn" junto |
 
 ## Refrao final (gritado, em coro)
 
 | Linha em ingles | Pronuncia (PT-BR) | Observacoes |
 |---|---|---|
-| IT'S NOT TOO LATE! | its **nót** **tú** **lêit**! | grite aberto e feche seco |
-| THE FLOWER DOESN'T KNOW THE CALENDAR! | dâ **flá**-uer **dâ**-zent **nôu** dâ **ké**-len-der! | igual a ponte, gritado |
-| I BLOOMED IN WINTER! | ai **blumd** in **uín**-ter! | "bloomed": blumd, "bl" junto, -ed vira "d"; "winter": uín-ter |
+| THE BRUSH IS MINE! | dâ **brâch** iz **máin**! | "brush": brâch, "u" soa "â"; "mine": máin |
+| SNOW DOESN'T HAVE THE LAST COLOR! | **snôu** **dâ**-zent **rév** dâ **lést** **kâ**-ler! (!) | "doesn't": dâ-zent, "oe" soa "â"; "have": rév, h aspirado; "last": lést, termina em "st"; "color": kâ-ler, "o" soa "â" |
+| I PAINT A FLOWER IN WINTER! | ai **pêint** a **flá**-uer in **uín**-ter! | "paint": pêint; "flower": flá-uer |
 
 ## Palavras dificeis (th, r, h, vogais curtas/longas)
 
-- **th sonoro em "they", "that", "the":** lingua entre os dentes, vibrando. Se sair "d", ainda funciona na musica (dêi, dét, dâ). **th surdo em "anything":** sopro sem vibrar.
-- **r inglês:** lingua recuada, sem vibrar. Em "autumn", "far", "calendar", "winter", "over", "hour", "flower" é onde o portugues tropeça.
-- **h aspirado:** "behind", "has", "hour" (sem "h", na verdade: "áu-er"), "have": sopro suave, como o "rr" de "carro" em PT-BR.
-- **Grupos de consoantes:** "spr" em "spring", "st" em "past", "starts", "stayed", "pl" em "plants", "fl" em "flower", "bl" em "bloomed": nao coloque vogal entre as consoantes.
-- **Letras mudas:** o "n" de "autumn", o "l" de "should", o "gh" de "might", o "e" final de "late", "age", "come".
-- **"says" = séz** (nao "sêiz").
+- **th sonoro em "there", "the", "then":** lingua entre os dentes, vibrando. Se sair "d", ainda funciona na musica. **th surdo em "through":** sopro sem vibrar.
+- **r inglês:** lingua recuada, sem vibrar. Em "there", "summer", "winter", "mirror", "bare", "before", "flower", "color" é onde o portugues tropeça.
+- **h aspirado:** "hurry", "hold", "have": sopro suave, como o "rr" de "carro" em PT-BR.
+- **Grupos de consoantes:** "spr" em "spring", "dr" em "dripping", "br" em "branches", "scr" em "scratching", "str" em "brushstroke", "fl" em "flower", "sn" em "snow", "st" em "last": nao coloque vogal entre as consoantes.
+- **Letras mudas:** o "gh" de "light", o "w" de "white" e "who", o "g" de "recognize", o "e" final de "paint"... (nao: "paint" nao tem e final), "lake", "bare", "mine".
+- **"sh" chiado:** "fresh", "brush", "brushstroke": "ch" curto, sem "t".
 
 ## Palavras para considerar trocar
 
-- **"calendar" (ponte):** tres silabas com "r" no fim. Alternativa: "But the flower doesn't know the date". So se travar.
-- **"autumn" (verso 1):** o "n" final mudo. Alternativa: "They say it's already fall". So se travar.
-- **"anything" (verso 1):** th surdo no fim. Alternativa: "That nobody starts a thing". So se travar.
+- **"recognize" (verso 2):** a mais dificil da faixa, com o "g" mudo. Alternativa: "And in it I don't see myself". So se travar.
+- **"through" (ponte):** th surdo + r no comeco. Alternativa: "A flower breaking the snow". So se travar.
+- **"brushstroke" (ponte):** tres consoantes juntas. Alternativa: "One drop of red". So se travar.
 
 Todas as demais palavras sao comuns e devem sair bem com a pronuncia acima.

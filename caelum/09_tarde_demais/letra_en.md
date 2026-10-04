@@ -2,30 +2,31 @@
 [Intro - baroque strings, tremolo, short]
 
 [Verse 1 - spoken]
-They say it's already autumn
-That spring is far behind
-That you're past the age
-That nobody starts anything now
+There was a spring of fresh paint
+Pink and green dripping from the canvas
+Then summer, a field of gold
+Where the light was in no hurry
 
 [Chorus - clean, melodic]
-Is it too late?
-Has the hour passed?
-I look at the calendar
-And it says winter
+The sun is setting early now
+The leaves turn copper and fall
+I hold the light between my hands
+Before the canvas darkens
 
 [Verse 2 - spoken]
-They say the cold has come
-That no one plants in winter
-That my season is over
-And I should have stayed quiet
+Now winter is a white painting
+Bare branches scratching the silence
+The lake is a mirror of ice
+And in it I don't recognize myself
 
 [Silence]
 
 [Bridge - baroque violins, rising]
-But the flower doesn't know the calendar
-It opens when it's time to open
+But in the middle of all the white
+One brushstroke of red
+A flower tearing through the snow
 
 [Final Chorus - shouted, gang vocals]
-IT'S NOT TOO LATE!
-THE FLOWER DOESN'T KNOW THE CALENDAR!
-I BLOOMED IN WINTER!
+THE BRUSH IS MINE!
+SNOW DOESN'T HAVE THE LAST COLOR!
+I PAINT A FLOWER IN WINTER!
