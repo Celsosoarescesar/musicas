@@ -10,7 +10,7 @@ Como usar as pastas: `caelum/README.md`.
 
 **Caelum** (latim: "ceu") e o autor em primeira pessoa, aos 45 anos. O album conta a
 historia real dele: a solidao, o trabalho repetitivo, o casamento que acabou, a faculdade
-abandonada e o sentir-se incapaz, a depressao da pandemia, os anos sem amor, a banda que
+abandonada e o sentir-se incapaz (e a volta: terminou, fez 2 pos-graduacoes e varios cursos), a depressao da pandemia, os anos sem amor, a banda que
 nao deu certo e o sonho de viver de musica. **Cada faixa guarda um sentimento ligado a uma
 parte dessa historia.** O ceu e a esperanca: apesar de tudo, ainda ha um lugar melhor, e a
 alegria de hoje e criar este album.
@@ -38,7 +38,7 @@ escolhidos com o autor, uma faixa por vez.
 | Isolamento | 01 | `01_sozinho` ("Sozinho") | Sem amigos, vida na solidao | Solidao |
 | | 02 | `02_rotina` ("Rotina") | Moto para um trabalho chato e repetitivo, todo dia | Tedio, piloto automatico |
 | | 03 | `03_o_que_nao_veio` (a refazer) | Fim do casamento de 10+ anos; esterilidade | Luto pelo que nao veio |
-| Queda | 04 | `04_barulho` | Faculdade abandonada, 8+ anos sem estudar | Sentir-se incapaz |
+| Queda | 04 | `04_barulho` | Faculdade abandonada, 8+ anos sem estudar... e a volta: terminou a faculdade, 2 pos-graduacoes e varios cursos | Superar a incapacidade (a voz que dizia "voce nao consegue") |
 | | 05 | `05_vazio` | Pandemia em casa, depressao | Vazio e peso |
 | | 06 | `06_tempo_perdido` | Anos perdidos aos 45; "por que eu fiz aquilo? por que nao fiz melhor?" (hoje e fruto das escolhas do passado) | Raiva de si e do tempo perdido |
 | Procura | 07 | `07_alguem_ai` | Anos sem amor; busca de quem o compreenda | Desejo de ser entendido |
@@ -66,7 +66,7 @@ o final (fade, silencio, corte seco); o tamanho da letra (duracao automatica: me
 | 01 | Classica: intro, verso, pre, refrao, verso, pre, refrao, ponte, refrao final (feita) | Base do album |
 | 02 | Refrao primeiro, sem pre-refrao, breakdown (feita) | Comeca pelo gancho |
 | 03 | Intro de riff, verso, verso, refrao tardio, solo de guitarra, ponte, refrao final | Metal melodico mais rapido (Three Days Grace); o refrao so chega depois de dois versos |
-| 04 | Sem ponte: versos que encolhem (4, 3, 2 linhas), refrao que cresce (curto, inteiro, gritado), build, breakdown sussurrado, resposta falada e final seco | O barulho aperta; no fim ele fala primeiro |
+| 04 | Sem ponte: versos que encolhem (4, 3, 2 linhas), refrao que cresce (curto, inteiro, gritado), build, breakdown sussurrado (contagem de degraus), resposta falada, grito curto "eu consegui" e final seco | O barulho aperta... e ele sobe |
 | 05 | Intro longo, verso, riff instrumental pesado, verso, refrao, breakdown, riff, refrao curto, fade out | Pouca letra e peso arrastado |
 | 06 | Comeca direto no verso (sem intro nem pre), refrao curto, breakdown, ponte gritada, dois refroes, corte seco | O tempo acaba de repente |
 | 07 | Verso esparso, pre, refrao pequeno, verso, pre, build, refrao enorme com coro, final cantado em coro | O hino cresce ate a multidao |

@@ -48,16 +48,22 @@ Aproximacao para guiar a voz, nao pronuncia exata: o guia de audio e o vocal da 
 
 | Linha em ingles | Pronuncia (PT-BR) | Observacoes |
 |---|---|---|
-| Breathe. Count to ten. | **brídh**. **káunt** tu **tén** (!) | "breathe": brídh, th sonoro e "e" final mudo (diferente de "breath"); "count": káunt; "ten": tén |
-| One, two, three... | **uân**, **tú**, **thrí** (!) | "three": thrí, th surdo (sopro) + r |
-| It counts louder. | it **káunts** **láu**-der | "counts": káunts, termina em "nts"; "louder": láu-der, r recolhido |
+| Breathe. One step. | **brídh**. **uân** **stép** (!) | "breathe": brídh, th sonoro e "e" final mudo (diferente de "breath"); "one": uân, "o" soa "â"; "step": stép, "st" junto |
+| Two steps. Three... | **tú** **stéps**. **thrí** (!) | "steps": stéps, termina em "ps"; "three": thrí, th surdo (sopro) + r |
+| It still screams. I keep going. | it **stíl** **skrímz**. ai **kip** **gôu**-in (!) | "still": stíl, "st" junto; "screams": skrímz, "scr" junto, termina em "mz"; "keep": kip, "ee" longo; "going": gôu-in |
 
 ## Resposta (falada, baixa)
 
 | Linha em ingles | Pronuncia (PT-BR) | Observacoes |
 |---|---|---|
-| That voice is mine | **dét** **vóis** iz **máin** | "that": dét, th sonoro; "mine": máin |
-| So today I speak first | **sôu** tu-**dêi** ai **spík** **fârst** (!) | "so": sôu; "today": tu-dêi; "speak": spík, "sp" junto, sem "i" antes; "first": fârst, "ir" soa "âr", termina em "st" |
+| I went back and I finished | ai **uént** **bék** end ai **fí**-nisht (!) | "went": uént, termina em "nt"; "back": bék; "finished": fí-nisht, -ed vira "t" depois de "sh" |
+| And I kept climbing | end ai **képt** **klái**-min (!) | "kept": képt, o "t" final leve; "climbing": klái-min, o "b" e mudo, "ng" nasal sem "g" forte |
+
+## Final (gritado, curto)
+
+| Linha em ingles | Pronuncia (PT-BR) | Observacoes |
+|---|---|---|
+| I MADE IT! | ai **mêid** it! | "made": mêid, termina em "d" leve; grite e feche seco |
 
 ## Palavras dificeis (th, r, h, st, vogais)
 
@@ -65,7 +71,7 @@ Aproximacao para guiar a voz, nao pronuncia exata: o guia de audio e o vocal da 
 - **r inglês:** lingua recuada, sem vibrar. Em "never", "there", "louder", "heard", "first" é onde o portugues tropeça.
 - **h aspirado:** "ahead", "heard": sopro suave, como o "rr" de "carro" em PT-BR.
 - **Grupos de consoantes:** "st" em "stayed", "step", "stone", "first", "sp" em "speak": nao coloque vogal entre as consoantes.
-- **Letras mudas:** o "k" de "knows", o "l" de "talks", o "gh" de "weighs", o "e" final de "breathe", "same", "stone", "name".
+- **Letras mudas:** o "k" de "knows", o "l" de "talks", o "b" de "climbing", o "gh" de "weighs", o "e" final de "breathe", "same", "stone", "name".
 - **"says" = séz** (nao "sêiz"), e "voice" = vóis.
 
 ## Palavras para considerar trocar

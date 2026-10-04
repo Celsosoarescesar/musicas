@@ -35,12 +35,15 @@ YOU CAN'T DO IT, SAYS THE VOICE
 SHUT UP! SHUT UP! SHUT UP!
 
 [Breakdown - dry, whispered]
-Breathe. Count to ten.
-One, two, three...
-It counts louder.
+Breathe. One step.
+Two steps. Three...
+It still screams. I keep going.
 
 [Outro - spoken]
-That voice is mine
-So today I speak first
+I went back and I finished
+And I kept climbing
+
+[Final - scream]
+I MADE IT!
 
 [Silence]

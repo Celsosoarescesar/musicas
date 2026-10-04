@@ -2,7 +2,7 @@
 
 Contexto da cena (o que acontece, o que Caelum sente):
 
-- Parte da vida real: os anos perdidos, 45 anos, a faculdade parada, a banda que ficou para tras, o trabalho que nao escolheu.
+- Parte da vida real: os anos perdidos, 45 anos, os 8 anos sem estudar (antes de voltar), a banda que ficou para tras, o trabalho que nao escolheu.
 - **Ideia central (decisao do autor, 2026-10-04):** questionar o porque. *Por que eu fiz aquilo? Por que eu nao fiz de uma forma melhor? Se hoje estou nessa situacao, e fruto das minhas escolhas do passado.* A raiva e de si e do tempo, e a pergunta "por que eu nunca perguntei?" e o centro. Nao e culpar os outros: e assumir que as escolhas foram dele, inclusive a de obedecer calado.
 - Sentimento: raiva do tempo perdido (raiva de si e do relogio). Imagem unica (sugestao): o relogio e a pergunta "por que?".
 - Voz: gang vocals (o autor empilhado) e grito forte; a ponte "Por que? Por que eu nunca perguntei?" gritada em coro; breakdown seco antes do refrao final.
