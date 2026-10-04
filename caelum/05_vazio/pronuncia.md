@@ -12,6 +12,15 @@ Aproximacao para guiar a voz, nao pronuncia exata: o guia de audio e o vocal da 
 | By the time I looked it was deep | bai dâ **táim** ai **lúkt** it uóz **dip** | "time": táim; "looked": lúkt, -ed vira "t"; "deep": dip, "ee" longo |
 | I couldn't touch the ground | ai **kú**-dent **tâtch** dâ **gráund** (!) | "couldn't": kú-dent, o "l" e mudo; "touch": tâtch, "ou" soa "â"; "ground": gráund, "gr" junto |
 
+## Refrao (limpo, dramatico, pesado)
+
+| Linha em ingles | Pronuncia (PT-BR) | Observacoes |
+|---|---|---|
+| Pull me up, pull me up | **pul** mi **âp**, **pul** mi **âp** | "pull": pul, "u" curto como em "pull"; "up": âp, "p" final leve |
+| I'm drowning | aim **dráu**-nin (!) | "drowning": dráu-nin, "dr" junto, "ng" nasal sem "g" forte |
+| Sinking in slow motion | **sín**-kin in **slôu** **môu**-shen (!) | "sinking": sín-kin, "ng" nasal; "slow": slôu, "sl" junto; "motion": môu-shen, "tion" soa "shen" |
+| Everything is getting far | **év**-ri-thin iz **gué**-tin **fár** (!) | "everything": év-ri-thin, th surdo (sopro) no fim; "getting": gué-tin, "g" duro; "far": fár, r recolhido |
+
 ## Verso 2 (baixo)
 
 | Linha em ingles | Pronuncia (PT-BR) | Observacoes |
@@ -21,42 +30,42 @@ Aproximacao para guiar a voz, nao pronuncia exata: o guia de audio e o vocal da 
 | I scream and the water comes in | ai **skrím** end dâ **uó**-der **kâmz** **in** | "scream": skrím, "scr" junto; "comes": kâmz, termina em "z" |
 | No one turns to look | **nôu** **uân** **târnz** tu **lúk** | "one": uân, "o" soa "â"; "turns": târnz, "ur" soa "âr"; "look": lúk, "oo" curto |
 
-## Refrao (limpo, pesado)
-
-| Linha em ingles | Pronuncia (PT-BR) | Observacoes |
-|---|---|---|
-| Pull me up, pull me up | **pul** mi **âp**, **pul** mi **âp** | "pull": pul, "u" curto como em "pull"; "up": âp, "p" final leve |
-| I'm drowning | aim **dráu**-nin (!) | "drowning": dráu-nin, "dr" junto, "ng" nasal sem "g" forte |
-| Everything is getting far | **év**-ri-thin iz **gué**-tin **fár** (!) | "everything": év-ri-thin, th surdo (sopro) no fim; "getting": gué-tin, "g" duro; "far": fár, r recolhido |
-
 ## Breakdown (arrastado, gritado)
 
 | Linha em ingles | Pronuncia (PT-BR) | Observacoes |
 |---|---|---|
 | HEAR ME! | **rír** **mi**! | "hear": rír, h aspirado (sopro); segure o "rír" |
 | PULL ME UP! | **pul** mi **âp**! | igual ao refrao, gritado; feche seco no "âp" |
+| I WON'T SINK HERE! | ai **uôunt** **sink** **rír**! | "won't": uôunt; "sink": sink; "here": rír, h aspirado |
 
-## Refrao curto
+## Respiro (sussurrado, quase sem musica)
 
 | Linha em ingles | Pronuncia (PT-BR) | Observacoes |
 |---|---|---|
-| Pull me up, pull me up | **pul** mi **âp**, **pul** mi **âp** | igual ao refrao |
-| I still fight the water | ai **stíl** **fáit** dâ **uó**-der | "still": stíl, "st" junto; "fight": fáit, o "gh" e mudo |
-| But up there, there is light | bât **âp** **dér**, **dér** iz **láit** | "there": dér, th sonoro, r recolhido; "light": láit, o "gh" e mudo |
+| Just one more breath | **djâst** **uân** **mór** **bréth** (!) | "just": djâst, "u" soa "â"; "one": uân; "more": mór, r recolhido; "breath": bréth, th surdo no final (sopro; diferente de "breathe") |
+| The light is right there | dâ **láit** iz **ráit** **dér** | "light": láit; "right": ráit, "r" recuado; "there": dér, th sonoro |
+
+## Refrao final (subindo, aberto)
+
+| Linha em ingles | Pronuncia (PT-BR) | Observacoes |
+|---|---|---|
+| I'm rising, I'm rising | aim **rái**-zin, aim **rái**-zin | "rising": rái-zin, "r" recuado, "s" soa "z", "ng" nasal |
+| I'm coming back to the surface | aim **kâ**-min **bék** tu dâ **sér**-fis (!) | "coming": kâ-min, "o" soa "â"; "back": bék; "surface": sér-fis, "ur" soa "ér", r recolhido |
+| I breathed. Up there, there is light | ai **bridhd**. **âp** **dér**, **dér** iz **láit** (!) | "breathed": bridhd, th sonoro e -ed vira "d" (diferente de "breath"); "there": dér |
 
 ## Palavras dificeis (th, r, h, vogais curtas/longas)
 
-- **th surdo em "everything":** sopro sem vibrar, ponta da lingua entre os dentes. **th sonoro em "the", "there":** lingua entre os dentes vibrando. Se sair "d", ainda funciona na musica.
-- **r inglês:** lingua recuada, sem vibrar. Em "water", "never", "hour", "air", "far", "there" é onde o portugues tropeça.
-- **h aspirado:** "hear": sopro suave, como o "rr" de "carro" em PT-BR. **"hour" nao tem "h":** "áu-er".
-- **Grupos de consoantes:** "fl" em "flail", "scr" em "scream", "dr" em "drowning", "st" em "still", "gr" em "ground": nao coloque vogal entre as consoantes.
-- **Letras mudas:** o "l" de "couldn't", o "gh" de "tight", "light" e "fight", o "h" de "hour".
-- **Vogais curtas vs longas:** "pull/pul" (curta), "feet/fit" (longa), "deep/dip" (longa).
+- **th surdo em "everything", "breath":** sopro sem vibrar, ponta da lingua entre os dentes. **th sonoro em "the", "there", "breathed":** lingua entre os dentes vibrando. Se sair "d", ainda funciona na musica.
+- **r inglês:** lingua recuada, sem vibrar. Em "water", "never", "hour", "air", "far", "more", "surface", "rising" é onde o portugues tropeça.
+- **h aspirado:** "hear", "here": sopro suave, como o "rr" de "carro" em PT-BR. **"hour" nao tem "h":** "áu-er".
+- **Grupos de consoantes:** "fl" em "flail", "scr" em "scream", "dr" em "drowning", "sl" em "slow", "gr" em "ground": nao coloque vogal entre as consoantes.
+- **Letras mudas:** o "l" de "couldn't", o "gh" de "tight", "light" e "right", o "h" de "hour".
+- **"breath" (substantivo, bréth) x "breathed" (verbo, bridhd):** sao diferentes.
 
 ## Palavras para considerar trocar
 
 - **"drowning" (refrao):** a palavra mais dificil da faixa ("dr" + "ow" + "ning"). Alternativa: "I'm going under". So se travar.
-- **"noticed" (verso 1):** -ed vira "t" depois de "s". Alternativa: "I never saw the time". So se travar.
-- **"couldn't" (verso 1):** o "l" mudo. Alternativa: "I could not touch the ground". So se travar.
+- **"motion" (refrao):** o "tion" soa "shen". Alternativa: "Sinking so slowly". So se travar.
+- **"breathed" (refrao final):** th sonoro + -ed. Alternativa: "I can breathe". So se travar.
 
 Todas as demais palavras sao comuns e devem sair bem com a pronuncia acima.

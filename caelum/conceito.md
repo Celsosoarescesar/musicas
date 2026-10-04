@@ -67,7 +67,7 @@ o final (fade, silencio, corte seco); o tamanho da letra (duracao automatica: me
 | 02 | Refrao primeiro, sem pre-refrao, breakdown (feita) | Comeca pelo gancho |
 | 03 | Intro de riff, verso, verso, refrao tardio, solo de guitarra, ponte, refrao final | Metal melodico mais rapido (Three Days Grace); o refrao so chega depois de dois versos |
 | 04 | Sem ponte: versos que encolhem (4, 3, 2 linhas), refrao que cresce (curto, inteiro, gritado em coro), build, breakdown sussurrado (contagem de degraus), resposta falada (o ceu visto de cima), grito curto "eu cheguei" e final seco | A montanha... e ele sobe |
-| 05 | Intro longo, verso, riff instrumental pesado, verso, refrao, breakdown, riff, refrao curto, fade out | Pouca letra e peso arrastado |
+| 05 | Intro longo (som de agua), verso, refrao cedo e grande, riff pesado, verso, refrao, breakdown gritado, respiro sussurrado, refrao final que sobe, fade out | Afunda e volta a tona (pegada Evanescence/Three Days Grace) |
 | 06 | Comeca direto no verso (sem intro nem pre), refrao curto, breakdown, ponte gritada, dois refroes, corte seco | O tempo acaba de repente |
 | 07 | Verso esparso, pre, refrao pequeno, verso, pre, build, refrao enorme com coro, final cantado em coro | O hino cresce ate a multidao |
 | 08 | Guitarra limpa sozinha, entrada gradual, refrao cedo, solo melodico, refrao final | Alegria; o solo e a comemoracao |
