@@ -7,14 +7,14 @@ Contexto da cena (o que acontece, o que Caelum sente):
 - Pegada (referencia de TOM so, o autor colou a letra de "Home" do Three Days Grace; nada e copiado): linguagem simples e direta, detalhes concretos do dia a dia da casa, gancho curto repetido que da para cantar junto, amargura sem rodeio. Evitar o gancho e as frases da referencia.
 - Sentimento: luto pelo que nao veio, com a calma de quem ja aceitou. O fim (decisao do autor) e a escolha: "eu prefiro ficar sozinho" (a esperanca fica para as faixas seguintes e para a 10).
 - Dor central (decisao do autor): "voce nunca quis fazer um lar, era so um lugar para morar; nada era bastante e eu nunca fui o bastante". E o sentimento dele, dito a um "voce" figurado: sem nome, sem genero, sem fato que identifique a outra pessoa; nao e acusacao factual. Sem humor.
-- Estrutura: refrao tardio (so depois de dois versos), interludio de piano, ponte sussurrada, fade out.
-- Voz: versos e ponte sussurrados; refrao limpo e aberto, de cantar junto, SEM grito (ainda a faixa mais contida do album).
+- Estrutura: refrao tardio (so depois de dois versos), solo de guitarra melodica, ponte baixa e contida, final seco.
+- Voz (decisao do autor): versos contidos, refrao limpo, grande e de cantar junto, SEM grito. Som: metal melodico mais rapido, pegada Three Days Grace (112 bpm), nao mais a balada leve.
 - Tom e escala: E minor -- E menor natural.
 - Guarda: so a historia do proprio autor; sem nomes nem detalhes que identifiquem a outra pessoa (ver conceito.md).
 
 ## Letra
 
-[Intro -- sussurrado, instrumental]
+[Intro -- riff encorpado, instrumental]
 
 [Verso 1]
 Giro a chave na porta
@@ -28,22 +28,22 @@ Era só um lugar pra morar
 Nada nunca era bastante
 E eu nunca fui o bastante
 
-[Refrao -- limpo, melodico]
+[Refrao -- limpo, anthemico]
 Nunca foi lar, nunca foi lar
 Só teto, só parede, só lugar
 Nunca foi lar, nunca foi lar
 E eu esperando alguém chegar
 
-[Interludio -- piano, instrumental]
+[Solo -- guitarra melodica, instrumental]
 
-[Ponte -- sussurrada, sem grito]
+[Ponte -- baixa, contida, sem grito]
 Se é pra ter o seu amor assim
 Eu prefiro ficar sozinho
 
-[Refrao final -- limpo, melodico]
+[Refrao final -- limpo, anthemico]
 Nunca foi lar, nunca foi lar
 Só teto, só parede, só lugar
 Nunca foi lar, nunca foi lar
 Eu prefiro ficar sozinho
 
-[Outro -- fade out, instrumental]
+[Outro -- instrumental]

@@ -65,7 +65,7 @@ o final (fade, silencio, corte seco); o tamanho da letra (duracao automatica: me
 |---|---|---|
 | 01 | Classica: intro, verso, pre, refrao, verso, pre, refrao, ponte, refrao final (feita) | Base do album |
 | 02 | Refrao primeiro, sem pre-refrao, breakdown (feita) | Comeca pelo gancho |
-| 03 | Intro, verso, verso, refrao tardio, interludio de piano, ponte, refrao final, fade out | A mais lenta: a espera, sem pressa de chegar ao refrao |
+| 03 | Intro de riff, verso, verso, refrao tardio, solo de guitarra, ponte, refrao final | Metal melodico mais rapido (Three Days Grace); o refrao so chega depois de dois versos |
 | 04 | Intro de riff, verso curto, build, refrao, verso, build, refrao, breakdown sussurrado (a contagem), ponte | A ansiedade sobe e nao alivia |
 | 05 | Intro longo, verso, riff instrumental pesado, verso, refrao, breakdown, riff, refrao curto, fade out | Pouca letra e peso arrastado |
 | 06 | Comeca direto no verso (sem intro nem pre), refrao curto, breakdown, ponte gritada, dois refroes, corte seco | O tempo acaba de repente |
@@ -84,7 +84,7 @@ D menor da 01 (na 06, C# menor) e volta a ele na 10.
 |---|---|---|---|---|
 | 01 | D menor | 100 | Medio | Verso contido, refrao limpo, ponte gritada |
 | 02 | A menor | 96 | Medio | Verso falado, refrao limpo, grito curto; groove "marcha" |
-| 03 | E menor | 88 | Leve | Sussurro e limpo, sem grito |
+| 03 | E menor | 112 | Medio | Verso contido, refrao anthemico (pegada Three Days Grace), sem grito |
 | 04 | B menor | 108 | Pesado | Refrao alterna limpo e grito; riff sincopado |
 | 05 | F# menor | 92 | Muito pesado | Limpo e grito alternados; a mais suja (a dor do amor) |
 | 06 | C# menor | 120 | O mais rapido | Gang vocals, grito forte; breakdown (raiva publica) |
@@ -156,7 +156,7 @@ atuais; [manual] = no REAPER, por enquanto):
 |---|---|
 | 01 | Textura de estrada e ruido de vento ao fundo [manual]; reverb na voz [MCP] |
 | 02 | Textura seca e ritmada, pulso de motor/eletronico [manual] |
-| 03 | Texturas frias e silencios [manual]; reverb/delay na voz sussurrada [MCP] |
+| 03 | Reverb/delay na voz [MCP]; doble no refrao [MCP] |
 | 04 | Breakdown: corte/repeticao de trecho [manual] |
 | 05 | Saturacao extra no baixo e na voz [MCP: FX] |
 | 06 | Breakdown seco antes do refrao final [manual]; gang vocals dobrados [MCP; alinhar/posicionar: manual] |

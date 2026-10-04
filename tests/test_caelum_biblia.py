@@ -11,7 +11,7 @@ from caelum.faixa import CAELUM_ROOT, FaixaError, load_faixa
 BIBLIA = [
     ("01_sozinho", 100, "D minor"),
     ("02_rotina", 96, "A minor"),
-    ("03_o_que_nao_veio", 88, "E minor"),
+    ("03_o_que_nao_veio", 112, "E minor"),
     ("04_barulho", 108, "B minor"),
     ("05_vazio", 92, "F# minor"),
     ("06_tempo_perdido", 120, "C# minor"),
