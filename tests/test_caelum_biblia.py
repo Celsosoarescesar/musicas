@@ -77,7 +77,6 @@ M_ATO_KEYWORD = {
 # uma faixa, remova o slug desta lista: ela passa a ser checada por load_faixa
 # completo (test_written_tracks_load_completely).
 UNWRITTEN = [
-    "m02_executor",
     "m03_silencio",
     "m04_a_mao_que_me_fez",
     "m05_culpa",
