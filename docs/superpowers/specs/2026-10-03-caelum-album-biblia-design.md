@@ -1,6 +1,6 @@
 # Caelum -- biblia do album (frente 2) (design)
 
-> **SUBSTITUIDO em 2026-10-04** pelo conceito da vida real: `2026-10-04-caelum-album-vida-real-design.md`. As cenas e os eixos abaixo (pastor, politicos, "monstros", mantra da obediencia) nao valem mais; a estrutura tecnica (tons, bpm, pesos) continua valendo.
+> **SUBSTITUIDO em 2026-10-04** pelo conceito da vida real: `2026-10-04-caelum-album-vida-real-design.md`. As cenas e os eixos abaixo (pastor, politicos, "monstros", mantra da obediencia) nao valem mais; a estrutura tecnica (tons, bpm, pesos) continua valendo. **Reativado em 2026-10-05 como o arco das faixas M (o livro de Caelum):** ver `2026-10-05-caelum-album-livro-e-vida-design.md` e `caelum/livro.md`; as cenas e os eixos daqui valem so para as pastas `mNN_*`.
 
 Continua `2026-10-02-caelum-album-design.md` (frente 1: piloto). Esta spec
 cobre a **frente 2: a biblia do album** -- o arco das 10 faixas, o plano

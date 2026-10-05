@@ -16,5 +16,5 @@ Contexto da cena (o que acontece no livro, o que Caelum sente):
 [Refrao -- limpo, melodico]
 ...
 
-[Ponte -- gritada]
+[Ponte -- sussurrada]
 ...

@@ -48,7 +48,7 @@ par usam o mesmo tom e bpm, **exceto nos pares 3 e 7** (V3 E/112 e V7 E/88; M3 E
 
 ## A historia de Caelum no livro
 
-Tres atos. Caelum e executor da Ordem Grave e cumpre ordens sem questionar. Descobre que a Igreja
+Tres atos. Caelum e executor da Ordem Grave e cumpre ordens sem questionar. Descobre que a Ordem
 fabrica os monstros que ele matava, rompe, se junta aos monstros e e julgado. Final do album 1:
 caminho do meio (a Ordem continua de pe; Caelum vive livre fora dela).
 
@@ -74,6 +74,9 @@ pede; sem orquestra.
 | Fe | pipe organ, low liturgical choir, restrained strings | O som da Ordem: solene, frio, menor harmonica |
 | Ruptura | tremolo strings, brass stabs, timpani | A orquestra vira ameaca e depois se rompe |
 | Nova realidade | open soaring strings, rising choir | O som da Ordem volta transformado em saida e esperanca |
+
+A M07 (Do outro lado) fica no ato Ruptura (orquestra como ameaca), embora ja aponte para a alianca
+com os monstros; o prompt dela mantem "heavy anthemic, big choir", entao o refrao ja se abre.
 
 Cada M abre com som de livro (folha, pena na tinta); a V nao. Na faixa final (`m10_caelum`, a 21),
 a banda do V e a orquestra do M tocam juntas.

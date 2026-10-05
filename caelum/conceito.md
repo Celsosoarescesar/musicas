@@ -1,9 +1,11 @@
 # Caelum -- conceito do album 1
 
-**Fonte da verdade do conceito:** `docs/superpowers/specs/2026-10-04-caelum-album-vida-real-design.md`
-(a vida real do autor, o mapa faixa -> parte da vida -> sentimento e as regras de escrita).
+**Fonte da verdade do album (21 faixas):** `docs/superpowers/specs/2026-10-05-caelum-album-livro-e-vida-design.md`
+(e `caelum/livro.md`).
+**Fonte da verdade das faixas V (a vida real):** `docs/superpowers/specs/2026-10-04-caelum-album-vida-real-design.md`
+(o mapa faixa -> parte da vida -> sentimento e as regras de escrita).
 Estrutura e plano sonoro: `docs/superpowers/specs/2026-10-03-caelum-album-biblia-design.md`
-(as cenas desta spec e a de `2026-10-03-caelum-album-realismo-design.md` foram substituidas pela vida real).
+(as cenas desta spec e a de `2026-10-03-caelum-album-realismo-design.md` foram substituidas pela vida real nas faixas V; valem so para as faixas M).
 Como usar as pastas: `caelum/README.md`.
 O album final tem 21 faixas (as daqui mais as do livro de Caelum, em sinfonico): ordem do disco e historia do livro em `caelum/livro.md`.
 
@@ -116,7 +118,7 @@ melodica; isso fica na melodia que voce grava e na camada REAPER.
 - **Voz de dentro:** na 04 ("a voz sou eu") e na 09 (a duvida do "tarde demais").
 - **Curva do grito:** nenhum na 03, maximo nas 05 e 06, contido nas 08-10 (a 08 e luminosa).
 - **Breakdown** nas faixas 04, 06 e 07.
-- **Prompt-base comum:** os dez prompts compartilham a base "2000s nu
+- **Prompt-base comum:** os prompts das faixas V compartilham a base "2000s nu
   metal, downtuned 7-string guitars, ..., no rap" (sem "melodic": a palavra puxa para metal melodico); cada faixa varia so BPM,
   tom, peso e textura.
 - **Linguagem do genero:** frases curtas e diretas, confessionais; ganchos

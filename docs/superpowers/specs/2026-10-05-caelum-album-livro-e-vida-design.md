@@ -45,7 +45,7 @@ Obedecer e a faixa antiga da igreja (A menor, 96 bpm), refeita; ela e V, nao M, 
 
 ### Historia de Caelum no livro (arco da biblia de 2026-10-03, sem mudancas)
 
-Tres atos. Caelum e executor da Ordem Grave: cumpre ordens sem questionar. Descobre que a Igreja
+Tres atos. Caelum e executor da Ordem Grave: cumpre ordens sem questionar. Descobre que a Ordem
 fabrica os monstros que ele matava, rompe, se junta aos monstros e e julgado.
 Final do album 1: caminho do meio (a Ordem continua de pe; Caelum vive livre fora dela). Album 2
 (vida fora do sistema) fora do escopo.

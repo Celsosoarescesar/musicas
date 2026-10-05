@@ -1,10 +1,11 @@
 # Caelum -- album de nu metal
 
-Pasta de trabalho do album (21 faixas: as da vida real do autor, um sentimento por faixa, e as do livro de Caelum, em sinfonico; ordem do disco em `livro.md`). Conceito atual:
-`docs/superpowers/specs/2026-10-04-caelum-album-vida-real-design.md`. Design original:
+Pasta de trabalho do album (21 faixas: as da vida real do autor, um sentimento por faixa, e as do livro de Caelum, em sinfonico; ordem do disco em `livro.md`). Conceito atual do album:
+`docs/superpowers/specs/2026-10-05-caelum-album-livro-e-vida-design.md` (as faixas V seguem
+`2026-10-04-caelum-album-vida-real-design.md`). Design original:
 `docs/superpowers/specs/2026-10-02-caelum-album-design.md`.
 
-Biblia do album (arco das 10 faixas, plano sonoro, camada REAPER):
+Biblia do album (arco das 10 faixas V, plano sonoro, camada REAPER):
 `conceito.md` (spec: `docs/superpowers/specs/2026-10-03-caelum-album-biblia-design.md` e `2026-10-03-caelum-album-realismo-design.md`).
 
 ## Uma pasta por faixa
