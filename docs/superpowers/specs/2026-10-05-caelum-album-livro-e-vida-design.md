@@ -22,17 +22,19 @@ faixas; o encontro final das duas historias e proposital.
 
 Cada faixa V e seguida pela faixa M que espelha o mesmo sentimento no livro. A faixa 11 (Obedecer)
 entra antes do Executor. **V e M do mesmo par usam o mesmo tom e o mesmo bpm** (plano de quintas ja
-existente), um espelho tambem musical.
+existente), um espelho tambem musical, **exceto nos pares 3 e 7**: ali a V segue o que ja esta no
+codigo (V3 E/112 e V7 E/88, esta ultima reaproveita a musica ja gerada) e a M segue o plano da
+biblia de 2026-10-03 (M3 E/88, leve e contida; M7 F#/112, hino).
 
-| Par | V: a vida (nu metal) | M: Caelum (sinfonico) | Tom / bpm | O espelho |
+| Par | V: a vida (nu metal) | M: Caelum (sinfonico) | Tom / bpm (V; M) | O espelho |
 |---|---|---|---|---|
-| 1 | Sozinho | Quebra de fe | D / 100 | Acha o livro e fica sozinho com uma verdade que ninguem quer ouvir |
+| 1 | Sozinho | Quebra de fe | D / 100 (igual) | Acha o livro e fica sozinho com uma verdade que ninguem quer ouvir |
 | 2 | Rotina, **Obedecer** | Executor | A / 96 | Piloto automatico e obedecer calado <-> cumprir ordens sem perguntar |
-| 3 | Nunca foi lar | Silencio | E / 88 | A casa que nao foi lar <-> ignorar os sinais para nao perder a fe |
+| 3 | Nunca foi lar | Silencio | E / 112; E / 88 | A casa que nao foi lar <-> ignorar os sinais para nao perder a fe |
 | 4 | Barulho (a montanha) | A mao que me fez | B / 108 | Subir <-> raiva de quem o moldou |
 | 5 | Vazio (afogando) | Culpa | F# / 92 | O fundo <-> cada monstro tinha um rosto |
 | 6 | Tempo perdido | Revolta | C# / 120 | "Por que obedeci calado?" <-> rompe com a Ordem |
-| 7 | Silencio (quem me entenda) | Do outro lado | F# / 112 | Ser entendido <-> os monstros que o entendem |
+| 7 | Silencio (quem me entenda) | Do outro lado | E / 88; F# / 112 | Ser entendido <-> os monstros que o entendem |
 | 8 | Recomeco (o vento) | Monstros | B / 98 | A voz vira onda <-> a virada: o monstro e quem controla o sistema |
 | 9 | Tarde demais (as estacoes) | Fora do sistema | E / 104 | O medo do tempo <-> ser julgado por quem ficou |
 | 10 | Caelum (passaros e ceu) | Caelum | D / 100 | As duas historias se encontram no ceu |
