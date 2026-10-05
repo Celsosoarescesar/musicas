@@ -1,6 +1,6 @@
 # Configuracao da faixa. So 'prompt' e obrigatorio.
 # Chaves desconhecidas sao erro (evita typo silencioso).
-prompt = "2000s nu metal, groove-driven, downtuned 7-string guitars with percussive syncopated palm-muted riffs, deep distorted bass, punchy hip-hop influenced drums, raw heavy production, symphonic nu metal with full orchestra and cinematic strings, in the style of early Linkin Park and Korn, tremolo strings, brass stabs, timpani clashing with the distorted guitars, fastest and most aggressive, gang vocals, strong screams, breakdown before the final chorus, no rap, 120 bpm, C# minor"
+prompt = "symphonic nu metal, full symphony orchestra with tremolo strings, brass section, timpani, pipe organ and a choir, orchestra prominent and loud in the mix, fast downtuned 7-string guitars, fastest and most aggressive, gang vocals, strong screams, dark and cinematic, breakdown before the final chorus, orchestral interlude between the choruses, no rap, 120 bpm, C# minor"
 duration = "auto"       # automatica: o ACE-Step ajusta a duracao a letra
 seed = 42
 bpm = 120
