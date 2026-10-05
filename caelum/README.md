@@ -1,6 +1,6 @@
 # Caelum -- album de nu metal
 
-Pasta de trabalho do album (10 musicas), baseado na vida real do autor (um sentimento por faixa). Conceito atual:
+Pasta de trabalho do album (21 faixas: as da vida real do autor, um sentimento por faixa, e as do livro de Caelum, em sinfonico; ordem do disco em `livro.md`). Conceito atual:
 `docs/superpowers/specs/2026-10-04-caelum-album-vida-real-design.md`. Design original:
 `docs/superpowers/specs/2026-10-02-caelum-album-design.md`.
 
@@ -10,7 +10,7 @@ Biblia do album (arco das 10 faixas, plano sonoro, camada REAPER):
 ## Uma pasta por faixa
 
 As onze pastas `NN_<slug>/` (10 do album + a faixa extra 11) ja existem (ver `conceito.md`; `_modelo/` e so a referencia
-do formato). Cada faixa tem:
+do formato). As dez pastas `mNN_<slug>/` do livro de Caelum seguem o mesmo formato (ver `livro.md`). Cada faixa tem:
 
 - `letra_pt.md` -- fonte da verdade (significado e emocao)
 - `letra_en.md` -- adaptacao para ingles, enviada INTEIRA ao ACE-Step (sem comentarios)

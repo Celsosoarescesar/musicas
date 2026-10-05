@@ -5,6 +5,7 @@
 Estrutura e plano sonoro: `docs/superpowers/specs/2026-10-03-caelum-album-biblia-design.md`
 (as cenas desta spec e a de `2026-10-03-caelum-album-realismo-design.md` foram substituidas pela vida real).
 Como usar as pastas: `caelum/README.md`.
+O album final tem 21 faixas (as daqui mais as do livro de Caelum, em sinfonico): ordem do disco e historia do livro em `caelum/livro.md`.
 
 ## Conceito
 
