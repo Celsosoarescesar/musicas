@@ -1,6 +1,6 @@
 # Configuracao da faixa. So 'prompt' e obrigatorio.
 # Chaves desconhecidas sao erro (evita typo silencioso).
-prompt = "2000s nu metal, groove-driven, downtuned 7-string guitars with percussive syncopated palm-muted riffs, deep distorted bass, punchy hip-hop influenced drums, raw heavy production, symphonic nu metal with full orchestra and cinematic strings, in the style of early Linkin Park and Korn, open soaring strings, rising choir, hopeful orchestral swells, medium groove, bright memorable chorus, clean male vocal, controlled scream, no rap, 98 bpm, B minor"
+prompt = "symphonic nu metal, full symphony orchestra with open soaring strings, brass section, timpani, pipe organ and a rising choir, orchestra prominent and loud in the mix, downtuned 7-string guitars, medium groove, hopeful and cinematic, bright memorable chorus, clean male vocal with a controlled scream at the end, orchestral interlude between the choruses, no rap, 98 bpm, B minor"
 duration = "auto"       # automatica: o ACE-Step ajusta a duracao a letra
 seed = 42
 bpm = 98
